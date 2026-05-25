@@ -3,6 +3,8 @@
 import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
 import AppDevelopmentHero from "@/components/sections/AppDevelopmentHero";
+import AppDevelopmentTypesSection from "@/components/sections/AppDevelopmentTypesSection";
+import AppDevRoadmap from "@/components/sections/AppDevRoadmap";
 
 export default function AppDevelopmentPage() {
   return (
@@ -15,6 +17,8 @@ export default function AppDevelopmentPage() {
         imageAlt="App Development"
         activeHref="/services/app-development"
       />
+      <AppDevelopmentTypesSection />
+      <AppDevRoadmap />
       <Footer />
     </>
   );

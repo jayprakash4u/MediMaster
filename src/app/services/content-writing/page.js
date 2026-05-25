@@ -3,6 +3,8 @@
 import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
 import ContentWritingHero from "@/components/sections/ContentWritingHero";
+import ContentTypesSection from "@/components/sections/ContentTypesSection";
+import ContentWritingRoadmap from "@/components/sections/ContentWritingRoadmap";
 
 export default function ContentWritingPage() {
   return (
@@ -15,6 +17,8 @@ export default function ContentWritingPage() {
         imageAlt="Content Writing"
         activeHref="/services/content-writing"
       />
+      <ContentTypesSection />
+      <ContentWritingRoadmap />
       <Footer />
     </>
   );

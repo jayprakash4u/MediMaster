@@ -6,6 +6,8 @@ import Image from "next/image";
 import gsap from "gsap";
 import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
+import SystemSoftwareTypesSection from "@/components/sections/SystemSoftwareTypesSection";
+import SystemSoftwareRoadmap from "@/components/sections/SystemSoftwareRoadmap";
 
 const floatingIcons = [
   {
@@ -333,6 +335,8 @@ export default function SystemSoftwareDevelopmentPage() {
         imageAlt="System Software Development"
         activeHref="/services/system-software-development"
       />
+      <SystemSoftwareTypesSection />
+      <SystemSoftwareRoadmap />
 
       <Footer />
     </>

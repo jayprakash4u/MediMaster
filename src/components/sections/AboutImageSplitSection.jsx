@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -64,21 +65,27 @@ export default function AboutImageSplitSection() {
             ))}
           </div>
 
-          {/* 3. MAIN/PRIMARY IMAGE HOLDER */}
-          <div className="absolute top-8 left-12 w-[72%] h-[70%] bg-gray-200 rounded-3xl overflow-hidden border border-gray-200/60 shadow-card bg-cover bg-center">
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gray-300/40">
-              <span className="text-xs font-bold text-gray-500 tracking-wider uppercase">Main Image Area</span>
-              <p className="text-[10px] text-gray-400 mt-1 max-w-[180px]">Occupies 72% width, anchors the left view frame</p>
-            </div>
-          </div>
+{/* 3. MAIN/PRIMARY IMAGE HOLDER */}
+           <div className="absolute top-8 left-12 w-[72%] h-[70%] rounded-3xl overflow-hidden border border-gray-200/60 shadow-card">
+             <Image
+               src="/about1.jpg"
+               alt="About Main"
+               fill
+               className="object-cover"
+               priority
+             />
+           </div>
 
-          {/* 4. SECONDARY IMAGE HOLDER */}
-          <div className="absolute bottom-12 right-4 w-[52%] h-[50%] bg-gray-100 rounded-3xl overflow-hidden border-4 border-neutral-50 shadow-cardHover bg-cover bg-center z-10">
-            <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gray-300/60">
-              <span className="text-xs font-bold text-gray-600 tracking-wider uppercase">Sub Image Area</span>
-              <p className="text-[9px] text-gray-500 mt-0.5">Overlaps layout at bottom-right</p>
-            </div>
-          </div>
+           {/* 4. SECONDARY IMAGE HOLDER */}
+           <div className="absolute bottom-12 right-4 w-[52%] h-[50%] rounded-3xl overflow-hidden border-4 border-neutral-50 shadow-cardHover">
+             <Image
+               src="/about2.jpg"
+               alt="About Secondary"
+               fill
+               className="object-cover"
+               priority
+             />
+           </div>
 
           {/* 5. FLOATING EXPERIENCE BADGE */}
           <div className="absolute top-[28%] right-[16%] transform translate-x-1/2 z-20">

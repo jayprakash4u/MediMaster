@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
 import GraphicDesignHero from "@/components/sections/GraphicDesignHero";
 import DesignServicesSection from "@/components/sections/DesignServicesSection";
+import GraphicDesignRoadmap from "@/components/sections/GraphicDesignRoadmap";
 
 export default function GraphicDesignPage() {
   return (
@@ -17,6 +18,7 @@ export default function GraphicDesignPage() {
         activeHref="/services/graphic-design"
       />
       <DesignServicesSection />
+      <GraphicDesignRoadmap />
 
       <Footer />
     </>

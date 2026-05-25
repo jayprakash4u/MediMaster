@@ -3,6 +3,8 @@
 import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
 import UIUXHero from "@/components/sections/UIUXHero";
+import UIUXTypesSection from "@/components/sections/UIUXTypesSection";
+import UIUXRoadmap from "@/components/sections/UIUXRoadmap";
 
 export default function UIUXPage() {
   return (
@@ -15,6 +17,8 @@ export default function UIUXPage() {
         imageAlt="UI/UX Design"
         activeHref="/services/ui-ux"
       />
+      <UIUXTypesSection />
+      <UIUXRoadmap />
       <Footer />
     </>
   );

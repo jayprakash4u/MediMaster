@@ -3,6 +3,8 @@
 import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
 import SEOHero from "@/components/sections/SEOHero";
+import SEOTypesSection from "@/components/sections/SEOTypesSection";
+import SEORoadmap from "@/components/sections/SEORoadmap";
 
 export default function SEOPage() {
   return (
@@ -15,6 +17,8 @@ export default function SEOPage() {
         imageAlt="SEO"
         activeHref="/services/seo"
       />
+      <SEOTypesSection />
+      <SEORoadmap />
       <Footer />
     </>
   );

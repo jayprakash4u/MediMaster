@@ -7,79 +7,91 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "10 Key Features Every Modern Healthcare ERP Should Have",
-    excerpt:
-      "From real-time inventory management to HIPAA-compliant patient data handling, discover the must-have features that make or break a healthcare management system in 2026.",
-    date: "Jun 12, 2026",
-    author: "Dr. Sarah Chen",
-    tag: "Healthcare Tech",
-    readTime: "6 min read",
-    image: "blog-1",
-    href: "/blog/10-key-features-healthcare-erp",
-  },
-  {
-    id: 2,
-    title: "Telemedicine Compliance: A Complete Guide to Regulatory Standards",
-    excerpt:
-      "Navigate the complex landscape of telemedicine regulations across ACO, CMS, and state-level mandates with our comprehensive compliance checklist.",
-    date: "Jun 8, 2026",
-    author: "Marcus Rivera",
-    tag: "Compliance",
-    readTime: "8 min read",
-    image: "blog-2",
-    href: "/blog/telemedicine-compliance-guide",
-  },
-  {
-    id: 3,
-    title: "How AI-Powered Diagnostics Are Transforming Rural Healthcare",
-    excerpt:
-      "Artificial intelligence is breaking down geographic barriers — see how remote diagnostic tools are delivering specialist-level care to underserved communities.",
-    date: "Jun 3, 2026",
-    author: "Dr. Priya Nair",
-    tag: "Innovation",
-    readTime: "7 min read",
-    image: "blog-3",
-    href: "/blog/ai-diagnostics-rural-healthcare",
-  },
-  {
-    id: 4,
-    title: "Building a Patient Portal That Actually Gets Used: UX Best Practices",
-    excerpt:
-      "A patient portal is only valuable if people use it. Learn the UX principles and design patterns that drive adoption, engagement, and better health outcomes.",
-    date: "May 28, 2026",
-    author: "Aisha Johnson",
-    tag: "Patient Experience",
-    readTime: "5 min read",
-    image: "blog-4",
-    href: "/blog/patient-portal-ux-best-practices",
-  },
-  {
-    id: 5,
-    title: "Pharmacy Management Systems: What to Expect After Implementation",
-    excerpt:
-      "Deployment is just day one. Here is a practical roadmap for rolling out a pharmacy management system, training staff, and measuring real-world impact.",
-    date: "May 21, 2026",
-    author: "Dr. Sarah Chen",
-    tag: "Pharmacy Tech",
-    readTime: "9 min read",
-    image: "blog-5",
-    href: "/blog/pharmacy-management-after-implementation",
-  },
-  {
-    id: 6,
-    title: "Medical SEO: Why Your Practice Is Invisible Without It",
-    excerpt:
-      "Healthcare consumers start their search for providers on Google — but the rules have changed. Here is how to earn visibility in 2026's evolving search landscape.",
-    date: "May 15, 2026",
-    author: "Kai Tanaka",
-    tag: "Digital Marketing",
-    readTime: "6 min read",
-    image: "blog-6",
-    href: "/blog/medical-seo-2026",
-  },
-];
+    {
+      id: 1,
+      title: "10 Key Features Every Modern Healthcare ERP Should Have",
+      excerpt:
+        "From real-time inventory management to HIPAA-compliant patient data handling, discover the must-have features that make or break a healthcare management system in 2026.",
+      date: "Jun 12, 2026",
+      author: "Dr. Sarah Chen",
+      tag: "Healthcare Tech",
+      readTime: "6 min read",
+      image: "10 Key Features Every Modern Healthcare ERP Should Have.jpg",
+      href: "/blog/10-key-features-healthcare-erp",
+    },
+    {
+      id: 2,
+      title: "Telemedicine Compliance: A Complete Guide to Regulatory Standards",
+      excerpt:
+        "Navigate the complex landscape of telemedicine regulations across ACO, CMS, and state-level mandates with our comprehensive compliance checklist.",
+      date: "Jun 8, 2026",
+      author: "Marcus Rivera",
+      tag: "Compliance",
+      readTime: "8 min read",
+      image: "Telemedicine Compliance.jpg",
+      href: "/blog/telemedicine-compliance-guide",
+    },
+    {
+      id: 3,
+      title: "How AI-Powered Diagnostics Are Transforming Rural Healthcare",
+      excerpt:
+        "Artificial intelligence is breaking down geographic barriers — see how remote diagnostic tools are delivering specialist-level care to underserved communities.",
+      date: "Jun 3, 2026",
+      author: "Dr. Priya Nair",
+      tag: "Innovation",
+      readTime: "7 min read",
+      image: "How AI-Powered Diagnostics Are Transforming Rural Healthcare.jpg",
+      href: "/blog/ai-diagnostics-rural-healthcare",
+    },
+    {
+      id: 4,
+      title: "Building a Patient Portal That Actually Gets Used: UX Best Practices",
+      excerpt:
+        "A patient portal is only valuable if people use it. Learn the UX principles and design patterns that drive adoption, engagement, and better health outcomes.",
+      date: "May 28, 2026",
+      author: "Aisha Johnson",
+      tag: "Patient Experience",
+      readTime: "5 min read",
+      image: "Building a Patient Portal That Actually Gets Used UX Best.jpg",
+      href: "/blog/patient-portal-ux-best-practices",
+    },
+    {
+      id: 5,
+      title: "Pharmacy Management Systems: What to Expect After Implementation",
+      excerpt:
+        "Deployment is just day one. Here is a practical roadmap for rolling out a pharmacy management system, training staff, and measuring real-world impact.",
+      date: "May 21, 2026",
+      author: "Dr. Sarah Chen",
+      tag: "Pharmacy Tech",
+      readTime: "9 min read",
+      image: "Pharmacy Management Systems What to Expect After.jpg",
+      href: "/blog/pharmacy-management-after-implementation",
+    },
+    {
+      id: 6,
+      title: "Medical SEO: Why Your Practice Is Invisible Without It",
+      excerpt:
+        "Healthcare consumers start their search for providers on Google — but the rules have changed. Here is how to earn visibility in 2026's evolving search landscape.",
+      date: "May 15, 2026",
+      author: "Kai Tanaka",
+      tag: "Digital Marketing",
+      readTime: "6 min read",
+      image: "Medical SEOWhy Your Practice Is Invisible Without It.jpg",
+      href: "/blog/medical-seo-2026",
+    },
+    {
+      id: 7,
+      title: "Achieving True EHR Interoperability: Breaking Down Data Silos in Healthcare",
+      excerpt:
+        "Despite years of effort, healthcare data remains trapped in silos. Explore the latest standards, technologies, and strategies for achieving seamless EHR interoperability that improves patient care.",
+      date: "Jun 18, 2026",
+      author: "Dr. Michael Rodriguez",
+      tag: "Healthcare IT",
+      readTime: "7 min read",
+      image: "Achieving True EHR Interoperability Breaking Dow.jpg",
+      href: "/blog/ehr-interoperability-healthcare",
+    },
+  ];
 
 const PLACEHOLDER_COLORS = [
   "linear-gradient(135deg, #14B8A6 0%, #0891B2 100%)",
@@ -301,28 +313,32 @@ export default function BlogGrid() {
               }}
               className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 transition-all duration-300"
             >
-              {/* Image / Gradient placeholder */}
-              <div
-                className="card-top relative h-48 md:h-52 flex items-center justify-center overflow-hidden"
-                style={{ background: PLACEHOLDER_COLORS[index % PLACEHOLDER_COLORS.length] }}
-              >
-                {/* Decorative circle */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10" />
-                <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-white/10" />
+               {/* Image / Gradient placeholder */}
+               <div
+                 className="card-top relative h-48 md:h-52 flex items-center justify-center overflow-hidden"
+               >
+                 <img
+                   src={`/blog/${post.image}`}
+                   alt={post.title}
+                   className="w-full h-full object-cover"
+                 />
+                 {/* Decorative circle */}
+                 <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10" />
+                 <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-white/10" />
 
-                {/* Category tag */}
-                <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full border border-white/25">
-                  {post.tag}
-                </span>
+                 {/* Category tag */}
+                 <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full border border-white/25">
+                   {post.tag}
+                 </span>
 
-                {/* Subtle grid lines */}
-                <div className="absolute inset-0 opacity-[0.06]"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(90deg,white 0,white 1px,transparent 1px,transparent 20px), repeating-linear-gradient(0deg,white 0,white 1px,transparent 1px,transparent 20px)",
-                  }}
-                />
-              </div>
+                 {/* Subtle grid lines */}
+                 <div className="absolute inset-0 opacity-[0.06]"
+                   style={{
+                     backgroundImage:
+                       "repeating-linear-gradient(90deg,white 0,white 1px,transparent 1px,transparent 20px), repeating-linear-gradient(0deg,white 0,white 1px,transparent 1px,transparent 20px)",
+                   }}
+                 />
+               </div>
 
               {/* Content */}
               <div className="p-6 md:p-7">

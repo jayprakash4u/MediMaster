@@ -1,6 +1,8 @@
 import Hero from "@/components/sections/Hero";
 import TechStack from "@/components/sections/TechStack";
 import MetricsCounterSection from "@/components/sections/MetricsCounterSection";
+import ServiceOfferings from "@/components/sections/ServiceOfferings";
+import HealthcareServicesSlider from "@/components/sections/HealthcareServicesSlider";
 import IndustryFocusSection from "@/components/sections/IndustryFocusSection";
 import FeatureSection from "@/components/sections/FeatureSection";
 import ExploreProducts from "@/components/sections/ExploreProducts";
@@ -16,6 +18,8 @@ export default function HomePage() {
         <Hero />
         <TechStack />
         <MetricsCounterSection />
+        <ServiceOfferings />
+        <HealthcareServicesSlider />
         <IndustryFocusSection />
         <FeatureSection />
         <ExploreProducts />

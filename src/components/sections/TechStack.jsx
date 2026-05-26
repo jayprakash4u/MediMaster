@@ -201,7 +201,7 @@ export default function ExpertiseSection() {
                     <img
                       src={tech.logo}
                       alt={`${tech.name} logo`}
-                      className="h-full w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className="h-full w-full object-contain transition-all duration-300"
                     />
                   </div>
                   <span className="mt-2 font-medium text-[11px] text-gray-600 group-hover:text-navy-900 transition-colors">

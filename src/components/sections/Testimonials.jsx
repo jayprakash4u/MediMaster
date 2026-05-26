@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,18 +15,21 @@ const testimonials = [
       "MediMaster has completely transformed how we manage our hospital operations. Their in-depth knowledge of various infrastructure setups is highly intuitive, reliable, and solution-oriented.",
     position: "Chief Medical Officer",
     company: "Everest Polyclinic",
+    imageUrl: "/client.png",
   },
   {
     quote:
       "The Cutis Path Lab integration was seamless. We have reduced our testing cycle time and can deliver new analytical capabilities faster with absolute accuracy.",
     position: "Pathology Director",
     company: "Central Diagnostics Lab",
+    imageUrl: "/aboutpagehero.png",
   },
   {
     quote:
       "As a healthcare provider, the platform has been a complete game-changer for engagement. We went live with 100% financial accuracy and excellent workflow compliance.",
     position: "Wellness Director",
     company: "HealthFirst Wellness Center",
+    imageUrl: "/contact.png",
   },
 ];
 
@@ -150,13 +154,24 @@ export default function Testimonials() {
               </div>
 
               {/* Identity Footer Info Meta Blocks */}
-              <div className="space-y-1">
-                <h4 className="font-extrabold text-teal-500 text-sm md:text-base tracking-wide uppercase">
-                  {t.position}
-                </h4>
-                <p className="text-xs text-gray-500 font-medium tracking-wide">
-                  {t.company}
-                </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-teal-200">
+                  <Image
+                    src={t.imageUrl}
+                    alt={`${t.position} from ${t.company}`}
+                    width={40}
+                    height={40}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-extrabold text-teal-500 text-sm md:text-base tracking-wide uppercase">
+                    {t.position}
+                  </h4>
+                  <p className="text-xs text-gray-500 font-medium tracking-wide">
+                    {t.company}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

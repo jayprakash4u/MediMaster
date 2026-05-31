@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -27,14 +26,8 @@ export default function Hero() {
         repeat: -1,
         ease: "none",
       });
-    }, containerRef);
 
-    return () => ctx.revert();
-  }, []);
-
-  // Stats animation with delay to ensure refs are populated
-  useEffect(() => {
-    const timer = setTimeout(() => {
+      // 2. Floating Stats Animation
       if (statsRef.current.length > 0) {
         statsRef.current.forEach((card, i) => {
           if (card) {
@@ -49,15 +42,8 @@ export default function Hero() {
           }
         });
       }
-    }, 100);
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Sparkline and uptime animation
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // 3. Analytical Sparkline Animation (Scroll Triggered)
+      // 3. Analytical Sparkline Animation
       const path = pathRef.current;
       if (path) {
         const pathLength = path.getTotalLength();
@@ -70,8 +56,8 @@ export default function Hero() {
           duration: 2.5,
           ease: "power2.out",
           scrollTrigger: {
-            trigger: ".stats-container",
-            start: "top 90%",
+            trigger: containerRef.current,
+            start: "top top",
           },
         });
       }
@@ -83,8 +69,8 @@ export default function Hero() {
         duration: 2,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: ".stats-container",
-          start: "top 90%",
+          trigger: containerRef.current,
+          start: "top top",
         },
         onUpdate: () => {
           if (uptimeRef.current) {
@@ -92,9 +78,9 @@ export default function Hero() {
           }
         },
       });
-    }, 100);
+    }, containerRef);
 
-    return () => clearTimeout(timer);
+    return () => ctx.revert();
   }, []);
 
   // Mobile carousel auto-slide
@@ -105,72 +91,18 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const stats = [
-    {
-      number: "0%",
-      label: "System Uptime",
-      hasGraph: true,
-      ref: uptimeRef,
-      pathRef,
-    },
-    {
-      number: "500+",
-      label: "Projects Done",
-      icon: (
-        <svg
-          className="w-10 h-10"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          viewBox="0 0 24 24"
-        >
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
-    {
-      number: "100+",
-      label: "Partners",
-      icon: (
-        <svg
-          className="w-10 h-10"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          viewBox="0 0 24 24"
-        >
-          <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
-    },
-    {
-      number: "24/7",
-      label: "Expert Support",
-      icon: (
-        <svg
-          className="w-10 h-10"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          viewBox="0 0 24 24"
-        >
-          <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
     <>
+      {/* CHANGED: overflow-visible to overflow-hidden to stop image bleeding */}
       <section
         ref={containerRef}
-        className="relative min-h-[85vh] flex flex-col justify-center bg-navy-950 overflow-visible"
+        className="relative min-h-[85vh] flex flex-col justify-center bg-navy-950 overflow-hidden z-10"
       >
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%), url('/medimaster_banner_nologin.png')`,
+            backgroundImage: `linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%), url('/medimasterhomehero.png')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -221,7 +153,7 @@ export default function Hero() {
           >
             <path
               d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-              fill="#FBFCFD"
+              fill="#F8FAFC"
             />
           </svg>
         </div>

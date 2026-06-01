@@ -62,12 +62,8 @@ export default function HealthcareServicesSlider() {
       <div className="max-w-6xl mx-auto">
         {/* Navigation Control Row */}
         <div className="flex justify-between items-center mb-6">
-          <div className="invisible sm:visible">
-            <span className="text-xs uppercase font-bold tracking-widest text-slate-400">
-              Product {index + 1} of {portalsData.length}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
+
+          <div className="ms-auto flex items-center justify-center gap-2">
             <button
               onClick={handlePrev}
               className="w-9 h-9 bg-white border border-slate-200 hover:border-teal-400 text-slate-600 hover:text-teal-500 flex items-center justify-center rounded-full transition-colors duration-150"

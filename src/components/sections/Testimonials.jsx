@@ -64,16 +64,16 @@ export default function Testimonials() {
       // Staggered Card Reveal Array
       gsap.fromTo(
         cardsRef.current,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
+          duration: 1,
+          stagger: 0.2,
+          ease: "power4.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 70%",
+            start: "top 65%",
           },
         },
       );
@@ -84,23 +84,23 @@ export default function Testimonials() {
   return (
     <section
       ref={containerRef}
-      className="py-24 bg-gray-50 antialiased font-sans"
+      className="py-24 bg-slate-900 text-white antialiased font-sans overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header Grid Layout with Right-Aligned Slider Controls */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-20 gap-6">
-          <div className="testimonial-header-content space-y-1">
-            <span className="text-teal-600 font-bold tracking-[0.2em] text-xs uppercase block">
-              Testimonials
+        {/* Header Grid Layout */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
+          <div className="testimonial-header-content space-y-2">
+            <span className="text-teal-400 font-bold tracking-[0.2em] text-xs uppercase block">
+              Case Studies & Reviews
             </span>
-            <h2 className="text-3xl font-black text-navy-950 sm:text-4xl lg:text-5xl tracking-tight">
-              What Our Clients Say
+            <h2 className="text-3xl font-black text-white sm:text-4xl lg:text-5xl tracking-tight">
+              Proven Results, Trusted Software.
             </h2>
           </div>
 
-          {/* Navigational Slider Arrows to match layout pattern */}
+          {/* Navigational Slider Arrows */}
           <div className="testimonial-arrows flex items-center space-x-3 pb-1">
-            <button className="w-11 h-11 rounded-xl border border-gray-300 bg-white flex items-center justify-center text-gray-500 hover:border-teal-500 hover:text-teal-500 transition-colors duration-200 shadow-xs">
+            <button className="w-12 h-12 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center text-slate-400 hover:border-teal-400 hover:text-teal-400 transition-all duration-200">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -115,7 +115,7 @@ export default function Testimonials() {
                 />
               </svg>
             </button>
-            <button className="w-11 h-11 rounded-xl border border-gray-300 bg-white flex items-center justify-center text-gray-500 hover:border-teal-500 hover:text-teal-500 transition-colors duration-200 shadow-xs">
+            <button className="w-12 h-12 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center text-slate-400 hover:border-teal-400 hover:text-teal-400 transition-all duration-200">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -133,44 +133,63 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Testimonials Structural Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* High-Fidelity Showcase Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {testimonials.map((t, index) => (
             <div
               key={index}
-              ref={(el) => (cardsRef.current[index] = el)}
-              className="group relative bg-gray-100 rounded-3xl p-8 pt-12 shadow-card hover:shadow-cardHover border border-gray-200/50 hover:border-teal-500/20 transition-all duration-300 flex flex-col justify-between text-center"
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
+              className="group flex flex-col justify-between bg-slate-950 rounded-3xl border border-slate-800/60 hover:border-teal-500/30 overflow-hidden shadow-2xl transition-all duration-300 min-h-[640px]"
             >
-              {/* Top-Centered Floating Quote Badge Layer */}
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-navy-950 font-serif font-black text-3xl shadow-sm group-hover:border-teal-200 transition-colors duration-300 select-none">
-                “
-              </div>
+              {/* Top Section: Identity & Feedback */}
+              <div className="p-8 sm:p-10 flex-grow flex flex-col justify-between">
+                <div>
+                  {/* Rating Accent */}
+                  <div className="flex text-teal-400 gap-1 mb-6 text-lg tracking-widest select-none">
+                    ★★★★★
+                  </div>
 
-              {/* Main Testimonial Copy Layer */}
-              <div className="relative z-10 mb-8">
-                <p className="text-gray-600 font-normal leading-relaxed text-sm sm:text-base">
-                  {t.quote}
-                </p>
-              </div>
-
-              {/* Identity Footer Info Meta Blocks */}
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-teal-200">
-                  <Image
-                    src={t.imageUrl}
-                    alt={`${t.position} from ${t.company}`}
-                    width={40}
-                    height={40}
-                    className="object-cover w-full h-full"
-                  />
+                  {/* Feedback Copy */}
+                  <p className="text-slate-300 font-normal leading-relaxed text-base">
+                    “{t.quote}”
+                  </p>
                 </div>
-                <div className="text-left">
-                  <h4 className="font-extrabold text-teal-500 text-sm md:text-base tracking-wide uppercase">
+
+                {/* Identity Metadata Footer */}
+                <div className="mt-8 pt-6 border-t border-slate-800/80">
+                  <h4 className="font-bold text-white text-base tracking-wide">
                     {t.position}
                   </h4>
-                  <p className="text-xs text-gray-500 font-medium tracking-wide">
+                  <p className="text-sm text-slate-400 font-medium">
                     {t.company}
                   </p>
+                </div>
+              </div>
+
+              {/* Bottom Section: Browser Screen Showcase Container */}
+              <div className="px-6 pb-6 mt-auto">
+                <div className="relative w-full aspect-[4/3] rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-inner group-hover:scale-[1.02] transition-transform duration-500 ease-out">
+                  {/* Mockup Top Browser Navigation Bar */}
+                  <div className="h-6 bg-slate-900 border-b border-slate-800 flex items-center px-3 gap-1.5 select-none">
+                    <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+                    <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+                    <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+                    <div className="h-3 w-1/3 bg-slate-800/50 rounded ml-2"></div>
+                  </div>
+
+                  {/* Actual Full-Size Site Image */}
+                  <div className="absolute inset-x-0 bottom-0 top-6 overflow-hidden">
+                    <Image
+                      src={t.imageUrl}
+                      alt={`Platform interface deployed for ${t.company}`}
+                      fill
+                      sizes="(max-w-7xl) 33vw"
+                      priority={index === 0}
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

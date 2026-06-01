@@ -17,10 +17,11 @@ export const products = [
       "Printed invoices, reports directly from App or website",
     ],
     cta: {
-      learnMore: "/products/medi-master",
+      learnMore: "/hospital-management",
       requestDemo: "/contact?product=medi-master",
     },
     image: "/products screenshot/medimaster.png",
+    href: "/hospital-management",
   },
   {
     name: "Cutis Path Lab",
@@ -38,6 +39,7 @@ export const products = [
       learnMore: "/products/cutis-path-lab",
       requestDemo: "/contact?product=cutis-path-lab",
     },
+    href: "/products/cutis-path-lab",
   },
   {
     name: "MediFit",
@@ -52,15 +54,16 @@ export const products = [
       "Patient engagement portal",
     ],
     cta: {
-      learnMore: "/products/medifit",
+      learnMore: "/medifit",
       requestDemo: "/contact?product=medifit",
     },
+    href: "/medifit",
   },
   {
     name: "WorkNepal",
     tag: "Jobs & Hiring",
     description:
-      "Employer and job-seeker platform connecting Nepal’s workforce with verified opportunities and employers.",
+      "Employer and job-seeker platform connecting Nepal's workforce with verified opportunities and employers.",
     stats: "100k+ Listings",
     iconColor: "#F59E0B",
     features: [
@@ -73,6 +76,7 @@ export const products = [
       requestDemo: "/contact?product=worknepal",
     },
     image: "/products screenshot/worknepal.png",
+    href: "/products/worknepal",
   },
   {
     name: "Ramro Gadi",
@@ -87,9 +91,10 @@ export const products = [
       "Inspection reports and financing options",
     ],
     cta: {
-      learnMore: "/products/ramro-gadi",
+      learnMore: "/ramro-gadi",
       requestDemo: "/contact?product=ramro-gadi",
     },
+    href: "/ramro-gadi",
   },
 ];
 

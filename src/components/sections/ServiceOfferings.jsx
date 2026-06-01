@@ -114,21 +114,13 @@ export default function ServiceOfferings() {
   const imgContainerRef = useRef(null);
   const imgInnerRef = useRef(null);
   const scrollTween = useRef(null);
-  const retryCount = useRef(0);
 
-  const startAutoScroll = () => {
+  const handleMouseEnter = () => {
     if (!imgContainerRef.current || !imgInnerRef.current) return;
     const container = imgContainerRef.current;
     const inner = imgInnerRef.current;
     const overflow = inner.scrollHeight - container.clientHeight;
-    if (overflow <= 10) {
-      if (retryCount.current < 8) {
-        retryCount.current += 1;
-        window.setTimeout(startAutoScroll, 250);
-      }
-      return;
-    }
-    retryCount.current = 0;
+    if (overflow <= 10) return;
     if (scrollTween.current) scrollTween.current.kill();
     scrollTween.current = gsap.to(inner, {
       y: -Math.abs(overflow),
@@ -138,28 +130,27 @@ export default function ServiceOfferings() {
     });
   };
 
-  const resetAutoScroll = () => {
+  const handleMouseLeave = () => {
     if (scrollTween.current) scrollTween.current.kill();
-    if (imgInnerRef.current) gsap.set(imgInnerRef.current, { y: 0 });
+    if (imgInnerRef.current) gsap.to(imgInnerRef.current, {
+      y: 0,
+      duration: 0.5,
+      ease: "power2.out",
+      overwrite: true,
+    });
   };
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 75%",
-        end: "bottom 20%",
-        onEnter: startAutoScroll,
-        onEnterBack: startAutoScroll,
-        onLeave: resetAutoScroll,
-        onLeaveBack: resetAutoScroll,
-      });
-    }, sectionRef);
     return () => {
-      ctx.revert();
-      resetAutoScroll();
+      if (scrollTween.current) scrollTween.current.kill();
     };
+  }, []);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // No scroll-triggered auto-scroll; image only animates on hover
+    }, sectionRef);
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -167,53 +158,102 @@ export default function ServiceOfferings() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-14">
-          <span className="text-teal-500 font-bold text-[11px] tracking-widest uppercase block mb-3">
+          <span style={{
+            display: "block",
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
+            color: "#0D9488",
+            marginBottom: "12px",
+          }}>
             What we offer
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight mb-3">
-            Software products &amp;{" "}
-            <span className="text-teal-500">service offerings</span>
+          <h2 style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)",
+            fontWeight: 800,
+            color: "#0F172A",
+            lineHeight: 1.1,
+            margin: 0,
+          }}>
+            Software products &amp; <span style={{ color: "#14B8A6" }}>service offerings</span>
           </h2>
-          <p className="text-sm text-slate-500 leading-relaxed max-w-lg">
-            Everything your healthcare facility needs — from cloud
-            infrastructure to mobile apps — in one unified platform.
-          </p>
         </div>
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left — feature grid + CTA */}
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
-              {servicePoints.map((pt, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 bg-slate-50 border border-slate-200 hover:border-teal-400 hover:bg-teal-50/50 rounded-xl px-4 py-3.5 transition-all duration-150 cursor-default"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg
-                      className="w-[15px] h-[15px] text-teal-500"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      viewBox="0 0 24 24"
-                    >
-                      {pt.icon}
-                    </svg>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {servicePoints.map((pt, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      background: "#FFFFFF",
+                      border: "1px solid #E2E8F0",
+                      borderRadius: "12px",
+                      padding: "16px",
+                      transition: "border-color 0.3s, box-shadow 0.3s",
+                      boxShadow: "0 1px 3px rgba(16,24,40,0.06)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#14B8A6";
+                      e.currentTarget.style.boxShadow = "0 12px 32px rgba(20,184,166,0.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "#E2E8F0";
+                      e.currentTarget.style.boxShadow = "0 1px 3px rgba(16,24,40,0.06)";
+                    }}
+                  >
+                    <div style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "8px",
+                      background: "#F0FDFE",
+                      border: "1px solid #CCFDF5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}>
+                      <svg
+                        className="w-4 h-4"
+                        style={{ color: "#14B8A6" }}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        viewBox="0 0 24 24"
+                      >
+                        {pt.icon}
+                      </svg>
+                    </div>
+                    <div>
+                      <p style={{
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        color: "#0F172A",
+                        lineHeight: "1.4",
+                        marginBottom: "2px",
+                      }}>
+                        {pt.title}
+                      </p>
+                      <p style={{
+                        fontSize: "12px",
+                        color: "#64748B",
+                        lineHeight: "1.6",
+                      }}>
+                        {pt.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[13px] font-600 text-slate-800 leading-tight mb-0.5">
-                      {pt.title}
-                    </p>
-                    <p className="text-[11.5px] text-slate-500 leading-relaxed">
-                      {pt.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
             <div className="flex items-center gap-5">
               <Link
@@ -251,6 +291,8 @@ export default function ServiceOfferings() {
               <div
                 ref={imgContainerRef}
                 className="h-[380px] bg-slate-50 overflow-hidden relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <div ref={imgInnerRef} className="w-full">
                   <Image
@@ -260,7 +302,6 @@ export default function ServiceOfferings() {
                     height={2000}
                     className="object-contain w-full"
                     priority
-                    onLoad={() => startAutoScroll()}
                   />
                 </div>
               </div>

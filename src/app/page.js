@@ -1,3 +1,4 @@
+import WelcomeSection from "@/components/sections/WelcomeSection";
 import Hero from "@/components/sections/Hero";
 import TechStack from "@/components/sections/TechStack";
 import MetricsCounterSection from "@/components/sections/MetricsCounterSection";
@@ -18,13 +19,13 @@ export default function HomePage() {
     <>
       <main className="pb-20 md:pb-0">
         <Hero />
-        <ServiceOfferings />
+        <WelcomeSection />
         <AllInOneHealthcareSolution />
+        <ServiceOfferings />
         <MetricsCounterSection />
         <HealthcareServicesSlider />
         <FeatureSection />
         <ExploreProducts />
-        <Testimonials />
       </main>
       <Footer />
       <MobileBottomNav />

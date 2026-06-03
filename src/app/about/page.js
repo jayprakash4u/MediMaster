@@ -1,4 +1,3 @@
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Footer from "@/components/layout/Footer";
 import AboutHero from "@/components/sections/AboutHero";
 import BusinessMetricsSection from "@/components/sections/BusinessMetricsSection";
@@ -16,7 +15,6 @@ export default function AboutPage() {
       <MissionVisionSection />
       <CompanyWorkingSteps />
       <InnovationWheelSection />
-      <WhyChooseUs />
       <Footer />
     </main>
   );

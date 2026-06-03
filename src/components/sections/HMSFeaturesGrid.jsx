@@ -141,7 +141,7 @@ export default function HMSFeaturesGrid() {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
               Comprehensive Hospital Management{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-navy-600">
                 All-in-One
               </span>
             </h2>
@@ -171,9 +171,9 @@ export default function HMSFeaturesGrid() {
                   key={stat.label}
                   className="group text-center p-8 rounded-2xl bg-white shadow-sm border border-slate-100 hover:shadow-lg hover:border-slate-200 transition-all"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full mx-auto mb-6 bg-gradient-to-br from-teal-50 to-blue-50 group-hover:from-teal-100 group-hover:to-blue-100 transition-colors">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full mx-auto mb-6 bg-gradient-to-br from-teal-50 to-navy-50 group-hover:from-teal-100 group-hover:to-navy-100 transition-colors">
                     <StatIcon
-                      className="text-teal-600 group-hover:text-blue-600 transition-colors"
+                      className="text-teal-600 group-hover:text-teal-700 transition-colors"
                       size={32}
                     />
                   </div>

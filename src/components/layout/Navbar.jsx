@@ -145,15 +145,24 @@ export default function Navbar() {
             Home Care and Medical Practices: Our Specialists are Here
           </p>
           <div className="flex items-center gap-4 ml-auto">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
               Careers
             </a>
             <span className="text-slate-600">|</span>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
               Privacy Policy
             </a>
             <span className="text-slate-600">|</span>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-slate-400 hover:text-white transition-colors"
+            >
               Site Map
             </a>
           </div>
@@ -215,7 +224,9 @@ export default function Navbar() {
                     navLinksRef.current[index] = el;
                   }}
                   className="relative flex items-center h-full"
-                  onMouseEnter={() => link.children && setActiveDropdown(link.label)}
+                  onMouseEnter={() =>
+                    link.children && setActiveDropdown(link.label)
+                  }
                 >
                   {link.children ? (
                     <span className="hover:text-teal-100 text-sm lg:text-base transition-all duration-200 cursor-pointer flex items-center gap-1 py-4">
@@ -261,7 +272,9 @@ export default function Navbar() {
       {activeDropdown &&
         NAV_LINKS.filter((l) => l.children).map((link) => {
           if (link.label !== activeDropdown) return null;
-          const navIndex = NAV_LINKS.findIndex((item) => item.label === link.label);
+          const navIndex = NAV_LINKS.findIndex(
+            (item) => item.label === link.label,
+          );
           const rect = navLinksRef.current[navIndex]?.getBoundingClientRect();
           return (
             <div
@@ -315,7 +328,10 @@ export default function Navbar() {
 
           <ul className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
-              <li key={link.label} className="border-b border-deepNavy-700 pb-2">
+              <li
+                key={link.label}
+                className="border-b border-deepNavy-700 pb-2"
+              >
                 {link.children ? (
                   <div>
                     <button

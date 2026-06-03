@@ -56,7 +56,7 @@ export default function AboutImageSplitSection() {
           className="lg:col-span-6 relative w-full max-w-xl mx-auto lg:max-w-none h-[480px] sm:h-[580px]"
         >
           {/* 1. Decorative Accent Frame */}
-          <div className="absolute top-0 left-4 w-20 h-20 border-t-4 border-l-4 border-orange-500 rounded-tl-2xl pointer-events-none z-0" />
+          <div className="absolute top-0 left-4 w-20 h-20 border-t-4 border-l-4 border-navy-500 rounded-tl-2xl pointer-events-none z-0" />
 
           {/* 2. Background Dot Matrix Pattern */}
           <div className="absolute bottom-4 left-0 grid grid-cols-6 gap-2 opacity-40 z-0 select-none">
@@ -89,7 +89,7 @@ export default function AboutImageSplitSection() {
 
           {/* 5. FLOATING EXPERIENCE BADGE */}
           <div className="absolute top-[28%] right-[16%] transform translate-x-1/2 z-20">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-pink-500 via-rose-500 to-orange-500 p-0.5 shadow-xl flex items-center justify-center animate-pulse duration-3000">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-teal-500 via-teal-600 to-navy-600 p-0.5 shadow-xl flex items-center justify-center animate-pulse duration-3000">
               <div className="w-full h-full bg-white rounded-[22px] flex flex-col items-center justify-center text-center p-2 select-none">
                 <span className="text-xl sm:text-2xl font-black tracking-tight text-navy-950 leading-none">10+</span>
                 <span className="text-[9px] sm:text-[10px] font-extrabold text-gray-400 uppercase tracking-wider mt-1 leading-tight">Years<br/>Experience</span>

@@ -203,13 +203,13 @@ const colorMap = {
     line: "from-cyan-600/40",
   },
   navy: {
-    icon: "bg-blue-600/10 border-blue-600/20 text-blue-600",
-    badge: "bg-blue-600/10 text-blue-600 border border-blue-600/20",
-    bullet: "bg-blue-600",
-    glow: "hover:shadow-[0_8px_40px_rgba(59,102,226,0.15)]",
-    border: "hover:border-blue-600/40",
-    tag: "text-blue-600",
-    line: "from-blue-600/40",
+    icon: "bg-navy-600/10 border-navy-600/20 text-navy-600",
+    badge: "bg-navy-600/10 text-navy-600 border border-navy-600/20",
+    bullet: "bg-navy-600",
+    glow: "hover:shadow-[0_8px_40px_rgba(25,55,109,0.15)]",
+    border: "hover:border-navy-600/40",
+    tag: "text-navy-600",
+    line: "from-navy-600/40",
   },
 };
 

@@ -35,7 +35,7 @@ const PACKAGES = [
   {
     id: "hospital",
     label: "Hospital Package",
-    labelStyle: "bg-blue-500/10 text-blue-400 border border-blue-500/20",
+    labelStyle: "bg-navy-500/10 text-navy-400 border border-navy-500/20",
     icon: <HospitalIcon />,
     title: "Complete control over your hospital operations.",
     description:
@@ -88,7 +88,7 @@ const PACKAGES = [
   {
     id: "pharmacy",
     label: "Pharmacy Package",
-    labelStyle: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
+    labelStyle: "bg-teal-500/10 text-teal-400 border border-teal-500/20",
     icon: <PharmacyIcon />,
     title: "Inventory and stock control built for pharmacy.",
     description:

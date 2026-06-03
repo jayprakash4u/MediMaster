@@ -25,7 +25,7 @@ export default function FeatureHighlight() {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
                 Built for Modern{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-navy-600">
                   Healthcare
                 </span>{" "}
                 Providers
@@ -43,9 +43,9 @@ export default function FeatureHighlight() {
                 const Icon = Feature.icon;
                 return (
                   <div key={index} className="flex items-center gap-4 group">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-teal-100 to-blue-100 group-hover:from-teal-200 group-hover:to-blue-200 transition-colors">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-teal-100 to-navy-100 group-hover:from-teal-200 group-hover:to-navy-200 transition-colors">
                       <Icon
-                        className="text-teal-600 group-hover:text-blue-700"
+                        className="text-teal-600 group-hover:text-teal-700"
                         size={24}
                         strokeWidth={1.5}
                       />
@@ -68,7 +68,7 @@ export default function FeatureHighlight() {
 
           {/* Right Image */}
           <div className="relative">
-            <div className="absolute -inset-6 bg-gradient-to-r from-teal-500/10 to-blue-500/10 rounded-3xl blur-3xl" />
+            <div className="absolute -inset-6 bg-gradient-to-r from-teal-500/10 to-navy-500/10 rounded-3xl blur-3xl" />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
               <Image
                 src="/managment feature.png"
@@ -82,8 +82,8 @@ export default function FeatureHighlight() {
             </div>
 
             {/* Accent Elements */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full opacity-10 blur-2xl" />
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-400 to-teal-500 rounded-full opacity-10 blur-2xl" />
+            <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-400 to-navy-500 rounded-full opacity-10 blur-2xl" />
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-navy-400 to-teal-500 rounded-full opacity-10 blur-2xl" />
           </div>
         </div>
       </div>

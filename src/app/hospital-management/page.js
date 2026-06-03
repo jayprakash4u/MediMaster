@@ -1,9 +1,12 @@
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import HMSStatic from "@/components/sections/HMSOrbit";
+import StatisticsSection from "@/components/sections/StatisticsSection";
 import HMSCrossLayout from "@/components/sections/HMSCrossLayout";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import WhatOurUsersSay from "@/components/sections/WhatOurUsersSay";
+import HospitalSoftwareSection from "@/components/sections/HospitalSoftwareSection";
+import HmsModulesWithVideo from "@/components/sections/HmsModulesWithVideo";
+import HMSBenefitsSection from "@/components/sections/HMSBenefitsSection";
+import HMSTrialSection from "@/components/sections/HMSTrialSection";
 
 export default function HospitalManagementPage() {
   return (
@@ -59,18 +62,74 @@ export default function HospitalManagementPage() {
         </div>
       </section>
 
-      {/* HMS Cross Layout Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      {/* Product Images Grid */}
+      <section className="py-10 md:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+            {[
+              {
+                title: "Hospital Management",
+                image: "/hms/hospital.jpg",
+                href: "/hospital-management",
+              },
+              {
+                title: "Pharmacy Management",
+                image: "/hms/pharmacy.jpg",
+                href: "/pharmacy-management",
+              },
+              {
+                title: "Pathology Lab",
+                image: "/hms/pathalogy lab.jpg",
+                href: "/pathology-management",
+              },
+              {
+                title: "Clinic Management",
+                image: "/hms/clinic.jpg",
+                href: "/clinic-management",
+              },
+              {
+                title: "Dental Clinic",
+                image: "/hms/dental.jpg",
+                href: "/dental-management",
+              },
+              {
+                title: "Radiology / Imaging",
+                image: "/hms/radiology.jpg",
+                href: "/radiology-management",
+              },
+            ].map((product, idx) => (
+              <Link
+                key={idx}
+                href={product.href}
+                className="group relative rounded-xl overflow-hidden aspect-square bg-slate-100 border border-slate-200 hover:border-teal-400 transition-all duration-300"
+              >
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="absolute bottom-2 left-2 right-2 text-xs font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 truncate">
+                  {product.title}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HMS Cross Layout Section */}
+      <section className="py-10 md:py-14 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <HospitalSoftwareSection />
           <HMSCrossLayout />
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <WhyChooseUs />
-
-      {/* What Our Users Say Section */}
-      <WhatOurUsersSay />
+      <HmsModulesWithVideo />
+      <HMSBenefitsSection />
+      <StatisticsSection />
+      <HMSTrialSection />
 
       <Footer />
     </main>

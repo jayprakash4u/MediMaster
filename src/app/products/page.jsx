@@ -1,5 +1,4 @@
 import Footer from "@/components/layout/Footer";
-import ExploreProducts from "@/components/sections/ExploreProducts";
 import ProductShowcase from "@/components/sections/ProductShowcase";
 import { products } from "@/lib/products";
 

@@ -177,7 +177,7 @@ export default function Navbar() {
             <div className="relative w-56 h-16 flex-shrink-0">
               <Image
                 ref={logoRef}
-                src="/logo.png"
+                src="/brand/logo.png"
                 alt="Medi Master Logo"
                 fill
                 priority

@@ -1,10 +1,10 @@
 "use client";
 
 import Footer from "@/components/layout/Footer";
-import SMMHero from "@/components/sections/SMMHero";
-import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
-import SMMTypesSection from "@/components/sections/SMMTypesSection";
-import SMMRoadmap from "@/components/sections/SMMRoadmap";
+import SMMHero from "@/components/pages/services/smm/SMMHero";
+import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
+import SMMTypesSection from "@/components/pages/services/smm/SMMTypesSection";
+import SMMRoadmap from "@/components/pages/services/smm/SMMRoadmap";
 
 export default function SMMPage() {
   return (
@@ -13,7 +13,7 @@ export default function SMMPage() {
       <ServiceDetailLayout
         title="SOCIAL MEDIA MARKETING"
         description="Build your brand presence and engage with your audience across social platforms. From content creation and community management to paid advertising campaigns, we drive growth and meaningful connections for your business."
-        imageSrc="/socialmedia marketing/social media m.jpg"
+        imageSrc="/services/smm/social media m.jpg"
         imageAlt="Social Media Marketing"
         activeHref="/services/smm"
       />

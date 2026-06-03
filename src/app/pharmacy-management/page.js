@@ -1,10 +1,10 @@
 import Footer from "@/components/layout/Footer";
-import PharmacyManagement from "@/components/sections/PharmacyManagement";
-import PharmacyBenefitsSection from "@/components/sections/PharmacyBenefitsSection";
-import PharmacyTargetAudience from "@/components/sections/PharmacyTargetAudience";
-import PharmacyModulesWithVideo from "@/components/sections/PharmacyModulesWithVideo";
-import PharmacyTrialSection from "@/components/sections/PharmacyTrialSection";
-import PharmacyWorkflow from "@/components/sections/PharmacyWorkflow";
+import PharmacyManagement from "@/components/pages/pharmacy-management/PharmacyManagement";
+import PharmacyBenefitsSection from "@/components/pages/pharmacy-management/PharmacyBenefitsSection";
+import PharmacyTargetAudience from "@/components/pages/pharmacy-management/PharmacyTargetAudience";
+import PharmacyModulesWithVideo from "@/components/pages/pharmacy-management/PharmacyModulesWithVideo";
+import PharmacyTrialSection from "@/components/pages/pharmacy-management/PharmacyTrialSection";
+import PharmacyWorkflow from "@/components/pages/pharmacy-management/PharmacyWorkflow";
 
 export default function PharmacyManagementPage() {
   return (

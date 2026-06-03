@@ -20,7 +20,7 @@ export const products = [
       learnMore: "/hospital-management",
       requestDemo: "/contact?product=medi-master",
     },
-    image: "/products screenshot/medimaster.png",
+    image: "/home/logo.png",
     href: "/hospital-management",
   },
   {
@@ -75,7 +75,7 @@ export const products = [
       learnMore: "/products/worknepal",
       requestDemo: "/contact?product=worknepal",
     },
-    image: "/products screenshot/worknepal.png",
+    image: "/products/worknepal.png",
     href: "/products/worknepal",
   },
   {

@@ -1,10 +1,10 @@
 import Footer from "@/components/layout/Footer";
-import AboutHero from "@/components/sections/AboutHero";
-import BusinessMetricsSection from "@/components/sections/BusinessMetricsSection";
-import AboutImageSplitSection from "@/components/sections/AboutImageSplitSection";
-import MissionVisionSection from "@/components/sections/MissionVisionSection";
-import CompanyWorkingSteps from "@/components/sections/CompanyWorkingSteps";
-import InnovationWheelSection from "@/components/sections/InnovationWheelSection";
+import AboutHero from "@/components/pages/about/AboutHero";
+import BusinessMetricsSection from "@/components/pages/about/BusinessMetricsSection";
+import AboutImageSplitSection from "@/components/pages/about/AboutImageSplitSection";
+import MissionVisionSection from "@/components/pages/about/MissionVisionSection";
+import CompanyWorkingSteps from "@/components/pages/about/CompanyWorkingSteps";
+import InnovationWheelSection from "@/components/pages/about/InnovationWheelSection";
 
 export default function AboutPage() {
   return (

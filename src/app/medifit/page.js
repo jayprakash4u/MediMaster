@@ -40,7 +40,7 @@ export default function MediFitPage() {
     <main>
       <section className="relative bg-navy-950 py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: "linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%), url('/medimasterhomehero.png')",
+          backgroundImage: "linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%), url('/home/hero.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />

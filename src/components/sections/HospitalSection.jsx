@@ -65,7 +65,7 @@ export default function HospitalSection() {
         {/* Canvas bounding box for product screen layout */}
         <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-navy-50 border-2 lg:border-[3px] border-navy-500 shadow-sm lg:shadow-xl z-20">
           <Image
-            src="/hosptialmngmt.jpg"
+            src="/home/hospital-management.jpg"
             alt="MediMaster Hospital Management Interface"
             fill
             className="object-contain p-2 sm:p-4"
@@ -95,11 +95,11 @@ export default function HospitalSection() {
 
       {/* RIGHT COLUMN — Feature Matrix Lists */}
       <div className="w-full lg:flex-1 min-w-0">
-<p className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-navy-500 uppercase tracking-widest mb-2 lg:mb-3 text-left">
-           Hospital Management
-         </p>
+        <p className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-navy-500 uppercase tracking-widest mb-2 lg:mb-3 text-left">
+          Hospital Management
+        </p>
 
-          <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-10 text-left">
+        <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-10 text-left">
           Full-Spectrum{" "}
           <span className="text-navy-500">Hospital Operations</span> Under One
           Roof

@@ -1,5 +1,5 @@
-import BlogHero from "@/components/sections/BlogHero";
-import BlogGrid from "@/components/sections/BlogGrid";
+import BlogHero from "@/components/pages/blog/BlogHero";
+import BlogGrid from "@/components/pages/blog/BlogGrid";
 import Footer from "@/components/layout/Footer";
 
 export default function BlogPage() {

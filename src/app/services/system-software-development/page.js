@@ -5,9 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import Footer from "@/components/layout/Footer";
-import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
-import SystemSoftwareTypesSection from "@/components/sections/SystemSoftwareTypesSection";
-import SystemSoftwareRoadmap from "@/components/sections/SystemSoftwareRoadmap";
+import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
+import SystemSoftwareTypesSection from "@/components/pages/services/system-software-development/SystemSoftwareTypesSection";
+import SystemSoftwareRoadmap from "@/components/pages/services/system-software-development/SystemSoftwareRoadmap";
 
 const floatingIcons = [
   {
@@ -127,7 +127,7 @@ function FloatingIcon({ icon, index }) {
   }, [icon.delay, index]);
 
   const isSquare = icon.shape === "square";
-  const isPill   = icon.shape === "pill";
+  const isPill = icon.shape === "pill";
   const isPillSm = icon.shape === "pill-sm";
 
   const baseStyle = {
@@ -178,17 +178,53 @@ function FloatingIcon({ icon, index }) {
     <div ref={ref} style={baseStyle} title={icon.name}>
       {isPill ? (
         <>
-          <span style={{ fontSize: "11px", fontWeight: 700, color: icon.textColor, fontFamily: "sans-serif", letterSpacing: "0.02em" }}>
+          <span
+            style={{
+              fontSize: "11px",
+              fontWeight: 700,
+              color: icon.textColor,
+              fontFamily: "sans-serif",
+              letterSpacing: "0.02em",
+            }}
+          >
             {icon.label}
           </span>
-          <span style={{ display: "block", width: 28, height: 2, borderRadius: 2, background: icon.textColor, opacity: 0.5, marginLeft: 2 }} />
+          <span
+            style={{
+              display: "block",
+              width: 28,
+              height: 2,
+              borderRadius: 2,
+              background: icon.textColor,
+              opacity: 0.5,
+              marginLeft: 2,
+            }}
+          />
         </>
       ) : isPillSm ? (
-        <span style={{ fontSize: "11px", fontWeight: 700, color: icon.textColor, fontFamily: "sans-serif", letterSpacing: "0.02em", textAlign: "center" }}>
+        <span
+          style={{
+            fontSize: "11px",
+            fontWeight: 700,
+            color: icon.textColor,
+            fontFamily: "sans-serif",
+            letterSpacing: "0.02em",
+            textAlign: "center",
+          }}
+        >
           {icon.label}
         </span>
       ) : (
-        <span style={{ fontSize: isSquare ? "15px" : "13px", fontWeight: 700, color: icon.textColor, fontFamily: "sans-serif", letterSpacing: "0.02em", textAlign: "center" }}>
+        <span
+          style={{
+            fontSize: isSquare ? "15px" : "13px",
+            fontWeight: 700,
+            color: icon.textColor,
+            fontFamily: "sans-serif",
+            letterSpacing: "0.02em",
+            textAlign: "center",
+          }}
+        >
           {icon.label}
         </span>
       )}
@@ -198,9 +234,9 @@ function FloatingIcon({ icon, index }) {
 
 export default function SystemSoftwareDevelopmentPage() {
   const containerRef = useRef(null);
-  const badgeRef     = useRef(null);
-  const contentRef   = useRef(null);
-  const imageRef     = useRef(null);
+  const badgeRef = useRef(null);
+  const contentRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -212,7 +248,14 @@ export default function SystemSoftwareDevelopmentPage() {
       gsap.fromTo(
         badgeRef.current,
         { opacity: 0, scale: 0.8, rotation: -14 },
-        { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 },
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 1.1,
+          ease: "back.out(1.7)",
+          delay: 0.25,
+        },
       );
       gsap.fromTo(
         contentRef.current,
@@ -222,7 +265,14 @@ export default function SystemSoftwareDevelopmentPage() {
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, x: 60, scale: 0.92 },
-        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1.1,
+          ease: "power3.out",
+          delay: 0.4,
+        },
       );
     }, containerRef);
     return () => ctx.revert();
@@ -239,9 +289,10 @@ export default function SystemSoftwareDevelopmentPage() {
 
         <div className="relative z-10 container mx-auto px-6 py-8 lg:py-16">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-
-            <div ref={contentRef} className="flex-1 max-w-2xl text-center lg:text-left">
-
+            <div
+              ref={contentRef}
+              className="flex-1 max-w-2xl text-center lg:text-left"
+            >
               <div
                 ref={badgeRef}
                 className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] mb-6"
@@ -258,10 +309,10 @@ export default function SystemSoftwareDevelopmentPage() {
                   <span className="text-teal-300">Development</span>
                 </h1>
                 <p className="text-sm sm:text-base leading-7 text-slate-300">
-                  Engineer robust, scalable, and high-performance software systems
-                  tailored to your business needs — from desktop applications and
-                  backend services to enterprise-grade platforms and embedded
-                  solutions.
+                  Engineer robust, scalable, and high-performance software
+                  systems tailored to your business needs — from desktop
+                  applications and backend services to enterprise-grade
+                  platforms and embedded solutions.
                 </p>
               </div>
 
@@ -281,7 +332,10 @@ export default function SystemSoftwareDevelopmentPage() {
               </div>
             </div>
 
-            <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
+            <div
+              ref={imageRef}
+              className="flex-1 flex justify-center lg:justify-end"
+            >
               <div
                 className="relative w-full max-w-md lg:max-w-lg"
                 style={{ aspectRatio: "1 / 1" }}
@@ -289,14 +343,15 @@ export default function SystemSoftwareDevelopmentPage() {
                 <div
                   className="absolute inset-[10%] rounded-full"
                   style={{
-                    background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
+                    background:
+                      "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
                     filter: "blur(20px)",
                   }}
                 />
 
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
-                    src="/medimaster service/website-development-hero.png"
+                    src="/services/shared/website-development-hero.png"
                     alt="Software Developer"
                     width={420}
                     height={420}
@@ -310,7 +365,6 @@ export default function SystemSoftwareDevelopmentPage() {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
 
@@ -331,7 +385,7 @@ export default function SystemSoftwareDevelopmentPage() {
       <ServiceDetailLayout
         title="SYSTEM / SOFTWARE DEVELOPMENT"
         description="At Medimaster, we engineer robust, scalable, and high-performance software systems tailored to your business needs. From desktop applications and backend services to enterprise-grade platforms and embedded solutions, our expert team delivers comprehensive software development services using cutting-edge technologies and industry best practices."
-        imageSrc="/medimaster service/SystemSoftware Development.jpg"
+        imageSrc="/services/shared/system-software-development.jpg"
         imageAlt="System Software Development"
         activeHref="/services/system-software-development"
       />

@@ -67,9 +67,9 @@ export default function WelcomeSection() {
         <div className="flex flex-col gap-6 lg:gap-8">
           {/* Group 1: Infrastructure */}
           <div>
-<h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-               System & Architecture
-             </h3>
+            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
+              System & Architecture
+            </h3>
             <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
               {coreArchitecture.map((item, index) => (
                 <li key={index} className="flex items-start gap-2.5 lg:gap-3">
@@ -102,9 +102,9 @@ export default function WelcomeSection() {
 
           {/* Group 2: Business & Operations */}
           <div>
-<h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-               Management & Operations
-             </h3>
+            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
+              Management & Operations
+            </h3>
             <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
               {operationsCapabilities.map((item, index) => (
                 <li key={index} className="flex items-start gap-2.5 lg:gap-3">
@@ -138,11 +138,11 @@ export default function WelcomeSection() {
       </div>
 
       {/* RIGHT COLUMN — Image Framework */}
-<div className="relative w-full max-w-xs sm:max-w-xl lg:max-w-none lg:w-[520px] h-[200px] sm:h-[360px] lg:h-[580px] shrink-0 lg:self-center mb-2 lg:mb-0">
-         <div className="absolute top-3 left-3 right-[-12px] bottom-[-12px] sm:top-6 sm:left-6 sm:right-[-24px] sm:bottom-[-24px] bg-navy-50 border border-slate-100 rounded-xl sm:rounded-3xl z-10" />
-         <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-navy-50 border-2 lg:border-[3px] border-navy-500 shadow-sm lg:shadow-xl z-20">
+      <div className="relative w-full max-w-xs sm:max-w-xl lg:max-w-none lg:w-[520px] h-[200px] sm:h-[360px] lg:h-[580px] shrink-0 lg:self-center mb-2 lg:mb-0">
+        <div className="absolute top-3 left-3 right-[-12px] bottom-[-12px] sm:top-6 sm:left-6 sm:right-[-24px] sm:bottom-[-24px] bg-navy-50 border border-slate-100 rounded-xl sm:rounded-3xl z-10" />
+        <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-navy-50 border-2 lg:border-[3px] border-navy-500 shadow-sm lg:shadow-xl z-20">
           <Image
-            src="/medimasterdescription.png"
+            src="/home/description.png"
             alt="MediMaster Healthcare Management Dashboard Interface"
             fill
             className="object-contain p-2 sm:p-4"

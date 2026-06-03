@@ -1,10 +1,10 @@
 "use client";
 
 import Footer from "@/components/layout/Footer";
-import ServiceDetailLayout from "@/components/sections/ServiceDetailLayout";
-import SEOHero from "@/components/sections/SEOHero";
-import SEOTypesSection from "@/components/sections/SEOTypesSection";
-import SEORoadmap from "@/components/sections/SEORoadmap";
+import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
+import SEOHero from "@/components/pages/services/seo/SEOHero";
+import SEOTypesSection from "@/components/pages/services/seo/SEOTypesSection";
+import SEORoadmap from "@/components/pages/services/seo/SEORoadmap";
 
 export default function SEOPage() {
   return (
@@ -13,7 +13,7 @@ export default function SEOPage() {
       <ServiceDetailLayout
         title="SEARCH ENGINE OPTIMIZATION"
         description="Boost your website's visibility in search results with our comprehensive SEO strategies. From keyword research and content optimization to technical SEO audits and link building, we help you rank higher and drive organic traffic to your business."
-        imageSrc="/medimaster service/Search Engine Optimization (SEO).png"
+        imageSrc="/services/shared/Search Engine Optimization (SEO).png"
         imageAlt="SEO"
         activeHref="/services/seo"
       />

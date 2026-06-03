@@ -1,5 +1,4 @@
-import ClientsHero from "@/components/sections/ClientsHero";
-import Testimonials from "@/components/sections/Testimonials";
+import ClientsHero from "@/components/pages/clients/ClientsHero";
 import Footer from "@/components/layout/Footer";
 
 export default function ClientsPage() {

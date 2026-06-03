@@ -1,4 +1,4 @@
-import Services from "@/components/sections/Services";
+import Services from "@/components/pages/services/Services";
 import Footer from "@/components/layout/Footer";
 
 export default function ServicesPage() {

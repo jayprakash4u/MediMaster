@@ -1,12 +1,12 @@
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import HMSStatic from "@/components/sections/HMSOrbit";
-import StatisticsSection from "@/components/sections/StatisticsSection";
-import HMSCrossLayout from "@/components/sections/HMSCrossLayout";
-import HospitalSoftwareSection from "@/components/sections/HospitalSoftwareSection";
-import HmsModulesWithVideo from "@/components/sections/HmsModulesWithVideo";
-import HMSBenefitsSection from "@/components/sections/HMSBenefitsSection";
-import HMSTrialSection from "@/components/sections/HMSTrialSection";
+import HMSStatic from "@/components/pages/hospital-management/HMSOrbit";
+import StatisticsSection from "@/components/pages/hospital-management/StatisticsSection";
+import HMSCrossLayout from "@/components/pages/hospital-management/HMSCrossLayout";
+import HospitalSoftwareSection from "@/components/pages/hospital-management/HospitalSoftwareSection";
+import HmsModulesWithVideo from "@/components/pages/hospital-management/HmsModulesWithVideo";
+import HMSBenefitsSection from "@/components/pages/hospital-management/HMSBenefitsSection";
+import HMSTrialSection from "@/components/shared/HMSTrialSection";
 
 export default function HospitalManagementPage() {
   return (
@@ -17,7 +17,7 @@ export default function HospitalManagementPage() {
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%), url('/medimasterhomehero.png')",
+              "linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%), url('/home/hero.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -69,32 +69,32 @@ export default function HospitalManagementPage() {
             {[
               {
                 title: "Hospital Management",
-                image: "/hms/hospital.jpg",
+                image: "/hospital/hospital.jpg",
                 href: "/hospital-management",
               },
               {
                 title: "Pharmacy Management",
-                image: "/hms/pharmacy.jpg",
+                image: "/hospital/pharmacy.jpg",
                 href: "/pharmacy-management",
               },
               {
                 title: "Pathology Lab",
-                image: "/hms/pathalogy lab.jpg",
+                image: "/hospital/pathalogy-lab.jpg",
                 href: "/pathology-management",
               },
               {
                 title: "Clinic Management",
-                image: "/hms/clinic.jpg",
+                image: "/hospital/clinic.jpg",
                 href: "/clinic-management",
               },
               {
                 title: "Dental Clinic",
-                image: "/hms/dental.jpg",
+                image: "/hospital/dental.jpg",
                 href: "/dental-management",
               },
               {
                 title: "Radiology / Imaging",
-                image: "/hms/radiology.jpg",
+                image: "/hospital/radiology.jpg",
                 href: "/radiology-management",
               },
             ].map((product, idx) => (

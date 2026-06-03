@@ -1,11 +1,11 @@
 import Footer from "@/components/layout/Footer";
-import PathologyManagement from "@/components/sections/PathologyManagement";
-import PathologyBenefitsSection from "@/components/sections/PathologyBenefitsSection";
-import PathologyModulesWithVideo from "@/components/sections/PathologyModulesWithVideo";
-import ScalableSolution from "@/components/sections/ScalableSolution";
-import PathologyTargetAudience from "@/components/sections/PathologyTargetAudience";
-import PathologyWorkflow from "@/components/sections/PathologyWorkflow";
-import PathologyTrialSection from "@/components/sections/PathologyTrialSection";
+import PathologyManagement from "@/components/pages/pathology-management/PathologyManagement";
+import PathologyBenefitsSection from "@/components/pages/pathology-management/PathologyBenefitsSection";
+import PathologyModulesWithVideo from "@/components/pages/pathology-management/PathologyModulesWithVideo";
+import ScalableSolution from "@/components/pages/pathology-management/ScalableSolution";
+import PathologyTargetAudience from "@/components/pages/pathology-management/PathologyTargetAudience";
+import PathologyWorkflow from "@/components/pages/pathology-management/PathologyWorkflow";
+import PathologyTrialSection from "@/components/pages/pathology-management/PathologyTrialSection";
 
 export default function PathologyManagementPage() {
   return (

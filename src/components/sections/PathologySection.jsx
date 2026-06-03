@@ -63,7 +63,7 @@ export default function PathologySection() {
           Pathology Lab Management
         </p>
 
-          <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-10 text-left">
+        <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-10 text-left">
           Precision Lab Operations{" "}
           <span className="text-navy-500">Powered by Intelligence</span>
         </h2>
@@ -72,9 +72,9 @@ export default function PathologySection() {
         <div className="flex flex-col gap-6 lg:gap-8">
           {/* Group 1: Sample & Test Management */}
           <div>
-<h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-               Sample & Test Management
-             </h3>
+            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
+              Sample & Test Management
+            </h3>
             <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
               {pathologyCore.map((item, index) => (
                 <li key={index} className="flex items-start gap-2.5 lg:gap-3">
@@ -108,9 +108,9 @@ export default function PathologySection() {
 
           {/* Group 2: Reporting & Compliance */}
           <div>
-<h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-               Reporting & Compliance
-             </h3>
+            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
+              Reporting & Compliance
+            </h3>
             <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
               {pathologyOperations.map((item, index) => (
                 <li key={index} className="flex items-start gap-2.5 lg:gap-3">
@@ -153,7 +153,7 @@ export default function PathologySection() {
         {/* Image Canvas Frame */}
         <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-navy-50 border-2 lg:border-[3px] border-navy-500 shadow-sm lg:shadow-xl z-20">
           <Image
-            src="/pathalogyimage.jpg"
+            src="/pathology/intro.jpg"
             alt="MediMaster Pathology Lab Management Interface"
             fill
             className="object-contain p-2 sm:p-4"

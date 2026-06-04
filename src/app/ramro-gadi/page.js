@@ -1,6 +1,9 @@
 import Footer from "@/components/layout/Footer";
 import RamroGadiBenefitsSection from "@/components/pages/ramro-gadi/RamroGadiBenefitsSection";
 import RamroGadiAboutSection from "@/components/pages/ramro-gadi/RamroGadiAboutSection";
+import PopularBrandsNepal from "@/components/pages/ramro-gadi/PopularBrandsNepal";
+import HowItWorksSection from "@/components/pages/ramro-gadi/HowItWorksSection";
+import HappyCustomersSection from "@/components/pages/ramro-gadi/HappyCustomersSection";
 import Link from "next/link";
 
 const stats = [
@@ -75,7 +78,13 @@ export default function RamroGadiPage() {
         </div>
       </section>
 
+      <PopularBrandsNepal />
+
       <RamroGadiBenefitsSection />
+
+      <HowItWorksSection />
+
+      <HappyCustomersSection />
 
       <Footer />
     </main>

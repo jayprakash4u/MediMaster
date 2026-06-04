@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const features = [
   {
     icon: (
@@ -40,23 +42,17 @@ export default function RamroGadiAboutSection() {
 
           {/* BIG image — top left, slightly tall */}
           <div className="absolute top-0 left-0 w-[58%] h-[62%] rounded-2xl overflow-hidden border-4 border-white shadow-xl z-10 bg-slate-100">
-            <div className="w-full h-full bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center">
-              <span className="text-xs text-teal-600 font-medium tracking-wide">Vehicle Listing</span>
-            </div>
+            <Image src="/Ramro gadi/1.png" alt="Vehicle Listing" fill className="object-cover" />
           </div>
 
           {/* SMALL image — top right, overlapping */}
           <div className="absolute top-4 right-0 w-[40%] h-[40%] rounded-2xl overflow-hidden border-4 border-white shadow-xl z-10 bg-slate-100">
-            <div className="w-full h-full bg-gradient-to-br from-navy-100 to-navy-200 flex items-center justify-center">
-              <span className="text-xs text-navy-600 font-medium tracking-wide">Inspection</span>
-            </div>
+            <Image src="/Ramro gadi/2.png" alt="Inspection" fill className="object-cover" />
           </div>
 
           {/* BOTTOM image — bottom center, overlapping both above */}
           <div className="absolute bottom-0 left-[18%] w-[55%] h-[44%] rounded-2xl overflow-hidden border-4 border-white shadow-2xl z-20 bg-slate-100">
-            <div className="w-full h-full bg-gradient-to-br from-teal-200 to-teal-300 flex items-center justify-center">
-              <span className="text-xs text-teal-700 font-medium tracking-wide">Happy Customers</span>
-            </div>
+            <Image src="/Ramro gadi/3.png" alt="Happy Customers" fill className="object-cover" />
           </div>
 
           {/* Teal badge — bottom left */}

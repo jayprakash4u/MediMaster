@@ -2,183 +2,121 @@
 
 import Image from "next/image";
 
-const pathologyCore = [
-  {
-    mobile: "1000+ lab investigations & test panel setups",
-    desktop:
-      "Comprehensive test catalog management with support for 1000+ lab investigations and panels",
-  },
-  {
-    mobile: "Automated sample tracking from intake to delivery",
-    desktop:
-      "Automated sample collection tracking — from registration to processing to result delivery",
-  },
-  {
-    mobile: "Barcode labels with strict chain-of-custody tracking",
-    desktop:
-      "Integrated barcode labeling for samples with chain-of-custody traceability at every step",
-  },
-  {
-    mobile: "Normal range checking & critical result flags",
-    desktop:
-      "Smart result entry with normal range validation, critical value flagging, and auto-interpretation",
-  },
+const sampleTestManagement = [
+  "Comprehensive test catalog management with support for 1000+ lab investigations and panels",
+  "Automated sample collection tracking — from registration to processing to result delivery",
+  "Integrated barcode labeling for samples with chain-of-custody traceability at every step",
+  "Smart result entry with normal range validation, critical value flagging, and auto-interpretation",
 ];
 
-const pathologyOperations = [
-  {
-    mobile: "Multi-branch lab control & consolidated MIS data",
-    desktop:
-      "Multi-lab branch management with centralized reporting and consolidated MIS dashboards",
-  },
-  {
-    mobile: "Branded reports with signatures & doctor remarks",
-    desktop:
-      "Fully branded, printable lab reports with doctor remarks, letterhead, and digital signatures",
-  },
-  {
-    mobile: "Home sample booking with tracking updates via SMS",
-    desktop:
-      "Home sample collection scheduling with field agent tracking and status updates via SMS",
-  },
-  {
-    mobile: "NABL accreditation audit logs & QC safety checks",
-    desktop:
-      "NABL and accreditation-ready audit trails, QC logs, and compliance documentation",
-  },
-  {
-    mobile: "Seamless integration with OPD, IPD & Radiology",
-    desktop:
-      "Seamless integration with hospital OPD, IPD, and radiology for unified patient diagnostics",
-  },
+const reportingCompliance = [
+  "Multi-lab branch management with centralized reporting and consolidated MIS dashboards",
+  "Fully branded, printable lab reports with doctor remarks, letterhead, and digital signatures",
+  "Home sample collection scheduling with field agent tracking and status updates via SMS",
+  "NABL and accreditation-ready audit trails, QC logs, and compliance documentation",
+  "Seamless integration with hospital OPD, IPD, and radiology for unified patient diagnostics",
 ];
+
+const ArrowIcon = () => (
+  <svg
+    className="w-4 h-4 text-blue-700 shrink-0 mt-[3px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
 
 export default function PathologySection() {
   return (
-    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8 lg:py-24 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-16 font-sans">
-      {/* LEFT COLUMN — Feature Matrix Lists */}
-      <div className="w-full lg:flex-1 min-w-0">
-        {/* Section label */}
-        <p className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-navy-500 uppercase tracking-widest mb-2 lg:mb-3 text-left">
-          Pathology Lab Management
-        </p>
+    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 lg:py-24 font-sans">
+      <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
 
-        <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-10 text-left">
-          Precision Lab Operations{" "}
-          <span className="text-navy-500">Powered by Intelligence</span>
-        </h2>
+        {/* ── LEFT — checklist content ── */}
+        <div className="flex-1 min-w-0">
 
-        {/* Feature Layout Stack */}
-        <div className="flex flex-col gap-6 lg:gap-8">
-          {/* Group 1: Sample & Test Management */}
-          <div>
-            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-              Sample & Test Management
-            </h3>
-            <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
-              {pathologyCore.map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5 lg:gap-3">
-                  <div className="flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full text-teal-600 shrink-0 mt-0.5">
-                    <svg
-                      className="w-3 h-3 lg:w-3.5 lg:h-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-600 leading-relaxed">
-                    {/* MOBILE LOGIC CODE: One-liner content restricted strictly to mobile layouts */}
-                    <span className="block md:hidden whitespace-nowrap overflow-hidden text-ellipsis max-w-[78vw]">
-                      {item.mobile}
-                    </span>
+          <p className="text-[11px] sm:text-xs font-semibold text-blue-700 uppercase tracking-widest mb-2">
+            Pathology Lab Management
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+            Precision Lab Operations{" "}
+            <span className="text-blue-700">Powered by Intelligence</span>
+          </h2>
+          <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-8 max-w-xl">
+            Automate sample tracking, reporting, and compliance with intelligent lab management built for modern diagnostics.
+          </p>
 
-                    {/* DESKTOP LOGIC CODE: Comprehensive descriptions displayed on tablets & PCs */}
-                    <span className="hidden md:inline">{item.desktop}</span>
+          {/* Group 1 */}
+          <div className="mb-6">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-3">
+              Sample &amp; Test Management
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-col gap-2">
+              {sampleTestManagement.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <ArrowIcon />
+                  <span className="text-sm lg:text-[15px] text-slate-700 leading-relaxed">
+                    {item}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Group 2: Reporting & Compliance */}
-          <div>
-            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-              Reporting & Compliance
-            </h3>
-            <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
-              {pathologyOperations.map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5 lg:gap-3">
-                  <div className="flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full text-navy-600 shrink-0 mt-0.5">
-                    <svg
-                      className="w-3 h-3 lg:w-3.5 lg:h-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-600 leading-relaxed">
-                    {/* MOBILE LOGIC CODE: One-liner content restricted strictly to mobile layouts */}
-                    <span className="block md:hidden whitespace-nowrap overflow-hidden text-ellipsis max-w-[78vw]">
-                      {item.mobile}
-                    </span>
-
-                    {/* DESKTOP LOGIC CODE: Comprehensive descriptions displayed on tablets & PCs */}
-                    <span className="hidden md:inline">{item.desktop}</span>
+          {/* Group 2 */}
+          <div className="mb-8">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-3">
+              Reporting &amp; Compliance
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-col gap-2">
+              {reportingCompliance.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <ArrowIcon />
+                  <span className="text-sm lg:text-[15px] text-slate-700 leading-relaxed">
+                    {item}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-      </div>
 
-      {/* RIGHT COLUMN — Premium Layered Graphic Frame */}
-      {/* flex-col structural ordering ensures the graphic loads below headers on smartphones cleanly */}
-      <div className="relative w-full max-w-sm sm:max-w-xl lg:max-w-none lg:w-[520px] h-[240px] sm:h-[360px] lg:h-[580px] shrink-0 lg:self-center mt-4 lg:mt-0">
-        {/* Underlay decoration layer offset */}
-        <div className="absolute top-3 left-3 right-[-12px] bottom-[-12px] sm:top-6 sm:left-6 sm:right-[-24px] sm:bottom-[-24px] bg-navy-50 border border-slate-100 rounded-xl sm:rounded-3xl z-10" />
-
-        {/* Image Canvas Frame */}
-        <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-navy-50 border-2 lg:border-[3px] border-navy-500 shadow-sm lg:shadow-xl z-20">
-          <Image
-            src="/pathology/intro.jpg"
-            alt="MediMaster Pathology Lab Management Interface"
-            fill
-            className="object-contain p-2 sm:p-4"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 520px"
-            priority
-          />
+          {/* CTA Button */}
+          <button className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 border border-blue-700 rounded-full px-5 py-2 hover:bg-blue-50 transition-colors">
+            Learn more
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
         </div>
 
-        {/* Floating badge */}
-        <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 lg:-top-4 lg:-right-4 z-30 bg-navy-500 text-[9px] sm:text-[11px] lg:text-xs font-bold text-white tracking-wider uppercase px-2.5 py-1 sm:px-4 sm:py-2 rounded-full shadow-md lg:shadow-lg">
-          Pathology Module
+        {/* ── RIGHT — static image ── */}
+        <div className="w-full lg:w-[420px] shrink-0">
+          <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+            <Image
+              src="/pathology/intro.jpg"
+              alt="MediMaster Pathology Lab Management Interface"
+              width={840}
+              height={600}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
         </div>
 
-        {/* Floating stats tracker widget */}
-        <div className="absolute bottom-2 -left-2 sm:bottom-8 sm:-left-8 lg:bottom-8 lg:-left-8 z-30 bg-white rounded-lg sm:rounded-2xl p-2 sm:p-4 lg:px-5 lg:py-3.5 shadow-md lg:shadow-xl border border-slate-100 min-w-[100px] sm:min-w-[160px]">
-          <p className="text-[8px] sm:text-[10px] lg:text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-0.5 sm:mb-1">
-            Report Turnaround
-          </p>
-          <p className="text-sm sm:text-xl lg:text-2xl font-black text-navy-500 leading-none">
-            2× Faster
-          </p>
-          <p className="text-[8px] sm:text-[11px] lg:text-xs text-slate-400 mt-0.5 sm:mt-1">
-            Auto result entry
-          </p>
-        </div>
       </div>
     </section>
   );

@@ -1,7 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const tabs = [
   {
@@ -127,12 +131,23 @@ export default function PlatformFeatures() {
       <div className="max-w-6xl mx-auto">
 
         {/* Top label */}
-        <p className="text-center text-xs font-bold tracking-widest text-teal-600 uppercase mb-3">
-          Platform Features
-        </p>
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <div className="flex items-center gap-1.5">
+            <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+              <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+              <circle cx="22" cy="5" r="2" fill="#0D9488" />
+            </svg>
+          </div>
+          <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+            Platform Features
+          </span>
+        </div>
 
         {/* Heading */}
-        <h2 className="text-center text-4xl font-bold text-gray-900 mb-4 leading-tight">
+        <h2
+          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 text-center"
+          style={{ fontFamily: "'Georgia', serif" }}
+        >
           Everything Your Hospital Needs —{" "}
           <span className="text-teal-700">In One Platform</span>
         </h2>
@@ -186,7 +201,10 @@ export default function PlatformFeatures() {
             </span>
 
             {/* Heading */}
-            <h3 className="text-3xl font-bold text-gray-900 leading-snug">
+            <h3
+              className="text-3xl font-bold text-gray-900 leading-snug"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
               {active.heading}
             </h3>
 

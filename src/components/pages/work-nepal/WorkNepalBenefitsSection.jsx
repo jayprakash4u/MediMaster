@@ -14,7 +14,7 @@ const benefits = [
 
 export default function WorkNepalBenefitsSection() {
   return (
-    <section className="relative w-full bg-navy-950 text-white overflow-hidden py-20 px-6 sm:px-12 lg:px-20">
+    <section id="worknepal-benefits" className="relative w-full bg-navy-950 text-white overflow-hidden py-20 px-6 sm:px-12 lg:px-20">
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-500 rounded-full blur-3xl" />
         <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-teal-500 rounded-full blur-3xl opacity-30" />

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function WorkNepalAboutSection() {
   return (
-    <section className="relative w-full bg-white overflow-hidden py-20 px-4 md:px-8">
+    <section id="worknepal-about" className="relative w-full bg-white overflow-hidden py-20 px-4 md:px-8">
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <div className="relative w-full min-h-[460px] md:min-h-[520px] rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-100">

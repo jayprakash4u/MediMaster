@@ -38,7 +38,14 @@ export default function AboutHero() {
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, x: 60, scale: 0.92 },
-        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1.1,
+          ease: "power3.out",
+          delay: 0.4,
+        },
       );
     }, containerRef);
 
@@ -55,20 +62,34 @@ export default function AboutHero() {
 
       <div className="relative z-10 container mx-auto px-6 py-8 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          <div ref={contentRef} className="flex-1 max-w-2xl text-center lg:text-left">
-            <div
-              ref={badgeRef}
-              className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] mb-6"
-            >
-              <span className="text-3xl font-black text-teal-300">M</span>
+          <div
+            ref={contentRef}
+            className="flex-1 max-w-2xl text-center lg:text-left"
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-1.5">
+                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                  <path
+                    d="M0 5h20"
+                    stroke="#14B8A6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+                </svg>
+              </div>
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-300">
+                About Us
+              </span>
             </div>
 
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.35em] text-teal-300/80">
-                About Us
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-                MediMaster
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
+                Transforming <span className="text-teal-400">Healthcare</span>{" "}
+                with Technology
               </h1>
               <p className="text-sm sm:text-base leading-7 text-slate-300">
                 Transforming healthcare through precision-engineered technology
@@ -93,7 +114,10 @@ export default function AboutHero() {
             </div>
           </div>
 
-          <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
+          <div
+            ref={imageRef}
+            className="flex-1 flex justify-center lg:justify-end"
+          >
             <div
               className="relative w-full max-w-md lg:max-w-lg"
               style={{ aspectRatio: "1 / 1" }}

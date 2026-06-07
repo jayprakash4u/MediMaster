@@ -4,14 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: '**',
       },
     ],
+    unoptimized: true,
   },
-  webpack: (config) => {
-    config.resolve.alias['@'] = '/src';
-    return config;
-  },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

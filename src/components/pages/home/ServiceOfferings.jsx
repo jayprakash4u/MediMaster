@@ -158,25 +158,21 @@ export default function ServiceOfferings() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-14">
-          <span style={{
-            display: "block",
-            fontSize: "11px",
-            fontWeight: 700,
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-            color: "#0D9488",
-            marginBottom: "12px",
-          }}>
-            What we offer
-          </span>
-          <h2 style={{
-            fontFamily: "'Syne', sans-serif",
-            fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)",
-            fontWeight: 800,
-            color: "#0F172A",
-            lineHeight: 1.1,
-            margin: 0,
-          }}>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+              What We Offer
+            </span>
+          </div>
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Software products &amp; <span style={{ color: "#14B8A6" }}>service offerings</span>
           </h2>
         </div>

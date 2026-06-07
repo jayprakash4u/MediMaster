@@ -2,154 +2,120 @@
 
 import Image from "next/image";
 
-const coreArchitecture = [
-  {
-    mobile: "Cloud-based Hospital Management Software",
-    desktop:
-      "Simple yet comprehensive Cloud-based Hospital Management Software",
-  },
-  {
-    mobile: "No installation required — Runs in any browser",
-    desktop:
-      "No hardware or software installation required (Runs directly in your favorite browser)",
-  },
-  {
-    mobile: "Designed for standalone Labs, Radiology & Pharmacies",
-    desktop:
-      "Designed for standalone Pathology Labs, Radiology/Imaging Labs, and Pharmacies operating independently from hospitals",
-  },
-  {
-    mobile: "Native Apps for iOS, Android, Tablets & iPads",
-    desktop:
-      "Native multi-platform accessibility: Dedicated Apps for Android Mobiles, Android Tablets, iPhones, and iPads",
-  },
+const systemArchitecture = [
+  "Simple yet comprehensive Cloud-based Hospital Management Software",
+  "No hardware or software installation required (Runs directly in your favorite browser)",
+  "Designed for standalone Pathology Labs, Radiology/Imaging Labs, and Pharmacies operating independently from hospitals",
+  "Native multi-platform accessibility: Dedicated Apps for Android Mobiles, Android Tablets, iPhones, and iPads",
 ];
 
-const operationsCapabilities = [
-  {
-    mobile: "Manage multiple global branches remotely",
-    desktop:
-      "Manage multiple hospital & clinical branches remotely from any place in the world",
-  },
-  {
-    mobile: "Detailed prescriptions & customized brand printing",
-    desktop:
-      "Detailed patient prescriptions and clinical reports with completely customized brand printing",
-  },
-  {
-    mobile: "Automated workflow SMS communication channels",
-    desktop:
-      "Automated transactional SMS communication channels for each definitive step in the healthcare workflow",
-  },
-  {
-    mobile: "Real-time performance, trends & predictive forecasts",
-    desktop:
-      "Advanced business intelligence tracking to review real-time staff performance, trends, and predictive forecasts",
-  },
-  {
-    mobile: "Optimized for maximum patient satisfaction",
-    desktop:
-      "Engineered for improved customer interactions, resulting in vastly increased patient satisfaction",
-  },
+const managementOperations = [
+  "Manage multiple hospital & clinical branches remotely from any place in the world",
+  "Detailed patient prescriptions and clinical reports with completely customized brand printing",
+  "Automated transactional SMS communication channels for each definitive step in the healthcare workflow",
+  "Advanced business intelligence tracking to review real-time staff performance, trends, and predictive forecasts",
+  "Engineered for improved customer interactions, resulting in vastly increased patient satisfaction",
 ];
+
+const CheckIcon = () => (
+  <svg
+    className="w-4 h-4 text-blue-700 shrink-0 mt-[3px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
 
 export default function WelcomeSection() {
   return (
-    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8 lg:py-24 flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-16 font-sans">
-      {/* LEFT COLUMN — Dynamic Feature Lists */}
-      <div className="w-full lg:flex-1 min-w-0">
-        <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-8 lg:whitespace-nowrap text-left">
-          Platform Architecture &{" "}
-          <span className="text-navy-500">Core Capabilities</span>
-        </h2>
+    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 lg:py-24 font-sans">
+      <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
 
-        {/* Feature Matrix Layout */}
-        <div className="flex flex-col gap-6 lg:gap-8">
-          {/* Group 1: Infrastructure */}
-          <div>
-            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-              System & Architecture
-            </h3>
-            <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
-              {coreArchitecture.map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5 lg:gap-3">
-                  <div className="flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full shrink-0 mt-0.5">
-                    <svg
-                      className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-teal-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-600 leading-relaxed truncate-none">
-                    {/* Shows on mobile only */}
-                    <span className="lg:hidden block whitespace-nowrap overflow-hidden text-ellipsis max-w-[85vw] sm:max-w-none">
-                      {item.mobile}
-                    </span>
-                    {/* Shows on desktop only */}
-                    <span className="hidden lg:inline">{item.desktop}</span>
+        {/* ── LEFT — checklist content ── */}
+        <div className="flex-1 min-w-0">
+
+          <p className="text-[11px] sm:text-xs font-semibold text-blue-700 uppercase tracking-widest mb-2">
+            Platform Overview
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+            Platform Architecture &{" "}
+            <span className="text-blue-700">Core Capabilities</span>
+          </h2>
+          <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-8 max-w-xl">
+            A cloud-native platform built for hospitals, labs, pharmacies, and clinics — accessible from any browser with no installation.
+          </p>
+
+          {/* Group 1 */}
+          <div className="mb-6">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-3">
+              System &amp; Architecture
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-col gap-2">
+              {systemArchitecture.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <CheckIcon />
+                  <span className="text-sm lg:text-[15px] text-slate-700 leading-relaxed">
+                    {item}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Group 2: Business & Operations */}
-          <div>
-            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-              Management & Operations
-            </h3>
-            <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
-              {operationsCapabilities.map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5 lg:gap-3">
-                  <div className="flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full shrink-0 mt-0.5">
-                    <svg
-                      className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-navy-600"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-600 leading-relaxed">
-                    {/* Shows on mobile only */}
-                    <span className="lg:hidden block whitespace-nowrap overflow-hidden text-ellipsis max-w-[85vw] sm:max-w-none">
-                      {item.mobile}
-                    </span>
-                    {/* Shows on desktop only */}
-                    <span className="hidden lg:inline">{item.desktop}</span>
+          {/* Group 2 */}
+          <div className="mb-8">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-3">
+              Management &amp; Operations
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-col gap-2">
+              {managementOperations.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <CheckIcon />
+                  <span className="text-sm lg:text-[15px] text-slate-700 leading-relaxed">
+                    {item}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-      </div>
 
-      {/* RIGHT COLUMN — Image Framework */}
-      <div className="relative w-full max-w-xs sm:max-w-xl lg:max-w-none lg:w-[520px] h-[200px] sm:h-[360px] lg:h-[580px] shrink-0 lg:self-center mb-2 lg:mb-0">
-        <div className="absolute top-3 left-3 right-[-12px] bottom-[-12px] sm:top-6 sm:left-6 sm:right-[-24px] sm:bottom-[-24px] bg-navy-50 border border-slate-100 rounded-xl sm:rounded-3xl z-10" />
-        <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-navy-50 border-2 lg:border-[3px] border-navy-500 shadow-sm lg:shadow-xl z-20">
-          <Image
-            src="/home/description.png"
-            alt="MediMaster Healthcare Management Dashboard Interface"
-            fill
-            className="object-contain p-2 sm:p-4"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 520px"
-            priority
-          />
+          {/* CTA Button */}
+          <button className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 border border-blue-700 rounded-full px-5 py-2 hover:bg-blue-50 transition-colors">
+            Learn more
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
         </div>
+
+        {/* ── RIGHT — static image ── */}
+        <div className="w-full lg:w-[420px] shrink-0">
+          <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+            <Image
+              src="/home/platform-overview.jpg"
+              alt="MediMaster Platform Overview"
+              width={840}
+              height={600}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   );

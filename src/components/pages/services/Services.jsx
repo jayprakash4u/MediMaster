@@ -256,6 +256,18 @@ const SERVICES = [
     subtitle: "HIPAA Compliant",
   },
   {
+    name: "Digital Marketing",
+    icon: (
+      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="27" cy="27" r="18" />
+        <polyline points="22,20 30,27 22,34" />
+        <line x1="34" y1="18" x2="34" y2="32" />
+        <circle cx="27" cy="27" r="6" />
+      </svg>
+    ),
+    subtitle: "Online Growth",
+  },
+  {
     name: "Medical SEO",
     icon: (
       <svg
@@ -273,6 +285,44 @@ const SERVICES = [
       </svg>
     ),
     subtitle: "Search Optimization",
+  },
+  {
+    name: "PPC Campaigns",
+    icon: (
+      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+        <circle cx="35" cy="24" r="12" />
+        <text x="35" y="29" textAnchor="middle" style={{ fontSize: 13, fontWeight: 700, fill: "currentColor" }}>
+          $
+        </text>
+        <line x1="10" y1="11" x2="18" y2="19" />
+        <line x1="10" y1="24" x2="20" y2="24" />
+        <line x1="10" y1="37" x2="18" y2="29" />
+      </svg>
+    ),
+    subtitle: "Paid Advertising",
+  },
+  {
+    name: "Social Media",
+    icon: (
+      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <circle cx="26" cy="10" r="6" />
+        <circle cx="9" cy="34" r="6" />
+        <circle cx="45" cy="34" r="6" />
+        <line x1="18" y1="15" x2="13" y2="30" />
+        <line x1="34" y1="15" x2="39" y2="30" />
+        <line x1="15" y1="34" x2="39" y2="34" />
+      </svg>
+    ),
+    subtitle: "Social Strategy",
+  },
+  {
+    name: "Reputation Mgmt",
+    icon: (
+      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M27 5 L30 17 L43 17 L33 24 L37 37 L27 29 L17 37 L21 24 L11 17 L24 17 Z" />
+      </svg>
+    ),
+    subtitle: "Online Reputation",
   },
   {
     name: "PPC Campaigns",

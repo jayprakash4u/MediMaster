@@ -156,10 +156,21 @@ export default function AllInOneHealthcareSolution() {
         
         {/* Section Header */}
         <div className="mb-14 text-left">
-          <span className="inline-block text-xs font-bold tracking-widest uppercase text-teal-600 bg-teal-50 px-3 py-1.5 rounded-full mb-4">
-            Core Modules
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-none">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+              Core Modules
+            </span>
+          </div>
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             All-in-One <span className="text-teal-500">Healthcare</span> Solution
           </h2>
         </div>
@@ -207,7 +218,10 @@ export default function AllInOneHealthcareSolution() {
                   <span className="inline-block text-[10px] font-bold tracking-wider uppercase text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md mb-3">
                     {solution.tag}
                   </span>
-                  <h3 className="text-lg font-bold text-slate-950 mb-2 transition-colors duration-200 group-hover:text-teal-600">
+                  <h3
+                    className="text-lg font-bold text-slate-950 mb-2 transition-colors duration-200 group-hover:text-teal-600"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
                     {solution.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-slate-600">

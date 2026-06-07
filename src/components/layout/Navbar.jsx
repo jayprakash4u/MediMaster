@@ -46,7 +46,7 @@ export default function Navbar() {
     return () => ctx.revert();
   }, []);
 
-  // Active indicator animation
+  // Active indicator line tracking animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       const updateActiveIndicator = () => {
@@ -92,7 +92,7 @@ export default function Navbar() {
     return () => ctx.revert();
   }, [pathname]);
 
-  // Mobile menu open animation with stagger
+  // Mobile menu reveal
   useEffect(() => {
     if (open && mobileMenuRef.current) {
       const ctx = gsap.context(() => {
@@ -114,7 +114,7 @@ export default function Navbar() {
     }
   }, [open]);
 
-  // Hamburger to X morph animation
+  // Hamburger to X morph
   useEffect(() => {
     if (!hamburgerRef.current) return;
 
@@ -139,7 +139,7 @@ export default function Navbar() {
   return (
     <header className="w-full font-sans sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="h-10 bg-deepNavy-900 flex items-center overflow-hidden">
+      <div className="h-10 bg-[#1D2129] flex items-center overflow-hidden border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-xs text-white w-full gap-4">
           <p className="hidden md:block text-slate-300">
             Home Care and Medical Practices: Our Specialists are Here
@@ -151,14 +151,14 @@ export default function Navbar() {
             >
               Careers
             </a>
-            <span className="text-slate-600">|</span>
+            <span className="text-slate-700">|</span>
             <a
               href="#"
               className="text-slate-400 hover:text-white transition-colors"
             >
               Privacy Policy
             </a>
-            <span className="text-slate-600">|</span>
+            <span className="text-slate-700">|</span>
             <a
               href="#"
               className="text-slate-400 hover:text-white transition-colors"
@@ -169,16 +169,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <div className="relative bg-white flex items-center h-20 border-b border-gray-200">
+      {/* Main Navigation Header */}
+      <div className="relative bg-white flex items-center h-20 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between w-full">
-          {/* Logo */}
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center z-20">
             <div className="relative w-56 h-16 flex-shrink-0">
               <Image
                 ref={logoRef}
                 src="/brand/logo.png"
-                alt="Medi Master Logo"
+                alt="Logo"
                 fill
                 priority
                 className="object-contain object-left"
@@ -186,7 +186,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Button */}
           <button
             ref={hamburgerRef}
             onClick={() => setOpen(!open)}
@@ -206,14 +206,16 @@ export default function Navbar() {
             </svg>
           </button>
 
-          {/* Navigation Segment - Using Teal brand color */}
+          {/* Desktop Navigation Links Container */}
           <nav
             className="absolute right-0 bottom-0 top-4 bg-teal-500 hidden md:flex items-center pl-32 pr-8 w-[68%] lg:w-[65%]"
             style={{ clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)" }}
+            onMouseLeave={() => setActiveDropdown(null)}
           >
+            {/* GSAP Indicator Line */}
             <div
               ref={activeIndicatorRef}
-              className="absolute left-0 bottom-0 h-[3px] bg-navy-950 w-0 transition-all duration-500"
+              className="absolute left-0 bottom-0 h-[3px] bg-slate-900 w-0 transition-all duration-500"
             />
 
             <ul className="relative flex items-center gap-6 lg:gap-8 text-white font-medium h-full">
@@ -225,7 +227,9 @@ export default function Navbar() {
                   }}
                   className="relative flex items-center h-full"
                   onMouseEnter={() =>
-                    link.children && setActiveDropdown(link.label)
+                    link.children
+                      ? setActiveDropdown(link.label)
+                      : setActiveDropdown(null)
                   }
                 >
                   {link.children ? (
@@ -235,7 +239,7 @@ export default function Navbar() {
                         className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.label ? "rotate-180" : ""}`}
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="1.5"
+                        strokeWidth="2"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -257,10 +261,10 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Contact Us Button */}
+            {/* CTA Contact Button */}
             <Link
               href="/contact"
-              className="ml-auto bg-navy-950 text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-navy-950/90 transition-all duration-200 shadow-sm"
+              className="ml-auto bg-slate-900 text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-slate-800 transition-all duration-200 shadow-md"
             >
               Contact Us
             </Link>
@@ -268,46 +272,56 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Dropdowns - rendered OUTSIDE clipped nav at document level */}
-      {activeDropdown &&
-        NAV_LINKS.filter((l) => l.children).map((link) => {
-          if (link.label !== activeDropdown) return null;
-          const navIndex = NAV_LINKS.findIndex(
-            (item) => item.label === link.label,
-          );
-          const rect = navLinksRef.current[navIndex]?.getBoundingClientRect();
-          return (
-            <div
-              key={link.label}
-              className="fixed z-[60] hidden md:block"
-              style={{
-                top: rect ? `${rect.bottom + 8}px` : "auto",
-                left: rect ? `${rect.left}px` : "auto",
-              }}
-              onMouseEnter={() => setActiveDropdown(link.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <ul className="w-64 bg-white rounded-md shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-slate-200 flex flex-col divide-y divide-slate-100 overflow-hidden">
-                {link.children.map((child) => (
-                  <li key={child.label} className="w-full">
-                    <Link
-                      href={child.href}
-                      className="block px-6 py-3.5 text-[15px] font-normal text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-                    >
-                      {child.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+      {/* --- RE-STRUCTURED 4x4 MEGA MENU LAYOUT --- */}
+      {activeDropdown && (
+        <div
+          className="absolute left-1/2 -translate-x-1/2 top-full mt-0 bg-white border border-slate-200 shadow-2xl hidden md:block z-40 animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseEnter={() => setActiveDropdown(activeDropdown)}
+          onMouseLeave={() => setActiveDropdown(null)}
+        >
+          {NAV_LINKS.filter((l) => l.children).map((link) => {
+            if (link.label !== activeDropdown) return null;
+            return (
+                <div
+                  key={link.label}
+                  className="max-w-4xl mx-auto p-4"
+                >
 
-      {/* Mobile Menu */}
+                {/* Dynamically loads grid structure based on configuration array */}
+                <div
+                  className={`grid ${link.gridCols || "grid-cols-3"} gap-x-6 gap-y-2`}
+                >
+                  {link.children.map((child) => (
+                    <Link
+                      key={child.label}
+                      href={child.href}
+                      className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 transition-all duration-150 border border-transparent hover:border-slate-200"
+                    >
+                      {/* Interactive SVGs */}
+                      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-all duration-200 shadow-inner shrink-0">
+                        {child.icon}
+                      </div>
+
+                      {/* Descriptive Titles */}
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[13px] font-semibold text-slate-800 group-hover:text-teal-600 transition-colors leading-snug truncate">
+                          {child.label}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Mobile Menu View */}
       {open && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden fixed inset-0 bg-deepNavy-950 z-[60] pt-32 px-4 pb-24 overflow-y-auto"
+          className="md:hidden fixed inset-0 bg-slate-950 z-[60] pt-32 px-4 pb-24 overflow-y-auto"
         >
           <button
             onClick={() => setOpen(false)}
@@ -328,10 +342,7 @@ export default function Navbar() {
 
           <ul className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
-              <li
-                key={link.label}
-                className="border-b border-deepNavy-700 pb-2"
-              >
+              <li key={link.label} className="border-b border-slate-800 pb-2">
                 {link.children ? (
                   <div>
                     <button
@@ -358,13 +369,19 @@ export default function Navbar() {
                       </svg>
                     </button>
                     {activeDropdown === link.label && (
-                      <ul className="mt-1 mb-2 ml-4 flex flex-col gap-1">
+                      <ul className="mt-2 ml-4 flex flex-col gap-2">
                         {link.children.map((child) => (
-                          <li key={child.label}>
+                          <li
+                            key={child.label}
+                            className="flex items-center gap-2.5"
+                          >
+                            <span className="text-teal-500 scale-75">
+                              {child.icon}
+                            </span>
                             <Link
                               href={child.href}
                               onClick={() => setOpen(false)}
-                              className="text-slate-400 text-lg font-normal hover:text-teal-400 transition-colors block py-1.5"
+                              className="text-slate-400 text-base font-normal hover:text-teal-400 transition-colors block py-1.5"
                             >
                               {child.label}
                             </Link>

@@ -22,7 +22,7 @@ export default function WorkNepalModulesSection() {
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
+    <section id="worknepal-modules" className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
       <div className="text-left mb-12">
         <div className="flex items-center gap-3 mb-2">
           <div className="flex items-center gap-1.5">

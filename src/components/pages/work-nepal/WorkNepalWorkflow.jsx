@@ -185,7 +185,7 @@ export default function JobWorkflow() {
   const current = tabs.find((t) => t.id === active);
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
+    <section id="worknepal-workflow" className="max-w-5xl mx-auto px-6 py-16">
       <div className="text-left mb-12">
         <div className="flex items-center gap-3 mb-2">
           <div className="flex items-center gap-1.5">

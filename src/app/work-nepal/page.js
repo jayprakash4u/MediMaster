@@ -1,5 +1,10 @@
 import Footer from "@/components/layout/Footer";
 import WorkNepalAboutSection from "@/components/pages/work-nepal/WorkNepalAboutSection";
+import WorkNepalBenefitsSection from "@/components/pages/work-nepal/WorkNepalBenefitsSection";
+import WorkNepalModulesSection from "@/components/pages/work-nepal/WorkNepalModulesSection";
+import WorkNepalWorkflow from "@/components/pages/work-nepal/WorkNepalWorkflow";
+import TopCompaniesNepal from "@/components/pages/work-nepal/TopCompaniesNepal";
+import JobSeekerReviews from "@/components/pages/work-nepal/JobSeekerReviews";
 import Link from "next/link";
 
 export default function WorkNepalPage() {
@@ -46,6 +51,23 @@ export default function WorkNepalPage() {
       </section>
 
       <WorkNepalAboutSection />
+
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <nav className="flex flex-wrap gap-3">
+          <a href="#worknepal-about" className="text-sm text-teal-600 font-medium">About</a>
+          <a href="#worknepal-benefits" className="text-sm text-teal-600 font-medium">Benefits</a>
+          <a href="#worknepal-modules" className="text-sm text-teal-600 font-medium">Modules</a>
+          <a href="#worknepal-workflow" className="text-sm text-teal-600 font-medium">How It Works</a>
+          <a href="#worknepal-top-companies" className="text-sm text-teal-600 font-medium">Top Companies</a>
+          <a href="#worknepal-reviews" className="text-sm text-teal-600 font-medium">Reviews</a>
+        </nav>
+      </div>
+
+      <WorkNepalBenefitsSection />
+      <WorkNepalModulesSection />
+      <WorkNepalWorkflow />
+      <TopCompaniesNepal />
+      <JobSeekerReviews />
 
       <Footer />
     </main>

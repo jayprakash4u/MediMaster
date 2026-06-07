@@ -277,13 +277,20 @@ export default function PackageSection() {
         {/* Global header */}
         <div ref={headerRef} className="pt-20 pb-14 text-center max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="h-px w-8 bg-teal-500/50" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal-400">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] text-teal-400">
               Package Plans
             </span>
-            <div className="h-px w-8 bg-teal-500/50" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-white"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Choose the{" "}
             <span className="text-teal-400">MediMaster</span>{" "}
             package built for your team.

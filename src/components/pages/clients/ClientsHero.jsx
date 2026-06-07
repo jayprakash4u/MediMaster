@@ -70,16 +70,17 @@ export default function ClientsHero() {
 
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.35em] text-teal-300/80">
-                Success Stories
+                Healthcare Partners
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-                Our{" "}
-                <span className="text-teal-300">Clients</span>
+                Trusted by{" "}
+                <span className="text-teal-300">500+</span> Healthcare
+                <br className="hidden sm:block" /> Institutions
               </h1>
               <p className="text-sm sm:text-base leading-7 text-slate-300">
-                We've partnered with businesses across industries to deliver
-                exceptional results. Here's what our clients say about working
-                with us.
+                Powering Nepal's hospitals, pharmacies, and diagnostic centers
+                with intelligent medical software solutions that transform
+                patient care.
               </p>
             </div>
           </div>

@@ -14,8 +14,18 @@ const statsData = [
     suffix: "+",
     label: "Team Members",
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      <svg
+        className="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        />
       </svg>
     ),
   },
@@ -24,8 +34,18 @@ const statsData = [
     suffix: "+",
     label: "Years Of Experience",
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      <svg
+        className="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+        />
       </svg>
     ),
   },
@@ -34,8 +54,18 @@ const statsData = [
     suffix: "+",
     label: "Projects",
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      <svg
+        className="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+        />
       </svg>
     ),
   },
@@ -44,8 +74,18 @@ const statsData = [
     suffix: "+",
     label: "Happy Clients",
     icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="w-7 h-7"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
   },
@@ -68,7 +108,7 @@ export default function BusinessMetricsSection() {
             trigger: containerRef.current,
             start: "top 85%",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -85,7 +125,7 @@ export default function BusinessMetricsSection() {
             trigger: containerRef.current,
             start: "top 85%",
           },
-        }
+        },
       );
 
       gsap.utils.toArray(".count-number").forEach((el) => {
@@ -117,19 +157,40 @@ export default function BusinessMetricsSection() {
       className="w-full bg-white py-16 font-sans text-gray-600 antialiased"
     >
       <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-1.5">
+            <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+              <path
+                d="M0 5h20"
+                stroke="#14B8A6"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+            </svg>
+          </div>
+          <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+            Our Metrics
+          </span>
+        </div>
+
+        <h2
+          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 mb-12"
+          style={{ fontFamily: "'Georgia', serif" }}
+        >
+          Success by <span className="text-teal-600">Numbers</span>
+        </h2>
 
         <div className="metrics-panel w-full bg-teal-500/5 rounded-2xl border border-teal-500/10 shadow-[0_4px_30px_rgba(13,148,136,0.03)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative z-10 overflow-visible">
-
           {statsData.map((stat, idx) => (
             <div
               key={idx}
               className={`flex flex-col items-center text-center px-6 py-10 relative group ${
-                idx !== statsData.length - 1 ? "lg:border-r border-slate-200/50" : ""
-              } ${
-                idx % 2 === 0 ? "sm:border-r-0 lg:sm:border-r" : ""
-              }`}
+                idx !== statsData.length - 1
+                  ? "lg:border-r border-slate-200/50"
+                  : ""
+              } ${idx % 2 === 0 ? "sm:border-r-0 lg:sm:border-r" : ""}`}
             >
-
               <div className="metric-icon-wrap relative -mt-16 mb-4 z-20">
                 <div className="w-14 h-14 rounded-full p-[2px] bg-gradient-to-br from-teal-400 to-cyan-500 shadow-md transform transition-transform duration-300 group-hover:scale-105">
                   <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors">
@@ -139,10 +200,7 @@ export default function BusinessMetricsSection() {
               </div>
 
               <div className="flex items-baseline justify-center text-navy-950 font-black tracking-tight text-3xl sm:text-4xl mb-1.5">
-                <span
-                  className="count-number"
-                  data-target={stat.value}
-                >
+                <span className="count-number" data-target={stat.value}>
                   0
                 </span>
                 <span className="text-teal-600 ml-0.5 font-extrabold">
@@ -153,12 +211,9 @@ export default function BusinessMetricsSection() {
               <p className="text-xs sm:text-sm font-bold tracking-wide text-gray-500 group-hover:text-navy-900 transition-colors duration-200">
                 {stat.label}
               </p>
-
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

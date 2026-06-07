@@ -1,6 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function IndustryFocusSection() {
   const industries = [
@@ -229,11 +233,21 @@ export default function IndustryFocusSection() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Top Header Section */}
         <div className="max-w-4xl mb-16 space-y-3">
-          <div className="inline-flex items-center space-x-2.5 text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span>Market Segments</span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-emerald-600">
+              Market Segments
+            </span>
           </div>
-          <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-none">
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Purpose-built, next-gen solutions grounded in deep industry
             expertise
           </h2>

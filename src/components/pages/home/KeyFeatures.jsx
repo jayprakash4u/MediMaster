@@ -1,3 +1,11 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const features = [
   {
     title: "APPOINTMENT MANAGEMENT",
@@ -612,22 +620,51 @@ const features = [
 ];
 
 export default function KeyFeatures() {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(cardsRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="bg-background py-16 px-6 sm:px-12 lg:px-16 antialiased selection:bg-teal-100">
+    <section ref={sectionRef} className="bg-background py-16 px-6 sm:px-12 lg:px-16 antialiased selection:bg-teal-100">
       {/* Dynamic One-Line Header Layout */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between border-b border-gray-200/80 pb-8 mb-12 gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-teal-600 block mb-1">
-            Platform Capabilities
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-navy-950 tracking-tight">
+          <div className="flex items-center gap-3 mb-1">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold uppercase tracking-widest text-teal-600">
+              Platform Capabilities
+            </span>
+          </div>
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-navy-950"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Key Features
           </h2>
         </div>
-        <p className="text-sm text-gray-500 max-w-xl md:text-right leading-relaxed font-normal">
-          Streamline clinical operations and elevate patient care paradigms with
-          an integrated ecosystem designed for modern medical infrastructure.
-        </p>
       </div>
 
       {/* Grid */}

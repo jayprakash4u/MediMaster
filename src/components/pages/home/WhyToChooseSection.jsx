@@ -1,5 +1,12 @@
+"use client";
+
 import { Shield, Clock, CalendarDays, BarChart3 } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -96,23 +103,47 @@ function FeatureCard({ feature }) {
 }
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(sectionRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 78%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power3.out",
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full bg-slate-50 py-12 md:py-16">
+    <section ref={sectionRef} className="w-full bg-slate-50 py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* ── MOBILE LAYOUT (< md) ── */}
         <div className="flex flex-col gap-0 md:hidden">
           {/* Headline block */}
           <div className="flex flex-col items-start justify-center px-6 py-10 bg-white border border-slate-100">
-            <h2 className="leading-none mb-3">
-              <span className="block text-xl font-light text-gray-900 tracking-tight">
-                WHY
-              </span>
-              <span className="block text-3xl font-black text-gray-900 tracking-tighter">
-                CHOOSE
-              </span>
-              <span className="block text-3xl font-black text-teal-600 tracking-tighter">
-                MEDIMASTER?
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-1.5">
+                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                  <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                </svg>
+              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Why Choose Us</span>
+            </div>
+            <h2
+              className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              Why Choose <span className="text-teal-600">MediMaster?</span>
             </h2>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
               Every day we work hard to make healthcare management smarter,
@@ -145,16 +176,20 @@ export default function WhyChooseUs() {
         <div className="hidden md:grid lg:hidden grid-cols-2 gap-0">
           {/* Headline */}
           <div className="flex flex-col items-start justify-center px-8 py-10 bg-white border border-slate-100 col-span-2">
-            <h2 className="leading-none mb-3">
-              <span className="block text-2xl font-light text-gray-900 tracking-tight">
-                WHY
-              </span>
-              <span className="block text-3xl font-black text-gray-900 tracking-tighter">
-                CHOOSE
-              </span>
-              <span className="block text-3xl font-black text-teal-600 tracking-tighter">
-                MEDIMASTER?
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-1.5">
+                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                  <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                </svg>
+              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Why Choose Us</span>
+            </div>
+            <h2
+              className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              Why Choose <span className="text-teal-600">MediMaster?</span>
             </h2>
             <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
               Every day we work hard to make healthcare management smarter,
@@ -204,16 +239,18 @@ export default function WhyChooseUs() {
 
           {/* Row 1, Col 3–4 — Headline */}
           <div className="row-start-1 col-start-3 col-span-2 flex flex-col items-end justify-center px-8 py-10 bg-white">
-            <h2 className="text-right leading-none mb-3">
-              <span className="block text-2xl font-light text-gray-900 tracking-tight">
-                WHY
-              </span>
-              <span className="block text-3xl font-black text-gray-900 tracking-tighter">
-                CHOOSE
-              </span>
-              <span className="block text-3xl font-black text-teal-600 tracking-tighter">
-                MEDIMASTER?
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+              <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Why Choose Us</span>
+            </div>
+            <h2
+              className="text-right text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              Why Choose <span className="text-teal-600">MediMaster?</span>
             </h2>
             <p className="text-sm text-gray-500 text-right leading-relaxed max-w-[220px]">
               Every day we work hard to make healthcare management smarter,

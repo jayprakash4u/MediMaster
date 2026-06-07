@@ -102,7 +102,7 @@ function LogoCard({ company }) {
 
 export default function TopCompaniesNepal() {
   return (
-    <section className="w-full bg-white py-20 px-4 sm:px-10 lg:px-16">
+    <section id="worknepal-top-companies" className="w-full bg-white py-20 px-4 sm:px-10 lg:px-16">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
         @keyframes fadeUp {

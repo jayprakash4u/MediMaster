@@ -1,148 +1,264 @@
 "use client";
 
 import React from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    image: "/services/shared/website development.jpg",
     title: "Website Development",
-    desc: "Highly functional & visually appealing website designed to meet your need.",
-    isFeatured: true,
+    desc: "Highly functional & visually appealing websites tailored to capture attention and scale seamlessly.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/web development.png",
-    title: "App Development In Nepal",
-    desc: "Innovative and user-friendly mobile application designed to engage users.",
-    isFeatured: false,
+    title: "App Development",
+    desc: "Innovative and responsive cross-platform mobile apps engineered for fluid interaction.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 002-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/SystemSoftware Development.jpg",
-    title: "System/Software Development",
-    desc: "System/software developed according to your business needs.",
-    isFeatured: false,
+    title: "System/Software Dev",
+    desc: "Enterprise-grade automation systems and backend software tailored to optimize operations.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/brand/ui-ux.jpg",
-    title: "UI/UX",
-    desc: "Design eye-catching UI/UX interfaces for effortless user interaction",
-    isFeatured: false,
+    title: "UI/UX Engineering",
+    desc: "Polished user experience wireframes and user-centric flows engineered for effortless clarity.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 7v10m-5-5h10"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/Search Engine Optimization (SEO).png",
-    title: "Search Engine Optimization (SEO)",
-    desc: "Custom SEO solutions for enhanced search engine visibility and growth",
-    isFeatured: false,
+    title: "Search Engine Optimization",
+    desc: "Data-driven organic architecture layout modifications to elevate domain visibility and capture leads.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/Emailhosting.png",
-    title: "Email Hosting",
-    desc: "Professional email hosting with custom domain and secure business email solutions.",
-    isFeatured: false,
+    title: "Premium Email Hosting",
+    desc: "Secure, custom-domain corporate mailing infrastructure to protect business communication pipelines.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/webhosting.png",
-    title: "Web Hosting",
-    desc: "Reliable and scalable web hosting services with 99.9% uptime guarantee.",
-    isFeatured: false,
+    title: "Scalable Web Hosting",
+    desc: "High-performance enterprise environments delivering low latency and verified uptime execution.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+        />
+      </svg>
+    ),
   },
   {
-    image: "/services/shared/webdesign.png",
-    title: "Web Design",
-    desc: "Modern and responsive web design tailored to your brand and audience.",
-    isFeatured: false,
+    title: "Modern Web Design",
+    desc: "Minimalist, responsive web canvases mapped thoughtfully around established identity guidelines.",
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+        />
+      </svg>
+    ),
   },
 ];
 
 export default function FeatureSection() {
-  const gradients = [
-    "from-teal-500 to-teal-400",
-    "from-navy-600 to-navy-500",
-    "from-teal-600 to-teal-500",
-    "from-navy-500 to-navy-400",
-  ];
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
 
-  const iconBgs = [
-    "bg-teal-50",
-    "bg-navy-50",
-    "bg-teal-50",
-    "bg-navy-50",
-  ];
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(cardsRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 72%",
+          toggleActions: "play none none none",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: "power2.out",
+      });
+    }, sectionRef);
 
-  const iconTexts = [
-    "text-teal-600",
-    "text-navy-600",
-    "text-teal-600",
-    "text-navy-600",
-  ];
-
-  const borders = [
-    "border-teal-100",
-    "border-navy-100",
-    "border-teal-100",
-    "border-navy-100",
-  ];
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="py-20 md:py-28 bg-slate-50/50 font-sans text-slate-700 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center space-x-2.5 text-xs font-bold uppercase tracking-widest text-navy-700 bg-teal-50 px-3 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-              <span>Our Expertise</span>
+    <section ref={sectionRef} className="py-24 bg-[#FAF9F6] text-neutral-900 font-sans antialiased overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+         {/* --- SECTION INTRO HEADER --- */}
+         <div className="max-w-3xl mb-20 space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
             </div>
-<h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-navy-950 tracking-tight leading-none">
-              Exceptional Services For Your{" "}
-              <span className="relative inline-block text-teal-600">
-                Business Growth
-              </span>
-            </h2>
-            <p className="text-base md:text-lg text-slate-500 font-normal max-w-xl pt-1">
-              Discover our wide range of digital solutions designed to elevate your brand and enhance your online footprint.
-            </p>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+              Capabilities
+            </span>
           </div>
+          <h2
+            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            Digital Architecture Built For <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
+              Sustainable Growth
+            </span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 items-stretch">
+        {/* --- HIGH-END MINIMALIST CARD GRID --- */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {services.map((item, idx) => (
             <div
               key={idx}
-              className={`group relative rounded-2xl p-6 bg-white border ${borders[idx % 4]} transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-lg`}
+              className="group relative rounded-2xl p-6 bg-white border border-neutral-200/60 transition-all duration-500 ease-in-out flex flex-col justify-between hover:border-neutral-300 hover:shadow-xl hover:shadow-neutral-200/40"
             >
-              <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${gradients[idx % 4]} rounded-t-2xl`} />
-
-              <div className="space-y-6 mt-2">
-                <div className={`w-14 h-14 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0 border border-slate-100 shadow-xs relative ${iconBgs[idx % 4]}`}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-                  />
+              {/* Internal Content Stack */}
+              <div className="space-y-6">
+                {/* Modern Frameless Vector Icon Chamber */}
+                <div className="w-12 h-12 rounded-xl bg-neutral-50 border border-neutral-100 flex items-center justify-center text-neutral-600 transition-all duration-300 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:text-white group-hover:scale-105 shadow-sm">
+                  {item.icon}
                 </div>
 
-                <div className="space-y-2.5">
-                  <h3 className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-200 leading-snug ${iconTexts[idx % 4]}`}>
+                {/* Typography Block */}
+                <div className="space-y-2">
+                  <h3
+                    className="text-lg font-bold tracking-tight text-neutral-800 transition-colors duration-200 group-hover:text-neutral-950"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed font-light">
                     {item.desc}
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 mt-4 border-t border-slate-50 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-teal-600 transition-colors duration-200">
-                <span>Learn More</span>
+              {/* Minimal Animated Footnote Anchor */}
+              <div className="pt-6 mt-6 border-t border-neutral-100/80 flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-400 group-hover:text-teal-600 transition-colors duration-300 select-none">
+                <span>View Details</span>
                 <svg
-                  className="w-4 h-4 transform transition-all duration-200 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
+                  className="w-3.5 h-3.5 transform transition-all duration-300 translate-x-0 group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  strokeWidth="2.5"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M9 5l7 7-7 7"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
               </div>

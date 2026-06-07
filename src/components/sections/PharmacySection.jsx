@@ -2,179 +2,115 @@
 
 import Image from "next/image";
 
-const pharmacyCore = [
-  {
-    mobile: "Real-time drug inventory & low-stock alerts",
-    desktop:
-      "Centralized drug inventory management with real-time stock tracking and low-stock alerts",
-  },
-  {
-    mobile: "Auto-fetch doctor prescriptions directly",
-    desktop:
-      "Seamless integration with doctor prescriptions — auto-fetch and dispense directly from patient records",
-  },
-  {
-    mobile: "Barcode & batch scanning for fast dispensing",
-    desktop:
-      "Barcode and batch number scanning for fast, error-free medicine dispensing at the counter",
-  },
-  {
-    mobile: "Expiry tracking with automated safety alerts",
-    desktop:
-      "Expiry date tracking with automated alerts to prevent dispensing of expired medications",
-  },
+const inventoryDispensing = [
+  "Auto-fetch prescriptions for fast dispensing",
+  "Barcode and batch number scanning for fast, error-free medicine dispensing at the counter",
+  "Expiry date tracking with automated alerts to prevent dispensing of expired medications",
 ];
 
-const pharmacyOperations = [
-  {
-    mobile: "Multi-branch stock visibility across locations",
-    desktop:
-      "Multi-branch pharmacy management with consolidated stock visibility across all locations",
-  },
-  {
-    mobile: "Supplier purchase order & GRN tracking",
-    desktop:
-      "Supplier and purchase order management with GRN (Goods Received Note) tracking",
-  },
-  {
-    mobile: "Automated billing & GST-compliant invoices",
-    desktop:
-      "Automated billing, GST-compliant invoicing, and detailed sales reports per shift or day",
-  },
-  {
-    mobile: "Medication history & patient refill reminders",
-    desktop:
-      "Patient medication history and refill reminders for improved adherence and retention",
-  },
-  {
-    mobile: "Controlled substance logs & compliance audits",
-    desktop:
-      "Controlled substance and narcotic drug register with audit-ready compliance reporting",
-  },
+const operationsCompliance = [
+  "Controlled drug tracking with audit-ready reports",
+  "Supplier and purchase order management with GRN (Goods Received Note) tracking",
+  "Automated billing, GST-compliant invoicing, and detailed sales reports per shift or day",
+  "Patient medication history and refill reminders for improved adherence and retention",
 ];
+
+const ArrowIcon = () => (
+  <svg
+    className="w-4 h-4 text-blue-700 shrink-0 mt-[3px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
 
 export default function PharmacySection() {
   return (
-    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8 lg:py-24 flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-16 font-sans">
-      {/* LEFT COLUMN — Premium Layered Graphic Frame */}
-      <div className="relative w-full max-w-sm sm:max-w-xl lg:max-w-none lg:w-[520px] h-[240px] sm:h-[360px] lg:h-[580px] shrink-0 lg:self-center mb-4 lg:mb-0">
-        {/* Underlay Decoration */}
-        <div className="absolute top-3 left-3 right-[-12px] bottom-[-12px] sm:top-6 sm:left-6 sm:right-[-24px] sm:bottom-[-24px] bg-slate-50 border border-slate-100 rounded-xl sm:rounded-3xl z-10" />
-
-        {/* Main Image Frame */}
-        <div className="relative w-full h-full rounded-xl sm:rounded-3xl overflow-hidden bg-teal-50 border-2 lg:border-[3px] border-teal-600 shadow-sm lg:shadow-xl z-20">
-          <Image
-            src="/home/pharmacy-intro.jpg"
-            alt="MediMaster Pharmacy Management Interface"
-            fill
-            className="object-contain p-2 sm:p-4"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 520px"
-            priority
-          />
-        </div>
-
-        {/* Floating Badge */}
-        <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 lg:-top-4 lg:-right-4 z-30 bg-teal-600 text-[9px] sm:text-[11px] lg:text-xs font-bold text-white tracking-wider uppercase px-2.5 py-1 sm:px-4 sm:py-2 rounded-full shadow-md">
-          Pharmacy Module
-        </div>
-
-        {/* Floating Stat Card */}
-        <div className="absolute bottom-2 -left-2 sm:bottom-8 sm:-left-8 lg:bottom-8 lg:-left-8 z-30 bg-white rounded-lg sm:rounded-2xl p-2 sm:p-4 lg:px-5 lg:py-3.5 shadow-md lg:shadow-xl border border-slate-100 min-w-[100px] sm:min-w-[160px]">
-          <p className="text-[8px] sm:text-[10px] lg:text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-0.5 sm:mb-1">
-            Stock Accuracy
+    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 lg:py-24 font-sans">
+      <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
+        {/* ── LEFT — checklist content ── */}
+        <div className="flex-1 min-w-0">
+          <p className="text-[11px] sm:text-xs font-semibold text-blue-700 uppercase tracking-widest mb-2">
+            Pharmacy Management
           </p>
-          <p className="text-sm sm:text-xl lg:text-2xl font-black text-teal-600 leading-none">
-            99.8%
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+            Smart, Simple,
+            <span className="text-blue-700"> and Compliant</span>
+          </h2>
+          <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-8 max-w-xl">
+            From inventory to dispensing, automate your pharmacy operations with
+            intelligent stock control and compliance-ready workflows.
           </p>
-          <p className="text-[8px] sm:text-[11px] lg:text-xs text-slate-400 mt-0.5 sm:mt-1">
-            Real-time sync
-          </p>
-        </div>
-      </div>
 
-      {/* RIGHT COLUMN — Feature Matrix Lists */}
-      <div className="w-full lg:flex-1 min-w-0">
-        <p className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-navy-500 uppercase tracking-widest mb-2 lg:mb-3 text-left">
-          Pharmacy Management
-        </p>
-
-        <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 lg:mb-10 text-left">
-          End-to-End <span className="text-navy-500">Pharmacy Control</span>{" "}
-          Built for Healthcare
-        </h2>
-
-        {/* Feature Layout Stack */}
-        <div className="flex flex-col gap-6 lg:gap-8">
-          {/* Group 1: Inventory & Dispensing */}
-          <div>
-            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-teal-600">
-              Inventory & Dispensing
-            </h3>
-            <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
-              {pharmacyCore.map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5 lg:gap-3">
-                  <div className="flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-teal-100 text-teal-600 shrink-0 mt-0.5">
-                    <svg
-                      className="w-3 h-3 lg:w-3.5 lg:h-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-600 leading-relaxed">
-                    {/* MOBILE LOGIC: One line version, hidden entirely on desktop screens */}
-                    <span className="block md:hidden whitespace-nowrap overflow-hidden text-ellipsis max-w-[78vw]">
-                      {item.mobile}
-                    </span>
-
-                    {/* DESKTOP LOGIC: Detailed copy, hidden entirely on mobile devices */}
-                    <span className="hidden md:inline">{item.desktop}</span>
+          {/* Group 1 */}
+          <div className="mb-6">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-3">
+              Inventory &amp; Dispensing
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-col gap-2">
+              {inventoryDispensing.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <ArrowIcon />
+                  <span className="text-sm lg:text-[15px] text-slate-700 leading-relaxed">
+                    {item}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Group 2: Operations & Compliance */}
-          <div>
-            <h3 className="text-[11px] sm:text-xs lg:text-[13px] font-bold text-slate-500 uppercase tracking-wider pb-1 mb-3 lg:mb-4 border-b-2 border-orange-500">
-              Operations & Compliance
-            </h3>
-            <ul className="flex flex-col gap-2.5 lg:gap-3.5 m-0 p-0 list-none">
-              {pharmacyOperations.map((item, index) => (
-                <li key={index} className="flex items-start gap-2.5 lg:gap-3">
-                  <div className="flex items-center justify-center w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-orange-200 text-orange-500 shrink-0 mt-0.5">
-                    <svg
-                      className="w-3 h-3 lg:w-3.5 lg:h-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium text-slate-600 leading-relaxed">
-                    {/* MOBILE LOGIC: One line version, hidden entirely on desktop screens */}
-                    <span className="block md:hidden whitespace-nowrap overflow-hidden text-ellipsis max-w-[78vw]">
-                      {item.mobile}
-                    </span>
-
-                    {/* DESKTOP LOGIC: Detailed copy, hidden entirely on mobile devices */}
-                    <span className="hidden md:inline">{item.desktop}</span>
+          {/* Group 2 */}
+          <div className="mb-8">
+            <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest border-b border-slate-200 pb-2 mb-3">
+              Operations &amp; Compliance
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-col gap-2">
+              {operationsCompliance.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <ArrowIcon />
+                  <span className="text-sm lg:text-[15px] text-slate-700 leading-relaxed">
+                    {item}
                   </span>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* CTA Button */}
+          <button className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 border border-blue-700 rounded-full px-5 py-2 hover:bg-blue-50 transition-colors">
+            Learn more
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </div>
+
+        {/* ── RIGHT — static image ── */}
+        <div className="w-full lg:w-[420px] shrink-0">
+          <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+            <Image
+              src="/home/pharmacy-intro.jpg"
+              alt="MediMaster Pharmacy Management Interface"
+              width={840}
+              height={600}
+              className="w-full h-auto object-contain"
+              priority
+            />
           </div>
         </div>
       </div>

@@ -221,44 +221,59 @@ export default function InnovationWheelSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-slate-50/50 py-4 md:py-6 font-sans text-gray-600 antialiased overflow-hidden"
+      className="w-full bg-slate-50/50 py-20 font-sans text-gray-600 antialiased overflow-hidden"
     >
+      <div className="mx-auto max-w-7xl px-6 mb-12">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-1.5">
+            <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+              <path
+                d="M0 5h20"
+                stroke="#14B8A6"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+            </svg>
+          </div>
+          <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+            Our Innovation
+          </span>
+        </div>
+
+        <h2
+          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+          style={{ fontFamily: "'Georgia', serif" }}
+        >
+          Innovation is at the <span className="text-teal-600">Heart</span> of
+          Everything
+        </h2>
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
         {/* ── LEFT: Text ─────────────────────────────────────────────────── */}
-        <div ref={textSideRef} className="lg:col-span-5 space-y-4">
-          <div className="space-y-2">
-            <span className="text-teal-600 font-bold tracking-[0.2em] text-xs uppercase block">
-              Innovation
-            </span>
-            <h2 className="text-3xl font-black text-navy-950 sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              Innovation is at the heart of everything we do
-            </h2>
-          </div>
-
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
-            We engineer robust analytical tools, dynamic system pipelines, and
-            secure platforms that leverage the latest cloud frameworks. By
-            unifying our verified digital assets with deep ecosystem knowledge,
-            we reward creative experimentation to deliver high-performance,
-            scalable solutions built around your evolving infrastructure needs.
-          </p>
-
+        <div ref={textSideRef} className="lg:col-span-5 space-y-6">
           {/* Active hover feedback */}
-          <div className="hidden lg:block pt-2 min-h-[40px] transition-all duration-300">
+          <div className="pt-2 min-h-[60px] transition-all duration-300">
             {activeLabel ? (
-              <div className="p-3 bg-teal-50 border border-teal-100 rounded-xl max-w-xs">
-                <p className="text-[10px] font-bold text-teal-700 uppercase tracking-widest">
-                  Active Sector Focus
+              <div className="p-4 bg-teal-50 border border-teal-100 rounded-xl max-w-sm">
+                <p className="text-[10px] font-bold text-teal-700 uppercase tracking-widest mb-2">
+                  Focus Area
                 </p>
-                <p className="text-sm font-semibold text-gray-700 mt-0.5">
+                <p className="text-lg font-semibold text-slate-900">
                   {activeLabel}
                 </p>
               </div>
             ) : (
-              <p className="text-xs text-gray-400 italic">
-                Hover over sections of the ecosystem wheel to explore each
-                operational field.
-              </p>
+              <div className="space-y-3">
+                <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                  Explore our ecosystem
+                </p>
+                <p className="text-xs text-gray-400">
+                  Hover over the sections below to discover our core operational
+                  areas and expertise domains.
+                </p>
+              </div>
             )}
           </div>
         </div>

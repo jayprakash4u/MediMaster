@@ -153,15 +153,22 @@ export default function ExpertiseSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-12">
           {/* Left Column Content */}
           <div className="lg:col-span-6 space-y-8 pb-12 lg:pb-20">
-            <div className="flex items-center space-x-3">
-              <span className="h-[2px] w-8 bg-teal-500 rounded-full" />
-              <span className="font-display text-sm font-semibold tracking-wider text-gray-600 uppercase">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                  <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                </svg>
+              </div>
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
                 Our Expertise
               </span>
-              <span className="h-[2px] w-8 bg-teal-500 rounded-full" />
             </div>
 
-            <h2 className="font-display text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl md:text-5xl leading-tight">
+            <h2
+              className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-navy-950"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
               Technologies We Rely On To{" "}
               <span className="text-teal-500 relative inline-block">
                 Achieve

@@ -164,7 +164,7 @@ export default function JobSeekerReviews() {
       : reviews.filter((r) => r.tag === activeFilter);
 
   return (
-    <section className="bg-zinc-50/60 py-16 px-4 sm:px-6 lg:px-8 font-sans antialiased">
+    <section id="worknepal-reviews" className="bg-zinc-50/60 py-16 px-4 sm:px-6 lg:px-8 font-sans antialiased">
       <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-12 lg:gap-10 items-start">
         {/* LEFT COLUMN: Static Info Controls */}
         <div className="lg:col-span-4 mb-10 lg:mb-0 lg:sticky lg:top-10">

@@ -12,7 +12,7 @@ export default function ProductsPage() {
     <main>
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Our Products
           </h1>
           <p className="text-slate-600 max-w-2xl mb-8">

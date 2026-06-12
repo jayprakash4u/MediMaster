@@ -36,10 +36,10 @@ export const products = [
       "Interfaces for analyzers and LIS",
     ],
     cta: {
-      learnMore: "/products/cutis-path-lab",
+      learnMore: "/pathology-management",
       requestDemo: "/contact?product=cutis-path-lab",
     },
-    href: "/products/cutis-path-lab",
+    href: "/pathology-management",
   },
   {
     name: "MediFit",
@@ -72,11 +72,11 @@ export const products = [
       "Resume builder and application tracking",
     ],
     cta: {
-      learnMore: "/products/worknepal",
+      learnMore: "/work-nepal",
       requestDemo: "/contact?product=worknepal",
     },
     image: "/products/worknepal.png",
-    href: "/products/worknepal",
+    href: "/work-nepal",
   },
   {
     name: "Ramro Gadi",
@@ -95,6 +95,122 @@ export const products = [
       requestDemo: "/contact?product=ramro-gadi",
     },
     href: "/ramro-gadi",
+  },
+  {
+    name: "Medical Billing System",
+    tag: "Revenue Cycle Management",
+    description:
+      "A secure medical billing platform for hospitals, clinics and pathology labs that automates invoicing, claims, and collections.",
+    stats: "99% Claim Success",
+    iconColor: "#047857",
+    features: [
+      "Automated claim generation and TPA reconciliation",
+      "GST-compliant invoicing with hospital accounting integration",
+      "Real-time aging, collections, and revenue analytics",
+      "Cash, credit, insurance and installment billing workflows",
+    ],
+    cta: {
+      learnMore: "/medical-billing-system",
+      requestDemo: "/contact?product=medical-billing-system",
+    },
+    image: "/products/mediproduct.png",
+    href: "/medical-billing-system",
+  },
+  {
+    name: "Polyclinic Management System",
+    tag: "Multi-Specialty Clinic Software",
+    description:
+      "Comprehensive polyclinic management with multi-specialty scheduling, centralized patient records, and inter-department coordination.",
+    stats: "All-in-One",
+    iconColor: "#0D9488",
+    features: [
+      "Multi-specialty appointment scheduling and resource management",
+      "Centralized patient records with cross-department access",
+      "Integrated billing, pharmacy, lab and radiology coordination",
+      "Staff rostering, room scheduling, and inventory management",
+    ],
+    cta: {
+      learnMore: "/pharmacy-management",
+      requestDemo: "/contact?product=polyclinic-management-system",
+    },
+    image: "/hospital/polyclinic.jpg",
+    href: "/pharmacy-management",
+  },
+  {
+    name: "Patient Management System",
+    tag: "Patient Record & Engagement",
+    description:
+      "Comprehensive patient management with digital records, appointment scheduling, and care coordination for better outcomes.",
+    stats: "All-in-One",
+    iconColor: "#0D9488",
+    features: [
+      "Digital patient registration and comprehensive record management",
+      "Smart appointment scheduling with automated reminders",
+      "Medical history and allergy tracking with clinical notes",
+      "Integrated billing, insurance verification, and payment tracking",
+    ],
+    cta: {
+      learnMore: "/hospital-management",
+      requestDemo: "/contact?product=patient-management-system",
+    },
+    href: "/hospital-management",
+  },
+  {
+    name: "Diagnostic Center Management System",
+    tag: "Complete Lab Management",
+    description:
+      "Comprehensive diagnostic center management with test catalog, sample tracking, result validation, and branded reporting.",
+    stats: "All-in-One",
+    iconColor: "#0D9488",
+    features: [
+      "Test catalog & panel management with barcode sample tracking",
+      "Automated result entry with normal range validation and critical alerts",
+      "Branded report generation with digital signatures and delivery",
+      "NABL compliance, QC logs, and multi-branch lab management",
+    ],
+    cta: {
+      learnMore: "/pathology-management",
+      requestDemo: "/contact?product=diagnostic-center-management-system",
+    },
+    href: "/pathology-management",
+  },
+  {
+    name: "Support Ticketing System",
+    tag: "Customer Service Platform",
+    description:
+      "Intelligent support ticketing with automated workflows, multi-channel inbox, SLA tracking, and customer satisfaction management.",
+    stats: "All-in-One",
+    iconColor: "#0D9488",
+    features: [
+      "Automated ticket creation, routing, and escalation workflows",
+      "Multi-channel support via email, chat, WhatsApp, and phone",
+      "SLA tracking with real-time alerts and performance dashboards",
+      "Knowledge base and self-service portal for faster resolution",
+    ],
+    cta: {
+      learnMore: "/contact",
+      requestDemo: "/contact?product=support-ticketing-system",
+    },
+    href: "/contact",
+  },
+  {
+    name: "School Management Software",
+    tag: "Education ERP",
+    description:
+      "Comprehensive school management with student lifecycle tracking, attendance, examinations, grading, fee management, and parent communication.",
+    stats: "All-in-One",
+    iconColor: "#0D9488",
+    features: [
+      "Student admission, registration, and lifecycle management",
+      "Automated attendance tracking with biometric and RFID support",
+      "Integrated grading, examination, and report card generation",
+      "Fee management, online payments, and parent communication portal",
+    ],
+    cta: {
+      learnMore: "/contact",
+      requestDemo: "/contact?product=school-management-software",
+    },
+    href: "/contact",
   },
 ];
 

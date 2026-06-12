@@ -8,6 +8,7 @@ import {
   Bell,
   ShieldCheck,
 } from "lucide-react";
+import { COMPONENT_STYLES } from "@/lib/typography";
 
 const steps = [
   {
@@ -87,7 +88,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
 <div className="w-10 h-10 rounded-lg bg-navy-100 flex items-center justify-center flex-shrink-0">
                  <Icon size={20} className="text-navy-600" />
                </div>
-              <span className="text-[15px] font-medium text-gray-800">
+              <span className={COMPONENT_STYLES.stepTitle}>
                 {step.title}
               </span>
             </div>
@@ -105,7 +106,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
       <div className="grid grid-cols-2">
         {[left, right].map((step) => (
           <div key={step.num} className="px-6 pt-4 pb-8">
-            <p className="text-[14px] text-gray-500 leading-relaxed">{step.body}</p>
+            <p className={COMPONENT_STYLES.stepBody}>{step.body}</p>
           </div>
         ))}
       </div>
@@ -126,7 +127,7 @@ export default function PathologyWorkflow() {
         Streamline your pathology lab workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />
-      <p className="text-[15px] text-gray-500 leading-relaxed mb-10 max-w-4xl">
+      <p className="text-base text-gray-500 leading-relaxed mb-10 max-w-4xl">
         LinkHMS connects lab technicians, pathologists, and clinicians through a
         centralized solution for sample management, test processing, and result reporting.
         It ensures accuracy and efficiency across all diagnostic operations.

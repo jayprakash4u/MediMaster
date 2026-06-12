@@ -58,7 +58,7 @@ export default function RamroGadiAboutSection() {
           {/* Teal badge — bottom left */}
           <div className="absolute bottom-10 -left-2 z-30 bg-teal-600 text-white rounded-2xl px-5 py-4 shadow-lg flex flex-col items-center min-w-[110px]">
             <span className="text-2xl font-black leading-none">10+</span>
-            <span className="text-[10px] font-semibold uppercase tracking-wide leading-tight mt-1 text-center opacity-90">
+            <span className="text-xxs font-semibold uppercase tracking-wide leading-tight mt-1 text-center opacity-90">
               Years Of<br />Quality Service
             </span>
           </div>
@@ -90,7 +90,7 @@ export default function RamroGadiAboutSection() {
 
           {/* Headline */}
           <h2
-            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+            className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
             style={{ fontFamily: "'Georgia', serif" }}
           >
             Our Automotive Marketplace{" "}
@@ -139,7 +139,7 @@ export default function RamroGadiAboutSection() {
                 </svg>
               </div>
               <div>
-                <p className="text-[10px] text-slate-400 uppercase tracking-widest">Call Us Now</p>
+                <p className="text-xxs text-slate-400 uppercase tracking-widest">Call Us Now</p>
                 <p className="text-sm font-bold text-slate-800">+977-9801234567</p>
               </div>
             </a>

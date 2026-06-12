@@ -176,7 +176,7 @@ function FloatingIcon({ icon, index }) {
         <>
           <span
             style={{
-              fontSize: "11px",
+              fontSize: "0.625rem",
               fontWeight: 700,
               color: icon.textColor,
               fontFamily: "sans-serif",
@@ -200,7 +200,7 @@ function FloatingIcon({ icon, index }) {
       ) : isPillSm ? (
         <span
           style={{
-            fontSize: "11px",
+            fontSize: "0.625rem",
             fontWeight: 700,
             color: icon.textColor,
             fontFamily: "sans-serif",
@@ -213,7 +213,7 @@ function FloatingIcon({ icon, index }) {
       ) : (
         <span
           style={{
-            fontSize: isSquare ? "15px" : "13px",
+            fontSize: isSquare ? "1rem" : "0.875rem",
             fontWeight: 700,
             color: icon.textColor,
             fontFamily: "sans-serif",
@@ -281,14 +281,22 @@ export default function ContentWritingHero() {
             </div>
 
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.35em] text-teal-300/80">
-                Services
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-                Content{" "}
-                <span className="text-teal-300">Writing</span>
+              <div className="flex items-center gap-3 mb-4 justify-center lg:justify-start">
+                <div className="flex items-center gap-1.5">
+                  <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                    <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                  </svg>
+                </div>
+                <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-400">
+                  Services
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+                style={{ fontFamily: "'Georgia', serif" }}>
+                Content <span className="text-teal-400">Writing</span>
               </h1>
-              <p className="text-sm sm:text-base leading-7 text-slate-300">
+              <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-xl">
                 Engage your audience with compelling, high-quality content that drives results.
                 From blog posts and web copy to technical documentation and marketing materials,
                 our expert writers craft content that converts readers into customers.

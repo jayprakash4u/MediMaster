@@ -71,7 +71,7 @@ export default function PathologyManagement() {
             </div>
             <div>
               <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">Faster Reporting</h4>
-              <p className="text-[11px] text-slate-400 font-medium mt-1 leading-tight">Auto result entry & validation.</p>
+              <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">Auto result entry & validation.</p>
             </div>
           </div>
         </div>

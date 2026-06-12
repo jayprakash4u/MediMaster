@@ -49,7 +49,7 @@ export default function RamroGadiBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.15] mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.15] mb-8">
             Benefits of Using Ramro Gadi <br className="hidden md:block" />
             Automotive Marketplace Platform
           </h2>

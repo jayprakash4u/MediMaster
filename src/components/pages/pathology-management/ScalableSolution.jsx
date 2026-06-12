@@ -110,7 +110,7 @@ export default function ScalableSolution() {
         <div className="w-16 h-[3px] bg-gray-900 mb-5" />
 
         {/* Description */}
-        <p className="text-gray-500 text-[15px] leading-relaxed max-w-4xl mb-12">
+        <p className="text-gray-500 text-base leading-relaxed max-w-4xl mb-12">
           Bring laboratory management into your unique clinical workflow with easy
           test requests, real-time result tracking, automatic integration with
           patient records, and smooth staff collaboration.
@@ -126,7 +126,7 @@ export default function ScalableSolution() {
               <div className="flex items-center justify-center">
                 {item.icon}
               </div>
-              <p className="text-[13px] font-semibold text-gray-700 text-center leading-snug group-hover:text-teal-700 transition-colors">
+              <p className="text-xs font-semibold text-gray-700 text-center leading-snug group-hover:text-teal-700 transition-colors">
                 {item.label}
               </p>
             </div>

@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ΓöÇΓöÇΓöÇ Icons ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// GGG Icons GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 const HospitalIcon = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -28,7 +28,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-// ΓöÇΓöÇΓöÇ Data ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// GGG Data GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 const BILLING_TERMS = ["Monthly", "3 Months", "6 Months", "12 Months"];
 
 const PACKAGES = [
@@ -39,11 +39,11 @@ const PACKAGES = [
     icon: <HospitalIcon />,
     title: "Complete control over your hospital operations.",
     description:
-      "A full suite of hospital management modules covering every department ΓÇö from admissions and billing to finance, inventory and campaigns.",
+      "A full suite of hospital management modules covering every department G from admissions and billing to finance, inventory and campaigns.",
     stats: [
       { value: "12+", label: "Modules" },
       { value: "4", label: "Billing terms" },
-      { value: "Γê₧", label: "Users" },
+      { value: "GP", label: "Users" },
     ],
     features: [
       "Dashboard & operations control",
@@ -54,7 +54,7 @@ const PACKAGES = [
     billingLabel: "Flexible billing terms",
     sideNote: {
       heading: "Why hospital teams choose this",
-      body: "Centralised workflows mean every department ΓÇö OPD, IPD, pharmacy, lab, and finance ΓÇö operates from a single connected system with real-time visibility.",
+      body: "Centralised workflows mean every department G OPD, IPD, pharmacy, lab, and finance G operates from a single connected system with real-time visibility.",
     },
     reverse: false,
   },
@@ -65,7 +65,7 @@ const PACKAGES = [
     icon: <PathologyIcon />,
     title: "End-to-end lab automation and reporting.",
     description:
-      "Purpose-built for diagnostic labs ΓÇö from sample collection and test tracking through to outsourcing, analysis and controlled report printing.",
+      "Purpose-built for diagnostic labs G from sample collection and test tracking through to outsourcing, analysis and controlled report printing.",
     stats: [
       { value: "8+", label: "Lab modules" },
       { value: "3", label: "Print tiers" },
@@ -92,11 +92,11 @@ const PACKAGES = [
     icon: <PharmacyIcon />,
     title: "Inventory and stock control built for pharmacy.",
     description:
-      "From purchase orders and supplier management to real-time stock analysis ΓÇö complete visibility across every product, category and department.",
+      "From purchase orders and supplier management to real-time stock analysis G complete visibility across every product, category and department.",
     stats: [
       { value: "6+", label: "Modules" },
       { value: "4", label: "Billing terms" },
-      { value: "Γê₧", label: "Products" },
+      { value: "GP", label: "Products" },
     ],
     features: [
       "Store dashboard, stock issue and purchase flows",
@@ -107,18 +107,18 @@ const PACKAGES = [
     billingLabel: "Choose your term",
     sideNote: {
       heading: "Why pharmacy teams choose this",
-      body: "Track every product from purchase to dispensing with automated reorder alerts, supplier ledgers, and department-wise stock allocation ΓÇö all in one dashboard.",
+      body: "Track every product from purchase to dispensing with automated reorder alerts, supplier ledgers, and department-wise stock allocation G all in one dashboard.",
     },
     reverse: false,
   },
 ];
 
-// ΓöÇΓöÇΓöÇ Sub-components ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// GGG Sub-components GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 function StatBadge({ value, label }) {
   return (
     <div className="flex flex-col items-center justify-center bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-center">
       <span className="text-2xl font-black text-teal-400 leading-none">{value}</span>
-      <span className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">{label}</span>
+      <span className="text-xxs text-slate-500 uppercase tracking-widest mt-1">{label}</span>
     </div>
   );
 }
@@ -126,7 +126,7 @@ function StatBadge({ value, label }) {
 function BillingTermsCard({ label }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-      <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-teal-400/80 mb-3">
+      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-teal-400/80 mb-3">
         {label}
       </p>
       <div className="grid grid-cols-2 gap-2">
@@ -146,7 +146,7 @@ function BillingTermsCard({ label }) {
 function PrintPackagesCard({ packages }) {
   return (
     <div className="bg-teal-950/30 border border-teal-500/15 rounded-2xl p-5">
-      <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-teal-400/80 mb-3">
+      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-teal-400/80 mb-3">
         Report Printing Packages
       </p>
       <div className="flex flex-col gap-2">
@@ -157,9 +157,9 @@ function PrintPackagesCard({ packages }) {
           >
             <div>
               <p className="text-xs font-bold text-white">{pkg.tier}</p>
-              <p className="text-[11px] text-slate-500 mt-0.5">{pkg.details}</p>
+              <p className="text-xxs text-slate-500 mt-0.5">{pkg.details}</p>
             </div>
-            <span className="text-[9px] font-bold uppercase tracking-wider bg-teal-900/60 text-teal-400 border border-teal-700/30 rounded px-2 py-0.5">
+            <span className="text-xxs font-bold uppercase tracking-wider bg-teal-900/60 text-teal-400 border border-teal-700/30 rounded px-2 py-0.5">
               Quota
             </span>
           </div>
@@ -172,7 +172,7 @@ function PrintPackagesCard({ packages }) {
 function SideNote({ heading, body }) {
   return (
     <div className="bg-slate-950 border border-slate-800/60 rounded-2xl p-5">
-      <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500 mb-2">
+      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-slate-500 mb-2">
         {heading}
       </p>
       <p className="text-sm text-slate-400 leading-relaxed">{body}</p>
@@ -180,7 +180,7 @@ function SideNote({ heading, body }) {
   );
 }
 
-// ΓöÇΓöÇΓöÇ Package Row ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// GGG Package Row GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 function PackageRow({ plan }) {
   const rowRef = useRef(null);
 
@@ -202,7 +202,7 @@ function PackageRow({ plan }) {
 
   const left = (
     <div className="flex flex-col justify-center">
-      <span className={`inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] rounded-lg px-3 py-1.5 mb-6 w-fit ${plan.labelStyle}`}>
+      <span className={`inline-flex items-center gap-2 text-xxs font-bold uppercase tracking-[0.15em] rounded-lg px-3 py-1.5 mb-6 w-fit ${plan.labelStyle}`}>
         {plan.icon}
         {plan.label}
       </span>
@@ -258,7 +258,7 @@ function PackageRow({ plan }) {
   );
 }
 
-// ΓöÇΓöÇΓöÇ Main Export ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// GGG Main Export GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 export default function PackageSection() {
   const headerRef = useRef(null);
 
@@ -288,7 +288,7 @@ export default function PackageSection() {
             </span>
           </div>
           <h2
-            className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-white"
+            className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-white"
             style={{ fontFamily: "'Georgia', serif" }}
           >
             Choose the{" "}
@@ -297,7 +297,7 @@ export default function PackageSection() {
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
             Modular access by subscription term for hospital, pathology and pharmacy
-            operations ΓÇö monthly, quarterly, semi-annual, and annual.
+            operations G monthly, quarterly, semi-annual, and annual.
           </p>
 
           {/* Package nav anchors */}
@@ -328,3 +328,4 @@ export default function PackageSection() {
     </section>
   );
 }
+

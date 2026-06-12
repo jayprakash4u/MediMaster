@@ -175,7 +175,7 @@ export default function BusinessMetricsSection() {
         </div>
 
         <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 mb-12"
+          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
           style={{ fontFamily: "'Georgia', serif" }}
         >
           Success by <span className="text-teal-600">Numbers</span>

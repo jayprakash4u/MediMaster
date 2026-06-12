@@ -116,7 +116,7 @@ export default function ClientsGrid() {
         </div>
 
         <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
+          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
           style={{ fontFamily: "'Georgia', serif" }}
         >
           Trusted by <span className="text-teal-600">500+</span> Healthcare
@@ -157,7 +157,7 @@ export default function ClientsGrid() {
                       className="text-center font-bold leading-snug select-none transition-all duration-300"
                       style={{
                         color: clientColor.color,
-                        fontSize: displayName.length > 20 ? "12px" : "13px",
+                        fontSize: displayName.length > 20 ? "0.75rem" : "0.875rem",
                         fontWeight: 700,
                         letterSpacing: "0.5px",
                         fontFamily: "'Syne', 'Segoe UI', sans-serif",
@@ -167,7 +167,7 @@ export default function ClientsGrid() {
                     </span>
                   </div>
                   <span
-                    className="text-[9px] font-bold tracking-[0.15em] uppercase pt-2 transition-colors duration-300"
+                    className="text-xxs font-bold tracking-[0.15em] uppercase pt-2 transition-colors duration-300"
                     style={{ color: clientColor.color }}
                   >
                     {client.type}

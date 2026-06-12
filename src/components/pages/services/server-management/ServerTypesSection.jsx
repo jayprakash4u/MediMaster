@@ -243,13 +243,14 @@ function ServerCard({ item, index }) {
           </div>
           <div>
             <p
-              className={`text-[10px] font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
+              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
             >
               Server
             </p>
-            <h3 className="text-sm font-bold text-slate-900 leading-snug">
-              {item.category}
-            </h3>
+<h3 className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
+                    style={{ fontFamily: "'Georgia', serif" }}>
+                      {item.category}
+                    </h3>
             <p className="text-xs text-slate-500 mt-0.5 italic">
               {item.tagline}
             </p>
@@ -338,30 +339,32 @@ export default function ServerTypesSection() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <div ref={subheadRef} className="inline-flex items-center gap-2 mb-4">
-            <span className="w-6 h-px bg-teal-600" />
-            <span className="text-[10px] font-black tracking-[0.35em] text-teal-600 uppercase">
+          <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
               What We Cover
             </span>
-            <span className="w-6 h-px bg-teal-600" />
           </div>
 
           <h2
             ref={headerRef}
-            className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
           >
-            Server{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
-              Management
-            </span>{" "}
-            Services
+            Server <span className="text-teal-600">Management</span> Services
           </h2>
 
           <p
             ref={descRef}
-            className="mt-3 text-sm text-slate-600 leading-relaxed"
+            className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
           >
-            end-to-end server infrastructure care — from initial setup and security to monitoring, backups, scaling, and DNS management.
+            End-to-end server infrastructure care — from initial setup and security to
+            monitoring, backups, scaling, and DNS management.
           </p>
         </div>
 

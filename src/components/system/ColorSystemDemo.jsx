@@ -70,16 +70,16 @@ const ColorSystemDemo = () => {
         style={{ backgroundColor: color.value }}
       >
         {color.isPrimary && (
-          <div className="absolute -top-2 -right-2 bg-teal-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">
+          <div className="absolute -top-2 -right-2 bg-teal-500 text-white text-xxs font-bold px-2 py-0.5 rounded-full shadow-md">
             PRIMARY
           </div>
         )}
       </div>
       <div className="mt-2">
         <div className="text-xs font-medium text-gray-900">{color.name}</div>
-        <div className="text-[10px] text-gray-500 font-mono">{color.value}</div>
+        <div className="text-xxs text-gray-500 font-mono">{color.value}</div>
         {color.desc && (
-          <div className="text-[9px] text-gray-400 mt-0.5">{color.desc}</div>
+          <div className="text-xxs text-gray-400 mt-0.5">{color.desc}</div>
         )}
       </div>
     </div>

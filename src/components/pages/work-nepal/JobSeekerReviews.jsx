@@ -96,7 +96,7 @@ function ReviewCard({ review }) {
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2.5">
             <div
-              className={`w-8 h-8 rounded-full ${review.avatarColor} flex items-center justify-center text-[11px] font-bold tracking-wider shrink-0`}
+              className={`w-8 h-8 rounded-full ${review.avatarColor} flex items-center justify-center text-xxs font-bold tracking-wider shrink-0`}
             >
               {review.avatar}
             </div>
@@ -104,7 +104,7 @@ function ReviewCard({ review }) {
               <h4 className="font-semibold text-zinc-900 text-xs tracking-tight">
                 {review.name}
               </h4>
-              <p className="text-zinc-400 text-[10px]">
+              <p className="text-zinc-400 text-xxs">
                 {review.role} @{" "}
                 <span className="font-medium text-zinc-700">
                   {review.company}
@@ -112,7 +112,7 @@ function ReviewCard({ review }) {
               </p>
             </div>
           </div>
-          <span className="text-[10px] font-medium text-zinc-400 px-1.5 py-0.5 bg-zinc-50 border border-zinc-100 rounded">
+          <span className="text-xxs font-medium text-zinc-400 px-1.5 py-0.5 bg-zinc-50 border border-zinc-100 rounded">
             {review.tag}
           </span>
         </div>
@@ -121,7 +121,7 @@ function ReviewCard({ review }) {
         </p>
       </div>
 
-      <div className="flex items-center justify-between pt-3 mt-4 border-t border-zinc-100 text-[11px]">
+      <div className="flex items-center justify-between pt-3 mt-4 border-t border-zinc-100 text-xxs">
         <div className="flex items-center gap-1.5 text-zinc-700 font-medium">
           <svg
             className="w-3 h-3 text-indigo-500 shrink-0"
@@ -138,7 +138,7 @@ function ReviewCard({ review }) {
           </svg>
           <span>{review.highlight}</span>
         </div>
-        <span className="text-zinc-400 font-mono text-[10px] tracking-tight shrink-0 bg-zinc-50 px-1.5 py-0.5 rounded">
+        <span className="text-zinc-400 font-mono text-xxs tracking-tight shrink-0 bg-zinc-50 px-1.5 py-0.5 rounded">
           {review.timeToHire}
         </span>
       </div>
@@ -170,12 +170,12 @@ export default function JobSeekerReviews() {
         <div className="lg:col-span-4 mb-10 lg:mb-0 lg:sticky lg:top-10">
           <div className="inline-flex items-center gap-1.5 bg-white border border-zinc-200 rounded-full px-2.5 py-0.5 mb-4 shadow-sm">
             <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[10px] text-zinc-500 font-medium tracking-tight">
+            <span className="text-xxs text-zinc-500 font-medium tracking-tight">
               Real matches
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             They found their next chapter.
           </h2>
 
@@ -191,7 +191,7 @@ export default function JobSeekerReviews() {
                 <p className="text-lg font-bold text-zinc-900 tracking-tight">
                   {stat.value}
                 </p>
-                <p className="text-[10px] text-zinc-400 font-medium leading-none mt-0.5">
+                <p className="text-xxs text-zinc-400 font-medium leading-none mt-0.5">
                   {stat.label}
                 </p>
               </div>
@@ -200,7 +200,7 @@ export default function JobSeekerReviews() {
 
           {/* Vertically Packed Filter List */}
           <div className="flex flex-wrap lg:flex-col items-start gap-1">
-            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider w-full mb-1 lg:block hidden">
+            <p className="text-xxs font-bold text-zinc-400 uppercase tracking-wider w-full mb-1 lg:block hidden">
               Filter Tracks
             </p>
             <div className="flex flex-wrap gap-1">
@@ -208,7 +208,7 @@ export default function JobSeekerReviews() {
                 <button
                   key={f}
                   onClick={() => setActiveFilter(f)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium tracking-tight transition-all duration-150 ${
+                  className={`px-2.5 py-1 rounded-lg text-xxs font-medium tracking-tight transition-all duration-150 ${
                     activeFilter === f
                       ? "bg-zinc-900 text-white shadow-sm"
                       : "bg-white text-zinc-500 hover:text-zinc-900 border border-zinc-200/60"

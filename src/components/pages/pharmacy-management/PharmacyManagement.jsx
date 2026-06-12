@@ -70,7 +70,7 @@ export default function PharmacyManagement() {
             </div>
             <div>
               <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">Faster Billing</h4>
-              <p className="text-[11px] text-slate-400 font-medium mt-1 leading-tight">Optimized medicine batch lookups.</p>
+              <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">Optimized medicine batch lookups.</p>
             </div>
           </div>
         </div>

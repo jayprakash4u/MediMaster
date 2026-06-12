@@ -166,14 +166,10 @@ export default function PopularBrandsNepal() {
       className="w-full bg-white py-20 px-6"
       style={{ fontFamily: "'Barlow Condensed', 'DM Sans', sans-serif" }}
     >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
-      `}</style>
-
       <div className="max-w-5xl mx-auto">
         {/* ── Header ───────────────────────────────────────────────── */}
         <div className="mb-12">
-          <p className="text-[11px] sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
+          <p className="text-xxs sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
             Two Wheelers
           </p>
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">

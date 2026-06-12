@@ -160,7 +160,7 @@ export default function CompanyWorkingSteps() {
         </div>
 
         <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 mb-12"
+          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
           style={{ fontFamily: "'Georgia', serif" }}
         >
           How We <span className="text-teal-600">Work</span>
@@ -170,13 +170,13 @@ export default function CompanyWorkingSteps() {
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative z-10">
             <div className="main-hub-circle relative w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-teal-500/10 flex items-center justify-center p-4 shadow-[0_15px_40px_-10px_rgba(13,148,136,0.2)] border border-teal-500/20">
               <div className="w-full h-full rounded-full bg-white flex flex-col justify-center items-center text-center p-6 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] border border-gray-100">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-teal-600 font-black mb-1">
+                <span className="text-xxs uppercase tracking-[0.25em] text-teal-600 font-black mb-1">
                   Our Process
                 </span>
                 <h3 className="text-xl font-black text-navy-950 tracking-tight leading-tight">
                   How We Work
                 </h3>
-                <p className="text-[10px] text-gray-400 font-medium mt-2 leading-relaxed max-w-[180px]">
+                <p className="text-xxs text-gray-400 font-medium mt-2 leading-relaxed max-w-[180px]">
                   From structural assessment to high-fidelity deployment.
                 </p>
               </div>

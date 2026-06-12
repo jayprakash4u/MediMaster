@@ -136,23 +136,19 @@ export default function BlogGrid() {
     <section ref={sectionRef} className="py-20 md:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div
-          ref={headingRef}
-          className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-12"
-        >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
-              Explore Our Latest{" "}
-              <span className="text-teal-600 underline underline-offset-4">
-                Articles
-              </span>
-            </h2>
-            <div className="mt-3 h-0.5 w-14 rounded-full bg-teal-500" />
-          </div>
-          <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs md:text-right">
-            Lorem ipsum dolor sit amet, consecte turin ole adip iscing vipu
-            dalit elit taras tellus neul sarat tame lat macorper del materio
-            mattis luco.
+        <div ref={headingRef} className="mb-12 space-y-3">
+          <span className="text-xs font-mono font-bold tracking-widest text-teal-600 uppercase block">
+            Our Case Studies
+          </span>
+          <h2
+            className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight leading-[1.15]"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            Explore Our Latest{" "}
+            <span className="text-teal-600">Articles</span>
+          </h2>
+          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal max-w-xl">
+            Discover expert insights, practical guides, and the latest trends in technology, healthcare software, and digital innovation.
           </p>
         </div>
 
@@ -175,7 +171,7 @@ export default function BlogGrid() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Tag badge */}
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-white/90 text-slate-800 px-3 py-1 rounded-full shadow-sm">
+                <span className="absolute top-3 left-3 text-xxs font-bold uppercase tracking-widest bg-white/90 text-slate-800 px-3 py-1 rounded-full shadow-sm">
                   {post.tag}
                 </span>
               </div>

@@ -3,10 +3,6 @@
 export default function HMSStatic() {
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&display=swap');
-      `}</style>
-
       <div
         style={{
           width: "100%",

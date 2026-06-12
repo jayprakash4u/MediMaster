@@ -12,9 +12,11 @@ const services = [
     href: "/services/system-software-development",
   },
   { label: "UI/UX", href: "/services/ui-ux" },
+  { label: "E-commerce Solution", href: "/services/ecommerce-solution" },
   { label: "Search Engine Optimization (SEO)", href: "/services/seo" },
   { label: "Social Media Marketing (SMM)", href: "/services/smm" },
   { label: "Digital Marketing", href: "/services/digital-marketing" },
+  { label: "IT Outsourcing", href: "/services/it-outsourcing" },
   { label: "Graphic Design", href: "/services/graphic-design" },
   { label: "Content Writing", href: "/services/content-writing" },
 ];
@@ -162,11 +164,19 @@ export default function ServiceDetailLayout({
               )}
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-black tracking-wide text-gray-900 uppercase">
-              {title}
-            </h1>
+            <div>
+              <p className="text-xxs sm:text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">
+                Services
+              </p>
+              <h1
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
+                {title}
+              </h1>
+            </div>
 
-            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base font-sans">
               {description}
             </p>
 

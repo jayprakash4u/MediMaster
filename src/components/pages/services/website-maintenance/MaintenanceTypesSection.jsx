@@ -229,7 +229,7 @@ function MaintenanceCard({ item, index }) {
           </div>
           <div>
             <p
-              className={`text-[10px] font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
+              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
             >
               Maintenance
             </p>
@@ -326,7 +326,7 @@ export default function MaintenanceTypesSection() {
         <div className="text-center mb-10 max-w-2xl mx-auto">
           <div ref={subheadRef} className="inline-flex items-center gap-2 mb-4">
             <span className="w-6 h-px bg-teal-600" />
-            <span className="text-[10px] font-black tracking-[0.35em] text-teal-600 uppercase">
+            <span className="text-xxs font-black tracking-[0.35em] text-teal-600 uppercase">
               What We Cover
             </span>
             <span className="w-6 h-px bg-teal-600" />

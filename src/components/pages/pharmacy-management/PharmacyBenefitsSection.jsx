@@ -26,25 +26,25 @@ export default function PharmacyBenefitsSection() {
             <div className="relative w-[85%] z-20 transform hover:-translate-y-2 transition-transform duration-500 ease-out">
               <div className="bg-slate-900 p-2 pb-3 rounded-t-2xl shadow-2xl border border-slate-700/50">
                 <div className="relative aspect-[16/10] bg-white rounded-lg overflow-hidden border border-slate-800">
-                  <div className="w-full h-full bg-slate-50 flex flex-col p-2 text-slate-800 font-sans text-[8px]">
+                  <div className="w-full h-full bg-slate-50 flex flex-col p-2 text-slate-800 font-sans text-xxs">
                     <div className="flex items-center justify-between border-b border-slate-200 pb-1.5 mb-2">
                       <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-navy-600" />
-                        <span className="font-bold text-[9px] tracking-tight text-navy-900">MediMaster Pharmacy</span>
+                        <span className="font-bold text-xxs tracking-tight text-navy-900">MediMaster Pharmacy</span>
                       </div>
                       <div className="w-12 h-2 bg-slate-200 rounded" />
                     </div>
                     <div className="grid grid-cols-3 gap-2 mb-2">
                       <div className="bg-white p-1.5 rounded border border-slate-200 shadow-sm">
-                        <div className="text-[6px] text-slate-400">Total Stock</div>
+                        <div className="text-xxs text-slate-400">Total Stock</div>
                         <div className="font-bold text-slate-800 mt-0.5">1,240 Units</div>
                       </div>
                       <div className="bg-white p-1.5 rounded border border-slate-200 shadow-sm">
-                        <div className="text-[6px] text-slate-400">Near Expiry</div>
+                        <div className="text-xxs text-slate-400">Near Expiry</div>
                         <div className="font-bold text-teal-400 mt-0.5">14 Batches</div>
                       </div>
                       <div className="bg-white p-1.5 rounded border border-slate-200 shadow-sm">
-                        <div className="text-[6px] text-slate-400">Fulfilled</div>
+                        <div className="text-xxs text-slate-400">Fulfilled</div>
                         <div className="font-bold text-teal-400 mt-0.5">98.4%</div>
                       </div>
                     </div>
@@ -74,7 +74,7 @@ export default function PharmacyBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.15] mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.15] mb-8">
             Benefits of Using Pharmacy <br className="hidden md:block" />
             Inventory Management System
           </h2>

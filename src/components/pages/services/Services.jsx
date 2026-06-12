@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -446,19 +447,12 @@ export default function Services() {
               ref={(el) => (cardsRef.current[idx] = el)}
               className="service-card group bg-white border border-slate-200 rounded-2xl p-5 flex flex-col items-center gap-4 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div
-                className="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-500/25 flex items-center justify-center group-hover:scale-110 group-hover:bg-teal-100 group-hover:border-teal-400/50 transition-all duration-300"
-                style={{ color: "#14B8A6" }}
-              >
+              <div className="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-500/25 flex items-center justify-center group-hover:scale-110 group-hover:bg-teal-100 group-hover:border-teal-400/50 transition-all duration-300">
                 {svc.icon}
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900 leading-tight">
-                  {svc.name}
-                </p>
-                <p className="text-[10px] font-medium text-teal-600/70">
-                  {svc.subtitle}
-                </p>
+                <p className={COMPONENT_STYLES.serviceTitle}>{svc.name}</p>
+                <p className={COMPONENT_STYLES.serviceSubtitle}>{svc.subtitle}</p>
               </div>
             </div>
           ))}

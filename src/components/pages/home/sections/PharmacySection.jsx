@@ -1,0 +1,101 @@
+"use client";
+
+import Image from "next/image";
+
+const allItems = [
+  "Auto-fetch Prescriptions for Fast Dispensing",
+  "Barcode & Batch Scanning for Error-Free Dispensing",
+  "Expiry Date Tracking with Automated Alerts",
+  "Controlled Drug Tracking & Audit Reports",
+  "Supplier & Purchase Order Management",
+  "GRN (Goods Received Note) Tracking",
+  "Automated Billing & GST-Compliant Invoicing",
+  "Shift/Day Sales Reports & Analytics",
+  "Patient Medication History Tracking",
+  "Refill Reminders for Better Adherence",
+  "Multi-Branch Pharmacy Management",
+  "Drug Interaction & Allergy Alerts",
+  "Inventory Reorder Level Management",
+  "Sales Return & Replacement Tracking",
+  "Digital Payments & Claim Integration",
+  "Mobile App for Medicine Ordering",
+];
+
+const ArrowIcon = () => (
+  <svg
+    className="w-4 h-4 text-teal-600 shrink-0 mt-[3px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+
+export default function PharmacySection() {
+  return (
+    <section className="w-full bg-white py-16 md:py-24 px-6 sm:px-12 lg:px-16 font-sans">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-start gap-10 lg:gap-14">
+        {/* ── LEFT — single bullet grid ── */}
+        <div className="flex-1 min-w-0">
+          <p className="text-xxs sm:text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">
+            Pharmacy Management
+          </p>
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.12]"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            <span className="text-teal-600">Smart, Simple, and Compliant</span>{" "}
+            <span className="uppercase tracking-wide">Pharmacy Operations</span>
+          </h2>
+
+          <ul className="m-0 p-0 list-none grid grid-cols-2 gap-x-6 gap-y-1 mt-6">
+            {allItems.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 overflow-hidden">
+                <span className="inline-flex items-start gap-2 w-full">
+                  <ArrowIcon />
+                  <span className="text-sm text-slate-700 leading-relaxed">
+                    {item}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <button className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 border border-teal-600 rounded-full px-5 py-2 hover:bg-teal-50 transition-colors mt-6">
+            Learn more
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </div>
+
+        {/* ── RIGHT — static image (first on mobile via flex-col-reverse) ── */}
+        <div className="w-full lg:w-[400px] shrink-0 lg:sticky lg:top-10">
+          <div className="rounded-xl overflow-hidden border-2 border-teal-600 bg-slate-50">
+            <Image
+              src="/home/homeherosction/a_professional_hero_banner_image_for_a_pharmacy_management_system._the_scene.png"
+              alt="MediMaster Pharmacy Management Interface"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

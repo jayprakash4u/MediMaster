@@ -220,6 +220,7 @@ module.exports = {
         mono: ["JetBrains Mono", "Fira Code", "monospace"],
       },
       fontSize: {
+        xxs: ["0.625rem", { lineHeight: "0.875rem", letterSpacing: "0.05em" }],
         xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.025em" }],
         sm: ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.025em" }],
         base: ["1rem", { lineHeight: "1.5rem", letterSpacing: "0em" }],
@@ -233,6 +234,8 @@ module.exports = {
         "4xl": ["2.25rem", { lineHeight: "2.5rem", letterSpacing: "-0.04em" }],
         "5xl": ["3rem", { lineHeight: "1", letterSpacing: "-0.06em" }],
         "6xl": ["3.75rem", { lineHeight: "1", letterSpacing: "-0.08em" }],
+        "7xl": ["4.5rem", { lineHeight: "1", letterSpacing: "-0.09em" }],
+        "8xl": ["6rem", { lineHeight: "1", letterSpacing: "-0.1em" }],
       },
       spacing: {
         18: "4.5rem",

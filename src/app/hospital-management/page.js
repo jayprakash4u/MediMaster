@@ -6,7 +6,7 @@ import HMSCrossLayout from "@/components/pages/hospital-management/HMSCrossLayou
 import HospitalSoftwareSection from "@/components/pages/hospital-management/HospitalSoftwareSection";
 import HmsModulesWithVideo from "@/components/pages/hospital-management/HmsModulesWithVideo";
 import HMSBenefitsSection from "@/components/pages/hospital-management/HMSBenefitsSection";
-import HMSTrialSection from "@/components/shared/HMSTrialSection";
+import HMSTrialSection from "@/components/pages/home/sections/HMSTrialSection";
 
 export default function HospitalManagementPage() {
   return (

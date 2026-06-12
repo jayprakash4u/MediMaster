@@ -296,16 +296,16 @@ function StepItem({ step, side, index }) {
     <div ref={ref} className="flex items-start gap-2.5 group">
       <div
         className="shrink-0 w-7 h-7 rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/10
-        flex items-center justify-center text-[9px] font-black font-mono text-[#2dd4bf]
+        flex items-center justify-center text-xxs font-black font-mono text-[#2dd4bf]
         group-hover:bg-[#2dd4bf]/20 group-hover:border-[#2dd4bf]/70 transition-all duration-200 mt-0.5"
       >
         {step.num}
       </div>
       <div>
-        <h3 className="text-[12px] font-bold text-white leading-snug mb-1">
+        <h3 className="text-xs font-bold text-white leading-snug mb-1">
           {step.title}
         </h3>
-        <p className="text-[10.5px] text-slate-400 leading-relaxed">
+        <p className="text-xs text-slate-400 leading-relaxed">
           {step.desc}
         </p>
       </div>
@@ -366,21 +366,26 @@ export default function WebDevRoadmap() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         {/* Header */}
         <div className="text-center mb-10">
-          <div ref={subRef} className="inline-flex items-center gap-2 mb-3">
-            <span className="w-7 h-px bg-[#2dd4bf]" />
-            <span className="text-[10px] font-bold tracking-[.28em] text-[#2dd4bf] uppercase">
+          <div ref={subRef} className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex items-center gap-1.5">
+              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+                <path d="M0 5h20" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="22" cy="5" r="2" fill="#2dd4bf" />
+              </svg>
+            </div>
+            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-400">
               Web Development
             </span>
-            <span className="w-7 h-px bg-[#2dd4bf]" />
           </div>
           <h2
             ref={titleRef}
-            className="text-3xl sm:text-4xl font-black text-white tracking-tight uppercase"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+            style={{ fontFamily: "'Georgia', serif" }}
           >
-            Road<span className="text-[#2dd4bf]">map</span>
+            <span className="text-teal-400">Roadmap</span> to Success
           </h2>
-          <p className="mt-2 text-[10px] font-semibold tracking-[.2em] text-slate-500 uppercase">
-            Website Development Project
+          <p className="mt-4 text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Our systematic approach to website development ensures quality and results.
           </p>
         </div>
 

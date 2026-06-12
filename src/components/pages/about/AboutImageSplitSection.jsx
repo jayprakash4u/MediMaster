@@ -67,7 +67,7 @@ export default function AboutImageSplitSection() {
         </div>
 
         <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 mb-12"
+          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
           style={{ fontFamily: "'Georgia', serif" }}
         >
           Building <span className="text-teal-600">Healthcare</span> Excellence
@@ -119,7 +119,7 @@ export default function AboutImageSplitSection() {
                 <span className="text-xl sm:text-2xl font-black tracking-tight text-navy-950 leading-none">
                   10+
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-extrabold text-gray-400 uppercase tracking-wider mt-1 leading-tight">
+                <span className="text-xxs sm:text-xxs font-extrabold text-gray-400 uppercase tracking-wider mt-1 leading-tight">
                   Years
                   <br />
                   Experience

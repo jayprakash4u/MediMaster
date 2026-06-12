@@ -22,7 +22,6 @@ export default function Navbar() {
   const hamburgerRef = useRef(null);
   const activeIndicatorRef = useRef(null);
 
-  // Staggered menu entrance on page load
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(logoRef.current, {
@@ -46,19 +45,16 @@ export default function Navbar() {
     return () => ctx.revert();
   }, []);
 
-  // Active indicator line tracking animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       const updateActiveIndicator = () => {
-        const pathName = pathname;
-
         const matchingLink = NAV_LINKS.find((link) => {
           if (link.href === "#") {
-            return pathName === "/" || pathName === "";
+            return pathname === "/" || pathname === "";
           }
           return (
-            pathName === link.href ||
-            (pathName.startsWith(link.href) && link.href !== "/")
+            pathname === link.href ||
+            (pathname.startsWith(link.href) && link.href !== "/")
           );
         });
 
@@ -92,7 +88,6 @@ export default function Navbar() {
     return () => ctx.revert();
   }, [pathname]);
 
-  // Mobile menu reveal
   useEffect(() => {
     if (open && mobileMenuRef.current) {
       const ctx = gsap.context(() => {
@@ -114,7 +109,6 @@ export default function Navbar() {
     }
   }, [open]);
 
-  // Hamburger to X morph
   useEffect(() => {
     if (!hamburgerRef.current) return;
 
@@ -138,41 +132,29 @@ export default function Navbar() {
 
   return (
     <header className="w-full font-sans sticky top-0 z-50">
-      {/* Top Bar */}
       <div className="h-10 bg-[#1D2129] flex items-center overflow-hidden border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center text-xs text-white w-full gap-4">
           <p className="hidden md:block text-slate-300">
             Home Care and Medical Practices: Our Specialists are Here
           </p>
           <div className="flex items-center gap-4 ml-auto">
-            <a
-              href="#"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
+            <a href="#" className="text-slate-400 hover:text-white transition-colors">
               Careers
             </a>
             <span className="text-slate-700">|</span>
-            <a
-              href="#"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
+            <a href="#" className="text-slate-400 hover:text-white transition-colors">
               Privacy Policy
             </a>
             <span className="text-slate-700">|</span>
-            <a
-              href="#"
-              className="text-slate-400 hover:text-white transition-colors"
-            >
+            <a href="#" className="text-slate-400 hover:text-white transition-colors">
               Site Map
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Header */}
       <div className="relative bg-white flex items-center h-20 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between w-full">
-          {/* Brand Logo */}
           <Link href="/" className="flex items-center z-20">
             <div className="relative w-56 h-16 flex-shrink-0">
               <Image
@@ -186,7 +168,6 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Mobile Menu Button */}
           <button
             ref={hamburgerRef}
             onClick={() => setOpen(!open)}
@@ -206,13 +187,11 @@ export default function Navbar() {
             </svg>
           </button>
 
-          {/* Desktop Navigation Links Container */}
           <nav
             className="absolute right-0 bottom-0 top-4 bg-teal-500 hidden md:flex items-center pl-32 pr-8 w-[68%] lg:w-[65%]"
             style={{ clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)" }}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            {/* GSAP Indicator Line */}
             <div
               ref={activeIndicatorRef}
               className="absolute left-0 bottom-0 h-[3px] bg-slate-900 w-0 transition-all duration-500"
@@ -261,7 +240,6 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* CTA Contact Button */}
             <Link
               href="/contact"
               className="ml-auto bg-slate-900 text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-slate-800 transition-all duration-200 shadow-md"
@@ -272,7 +250,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* --- RE-STRUCTURED 4x4 MEGA MENU LAYOUT --- */}
       {activeDropdown && (
         <div
           className="absolute left-1/2 -translate-x-1/2 top-full mt-0 bg-white border border-slate-200 shadow-2xl hidden md:block z-40 animate-in fade-in slide-in-from-top-2 duration-200"
@@ -282,12 +259,10 @@ export default function Navbar() {
           {NAV_LINKS.filter((l) => l.children).map((link) => {
             if (link.label !== activeDropdown) return null;
             return (
-                <div
-                  key={link.label}
-                  className="max-w-4xl mx-auto p-4"
-                >
-
-                {/* Dynamically loads grid structure based on configuration array */}
+              <div
+                key={link.label}
+                className="max-w-4xl mx-auto p-4"
+              >
                 <div
                   className={`grid ${link.gridCols || "grid-cols-3"} gap-x-6 gap-y-2`}
                 >
@@ -297,14 +272,11 @@ export default function Navbar() {
                       href={child.href}
                       className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 transition-all duration-150 border border-transparent hover:border-slate-200"
                     >
-                      {/* Interactive SVGs */}
                       <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-all duration-200 shadow-inner shrink-0">
                         {child.icon}
                       </div>
-
-                      {/* Descriptive Titles */}
                       <div className="flex flex-col min-w-0">
-                        <span className="text-[13px] font-semibold text-slate-800 group-hover:text-teal-600 transition-colors leading-snug truncate">
+                        <span className="text-xs font-semibold text-slate-800 group-hover:text-teal-600 transition-colors leading-snug truncate">
                           {child.label}
                         </span>
                       </div>
@@ -317,7 +289,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Mobile Menu View */}
       {open && (
         <div
           ref={mobileMenuRef}

@@ -31,7 +31,7 @@ export default function GallerySection() {
           <h2 className="text-2xl md:text-3xl text-neutral-800 tracking-widest font-light uppercase">
             Designs That Speak
           </h2>
-          <div className="flex justify-center items-center gap-3 pt-2 text-neutral-400 text-[10px]">
+          <div className="flex justify-center items-center gap-3 pt-2 text-neutral-400 text-xxs">
             <span>•</span><span>•</span><span>•</span><span>•</span>
           </div>
         </div>

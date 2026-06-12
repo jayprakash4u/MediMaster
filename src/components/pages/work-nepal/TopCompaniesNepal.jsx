@@ -103,15 +103,6 @@ function LogoCard({ company }) {
 export default function TopCompaniesNepal() {
   return (
     <section id="worknepal-top-companies" className="w-full bg-white py-20 px-4 sm:px-10 lg:px-16">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap');
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(14px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .logo-in { animation: fadeUp 0.45s ease both; }
-      `}</style>
-
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-3 mb-2">
           <div className="flex items-center gap-1.5">
@@ -124,10 +115,10 @@ export default function TopCompaniesNepal() {
             Top Companies
           </span>
         </div>
-        <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 mb-4"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+          <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
           Nepal's Leading Organisations
         </h2>
 

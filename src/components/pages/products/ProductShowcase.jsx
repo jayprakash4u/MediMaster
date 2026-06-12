@@ -107,7 +107,7 @@ export default function ProductShowcase({ product, index }) {
             </div>
           ) : (
             <div className="order-2 md:order-1">
-              <h3 className="text-2xl font-bold text-slate-900">{product.name}</h3>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{product.name}</h3>
               <p className="text-sm text-teal-600 font-semibold uppercase mt-2 mb-4">{product.tag}</p>
               <p className="text-slate-600 mb-4">{product.description}</p>
               <ul className="list-none text-slate-700 mb-6 space-y-1.5">
@@ -134,7 +134,7 @@ export default function ProductShowcase({ product, index }) {
           {/* Right: content when even, image when odd */}
           {isEven ? (
             <div className="order-2 md:order-2">
-              <h3 className="text-2xl font-bold text-slate-900">{product.name}</h3>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{product.name}</h3>
               <p className="text-sm text-teal-600 font-semibold uppercase mt-2 mb-4">{product.tag}</p>
               <p className="text-slate-600 mb-4">{product.description}</p>
               <ul className="list-none text-slate-700 mb-6 space-y-1.5">

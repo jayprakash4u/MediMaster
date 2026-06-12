@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,7 +16,6 @@ const OUTER_SEGMENTS = [
     id: "deep-industry",
     label: ["DEEP", "INDUSTRY", "EXPERTISE"],
     fullLabel: "Deep Industry Expertise",
-    // 315°–360°  mid = 337.5°  →  sin=-0.383, cos=+0.924  r=192
     lx: 176,
     ly: 68,
     path: "M250,250 L250,20 A230,230 0 0,1 412,88 Z",
@@ -26,7 +26,6 @@ const OUTER_SEGMENTS = [
     id: "technology",
     label: ["TECHNOLOGY", "FRAMEWORKS"],
     fullLabel: "Technology Frameworks",
-    // 0°–45°  mid = 22.5°  →  sin=+0.383, cos=+0.924  r=192
     lx: 324,
     ly: 68,
     path: "M250,250 L412,88 A230,230 0 0,1 480,250 Z",
@@ -37,7 +36,6 @@ const OUTER_SEGMENTS = [
     id: "manufacturing",
     label: ["MANU-", "FACTURING"],
     fullLabel: "Manufacturing Ecosystems",
-    // 45°–90°  mid = 67.5°  →  sin=+0.924, cos=+0.383  r=192
     lx: 432,
     ly: 172,
     path: "M250,250 L480,250 A230,230 0 0,1 412,412 Z",
@@ -48,7 +46,6 @@ const OUTER_SEGMENTS = [
     id: "banking",
     label: ["BANKING", "& FINANCE"],
     fullLabel: "Banking & Financial Services",
-    // 90°–135°  mid = 112.5°  →  sin=+0.924, cos=-0.383  r=192
     lx: 432,
     ly: 320,
     path: "M250,250 L412,412 A230,230 0 0,1 250,480 Z",
@@ -59,7 +56,6 @@ const OUTER_SEGMENTS = [
     id: "media",
     label: ["MEDIA", "& DIGITAL"],
     fullLabel: "Media & Entertainment Systems",
-    // 135°–180°  mid = 157.5°  →  sin=+0.383, cos=-0.924  r=192
     lx: 324,
     ly: 432,
     path: "M250,250 L250,480 A230,230 0 0,1 88,412 Z",
@@ -70,7 +66,6 @@ const OUTER_SEGMENTS = [
     id: "telecom",
     label: ["TELECOM", "INFRA"],
     fullLabel: "Telecom Integration Infrastructure",
-    // 180°–225°  mid = 202.5°  →  sin=-0.383, cos=-0.924  r=192
     lx: 176,
     ly: 432,
     path: "M250,250 L88,412 A230,230 0 0,1 20,250 Z",
@@ -81,7 +76,6 @@ const OUTER_SEGMENTS = [
     id: "healthcare",
     label: ["HEALTH-", "CARE"],
     fullLabel: "Healthcare Architecture",
-    // 225°–270°  mid = 247.5°  →  sin=-0.924, cos=-0.383  r=192
     lx: 68,
     ly: 320,
     path: "M250,250 L20,250 A230,230 0 0,1 88,88 Z",
@@ -92,7 +86,6 @@ const OUTER_SEGMENTS = [
     id: "enterprise",
     label: ["ENTER-", "PRISE"],
     fullLabel: "Enterprise Core Operations",
-    // 270°–315°  mid = 292.5°  →  sin=-0.924, cos=+0.383  r=192
     lx: 68,
     ly: 172,
     path: "M250,250 L88,88 A230,230 0 0,1 250,20 Z",
@@ -148,7 +141,6 @@ const INNER_SEGMENTS = [
   },
 ];
 
-// Divider line endpoints for outer ring (8 spokes)
 const OUTER_SPOKES = [
   [250, 20],
   [412, 88],
@@ -197,7 +189,7 @@ export default function InnovationWheelSection() {
             trigger: sectionRef.current,
             start: "top 75%",
           },
-        },
+        }
       );
     }, sectionRef);
 
@@ -214,76 +206,57 @@ export default function InnovationWheelSection() {
     setActiveLabel(null);
   };
 
-  // ── Segment fill helper ──
   const outerFill = (seg) => (hoveredId === seg.id ? seg.hover : seg.fill);
   const innerFill = (seg) => (hoveredId === seg.id ? seg.hover : seg.fill);
 
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-slate-50/50 py-20 font-sans text-gray-600 antialiased overflow-hidden"
+      className="w-full bg-white py-20 font-sans antialiased overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-6 mb-12">
-        <div className="flex items-center gap-3 mb-8">
-          <div className="flex items-center gap-1.5">
-            <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-              <path
-                d="M0 5h20"
-                stroke="#14B8A6"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
-            </svg>
+      <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* ── LEFT: Text ────────────────────────────────────────────── */}
+        <div ref={textSideRef} className="lg:col-span-5 space-y-6 text-left">
+          <h2 className={`${HEADING.h2} text-teal-600`}>
+            MediMaster Innovation Ecosystem
+          </h2>
+
+          <div className="space-y-5 text-gray-700 text-base sm:text-base leading-relaxed font-normal">
+            <p>
+              Our cloud-native platform integrates cutting-edge technology with deep healthcare expertise
+              to deliver seamless practice management solutions.
+            </p>
+            <p>
+              From patient records to billing automation, we provide tools that simplify workflows,
+              ensure compliance, and scale with your practice's growth.
+            </p>
           </div>
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
-            Our Innovation
-          </span>
-        </div>
 
-        <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
-          Innovation is at the <span className="text-teal-600">Heart</span> of
-          Everything
-        </h2>
-      </div>
+          <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-6">
+            <button className="px-7 py-3.5 bg-teal-600 hover:bg-teal-700 text-white text-base font-bold tracking-wide rounded-md shadow-md transition-colors duration-200 uppercase">
+              Book a Free Demo
+            </button>
 
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
-        {/* ── LEFT: Text ─────────────────────────────────────────────────── */}
-        <div ref={textSideRef} className="lg:col-span-5 space-y-6">
-          {/* Active hover feedback */}
-          <div className="pt-2 min-h-[60px] transition-all duration-300">
-            {activeLabel ? (
-              <div className="p-4 bg-teal-50 border border-teal-100 rounded-xl max-w-sm">
-                <p className="text-[10px] font-bold text-teal-700 uppercase tracking-widest mb-2">
-                  Focus Area
-                </p>
-                <p className="text-lg font-semibold text-slate-900">
-                  {activeLabel}
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                  Explore our ecosystem
-                </p>
-                <p className="text-xs text-gray-400">
-                  Hover over the sections below to discover our core operational
-                  areas and expertise domains.
-                </p>
-              </div>
-            )}
+            {/* Dynamic hover indicator aligned neatly near the button actions */}
+            <div className="min-h-[44px] flex items-center transition-all duration-300">
+              {activeLabel && (
+                <div className="px-4 py-2 bg-teal-50/80 border border-teal-100 rounded-lg backdrop-blur-sm animate-fade-in">
+                  <p className="text-xxs font-bold text-teal-700 uppercase tracking-wider mb-0.5">
+                    Selected Focus Area
+                  </p>
+                  <p className="text-sm font-semibold text-slate-800">{activeLabel}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* ── RIGHT: Wheel ────────────────────────────────────────────────── */}
+        {/* ── RIGHT: Wheel (Untouched configuration) ───────────────────────── */}
         <div className="lg:col-span-7 flex justify-center items-center w-full">
           <svg
             ref={wheelRef}
             viewBox="0 0 500 500"
-            className="w-full max-w-[520px] h-auto select-none drop-shadow-[0_20px_50px_rgba(18,40,104,0.18)]"
+            className="w-full max-w-[520px] h-auto select-none drop-shadow-[0_20px_50px_rgba(18,40,104,0.15)]"
             aria-label="Innovation ecosystem wheel"
           >
             <defs>
@@ -292,7 +265,7 @@ export default function InnovationWheelSection() {
               </clipPath>
             </defs>
 
-            {/* ── OUTER RING ─────────────────────────────────────────────── */}
+            {/* Outer Ring */}
             <g>
               {OUTER_SEGMENTS.map((seg) => (
                 <path
@@ -355,7 +328,7 @@ export default function InnovationWheelSection() {
               </g>
             ))}
 
-            {/* ── INNER RING ─────────────────────────────────────────────── */}
+            {/* Inner Ring */}
             <g>
               {INNER_SEGMENTS.map((seg) => (
                 <path
@@ -418,45 +391,26 @@ export default function InnovationWheelSection() {
               </g>
             ))}
 
-            {/* ── HUB ────────────────────────────────────────────────────── */}
-            {/* White backing */}
-            <circle
-              cx="250"
-              cy="250"
-              r="82"
-              fill="white"
-              pointerEvents="none"
-            />
-            {/* Teal fill */}
-            <circle
-              cx="250"
-              cy="250"
-              r="78"
-              fill="#E0F7FA"
+            {/* Hub structure */}
+            <circle cx="250" cy="250" r="82" fill="white" pointerEvents="none" />
+            <circle cx="250" cy="250" r="78" fill="#E0F7FA" pointerEvents="none" />
+
+            {/* MediMaster logo inside hub */}
+            <clipPath id="hubClip">
+              <circle cx="250" cy="232" r="26" />
+            </clipPath>
+            <image
+              href="/brand/logo.png"
+              x="224"
+              y="206"
+              width="52"
+              height="52"
+              clipPath="url(#hubClip)"
+              preserveAspectRatio="xMidYMid meet"
               pointerEvents="none"
             />
 
-            {/* Icon circle */}
-            <circle
-              cx="250"
-              cy="232"
-              r="24"
-              fill="#14B8A6"
-              pointerEvents="none"
-            />
-            <text
-              x="250"
-              y="239"
-              textAnchor="middle"
-              fontSize="20"
-              fill="white"
-              fontFamily="system-ui"
-              pointerEvents="none"
-            >
-              ⚙
-            </text>
-
-            {/* Hub text */}
+            {/* Center Hub text labels */}
             <text
               x="250"
               y="265"
@@ -481,7 +435,6 @@ export default function InnovationWheelSection() {
               ECOSYSTEM
             </text>
 
-            {/* Hub border */}
             <circle
               cx="250"
               cy="250"

@@ -150,7 +150,7 @@ export default function HowItWorksSection() {
 
               {/* Dynamic Badges tailored to match user step selection state */}
               <div className="flex justify-between items-start z-10">
-                <span className="text-[11px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">
+                <span className="text-xxs font-bold uppercase tracking-wider bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">
                   {activeStep === 0
                     ? "SUV"
                     : activeStep === 1
@@ -183,7 +183,7 @@ export default function HowItWorksSection() {
             {/* Simulated Live Specs Bar Block */}
             <div className="grid grid-cols-3 gap-3 my-5">
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 text-center">
-                <span className="block text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-0.5">
+                <span className="block text-xxs uppercase font-bold tracking-wider text-slate-400 mb-0.5">
                   Mileage
                 </span>
                 <span className="text-xs font-bold text-slate-800">
@@ -195,7 +195,7 @@ export default function HowItWorksSection() {
                 </span>
               </div>
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 text-center">
-                <span className="block text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-0.5">
+                <span className="block text-xxs uppercase font-bold tracking-wider text-slate-400 mb-0.5">
                   Transmission
                 </span>
                 <span className="text-xs font-bold text-slate-800">
@@ -207,7 +207,7 @@ export default function HowItWorksSection() {
                 </span>
               </div>
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 text-center">
-                <span className="block text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-0.5">
+                <span className="block text-xxs uppercase font-bold tracking-wider text-slate-400 mb-0.5">
                   Location
                 </span>
                 <span className="text-xs font-bold text-slate-800">
@@ -240,18 +240,18 @@ export default function HowItWorksSection() {
               <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white text-xs font-bold">
                 KM
               </div>
-              <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-900">
+              <span className="text-xxs font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-900">
                 Trending
               </span>
             </div>
             <div>
-              <span className="text-white/40 text-[10px] uppercase tracking-wider font-bold block mb-1">
+              <span className="text-white/40 text-xxs uppercase tracking-wider font-bold block mb-1">
                 Avg. Local Price
               </span>
               <h4 className="text-white text-lg font-extrabold tracking-tight">
                 NPR 32.5L — 44L
               </h4>
-              <p className="text-slate-400 text-[11px] mt-1">
+              <p className="text-slate-400 text-xxs mt-1">
                 Based on recent sales in Pokhara & KTM
               </p>
             </div>

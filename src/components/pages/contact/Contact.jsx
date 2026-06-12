@@ -15,12 +15,19 @@ export default function Contact() {
     <section id="contact" className="py-20 px-6 bg-slate-50">
       <div className="max-w-7xl mx-auto">
 
-        <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 bg-teal-50 text-teal-700 border border-teal-100">
-            Contact Us
+        <div className="mb-12 space-y-3">
+          <span className="text-xs font-mono font-bold tracking-widest text-teal-600 uppercase block">
+            Get in Touch
           </span>
-           <h2 className="text-3xl font-bold text-deepNavy-900">Get in Touch</h2>
-          <p className="text-sm mt-2 text-slate-600">Have a project in mind? Let's discuss.</p>
+          <h2
+            className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight leading-[1.15]"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            Contact Us
+          </h2>
+          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal max-w-xl">
+            Have a project in mind? Let's discuss how we can help you achieve your goals.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">

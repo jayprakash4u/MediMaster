@@ -265,7 +265,7 @@ export default function HappyCustomers() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Simple Header */}
         <div className="text-left mb-16">
-          <p className="text-[11px] sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
+          <p className="text-xxs sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
             Testimonials
           </p>
           <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
@@ -327,7 +327,7 @@ export default function HappyCustomers() {
                         <h4 className="text-sm font-semibold text-slate-900 tracking-wide truncate">
                           {slide.name}
                         </h4>
-                        <p className="text-[11px] font-medium text-emerald-600 mt-0.5">
+                        <p className="text-xxs font-medium text-emerald-600 mt-0.5">
                           {slide.role}
                         </p>
                       </div>

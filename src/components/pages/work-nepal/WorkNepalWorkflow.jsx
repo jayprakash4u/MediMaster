@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { COMPONENT_STYLES } from "@/lib/typography";
 
 const employerSteps = [
   {
@@ -109,7 +110,7 @@ function StepPair({ left, right, pairIndex, totalPairs, theme }) {
                   {step.num}
                 </span>
               </div>
-              <span className="text-[15px] font-medium text-gray-800 leading-snug">
+              <span className="text-base font-medium text-gray-800 leading-snug">
                 {step.title}
               </span>
             </div>
@@ -125,7 +126,7 @@ function StepPair({ left, right, pairIndex, totalPairs, theme }) {
       <div className="grid grid-cols-2">
         {[left, right].map((step) => (
           <div key={step.num} className="px-6 pt-4 pb-8">
-            <p className="text-[14px] text-gray-500 leading-relaxed">
+            <p className={COMPONENT_STYLES.stepBody}>
               {step.body}
             </p>
           </div>
@@ -199,7 +200,7 @@ export default function JobWorkflow() {
           </span>
         </div>
         <h2
-          className="text-3xl sm:text-4xl md:text-[42px] font-extrabold leading-[1.12] text-slate-900 mb-4"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4"
           style={{ fontFamily: "'Georgia', serif" }}
         >
           How our platform works
@@ -211,7 +212,7 @@ export default function JobWorkflow() {
           <button
             key={tab.id}
             onClick={() => setActive(tab.id)}
-            className={`px-5 py-2 rounded-lg text-[14px] font-medium transition-all duration-200 ${
+            className={`px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
               active === tab.id
                 ? "bg-white text-gray-900 shadow-sm"
                 : "text-gray-500 hover:text-gray-700"
@@ -225,7 +226,7 @@ export default function JobWorkflow() {
       <h3 className="text-xl font-semibold text-gray-900 mb-1">
         {current.heading}
       </h3>
-      <p className="text-[15px] text-gray-500 leading-relaxed mb-6 max-w-3xl">
+      <p className="text-base text-gray-500 leading-relaxed mb-6 max-w-3xl">
         {current.description}
       </p>
 

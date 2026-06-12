@@ -8,6 +8,7 @@ import {
   Search,
   SlidersHorizontal,
 } from "lucide-react";
+import { COMPONENT_STYLES } from "@/lib/typography";
 
 const steps = [
   {
@@ -85,7 +86,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
                   <Icon size={20} className="text-navy-600" />
                 </div>
               )}
-              <span className="text-[15px] font-medium text-gray-800">
+              <span className={COMPONENT_STYLES.stepTitle}>
                 {step.title}
               </span>
             </div>
@@ -101,7 +102,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
       <div className="grid grid-cols-2">
         {[left, right].map((step) => (
           <div key={step.num} className="px-6 pt-4 pb-8">
-            <p className="text-[14px] text-gray-500 leading-relaxed">{step.body}</p>
+            <p className={COMPONENT_STYLES.stepBody}>{step.body}</p>
           </div>
         ))}
       </div>
@@ -121,7 +122,7 @@ export default function PharmacyWorkflow() {
         Organize your pharmacy management workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />
-      <p className="text-[15px] text-gray-500 leading-relaxed mb-10 max-w-4xl">
+      <p className="text-base text-gray-500 leading-relaxed mb-10 max-w-4xl">
         LinkHMS helps to connect doctors, pharmacists, and administrative staff
         through a centralized solution for real-time prescription processing,
         inventory tracking, and billing. It covers efficiency and accuracy across

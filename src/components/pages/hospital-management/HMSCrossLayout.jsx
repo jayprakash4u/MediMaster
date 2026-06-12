@@ -455,7 +455,7 @@ export default function HMSCrossLayout() {
 
             {/* Core Logo Floating Card Shield */}
             <div className="relative z-10 bg-white p-6 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 min-w-[200px] max-w-[240px] text-center flex flex-col items-center">
-              <span className="bg-slate-100 text-[9px] font-extrabold tracking-widest text-slate-500 uppercase px-2.5 py-1 rounded-full mb-4">
+              <span className="bg-slate-100 text-xxs font-extrabold tracking-widest text-slate-500 uppercase px-2.5 py-1 rounded-full mb-4">
                 Core System
               </span>
 
@@ -472,7 +472,7 @@ export default function HMSCrossLayout() {
 
               <div className="w-12 h-[2px] bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full my-4" />
 
-              <p className="text-[10px] text-slate-400 leading-normal font-medium uppercase tracking-wider">
+              <p className="text-xxs text-slate-400 leading-normal font-medium uppercase tracking-wider">
                 Ecosystem Control
               </p>
             </div>

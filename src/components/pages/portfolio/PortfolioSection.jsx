@@ -130,14 +130,17 @@ export default function PortfolioSection() {
     <section className="w-full bg-[#f8fafc] text-slate-900 py-20 px-4 sm:px-6 lg:px-8 font-sans antialiased">
       <div className="max-w-7xl mx-auto">
         {/* --- PAGE HEADER --- */}
-        <div className="mb-12 space-y-2">
+        <div className="mb-12 space-y-3">
           <span className="text-xs font-mono font-bold tracking-widest text-teal-600 uppercase block">
             Our Case Studies
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2
+            className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-[1.15]"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Showcase of Our Work
           </h2>
-          <p className="text-sm text-slate-500 max-w-xl font-light">
+          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal max-w-xl">
             Explore our diverse portfolio across digital design, corporate
             systems, and robust technical infrastructure execution.
           </p>
@@ -182,7 +185,7 @@ export default function PortfolioSection() {
                  {/* Content Metadata Block */}
                  <div className="p-3 flex-1 flex flex-col justify-between bg-white">
                    <div className="space-y-0.5">
-                     <span className="text-[9px] font-mono font-bold tracking-widest text-teal-600 uppercase block">
+                     <span className="text-xxs font-mono font-bold tracking-widest text-teal-600 uppercase block">
                        {project.category}
                      </span>
                      <h3 className="text-sm font-bold text-slate-800 tracking-tight group-hover:text-slate-900 transition-colors">

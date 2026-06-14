@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,12 +44,7 @@ const smmTypes = [
     tagline: "Visual storytelling platform",
     color: "aqua",
     image: "/services/smm/instagram marketing.jpg",
-    features: [
-      "Story strategy",
-      "Reel content",
-      "Hashtag optimization",
-      "Shopping integration",
-    ],
+    features: ["Story strategy", "Reel content", "Hashtag optimization", "Shopping integration"],
     examples: "Product showcases, brand stories, influencer collaborations",
     icon: (
       <svg
@@ -102,12 +99,7 @@ const smmTypes = [
     tagline: "Video-first content strategy",
     color: "teal",
     image: "/services/smm/youtube marketing.jpg",
-    features: [
-      "Channel optimization",
-      "Video SEO",
-      "Thumbnail design",
-      "Subscriber growth",
-    ],
+    features: ["Channel optimization", "Video SEO", "Thumbnail design", "Subscriber growth"],
     examples: "Tutorials, product demos, brand storytelling",
     icon: (
       <svg
@@ -131,12 +123,7 @@ const smmTypes = [
     tagline: "Real-time engagement",
     color: "aqua",
     image: "/services/smm/twitter marketing.jpg",
-    features: [
-      "Tweet strategy",
-      "Thread campaigns",
-      "Hashtag trends",
-      "Community building",
-    ],
+    features: ["Tweet strategy", "Thread campaigns", "Hashtag trends", "Community building"],
     examples: "News updates, customer service, brand voice",
     icon: (
       <svg
@@ -159,12 +146,7 @@ const smmTypes = [
     tagline: "Data-driven strategy",
     color: "navy",
     image: "/services/smm/Analytics & Reporting.jpg",
-    features: [
-      "Performance tracking",
-      "ROI measurement",
-      "Audience insights",
-      "Monthly reports",
-    ],
+    features: ["Performance tracking", "ROI measurement", "Audience insights", "Monthly reports"],
     examples: "Campaign analysis, competitor benchmarking, strategy refinement",
     icon: (
       <svg
@@ -235,7 +217,7 @@ function SMMCard({ item, index }) {
           start: "top 88%",
           toggleActions: "play none none none",
         },
-      },
+      }
     );
   }, [index]);
 
@@ -249,38 +231,30 @@ function SMMCard({ item, index }) {
         ${c.glow} ${c.border}
       `}
     >
-      <div
-        className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`}
-      />
+      <div className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`} />
 
-      <div className="relative w-full h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.category}
-          className="w-full h-full object-cover"
-        />
+      <div className="relative w-full h-40 sm:h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
+        <Image src={item.image} alt={item.category} fill className="object-cover" />
       </div>
 
-      <div className="flex flex-col flex-1 p-5 gap-4">
-        <div className="flex items-start gap-3">
+      <div className="flex flex-col flex-1 p-4 sm:p-5 gap-4">
+        <div className="flex items-start gap-2.5 sm:gap-3">
           <div
-            className={`shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center ${c.icon} transition-transform duration-300 group-hover:scale-110`}
+            className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center ${c.icon} transition-transform duration-300 group-hover:scale-110`}
           >
             {item.icon}
           </div>
           <div>
-            <p
-              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
-            >
+            <p className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}>
               {item.emoji}
             </p>
-<h3 className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-                    style={{ fontFamily: "'Georgia', serif" }}>
-                      {item.category}
-                    </h3>
-            <p className="text-xs text-slate-500 mt-0.5 italic">
-              {item.tagline}
-            </p>
+            <h3
+              className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              {item.category}
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5 italic">{item.tagline}</p>
           </div>
         </div>
 
@@ -289,12 +263,8 @@ function SMMCard({ item, index }) {
         <ul className="space-y-2 flex-1">
           {item.features.map((f, i) => (
             <li key={i} className="flex items-start gap-2.5">
-              <span
-                className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`}
-              />
-              <span className="text-xs text-slate-600 leading-relaxed">
-                {f}
-              </span>
+              <span className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`} />
+              <span className="text-xs text-slate-600 leading-relaxed">{f}</span>
             </li>
           ))}
         </ul>
@@ -309,6 +279,23 @@ function SMMCard({ item, index }) {
     </div>
   );
 }
+
+SMMCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    emoji: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    examples: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+SMMTypesSection.propTypes = {};
 
 export default function SMMTypesSection() {
   const sectionRef = useRef(null);
@@ -327,7 +314,7 @@ export default function SMMTypesSection() {
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: subheadRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         headerRef.current,
@@ -339,7 +326,7 @@ export default function SMMTypesSection() {
           ease: "power3.out",
           delay: 0.1,
           scrollTrigger: { trigger: headerRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         descRef.current,
@@ -351,22 +338,18 @@ export default function SMMTypesSection() {
           ease: "power2.out",
           delay: 0.2,
           scrollTrigger: { trigger: descRef.current, start: "top 88%" },
-        },
+        }
       );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-white py-16 overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative bg-white py-16 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -397,12 +380,12 @@ export default function SMMTypesSection() {
             ref={descRef}
             className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
           >
-            From strategy to analytics, we manage and grow your presence across
-            all major social platforms.
+            From strategy to analytics, we manage and grow your presence across all major social
+            platforms.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {smmTypes.map((item, i) => (
             <SMMCard key={item.id} item={item} index={i} />
           ))}

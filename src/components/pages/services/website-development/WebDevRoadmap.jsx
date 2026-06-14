@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -52,70 +53,42 @@ const rightSteps = [
   },
 ];
 
-/* Petal shape path (teardrop pointing up, centered at 0,0) */
 const PETAL =
   "M0,-34 C14,-34 24,-22 24,-12 C24,0 14,18 0,30 C-14,18 -24,0 -24,-12 C-24,-22 -14,-34 0,-34 Z";
 
-/* Icons per petal – all drawn at origin, will be counter-rotated to stay upright */
 function PetalIcon({ num }) {
   const icons = {
-    // magnifying glass + chart
     "01": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
         <circle cx="0" cy="-6" r="7" />
         <line x1="5" y1="-1" x2="9" y2="3" />
-        <line x1="-4" y1="-9" x2="-4" y2="-3" />
-        <line x1="0" y1="-10" x2="0" y2="-3" />
-        <line x1="4" y1="-7" x2="4" y2="-3" />
       </g>
     ),
-    // calendar
     "02": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
         <rect x="-8" y="-11" width="16" height="14" rx="2" />
         <line x1="-8" y1="-7" x2="8" y2="-7" />
-        <line x1="-4" y1="-13" x2="-4" y2="-9" />
-        <line x1="4" y1="-13" x2="4" y2="-9" />
-        <line x1="-5" y1="-3" x2="-3" y2="-3" />
-        <line x1="-1" y1="-3" x2="1" y2="-3" />
-        <line x1="3" y1="-3" x2="5" y2="-3" />
-        <line x1="-5" y1="0" x2="-3" y2="0" />
-        <line x1="-1" y1="0" x2="1" y2="0" />
       </g>
     ),
-    // monitor / UI
     "03": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
         <rect x="-9" y="-10" width="18" height="13" rx="2" />
         <line x1="0" y1="3" x2="0" y2="6" />
-        <line x1="-4" y1="6" x2="4" y2="6" />
-        <line x1="-6" y1="-5" x2="-2" y2="-5" />
-        <line x1="2" y1="-5" x2="6" y2="-5" />
-        <line x1="-6" y1="-2" x2="0" y2="-2" />
       </g>
     ),
-    // code brackets
     "04": (
-      <g
-        fill="none"
-        stroke="#2dd4bf"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polyline points="-4,-6 -8,-2 -4,2" />
-        <polyline points="4,-6 8,-2 4,2" />
-        <line x1="-2" y1="4" x2="2" y2="-7" />
+      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
+        <rect x="-9" y="-6" width="18" height="12" rx="2" />
+        <line x1="-5" y1="0" x2="5" y2="0" />
       </g>
     ),
-    // shield check
     "05": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <path d="M0,-11 L8,-7 L8,0 C8,6 4,10 0,12 C-4,10 -8,6 -8,0 L-8,-7 Z" />
-        <polyline points="-4,0 -1,3 5,-3" />
+        <circle cx="0" cy="0" r="8" />
+        <line x1="-3" y1="0" x2="0" y2="3" />
+        <line x1="0" y1="3" x2="3" y2="0" />
       </g>
     ),
-    // cloud upload / rocket
     "06": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
         <path d="M-6,2 C-9,2 -11,-1 -9,-4 C-10,-8 -5,-11 -1,-9 C0,-12 5,-12 7,-9 C10,-9 11,-6 9,-4 L6,-4" />
@@ -123,48 +96,37 @@ function PetalIcon({ num }) {
         <line x1="0" y1="-2" x2="0" y2="5" />
       </g>
     ),
-    // gear
     "07": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <circle cx="0" cy="-3" r="4" />
-        <line x1="0" y1="-11" x2="0" y2="-7" />
-        <line x1="0" y1="1" x2="0" y2="5" />
-        <line x1="-8" y1="-3" x2="-4" y2="-3" />
-        <line x1="4" y1="-3" x2="8" y2="-3" />
-        <line x1="-5.6" y1="-8.6" x2="-2.8" y2="-5.8" />
-        <line x1="2.8" y1="-0.2" x2="5.6" y2="2.6" />
-        <line x1="5.6" y1="-8.6" x2="2.8" y2="-5.8" />
-        <line x1="-2.8" y1="-0.2" x2="-5.6" y2="2.6" />
+        <path d="M-6,-4 L6,4 M-6,4 L6,-4" />
+        <circle cx="0" cy="-8" r="3" />
       </g>
     ),
-    // open book
     "08": (
       <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
         <path d="M-9,-9 L-9,5 C-5,4 -1,4 0,5 C1,4 5,4 9,5 L9,-9 C5,-10 1,-10 0,-9 C-1,-10 -5,-10 -9,-9 Z" />
         <line x1="0" y1="-9" x2="0" y2="5" />
-        <line x1="-6" y1="-5" x2="-2" y2="-5" />
-        <line x1="-6" y1="-2" x2="-2" y2="-2" />
-        <line x1="2" y1="-5" x2="6" y2="-5" />
-        <line x1="2" y1="-2" x2="6" y2="-2" />
       </g>
     ),
   };
   return icons[num] || null;
 }
 
-function ModuleWheel({ steps }) {
-  const angles = [0, 90, 180, 270]; // top, right, bottom, left
-  const R = 72; // distance center→petal-center
+PetalIcon.propTypes = {
+  num: PropTypes.string.isRequired,
+};
 
+function ModuleWheel({ steps }) {
+  const angles = [0, 90, 180, 270];
+  const R = 72;
   return (
     <svg
-      width="210"
-      height="210"
+      width="160"
+      height="160"
       viewBox="0 0 210 210"
-      className="shrink-0"
+      className="shrink-0 w-32 h-32 md:w-40 md:h-40 lg:w-[210px] lg:h-[210px]"
       aria-hidden="true"
     >
-      {/* Outer dashed orbit */}
       <circle
         cx="105"
         cy="105"
@@ -175,15 +137,7 @@ function ModuleWheel({ steps }) {
         strokeDasharray="4 7"
         opacity=".3"
       />
-      {/* Center circle */}
-      <circle
-        cx="105"
-        cy="105"
-        r="46"
-        fill="#0f2236"
-        stroke="#2dd4bf"
-        strokeWidth="1.5"
-      />
+      <circle cx="105" cy="105" r="46" fill="#0f2236" stroke="#2dd4bf" strokeWidth="1.5" />
       <circle
         cx="105"
         cy="105"
@@ -194,21 +148,17 @@ function ModuleWheel({ steps }) {
         strokeDasharray="2 4"
         opacity=".4"
       />
-
       {steps.map((step, i) => {
         const angleDeg = angles[i];
         const rad = (angleDeg * Math.PI) / 180;
         const px = 105 + R * Math.sin(rad);
         const py = 105 - R * Math.cos(rad);
-        // spoke endpoints
         const sx1 = 105 + 46 * Math.sin(rad);
         const sy1 = 105 - 46 * Math.cos(rad);
         const sx2 = 105 + 60 * Math.sin(rad);
-        const sy2 = 105 - 60 * Math.cos(rad);
-
+        const sy2 = 105 + 60 * Math.cos(rad);
         return (
           <g key={step.num}>
-            {/* Spoke */}
             <line
               x1={sx1}
               y1={sy1}
@@ -219,10 +169,8 @@ function ModuleWheel({ steps }) {
               strokeDasharray="3 3"
               opacity=".35"
             />
-            {/* Petal group */}
             <g transform={`translate(${px},${py}) rotate(${angleDeg})`}>
               <path d={PETAL} fill="#111f2e" stroke="#2dd4bf" strokeWidth="1" />
-              {/* Counter-rotate icon & label so they stay upright */}
               <g transform={`rotate(${-angleDeg})`}>
                 <PetalIcon num={step.num} />
                 <text
@@ -241,7 +189,6 @@ function ModuleWheel({ steps }) {
           </g>
         );
       })}
-
       <text
         x="105"
         y="101"
@@ -283,31 +230,54 @@ function StepItem({ step, side, index }) {
         duration: 0.55,
         ease: "power3.out",
         delay: index * 0.08,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 88%",
-          toggleActions: "play none none none",
-        },
-      },
+        scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
+      }
     );
   }, [side, index]);
 
   return (
     <div ref={ref} className="flex items-start gap-2.5 group">
-      <div
-        className="shrink-0 w-7 h-7 rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/10
-        flex items-center justify-center text-xxs font-black font-mono text-[#2dd4bf]
-        group-hover:bg-[#2dd4bf]/20 group-hover:border-[#2dd4bf]/70 transition-all duration-200 mt-0.5"
-      >
+      <div className="shrink-0 w-7 h-7 rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/10 flex items-center justify-center text-xxs font-black font-mono text-[#2dd4bf] group-hover:bg-[#2dd4bf]/20 group-hover:border-[#2dd4bf]/70 transition-all duration-200 mt-0.5">
         {step.num}
       </div>
       <div>
-        <h3 className="text-xs font-bold text-white leading-snug mb-1">
-          {step.title}
-        </h3>
-        <p className="text-xs text-slate-400 leading-relaxed">
-          {step.desc}
-        </p>
+        <h3 className="text-xs font-bold text-white leading-snug mb-1">{step.title}</h3>
+        <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function MobileStepItem({ step, index }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: index * 0.08,
+        scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
+      }
+    );
+  }, [index]);
+
+  return (
+    <div
+      ref={ref}
+      className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4"
+    >
+      <div className="shrink-0 w-8 h-8 rounded-full bg-[#2dd4bf]/20 border border-[#2dd4bf]/40 flex items-center justify-center text-xs font-black font-mono text-[#2dd4bf]">
+        {step.num}
+      </div>
+      <div>
+        <h3 className="text-sm font-bold text-white leading-snug mb-1">{step.title}</h3>
+        <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
       </div>
     </div>
   );
@@ -317,6 +287,7 @@ export default function WebDevRoadmap() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const subRef = useRef(null);
+  const [activeTab, setActiveTab] = useState("left");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -329,7 +300,7 @@ export default function WebDevRoadmap() {
           duration: 0.7,
           ease: "power3.out",
           scrollTrigger: { trigger: subRef.current, start: "top 85%" },
-        },
+        }
       );
       gsap.fromTo(
         titleRef.current,
@@ -341,18 +312,14 @@ export default function WebDevRoadmap() {
           ease: "power3.out",
           delay: 0.15,
           scrollTrigger: { trigger: titleRef.current, start: "top 85%" },
-        },
+        }
       );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[#0d1b2a] py-14 overflow-hidden"
-    >
-      {/* Grid */}
+    <section ref={sectionRef} className="relative bg-[#0d1b2a] py-14 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -360,12 +327,9 @@ export default function WebDevRoadmap() {
           backgroundSize: "48px 48px",
         }}
       />
-      {/* Top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[150px] rounded-full bg-[#2dd4bf]/5 blur-[60px] pointer-events-none" />
-
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] md:w-[500px] h-[100px] md:h-[150px] rounded-full bg-[#2dd4bf]/5 blur-[60px] pointer-events-none" />
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8 md:mb-10">
           <div ref={subRef} className="flex items-center justify-center gap-3 mb-4">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
@@ -379,19 +343,65 @@ export default function WebDevRoadmap() {
           </div>
           <h2
             ref={titleRef}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
             style={{ fontFamily: "'Georgia', serif" }}
           >
             <span className="text-teal-400">Roadmap</span> to Success
           </h2>
-          <p className="mt-4 text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3 md:mt-4 text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed px-4">
             Our systematic approach to website development ensures quality and results.
           </p>
         </div>
 
-        {/* 3-column layout */}
-        <div className="flex items-center gap-0">
-          {/* LEFT: Wheel → Steps */}
+        {/* Mobile tab buttons */}
+        <div className="flex lg:hidden gap-3 mb-6 px-4">
+          <button
+            onClick={() => setActiveTab("left")}
+            className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-bold transition-all duration-200 ${
+              activeTab === "left"
+                ? "bg-[#2dd4bf]/20 border border-[#2dd4bf]/40 text-[#2dd4bf]"
+                : "bg-white/5 border border-white/10 text-slate-400"
+            }`}
+          >
+            Planning
+          </button>
+          <button
+            onClick={() => setActiveTab("right")}
+            className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-bold transition-all duration-200 ${
+              activeTab === "right"
+                ? "bg-[#2dd4bf]/20 border border-[#2dd4bf]/40 text-[#2dd4bf]"
+                : "bg-white/5 border border-white/10 text-slate-400"
+            }`}
+          >
+            Launch
+          </button>
+        </div>
+
+        {/* Mobile content */}
+        <div className="lg:hidden">
+          {activeTab === "left" ? (
+            <div className="space-y-3">
+              <div className="flex justify-center mb-4">
+                <ModuleWheel steps={leftSteps} />
+              </div>
+              {leftSteps.map((s, i) => (
+                <MobileStepItem key={s.num} step={s} index={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <div className="flex justify-center mb-4">
+                <ModuleWheel steps={rightSteps} />
+              </div>
+              {rightSteps.map((s, i) => (
+                <MobileStepItem key={s.num} step={s} index={i} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Tablet and Desktop layout */}
+        <div className="hidden lg:flex items-center gap-0">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <ModuleWheel steps={leftSteps} />
             <div className="flex flex-col gap-4 flex-1 min-w-0">
@@ -400,11 +410,7 @@ export default function WebDevRoadmap() {
               ))}
             </div>
           </div>
-
-          {/* Divider */}
           <div className="self-stretch w-px mx-3 bg-gradient-to-b from-transparent via-[#2dd4bf]/25 to-transparent shrink-0" />
-
-          {/* RIGHT: Steps → Wheel */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <div className="flex flex-col gap-4 flex-1 min-w-0">
               {rightSteps.map((s, i) => (

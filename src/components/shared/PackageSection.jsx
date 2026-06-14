@@ -3,27 +3,48 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PropTypes from "prop-types";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // GGG Icons GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 const HospitalIcon = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.75}
+      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+    />
   </svg>
 );
 const PathologyIcon = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.75}
+      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+    />
   </svg>
 );
 const PharmacyIcon = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.75}
+      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+    />
   </svg>
 );
 const CheckIcon = () => (
-  <svg className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg
+    className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
   </svg>
 );
@@ -123,12 +144,15 @@ function StatBadge({ value, label }) {
   );
 }
 
+StatBadge.propTypes = {
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
 function BillingTermsCard({ label }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-teal-400/80 mb-3">
-        {label}
-      </p>
+      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-teal-400/80 mb-3">{label}</p>
       <div className="grid grid-cols-2 gap-2">
         {BILLING_TERMS.map((term) => (
           <div
@@ -142,6 +166,10 @@ function BillingTermsCard({ label }) {
     </div>
   );
 }
+
+BillingTermsCard.propTypes = {
+  label: PropTypes.string.isRequired,
+};
 
 function PrintPackagesCard({ packages }) {
   return (
@@ -169,16 +197,23 @@ function PrintPackagesCard({ packages }) {
   );
 }
 
+PrintPackagesCard.propTypes = {
+  packages: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
+
 function SideNote({ heading, body }) {
   return (
     <div className="bg-slate-950 border border-slate-800/60 rounded-2xl p-5">
-      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-slate-500 mb-2">
-        {heading}
-      </p>
+      <p className="text-xxs font-bold uppercase tracking-[0.2em] text-slate-500 mb-2">{heading}</p>
       <p className="text-sm text-slate-400 leading-relaxed">{body}</p>
     </div>
   );
 }
+
+SideNote.propTypes = {
+  heading: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+};
 
 // GGG Package Row GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 function PackageRow({ plan }) {
@@ -202,7 +237,9 @@ function PackageRow({ plan }) {
 
   const left = (
     <div className="flex flex-col justify-center">
-      <span className={`inline-flex items-center gap-2 text-xxs font-bold uppercase tracking-[0.15em] rounded-lg px-3 py-1.5 mb-6 w-fit ${plan.labelStyle}`}>
+      <span
+        className={`inline-flex items-center gap-2 text-xxs font-bold uppercase tracking-[0.15em] rounded-lg px-3 py-1.5 mb-6 w-fit ${plan.labelStyle}`}
+      >
         {plan.icon}
         {plan.label}
       </span>
@@ -210,9 +247,7 @@ function PackageRow({ plan }) {
       <h3 className="text-2xl md:text-3xl font-extrabold text-white leading-tight mb-3">
         {plan.title}
       </h3>
-      <p className="text-slate-400 text-sm leading-relaxed mb-6">
-        {plan.description}
-      </p>
+      <p className="text-slate-400 text-sm leading-relaxed mb-6">{plan.description}</p>
 
       <div className="grid grid-cols-3 gap-3 mb-7">
         {plan.stats.map((s) => (
@@ -250,13 +285,35 @@ function PackageRow({ plan }) {
 
   return (
     <div ref={rowRef} className="py-16 md:py-20 border-b border-slate-900 last:border-b-0">
-      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${plan.reverse ? "lg:[direction:rtl]" : ""}`}>
+      <div
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${plan.reverse ? "lg:[direction:rtl]" : ""}`}
+      >
         <div className={plan.reverse ? "lg:[direction:ltr]" : ""}>{left}</div>
         <div className={plan.reverse ? "lg:[direction:ltr]" : ""}>{right}</div>
       </div>
     </div>
   );
 }
+
+PackageRow.propTypes = {
+  plan: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    labelStyle: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    stats: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    billingLabel: PropTypes.string.isRequired,
+    printPackages: PropTypes.arrayOf(PropTypes.shape({})),
+    sideNote: PropTypes.shape({
+      heading: PropTypes.string,
+      body: PropTypes.string,
+    }),
+    reverse: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 // GGG Main Export GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 export default function PackageSection() {
@@ -273,7 +330,6 @@ export default function PackageSection() {
   return (
     <section className="bg-[#020c18] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* Global header */}
         <div ref={headerRef} className="pt-20 pb-14 text-center max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-5">
@@ -283,21 +339,18 @@ export default function PackageSection() {
                 <circle cx="22" cy="5" r="2" fill="#0D9488" />
               </svg>
             </div>
-            <span className="text-xs font-bold tracking-[0.2em] text-teal-400">
-              Package Plans
-            </span>
+            <span className="text-xs font-bold tracking-[0.2em] text-teal-400">Package Plans</span>
           </div>
           <h2
             className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-white"
             style={{ fontFamily: "'Georgia', serif" }}
           >
-            Choose the{" "}
-            <span className="text-teal-400">MediMaster</span>{" "}
-            package built for your team.
+            Choose the <span className="text-teal-400">MediMaster</span> package built for your
+            team.
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Modular access by subscription term for hospital, pathology and pharmacy
-            operations G monthly, quarterly, semi-annual, and annual.
+            Modular access by subscription term for hospital, pathology and pharmacy operations G
+            monthly, quarterly, semi-annual, and annual.
           </p>
 
           {/* Package nav anchors */}
@@ -323,9 +376,7 @@ export default function PackageSection() {
             <PackageRow plan={plan} />
           </div>
         ))}
-
       </div>
     </section>
   );
 }
-

@@ -354,7 +354,7 @@ function EcommerceCard({ item, index }) {
           start: "top 88%",
           toggleActions: "play none none none",
         },
-      },
+      }
     );
   }, [index]);
 
@@ -368,17 +368,11 @@ function EcommerceCard({ item, index }) {
         ${c.glow} ${c.border}
       `}
     >
-      <div
-        className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`}
-      />
+      <div className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`} />
 
-      <div className="relative w-full h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-36 sm:h-40 md:h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
         {item.image ? (
-          <img
-            src={item.image}
-            alt={item.category}
-            className="w-full h-full object-cover"
-          />
+          <img src={item.image} alt={item.category} className="w-full h-full object-cover" />
         ) : (
           <div className="flex flex-col items-center gap-2 text-slate-400">
             <svg
@@ -392,9 +386,7 @@ function EcommerceCard({ item, index }) {
               <circle cx="8.5" cy="8.5" r="1.5" />
               <path d="M21 15l-5-5L5 21" />
             </svg>
-            <span className="text-xs font-medium tracking-wider uppercase">
-              Image coming soon
-            </span>
+            <span className="text-xs font-medium tracking-wider uppercase">Image coming soon</span>
           </div>
         )}
       </div>
@@ -407,18 +399,16 @@ function EcommerceCard({ item, index }) {
             <span className="text-xl">{item.emoji}</span>
           </div>
           <div>
-            <p
-              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
-            >
+            <p className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}>
               Service
             </p>
-<h3 className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-                    style={{ fontFamily: "'Georgia', serif" }}>
-                      {item.category}
-                    </h3>
-            <p className="text-xs text-slate-500 mt-0.5 italic">
-              {item.tagline}
-            </p>
+            <h3
+              className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              {item.category}
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5 italic">{item.tagline}</p>
           </div>
         </div>
 
@@ -427,12 +417,8 @@ function EcommerceCard({ item, index }) {
         <ul className="space-y-2 flex-1">
           {item.features.map((f, i) => (
             <li key={i} className="flex items-start gap-2.5">
-              <span
-                className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`}
-              />
-              <span className="text-xs text-slate-600 leading-relaxed">
-                {f}
-              </span>
+              <span className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`} />
+              <span className="text-xs text-slate-600 leading-relaxed">{f}</span>
             </li>
           ))}
         </ul>
@@ -465,7 +451,7 @@ export default function EcommerceTypesSection() {
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: subheadRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         headerRef.current,
@@ -477,7 +463,7 @@ export default function EcommerceTypesSection() {
           ease: "power3.out",
           delay: 0.1,
           scrollTrigger: { trigger: headerRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         descRef.current,
@@ -489,28 +475,24 @@ export default function EcommerceTypesSection() {
           ease: "power2.out",
           delay: 0.2,
           scrollTrigger: { trigger: descRef.current, start: "top 88%" },
-        },
+        }
       );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-white py-16 overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative bg-white py-16 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 max-w-2xl mx-auto">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto">
           <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-4">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
@@ -535,12 +517,12 @@ export default function EcommerceTypesSection() {
             ref={descRef}
             className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
           >
-            From custom development to ongoing maintenance, we provide
-            end-to-end e-commerce services for your online business.
+            From custom development to ongoing maintenance, we provide end-to-end e-commerce
+            services for your online business.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {ecommerceTypes.map((item, i) => (
             <EcommerceCard key={item.id} item={item} index={i} />
           ))}

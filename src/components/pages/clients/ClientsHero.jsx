@@ -15,7 +15,7 @@ export default function ClientsHero() {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
@@ -27,12 +27,12 @@ export default function ClientsHero() {
           duration: 1.1,
           ease: "back.out(1.7)",
           delay: 0.25,
-        },
+        }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
@@ -44,7 +44,7 @@ export default function ClientsHero() {
           duration: 1.1,
           ease: "power3.out",
           delay: 0.4,
-        },
+        }
       );
     }, containerRef);
     return () => ctx.revert();
@@ -73,23 +73,18 @@ export default function ClientsHero() {
                 Healthcare Partners
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-                Trusted by{" "}
-                <span className="text-teal-300">500+</span> Healthcare
+                Trusted by <span className="text-teal-300">500+</span> Healthcare
                 <br className="hidden sm:block" /> Institutions
               </h1>
               <p className="text-sm sm:text-base leading-7 text-slate-300">
-                Powering Nepal's hospitals, pharmacies, and diagnostic centers
-                with intelligent medical software solutions that transform
-                patient care.
+                Powering Nepal&apos;s hospitals, pharmacies, and diagnostic centers with intelligent
+                medical software solutions that transform patient care.
               </p>
             </div>
           </div>
 
           <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
-            <div
-              className="relative w-full max-w-md lg:max-w-lg"
-              style={{ aspectRatio: "1 / 1" }}
-            >
+            <div className="relative w-full max-w-md lg:max-w-lg" style={{ aspectRatio: "1 / 1" }}>
               <div
                 className="absolute inset-[10%] rounded-full"
                 style={{

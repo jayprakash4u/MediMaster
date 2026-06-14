@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const reviews = [
   {
@@ -101,14 +102,14 @@ function ReviewCard({ review }) {
               {review.avatar}
             </div>
             <div>
-                <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+              <h4
+                className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
                 {review.name}
               </h4>
               <p className="text-zinc-400 text-xxs">
-                {review.role} @{" "}
-                <span className="font-medium text-zinc-700">
-                  {review.company}
-                </span>
+                {review.role} @ <span className="font-medium text-zinc-700">{review.company}</span>
               </p>
             </div>
           </div>
@@ -130,11 +131,7 @@ function ReviewCard({ review }) {
             stroke="currentColor"
             strokeWidth={3}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 13l4 4L19 7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
           <span>{review.highlight}</span>
         </div>
@@ -146,7 +143,23 @@ function ReviewCard({ review }) {
   );
 }
 
+ReviewCard.propTypes = {
+  review: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    avatarColor: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    review: PropTypes.string.isRequired,
+    highlight: PropTypes.string.isRequired,
+    timeToHire: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 export default function JobSeekerReviews() {
+  JobSeekerReviews.propTypes = {};
   const [activeFilter, setActiveFilter] = useState("All");
   const filters = [
     "All",
@@ -158,39 +171,38 @@ export default function JobSeekerReviews() {
     "Infrastructure",
   ];
 
-  const filtered =
-    activeFilter === "All"
-      ? reviews
-      : reviews.filter((r) => r.tag === activeFilter);
+  const filtered = activeFilter === "All" ? reviews : reviews.filter((r) => r.tag === activeFilter);
 
   return (
-    <section id="worknepal-reviews" className="bg-zinc-50/60 py-16 px-4 sm:px-6 lg:px-8 font-sans antialiased">
+    <section
+      id="worknepal-reviews"
+      className="bg-zinc-50/60 py-16 px-4 sm:px-6 lg:px-8 font-sans antialiased"
+    >
       <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-12 lg:gap-10 items-start">
         {/* LEFT COLUMN: Static Info Controls */}
         <div className="lg:col-span-4 mb-10 lg:mb-0 lg:sticky lg:top-10">
           <div className="inline-flex items-center gap-1.5 bg-white border border-zinc-200 rounded-full px-2.5 py-0.5 mb-4 shadow-sm">
             <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xxs text-zinc-500 font-medium tracking-tight">
-              Real matches
-            </span>
+            <span className="text-xxs text-zinc-500 font-medium tracking-tight">Real matches</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2
+            className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             They found their next chapter.
           </h2>
 
           <p className="text-zinc-500 text-xs max-w-sm font-normal leading-relaxed mb-6">
-            Over 40,000 tech professionals have launched careers using our
-            curated, high-transparency platform tools.
+            Over 40,000 tech professionals have launched careers using our curated,
+            high-transparency platform tools.
           </p>
 
           {/* Inline Micro Stats */}
           <div className="grid grid-cols-3 gap-2 py-4 border-y border-zinc-200/60 mb-6">
             {stats.map((stat, i) => (
               <div key={i} className="text-left">
-                <p className="text-lg font-bold text-zinc-900 tracking-tight">
-                  {stat.value}
-                </p>
+                <p className="text-lg font-bold text-zinc-900 tracking-tight">{stat.value}</p>
                 <p className="text-xxs text-zinc-400 font-medium leading-none mt-0.5">
                   {stat.label}
                 </p>

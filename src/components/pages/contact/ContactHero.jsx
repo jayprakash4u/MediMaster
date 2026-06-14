@@ -16,7 +16,7 @@ export default function ContactHero() {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
@@ -28,12 +28,12 @@ export default function ContactHero() {
           duration: 1.1,
           ease: "back.out(1.7)",
           delay: 0.25,
-        },
+        }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
@@ -45,7 +45,7 @@ export default function ContactHero() {
           duration: 1.1,
           ease: "power3.out",
           delay: 0.4,
-        },
+        }
       );
     }, containerRef);
     return () => ctx.revert();
@@ -70,17 +70,13 @@ export default function ContactHero() {
             </div>
 
             <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.35em] text-teal-300/80">
-                Get in Touch
-              </p>
+              <p className="text-sm uppercase tracking-[0.35em] text-teal-300/80">Get in Touch</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-                Contact{" "}
-                <span className="text-teal-300">Us</span>
+                Contact <span className="text-teal-300">Us</span>
               </h1>
               <p className="text-sm sm:text-base leading-7 text-slate-300">
-                Have a project in mind? Ready to transform your digital presence
-                or solve a technical challenge? Let's start a conversation and
-                bring your vision to life.
+                Have a project in mind? Ready to transform your digital presence or solve a
+                technical challenge? Let&apos;s start a conversation and bring your vision to life.
               </p>
             </div>
 
@@ -101,10 +97,7 @@ export default function ContactHero() {
           </div>
 
           <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
-            <div
-              className="relative w-full max-w-md lg:max-w-lg"
-              style={{ aspectRatio: "1 / 1" }}
-            >
+            <div className="relative w-full max-w-md lg:max-w-lg" style={{ aspectRatio: "1 / 1" }}>
               <div
                 className="absolute inset-[10%] rounded-full"
                 style={{

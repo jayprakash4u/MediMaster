@@ -119,7 +119,7 @@ export default function CompanyWorkingSteps() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-white py-12 md:py-16 font-sans text-gray-600 antialiased overflow-hidden"
+      className="w-full bg-navy-950 py-12 md:py-16 font-sans text-gray-600 antialiased overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center gap-3 mb-8">
@@ -135,10 +135,10 @@ export default function CompanyWorkingSteps() {
         </div>
 
         <h2
-          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
+          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-white mb-12"
           style={{ fontFamily: "'Georgia', serif" }}
         >
-          How We <span className="text-teal-600">Work</span>
+          How We <span className="text-teal-400">Work</span>
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-6 min-h-[300px]">
@@ -178,22 +178,22 @@ export default function CompanyWorkingSteps() {
                 </div>
 
                 <div className="step-node-item relative flex-shrink-0 z-10">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-teal-500/10 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 shadow-sm">
-                    <div className="w-full h-full rounded-full bg-white border border-gray-200/80 shadow-[0_4px_12px_rgba(0,0,0,0.06)] flex items-center justify-center text-navy-950 group-hover:text-teal-500 transition-colors duration-300">
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white/10 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 shadow-sm border border-white/20">
+                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors duration-300">
                       {step.icon}
                     </div>
                   </div>
                 </div>
 
                 <div className="step-content-text ml-6 sm:ml-8 pt-2 flex-1 relative max-w-md">
-                  <h4 className="text-base sm:text-lg font-extrabold text-navy-950 tracking-tight mb-1 group-hover:text-teal-600 transition-colors duration-200">
+                  <h4 className="text-base sm:text-lg font-extrabold text-white tracking-tight mb-1 group-hover:text-teal-400 transition-colors duration-200">
                     {step.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-500 font-normal leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
                     {step.description}
                   </p>
 
-                  <div className="w-1/3 h-[1px] bg-gradient-to-r from-teal-500/30 to-transparent mt-3 transition-all duration-300 group-hover:w-1/2" />
+                  <div className="w-1/3 h-[1px] bg-gradient-to-r from-teal-500/50 to-transparent mt-3 transition-all duration-300 group-hover:w-1/2" />
                 </div>
               </div>
             ))}

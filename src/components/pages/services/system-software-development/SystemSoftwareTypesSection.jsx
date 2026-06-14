@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -29,7 +30,7 @@ const softwareTypes = [
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
       >
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
         <line x1="2" y1="21" x2="22" y2="21" />
@@ -60,7 +61,7 @@ const softwareTypes = [
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
       >
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9" />
         <polyline points="22 4 12 14.01 9 11.01" />
@@ -89,7 +90,7 @@ const softwareTypes = [
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
       >
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <line x1="3" y1="9" x2="21" y2="9" />
@@ -119,7 +120,7 @@ const softwareTypes = [
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
       >
         <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
         <path d="M12 18C15.866 18 19 14.866 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 14.866 8.13401 18 12 18Z" />
@@ -149,7 +150,7 @@ const softwareTypes = [
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
       >
         <ellipse cx="12" cy="5" rx="9" ry="3" />
         <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5" />
@@ -179,7 +180,7 @@ const softwareTypes = [
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
       >
         <path d="M16 18a4 4 0 1 0-8 0" />
         <path d="M12 14V8" />
@@ -241,7 +242,7 @@ function SoftwareCard({ item, index }) {
           start: "top 88%",
           toggleActions: "play none none none",
         },
-      },
+      }
     );
   }, [index]);
 
@@ -255,21 +256,16 @@ function SoftwareCard({ item, index }) {
         ${c.glow} ${c.border}
       `}
     >
-      <div
-        className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`}
-      />
+      <div className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`} />
 
-      <div className="relative w-full h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-36 sm:h-40 md:h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
         {item.image ? (
-          <img
-            src={item.image}
-            alt={item.category}
-            className="w-full h-full object-cover"
-          />
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={item.image} alt={item.category} className="w-full h-full object-cover" />
         ) : (
           <div className="flex flex-col items-center gap-2 text-slate-400">
             <svg
-              className="w-10 h-10"
+              className="w-8 h-8 sm:w-10 sm:h-10"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -279,61 +275,76 @@ function SoftwareCard({ item, index }) {
               <circle cx="8.5" cy="8.5" r="1.5" />
               <path d="M21 15l-5-5L5 21" />
             </svg>
-            <span className="text-xs font-medium tracking-wider uppercase">
+            <span className="text-[10px] sm:text-xs font-medium tracking-wider uppercase">
               Image coming soon
             </span>
           </div>
         )}
       </div>
 
-      <div className="flex flex-col flex-1 p-5 gap-4">
-        <div className="flex items-start gap-3">
+      <div className="flex flex-col flex-1 p-4 sm:p-5 gap-3 sm:gap-4">
+        <div className="flex items-start gap-2.5 sm:gap-3">
           <div
-            className={`shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center ${c.icon} transition-transform duration-300 group-hover:scale-110`}
+            className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center ${c.icon} transition-transform duration-300 group-hover:scale-110`}
           >
             {item.icon}
           </div>
           <div>
             <p
-              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
+              className={`text-[10px] sm:text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
             >
               {item.emoji}
             </p>
-<h3 className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-                    style={{ fontFamily: "'Georgia', serif" }}>
-                      {item.category}
-                    </h3>
-            <p className="text-xs text-slate-500 mt-0.5 italic">
-              {item.tagline}
-            </p>
+            <h3
+              className="text-xs sm:text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              {item.category}
+            </h3>
+            <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 italic">{item.tagline}</p>
           </div>
         </div>
 
         <div className={`h-px bg-gradient-to-r ${c.line} to-transparent`} />
 
-        <ul className="space-y-2 flex-1">
+        <ul className="space-y-1.5 sm:space-y-2 flex-1">
           {item.features.map((f, i) => (
-            <li key={i} className="flex items-start gap-2.5">
+            <li key={i} className="flex items-start gap-2 sm:gap-2.5">
               <span
-                className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`}
+                className={`mt-[4px] sm:mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`}
               />
-              <span className="text-xs text-slate-600 leading-relaxed">
-                {f}
-              </span>
+              <span className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">{f}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-3 border-t border-slate-200">
-          <p className="text-xxs text-slate-500 uppercase tracking-widest font-semibold mb-1">
+        <div className="pt-2.5 sm:pt-3 border-t border-slate-200">
+          <p className="text-[10px] sm:text-xxs text-slate-500 uppercase tracking-widest font-semibold mb-1">
             Examples
           </p>
-          <p className="text-xs text-slate-500 italic">{item.examples}</p>
+          <p className="text-[11px] sm:text-xs text-slate-500 italic">{item.examples}</p>
         </div>
       </div>
     </div>
   );
 }
+
+SoftwareCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    emoji: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    examples: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+SystemSoftwareTypesSection.propTypes = {};
 
 export default function SystemSoftwareTypesSection() {
   const sectionRef = useRef(null);
@@ -352,7 +363,7 @@ export default function SystemSoftwareTypesSection() {
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: subheadRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         headerRef.current,
@@ -364,7 +375,7 @@ export default function SystemSoftwareTypesSection() {
           ease: "power3.out",
           delay: 0.1,
           scrollTrigger: { trigger: headerRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         descRef.current,
@@ -376,43 +387,39 @@ export default function SystemSoftwareTypesSection() {
           ease: "power2.out",
           delay: 0.2,
           scrollTrigger: { trigger: descRef.current, start: "top 88%" },
-        },
+        }
       );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-white py-16 overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative bg-white py-12 sm:py-14 md:py-16 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 max-w-2xl mx-auto">
-          <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-4">
+        <div className="text-center mb-8 sm:mb-10 max-w-2xl mx-auto">
+          <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-3 sm:mb-4">
             <div className="flex items-center gap-1.5">
-              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
+              <svg viewBox="0 0 24 10" className="w-7 h-2.5 sm:w-8 sm:h-3" fill="none">
                 <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
                 <circle cx="22" cy="5" r="2" fill="#0D9488" />
               </svg>
             </div>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
               Our Expertise
             </span>
           </div>
 
           <h2
             ref={headerRef}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
             style={{ fontFamily: "'Georgia', serif" }}
           >
             Software <span className="text-teal-600">We Build</span>
@@ -420,14 +427,14 @@ export default function SystemSoftwareTypesSection() {
 
           <p
             ref={descRef}
-            className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
+            className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
           >
-            From desktop applications to enterprise backend systems, we deliver
-            robust software solutions engineered for performance and reliability.
+            From desktop applications to enterprise backend systems, we deliver robust software
+            solutions engineered for performance and reliability.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {softwareTypes.map((item, i) => (
             <SoftwareCard key={item.id} item={item} index={i} />
           ))}

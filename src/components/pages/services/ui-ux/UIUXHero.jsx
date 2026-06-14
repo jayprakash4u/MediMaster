@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 
 const floatingIcons = [
@@ -111,7 +112,6 @@ function FloatingIcon({ icon, index }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!ref.current) return;
     gsap.to(ref.current, {
       y: -12,
       duration: 2.2 + index * 0.15,
@@ -123,7 +123,7 @@ function FloatingIcon({ icon, index }) {
   }, [icon.delay, index]);
 
   const isSquare = icon.shape === "square";
-  const isPill   = icon.shape === "pill";
+  const isPill = icon.shape === "pill";
   const isPillSm = icon.shape === "pill-sm";
 
   const baseStyle = {
@@ -228,33 +228,50 @@ function FloatingIcon({ icon, index }) {
   );
 }
 
+FloatingIcon.propTypes = {
+  icon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    delay: PropTypes.number.isRequired,
+    top: PropTypes.string.isRequired,
+    left: PropTypes.string.isRequired,
+    size: PropTypes.number,
+    bg: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    shape: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+UIUXHero.propTypes = {};
+
 export default function UIUXHero() {
   const containerRef = useRef(null);
-  const badgeRef     = useRef(null);
-  const contentRef   = useRef(null);
-  const imageRef     = useRef(null);
+  const badgeRef = useRef(null);
+  const contentRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
         { opacity: 0, scale: 0.8, rotation: -14 },
-        { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, x: 60, scale: 0.92 },
-        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 },
+        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 }
       );
     }, containerRef);
     return () => ctx.revert();
@@ -270,9 +287,7 @@ export default function UIUXHero() {
 
       <div className="relative z-10 container mx-auto px-6 py-8 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-
           <div ref={contentRef} className="flex-1 max-w-2xl text-center lg:text-left">
-
             <div
               ref={badgeRef}
               className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] mb-6"
@@ -292,15 +307,16 @@ export default function UIUXHero() {
                   Services
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                style={{ fontFamily: "'Georgia', serif" }}>
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
                 UI/UX <span className="text-teal-400">Design</span>
               </h1>
               <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-xl">
-                Design intuitive, engaging, and user-centered digital experiences
-                that drive conversions and delight users. From wireframes to
-                interactive prototypes, we craft seamless interfaces that align
-                with your business goals and user needs.
+                Design intuitive, engaging, and user-centered digital experiences that drive
+                conversions and delight users. From wireframes to interactive prototypes, we craft
+                seamless interfaces that align with your business goals and user needs.
               </p>
             </div>
 
@@ -322,14 +338,13 @@ export default function UIUXHero() {
 
           <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
             <div
-              className="relative w-full max-w-md lg:max-w-lg"
+              className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
               style={{ aspectRatio: "1 / 1" }}
             >
               <div
                 className="absolute inset-[10%] rounded-full"
                 style={{
-                  background:
-                    "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
                   filter: "blur(20px)",
                 }}
               />
@@ -340,17 +355,18 @@ export default function UIUXHero() {
                   alt="UI/UX Designer"
                   width={420}
                   height={420}
-                  className="w-[75%] h-auto object-contain drop-shadow-2xl"
+                  className="w-[80%] sm:w-[75%] h-auto object-contain drop-shadow-2xl"
                   priority
                 />
               </div>
 
-              {floatingIcons.map((icon, i) => (
-                <FloatingIcon key={icon.name} icon={icon} index={i} />
-              ))}
+              <div className="hidden md:block">
+                {floatingIcons.map((icon, i) => (
+                  <FloatingIcon key={icon.name} icon={icon} index={i} />
+                ))}
+              </div>
             </div>
           </div>
-
         </div>
       </div>
 

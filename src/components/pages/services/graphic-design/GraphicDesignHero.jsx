@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 
 const floatingIcons = [
@@ -123,7 +124,7 @@ function FloatingIcon({ icon, index }) {
   }, [icon.delay, index]);
 
   const isSquare = icon.shape === "square";
-  const isPill   = icon.shape === "pill";
+  const isPill = icon.shape === "pill";
   const isPillSm = icon.shape === "pill-sm";
 
   const baseStyle = {
@@ -171,7 +172,7 @@ function FloatingIcon({ icon, index }) {
   }
 
   return (
-    <div ref={ref} style={baseStyle} title={icon.name}>
+    <div ref={ref} className="hidden md:block" style={baseStyle} title={icon.name}>
       {isPill ? (
         <>
           <span
@@ -228,33 +229,50 @@ function FloatingIcon({ icon, index }) {
   );
 }
 
+FloatingIcon.propTypes = {
+  icon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    delay: PropTypes.number.isRequired,
+    top: PropTypes.string.isRequired,
+    left: PropTypes.string.isRequired,
+    size: PropTypes.number,
+    bg: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    shape: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+GraphicDesignHero.propTypes = {};
+
 export default function GraphicDesignHero() {
   const containerRef = useRef(null);
-  const badgeRef     = useRef(null);
-  const contentRef   = useRef(null);
-  const imageRef     = useRef(null);
+  const badgeRef = useRef(null);
+  const contentRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
         { opacity: 0, scale: 0.8, rotation: -14 },
-        { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 },
+        { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, x: 60, scale: 0.92 },
-        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 },
+        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 }
       );
     }, containerRef);
     return () => ctx.revert();
@@ -263,21 +281,22 @@ export default function GraphicDesignHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[70vh] lg:min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white"
+      className="relative min-h-[72vh] sm:min-h-[76vh] md:min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white"
     >
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.18)_0,_transparent_38%)]" />
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_bottom_right,_rgba(20,184,166,0.14)_0,_transparent_45%)]" />
 
-      <div className="relative z-10 container mx-auto px-6 py-8 lg:py-16">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-
-          <div ref={contentRef} className="flex-1 max-w-2xl text-center lg:text-left">
-
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-center lg:gap-16">
+          <div
+            ref={contentRef}
+            className="flex-1 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left"
+          >
             <div
               ref={badgeRef}
-              className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] mb-6"
+              className="inline-flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] mb-5 sm:mb-6"
             >
-              <span className="text-3xl font-black text-teal-300">G</span>
+              <span className="text-3xl sm:text-4xl md:text-5xl font-black text-teal-300">G</span>
             </div>
 
             <div className="space-y-4">
@@ -288,48 +307,48 @@ export default function GraphicDesignHero() {
                     <circle cx="22" cy="5" r="2" fill="#0D9488" />
                   </svg>
                 </div>
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-400">
+                <span className="text-[0.65rem] sm:text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-teal-400">
                   Services
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                style={{ fontFamily: "'Georgia', serif" }}>
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
                 Graphic <span className="text-teal-400">Design</span>
               </h1>
-              <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-xl">
-                Create stunning visuals that communicate your brand story —
-                from logos, brand identities, and marketing materials to
-                UI mockups, illustrations, and print-ready designs crafted
-                with precision and creativity.
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-300 max-w-xl">
+                Create stunning visuals that communicate your brand story — from logos, brand
+                identities, and marketing materials to UI mockups, illustrations, and print-ready
+                designs crafted with precision and creativity.
               </p>
             </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-teal-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-xl shadow-teal-400/20 transition hover:bg-teal-300"
+                className="inline-flex items-center justify-center rounded-full bg-teal-400 px-5 py-2.5 sm:px-6 text-sm sm:text-base md:text-lg font-semibold text-slate-950 shadow-xl shadow-teal-400/20 transition hover:bg-teal-300"
               >
                 Start a Project
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 sm:px-6 text-sm sm:text-base md:text-lg font-semibold text-white/90 transition hover:bg-white/10"
               >
                 All Services
               </Link>
             </div>
           </div>
 
-          <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
+          <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end w-full">
             <div
-              className="relative w-full max-w-md lg:max-w-lg"
+              className="relative w-full max-w-[340px] sm:max-w-md md:max-w-lg lg:max-w-xl"
               style={{ aspectRatio: "1 / 1" }}
             >
               <div
                 className="absolute inset-[10%] rounded-full"
                 style={{
-                  background:
-                    "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
                   filter: "blur(20px)",
                 }}
               />
@@ -340,7 +359,7 @@ export default function GraphicDesignHero() {
                   alt="Graphic Designer"
                   width={420}
                   height={420}
-                  className="w-[75%] h-auto object-contain drop-shadow-2xl"
+                  className="w-[70%] sm:w-[75%] md:w-[85%] lg:w-[80%] max-w-full h-auto object-contain drop-shadow-2xl"
                   priority
                 />
               </div>
@@ -350,7 +369,6 @@ export default function GraphicDesignHero() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
 

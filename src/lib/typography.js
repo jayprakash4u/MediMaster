@@ -65,4 +65,6 @@ export const TEXT_COLOR = {
   tealLight: "text-teal-500",
 };
 
-export default { HEADING, BODY, COMPONENT_STYLES, FONT_WEIGHT, FONT_FAMILY, TEXT_COLOR };
+const typographyExport = { HEADING, BODY, COMPONENT_STYLES, FONT_WEIGHT, FONT_FAMILY, TEXT_COLOR };
+
+export default typographyExport;

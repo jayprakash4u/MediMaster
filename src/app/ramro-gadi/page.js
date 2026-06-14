@@ -33,14 +33,16 @@ export default function RamroGadiPage() {
             <span className="inline-block text-teal-400 font-bold text-xs tracking-[0.2em] uppercase mb-4">
               Automotive Marketplace
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
-              Buy & Sell Vehicles{" "}
-              <span className="text-teal-400">With Confidence</span>
+            <h1
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              Buy & Sell Vehicles <span className="text-teal-400">With Confidence</span>
             </h1>
             <p className="text-slate-300 text-lg mb-8 max-w-2xl leading-relaxed">
-              Nepal's most trusted automotive marketplace. Buy and sell vehicles
-              with secure listings, certified inspection reports, and integrated
-              financing tools — all in one platform.
+              Nepal&apos;s most trusted automotive marketplace. Buy and sell vehicles with secure
+              listings, certified inspection reports, and integrated financing tools — all in one
+              platform.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link

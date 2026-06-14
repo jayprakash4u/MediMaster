@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -183,6 +184,21 @@ function FloatingIcon({ icon, index }) {
   );
 }
 
+FloatingIcon.propTypes = {
+  icon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    delay: PropTypes.number.isRequired,
+    top: PropTypes.string.isRequired,
+    left: PropTypes.string.isRequired,
+    size: PropTypes.number,
+    bg: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    shape: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
 export default function ServerManagementHero() {
   const containerRef = useRef(null);
   const badgeRef = useRef(null);
@@ -194,7 +210,7 @@ export default function ServerManagementHero() {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
@@ -206,12 +222,12 @@ export default function ServerManagementHero() {
           duration: 1.1,
           ease: "back.out(1.7)",
           delay: 0.25,
-        },
+        }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
@@ -223,7 +239,7 @@ export default function ServerManagementHero() {
           duration: 1.1,
           ease: "power3.out",
           delay: 0.4,
-        },
+        }
       );
     }, containerRef);
 
@@ -260,14 +276,15 @@ export default function ServerManagementHero() {
                   Services
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                style={{ fontFamily: "'Georgia', serif" }}>
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
                 Server Management
               </h1>
               <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-xl">
-                Reliable server infrastructure management — from setup and security to
-                monitoring, backups, and scaling, so your systems stay fast, safe, and
-                always online.
+                Reliable server infrastructure management — from setup and security to monitoring,
+                backups, and scaling, so your systems stay fast, safe, and always online.
               </p>
             </div>
 
@@ -290,7 +307,7 @@ export default function ServerManagementHero() {
           <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md lg:max-w-lg" style={{ aspectRatio: "1 / 1" }}>
               <div
-                className="absolute inset-[10%] rounded-full"
+                className="absolute inset-[5%] sm:inset-[8%] md:inset-[10%] rounded-full"
                 style={{
                   background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
                   filter: "blur(20px)",
@@ -299,18 +316,20 @@ export default function ServerManagementHero() {
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
-                   src="/services/shared/website-development-hero.png"
+                  src="/services/shared/website-development-hero.png"
                   alt="Server Management"
                   width={420}
                   height={420}
-                  className="w-[75%] h-auto object-contain drop-shadow-2xl"
+                  className="w-[60%] sm:w-[70%] md:w-[75%] h-auto object-contain drop-shadow-2xl"
                   priority
                 />
               </div>
 
-              {floatingIcons.map((icon, i) => (
-                <FloatingIcon key={icon.name} icon={icon} index={i} />
-              ))}
+              <div className="hidden md:block">
+                {floatingIcons.map((icon, i) => (
+                  <FloatingIcon key={icon.name} icon={icon} index={i} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

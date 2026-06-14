@@ -228,7 +228,7 @@ export default function ITOutsourcingHero() {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
@@ -240,12 +240,12 @@ export default function ITOutsourcingHero() {
           duration: 1.1,
           ease: "back.out(1.7)",
           delay: 0.25,
-        },
+        }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
@@ -257,7 +257,7 @@ export default function ITOutsourcingHero() {
           duration: 1.1,
           ease: "power3.out",
           delay: 0.4,
-        },
+        }
       );
     }, containerRef);
 
@@ -294,14 +294,16 @@ export default function ITOutsourcingHero() {
                   Services
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                style={{ fontFamily: "'Georgia', serif" }}>
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
                 IT <span className="text-teal-400">Outsourcing</span>
               </h1>
               <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-xl">
                 Leverage our end-to-end IT outsourcing services to reduce costs, improve efficiency,
-                and focus on your core business. From infrastructure management to dedicated support teams,
-                we handle your technology needs so you can scale with confidence.
+                and focus on your core business. From infrastructure management to dedicated support
+                teams, we handle your technology needs so you can scale with confidence.
               </p>
             </div>
 
@@ -321,16 +323,15 @@ export default function ITOutsourcingHero() {
             </div>
           </div>
 
-          <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
+          <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end hidden md:flex">
             <div
-              className="relative w-full max-w-md lg:max-w-lg"
+              className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
               style={{ aspectRatio: "1 / 1" }}
             >
               <div
-                className="absolute inset-[10%] rounded-full"
+                className="absolute inset-[5%] sm:inset-[8%] md:inset-[10%] rounded-full"
                 style={{
-                  background:
-                    "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
                   filter: "blur(20px)",
                 }}
               />
@@ -341,7 +342,7 @@ export default function ITOutsourcingHero() {
                   alt="IT Outsourcing"
                   width={420}
                   height={420}
-                  className="w-[75%] h-auto object-contain drop-shadow-2xl"
+                  className="w-[60%] sm:w-[70%] md:w-[75%] h-auto object-contain drop-shadow-2xl"
                   priority
                 />
               </div>

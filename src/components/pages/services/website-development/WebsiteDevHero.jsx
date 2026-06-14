@@ -3,112 +3,107 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 
-// ── Floating tech icons with fixed positions around the image ─────────────────
-// Each icon has a position (top/left as % of container) and a float delay
 const floatingIcons = [
-  // top-left cluster
   {
-    name: "AWS",
+    name: "Figma",
     delay: 0,
-    top: "62%",
+    top: "60%",
     left: "-8%",
     size: 64,
-    bg: "#232F3E",
-    textColor: "#FF9900",
-    label: "aws",
+    bg: "#1E1E1E",
+    textColor: "#F24E1E",
+    label: "Figma",
     shape: "pill",
   },
   {
-    name: "JavaScript",
+    name: "Adobe XD",
     delay: 0.4,
-    top: "38%",
+    top: "36%",
     left: "-2%",
     size: 48,
-    bg: "#F7DF1E",
-    textColor: "#000",
-    label: "JS",
+    bg: "#FF61F6",
+    textColor: "#2D001D",
+    label: "Xd",
     shape: "square",
   },
-  // top area
   {
-    name: "React",
+    name: "Sketch",
     delay: 0.8,
     top: "2%",
     left: "28%",
     size: 52,
-    bg: "#20232a",
-    textColor: "#61DAFB",
-    label: "React",
+    bg: "#F7B500",
+    textColor: "#fff",
+    label: "Sketch",
     shape: "circle",
   },
   {
-    name: "Next.js",
+    name: "Adobe Photoshop",
     delay: 0.2,
     top: "4%",
     left: "58%",
     size: 52,
-    bg: "#000",
-    textColor: "#fff",
-    label: "Next",
+    bg: "#001E36",
+    textColor: "#31A8FF",
+    label: "Ps",
     shape: "circle",
   },
-  // right cluster
   {
-    name: "Flutter",
+    name: "Adobe Illustrator",
     delay: 1.0,
-    top: "18%",
+    top: "16%",
     left: "92%",
     size: 52,
-    bg: "#54C5F8",
-    textColor: "#fff",
-    label: "Flutter",
+    bg: "#FF7C00",
+    textColor: "#330000",
+    label: "Ai",
     shape: "circle",
   },
   {
-    name: "Redis",
+    name: "InVision",
     delay: 0.6,
     top: "38%",
     left: "96%",
     size: 52,
-    bg: "#D82C20",
+    bg: "#FF3366",
     textColor: "#fff",
-    label: "Redis",
+    label: "Inv",
     shape: "circle",
   },
   {
-    name: "Node.js",
+    name: "Adobe Illustrator",
     delay: 1.2,
     top: "58%",
     left: "90%",
     size: 56,
-    bg: "#fff",
-    textColor: "#339933",
-    label: "node",
+    bg: "#326CE5",
+    textColor: "#fff",
+    label: "Flow",
     shape: "pill-sm",
   },
-  // mid
   {
-    name: "MongoDB",
+    name: "Zeplin",
     delay: 0.3,
-    top: "16%",
+    top: "14%",
     left: "44%",
     size: 50,
-    bg: "#13aa52",
+    bg: "#00C4CC",
     textColor: "#fff",
-    label: "Mongo",
+    label: "Zl",
     shape: "circle",
   },
   {
-    name: "TypeScript",
+    name: "Marvel",
     delay: 0.9,
     top: "72%",
     left: "80%",
     size: 48,
-    bg: "#3178c6",
+    bg: "#00A859",
     textColor: "#fff",
-    label: "TS",
+    label: "Mv",
     shape: "square",
   },
 ];
@@ -117,8 +112,6 @@ function FloatingIcon({ icon, index }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!ref.current) return;
-    // Gentle float up-down with GSAP yoyo
     gsap.to(ref.current, {
       y: -12,
       duration: 2.2 + index * 0.15,
@@ -170,7 +163,6 @@ function FloatingIcon({ icon, index }) {
       height: icon.size,
     });
   } else {
-    // circle
     Object.assign(baseStyle, {
       borderRadius: "50%",
       width: icon.size,
@@ -236,7 +228,23 @@ function FloatingIcon({ icon, index }) {
   );
 }
 
-// ── Main hero ─────────────────────────────────────────────────────────────────
+FloatingIcon.propTypes = {
+  icon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    delay: PropTypes.number.isRequired,
+    top: PropTypes.string.isRequired,
+    left: PropTypes.string.isRequired,
+    size: PropTypes.number,
+    bg: PropTypes.string.isRequired,
+    textColor: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    shape: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+WebsiteDevHero.propTypes = {};
+
 export default function WebsiteDevHero() {
   const containerRef = useRef(null);
   const badgeRef = useRef(null);
@@ -248,39 +256,24 @@ export default function WebsiteDevHero() {
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         badgeRef.current,
         { opacity: 0, scale: 0.8, rotation: -14 },
-        {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 1.1,
-          ease: "back.out(1.7)",
-          delay: 0.25,
-        },
+        { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 }
       );
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
       );
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, x: 60, scale: 0.92 },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 1.1,
-          ease: "power3.out",
-          delay: 0.4,
-        },
+        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 }
       );
     }, containerRef);
-
     return () => ctx.revert();
   }, []);
 
@@ -294,11 +287,7 @@ export default function WebsiteDevHero() {
 
       <div className="relative z-10 container mx-auto px-6 py-8 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          {/* Left: Text */}
-          <div
-            ref={contentRef}
-            className="flex-1 max-w-2xl text-center lg:text-left"
-          >
+          <div ref={contentRef} className="flex-1 max-w-2xl text-center lg:text-left">
             <div
               ref={badgeRef}
               className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] mb-6"
@@ -318,14 +307,15 @@ export default function WebsiteDevHero() {
                   Services
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-                style={{ fontFamily: "'Georgia', serif" }}>
+              <h1
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+                style={{ fontFamily: "'Georgia', serif" }}
+              >
                 Website Development
               </h1>
               <p className="text-sm sm:text-base leading-relaxed text-slate-300 max-w-xl">
-                Design and build fast, accessible, and beautifully crafted
-                websites tailored to your brand — from landing pages to
-                full-scale web applications.
+                Design and build fast, accessible, and beautifully crafted websites tailored to your
+                brand — from landing pages to full-scale web applications.
               </p>
             </div>
 
@@ -345,47 +335,40 @@ export default function WebsiteDevHero() {
             </div>
           </div>
 
-          {/* Right: Developer image + floating icons */}
-          <div
-            ref={imageRef}
-            className="flex-1 flex justify-center lg:justify-end"
-          >
+          <div ref={imageRef} className="flex-1 flex justify-center lg:justify-end">
             <div
-              className="relative w-full max-w-md lg:max-w-lg"
+              className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
               style={{ aspectRatio: "1 / 1" }}
             >
-              {/* Soft glow circle behind image */}
               <div
-                className="absolute inset-[10%] rounded-full"
+                className="absolute inset-[5%] sm:inset-[8%] md:inset-[10%] rounded-full"
                 style={{
-                  background:
-                    "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(20,184,166,0.18) 0%, transparent 70%)",
                   filter: "blur(20px)",
                 }}
               />
 
-              {/* Developer image — centered */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
                   src="/services/shared/website-development-hero.png"
                   alt="Website Developer"
                   width={420}
                   height={420}
-                  className="w-[75%] h-auto object-contain drop-shadow-2xl"
+                  className="w-[60%] sm:w-[70%] md:w-[75%] h-auto object-contain drop-shadow-2xl"
                   priority
                 />
               </div>
 
-              {/* Floating tech icons scattered around */}
-              {floatingIcons.map((icon, i) => (
-                <FloatingIcon key={icon.name} icon={icon} index={i} />
-              ))}
+              <div className="hidden md:block">
+                {floatingIcons.map((icon, i) => (
+                  <FloatingIcon key={icon.name} icon={icon} index={i} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden">
         <svg
           className="relative block w-full h-[70px]"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HEADING, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
@@ -158,8 +158,6 @@ export default function InnovationWheelSection() {
   const sectionRef = useRef(null);
   const textSideRef = useRef(null);
   const wheelRef = useRef(null);
-  const [activeLabel, setActiveLabel] = useState(null);
-  const [hoveredId, setHoveredId] = useState(null);
 
   // ── GSAP scroll animations ──
   useEffect(() => {
@@ -196,18 +194,8 @@ export default function InnovationWheelSection() {
     return () => ctx.revert();
   }, []);
 
-  // ── Hover handlers ──
-  const onEnter = (id, fullLabel) => {
-    setHoveredId(id);
-    setActiveLabel(fullLabel);
-  };
-  const onLeave = () => {
-    setHoveredId(null);
-    setActiveLabel(null);
-  };
-
-  const outerFill = (seg) => (hoveredId === seg.id ? seg.hover : seg.fill);
-  const innerFill = (seg) => (hoveredId === seg.id ? seg.hover : seg.fill);
+  const outerFill = (seg) => seg.fill;
+  const innerFill = (seg) => seg.fill;
 
   return (
     <section
@@ -217,37 +205,23 @@ export default function InnovationWheelSection() {
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* ── LEFT: Text ────────────────────────────────────────────── */}
         <div ref={textSideRef} className="lg:col-span-5 space-y-6 text-left">
-          <h2 className={`${HEADING.h2} text-teal-600`}>
-            MediMaster Innovation Ecosystem
-          </h2>
+          <h2 className={`${HEADING.h2} text-teal-600`}>MediMaster Innovation Ecosystem</h2>
 
           <div className="space-y-5 text-gray-700 text-base sm:text-base leading-relaxed font-normal">
             <p>
-              Our cloud-native platform integrates cutting-edge technology with deep healthcare expertise
-              to deliver seamless practice management solutions.
+              Our cloud-native platform integrates cutting-edge technology with deep healthcare
+              expertise to deliver seamless practice management solutions.
             </p>
             <p>
               From patient records to billing automation, we provide tools that simplify workflows,
-              ensure compliance, and scale with your practice's growth.
+              ensure compliance, and scale with your practice&apos;s growth.
             </p>
           </div>
 
-          <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-6">
+          <div className="pt-4">
             <button className="px-7 py-3.5 bg-teal-600 hover:bg-teal-700 text-white text-base font-bold tracking-wide rounded-md shadow-md transition-colors duration-200 uppercase">
               Book a Free Demo
             </button>
-
-            {/* Dynamic hover indicator aligned neatly near the button actions */}
-            <div className="min-h-[44px] flex items-center transition-all duration-300">
-              {activeLabel && (
-                <div className="px-4 py-2 bg-teal-50/80 border border-teal-100 rounded-lg backdrop-blur-sm animate-fade-in">
-                  <p className="text-xxs font-bold text-teal-700 uppercase tracking-wider mb-0.5">
-                    Selected Focus Area
-                  </p>
-                  <p className="text-sm font-semibold text-slate-800">{activeLabel}</p>
-                </div>
-              )}
-            </div>
           </div>
         </div>
 
@@ -261,7 +235,7 @@ export default function InnovationWheelSection() {
           >
             <defs>
               <clipPath id="hubClip">
-                <circle cx="250" cy="250" r="70" />
+                <circle cx="250" cy="250" r="82" />
               </clipPath>
             </defs>
 
@@ -273,8 +247,6 @@ export default function InnovationWheelSection() {
                   d={seg.path}
                   fill={outerFill(seg)}
                   className="cursor-pointer transition-colors duration-200"
-                  onMouseEnter={() => onEnter(seg.id, seg.fullLabel)}
-                  onMouseLeave={onLeave}
                 />
               ))}
             </g>
@@ -336,8 +308,6 @@ export default function InnovationWheelSection() {
                   d={seg.path}
                   fill={innerFill(seg)}
                   className="cursor-pointer transition-colors duration-200"
-                  onMouseEnter={() => onEnter(seg.id, seg.fullLabel)}
-                  onMouseLeave={onLeave}
                 />
               ))}
             </g>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -105,12 +106,7 @@ const uiuxTypes = [
     tagline: "Data-driven design decisions",
     color: "teal",
     image: "/services/ui-ux/user research.jpg",
-    features: [
-      "User interviews",
-      "Usability testing",
-      "Analytics review",
-      "Persona development",
-    ],
+    features: ["User interviews", "Usability testing", "Analytics review", "Persona development"],
     examples: "Research studies, heat map analysis, user journey mapping",
     icon: (
       <svg
@@ -136,12 +132,7 @@ const uiuxTypes = [
     tagline: "Interactive design validation",
     color: "aqua",
     image: "/services/ui-ux/prototyping.jpg",
-    features: [
-      "Figma prototypes",
-      "Click-through demos",
-      "Micro-interactions",
-      "Animation design",
-    ],
+    features: ["Figma prototypes", "Click-through demos", "Micro-interactions", "Animation design"],
     examples: "Clickable prototypes, design sprints, stakeholder reviews",
     icon: (
       <svg
@@ -240,7 +231,7 @@ function UIUXCard({ item, index }) {
           start: "top 88%",
           toggleActions: "play none none none",
         },
-      },
+      }
     );
   }, [index]);
 
@@ -254,16 +245,11 @@ function UIUXCard({ item, index }) {
         ${c.glow} ${c.border}
       `}
     >
-      <div
-        className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`}
-      />
+      <div className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`} />
 
-      <div className="relative w-full h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
-        <img
-          src={item.image}
-          alt={item.category}
-          className="w-full h-full object-cover"
-        />
+      <div className="relative w-full h-36 sm:h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={item.image} alt={item.category} className="w-full h-full object-cover" />
       </div>
 
       <div className="flex flex-col flex-1 p-5 gap-4">
@@ -274,20 +260,16 @@ function UIUXCard({ item, index }) {
             {item.icon}
           </div>
           <div>
-            <p
-              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
-            >
+            <p className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}>
               {item.emoji}
             </p>
-<h3
+            <h3
               className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
               style={{ fontFamily: "'Georgia', serif" }}
             >
               {item.category}
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5 italic">
-              {item.tagline}
-            </p>
+            <p className="text-xs text-slate-500 mt-0.5 italic">{item.tagline}</p>
           </div>
         </div>
 
@@ -296,12 +278,8 @@ function UIUXCard({ item, index }) {
         <ul className="space-y-2 flex-1">
           {item.features.map((f, i) => (
             <li key={i} className="flex items-start gap-2.5">
-              <span
-                className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`}
-              />
-              <span className="text-xs text-slate-600 leading-relaxed">
-                {f}
-              </span>
+              <span className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`} />
+              <span className="text-xs text-slate-600 leading-relaxed">{f}</span>
             </li>
           ))}
         </ul>
@@ -316,6 +294,22 @@ function UIUXCard({ item, index }) {
     </div>
   );
 }
+
+UIUXCard.propTypes = {
+  item: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    icon: PropTypes.string,
+    emoji: PropTypes.string,
+    tagline: PropTypes.string.isRequired,
+    features: PropTypes.arrayOf(PropTypes.string),
+    examples: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+UIUXTypesSection.propTypes = {};
 
 export default function UIUXTypesSection() {
   const sectionRef = useRef(null);
@@ -334,7 +328,7 @@ export default function UIUXTypesSection() {
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: subheadRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         headerRef.current,
@@ -346,7 +340,7 @@ export default function UIUXTypesSection() {
           ease: "power3.out",
           delay: 0.1,
           scrollTrigger: { trigger: headerRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         descRef.current,
@@ -358,22 +352,18 @@ export default function UIUXTypesSection() {
           ease: "power2.out",
           delay: 0.2,
           scrollTrigger: { trigger: descRef.current, start: "top 88%" },
-        },
+        }
       );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-white py-16 overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative bg-white py-16 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -404,8 +394,8 @@ export default function UIUXTypesSection() {
             ref={descRef}
             className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
           >
-            From user research to interactive prototypes, we create intuitive
-            designs that engage users and drive business results.
+            From user research to interactive prototypes, we create intuitive designs that engage
+            users and drive business results.
           </p>
         </div>
 

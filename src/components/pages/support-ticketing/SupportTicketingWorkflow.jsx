@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import PropTypes from "prop-types";
 import { HelpCircle, MessageSquare, ShieldCheck, BarChart3 } from "lucide-react";
 import { COMPONENT_STYLES } from "@/lib/typography";
 
@@ -49,6 +50,11 @@ function Connector({ isFirstLeft, isLastRight }) {
   );
 }
 
+Connector.propTypes = {
+  isFirstLeft: PropTypes.bool.isRequired,
+  isLastRight: PropTypes.bool.isRequired,
+};
+
 function StepPair({ left, right, pairIndex, totalPairs }) {
   const isFirstPair = pairIndex === 0;
   const isLastPair = pairIndex === totalPairs - 1;
@@ -66,9 +72,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
               <div className="w-10 h-10 rounded-lg bg-navy-100 flex items-center justify-center flex-shrink-0">
                 <Icon size={20} className="text-navy-600" />
               </div>
-              <span className={COMPONENT_STYLES.stepTitle}>
-                {step.title}
-              </span>
+              <span className={COMPONENT_STYLES.stepTitle}>{step.title}</span>
             </div>
           );
         })}
@@ -90,6 +94,21 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
   );
 }
 
+StepPair.propTypes = {
+  left: PropTypes.shape({
+    num: PropTypes.number.isRequired,
+    icon: PropTypes.elementType.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  right: PropTypes.shape({
+    num: PropTypes.number.isRequired,
+    icon: PropTypes.elementType.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  pairIndex: PropTypes.number.isRequired,
+  totalPairs: PropTypes.number.isRequired,
+};
+
 export default function SupportTicketingWorkflow() {
   const pairs = [];
   for (let i = 0; i < steps.length; i += 2) {
@@ -98,14 +117,16 @@ export default function SupportTicketingWorkflow() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
-      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-2" style={{ fontFamily: "'Georgia', serif" }}>
+      <h2
+        className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-2"
+        style={{ fontFamily: "'Georgia', serif" }}
+      >
         Streamline your support ticketing workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />
       <p className="text-base text-gray-500 leading-relaxed mb-10 max-w-4xl">
-        Our support ticketing platform connects customers, support agents, and
-        managers through a centralized system for ticket management, routing,
-        resolution, and continuous improvement.
+        Our support ticketing platform connects customers, support agents, and managers through a
+        centralized system for ticket management, routing, resolution, and continuous improvement.
       </p>
 
       <div className="rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden">
@@ -114,12 +135,7 @@ export default function SupportTicketingWorkflow() {
             key={left.num}
             className={pairIndex < pairs.length - 1 ? "border-b border-gray-100" : ""}
           >
-            <StepPair
-              left={left}
-              right={right}
-              pairIndex={pairIndex}
-              totalPairs={pairs.length}
-            />
+            <StepPair left={left} right={right} pairIndex={pairIndex} totalPairs={pairs.length} />
           </div>
         ))}
       </div>

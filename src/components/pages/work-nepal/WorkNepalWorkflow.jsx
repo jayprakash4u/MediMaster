@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { COMPONENT_STYLES } from "@/lib/typography";
 
 const employerSteps = [
@@ -84,6 +85,12 @@ function Connector({ isFirstLeft, isLastRight, accent }) {
   );
 }
 
+Connector.propTypes = {
+  isFirstLeft: PropTypes.bool.isRequired,
+  isLastRight: PropTypes.bool.isRequired,
+  accent: PropTypes.string.isRequired,
+};
+
 function StepPair({ left, right, pairIndex, totalPairs, theme }) {
   const isFirstPair = pairIndex === 0;
   const isLastPair = pairIndex === totalPairs - 1;
@@ -96,23 +103,20 @@ function StepPair({ left, right, pairIndex, totalPairs, theme }) {
       <div className="grid grid-cols-2">
         {[left, right].map((step) => {
           return (
-            <div
-              key={step.num}
-              className="flex items-center gap-3 px-6 pt-6 pb-2"
-            >
+            <div key={step.num} className="flex items-center gap-3 px-6 pt-6 pb-2">
               <span className={`text-2xl font-medium w-5 flex-shrink-0 ${numColor}`}>
                 {step.num}
               </span>
               <div
                 className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${theme === "employer" ? "bg-blue-50" : "bg-teal-50"}`}
               >
-                <span className={`text-xs font-bold ${theme === "employer" ? "text-blue-700" : "text-teal-700"}`}>
+                <span
+                  className={`text-xs font-bold ${theme === "employer" ? "text-blue-700" : "text-teal-700"}`}
+                >
                   {step.num}
                 </span>
               </div>
-              <span className="text-base font-medium text-gray-800 leading-snug">
-                {step.title}
-              </span>
+              <span className="text-base font-medium text-gray-800 leading-snug">{step.title}</span>
             </div>
           );
         })}
@@ -126,9 +130,7 @@ function StepPair({ left, right, pairIndex, totalPairs, theme }) {
       <div className="grid grid-cols-2">
         {[left, right].map((step) => (
           <div key={step.num} className="px-6 pt-4 pb-8">
-            <p className={COMPONENT_STYLES.stepBody}>
-              {step.body}
-            </p>
+            <p className={COMPONENT_STYLES.stepBody}>{step.body}</p>
           </div>
         ))}
       </div>
@@ -162,6 +164,33 @@ function WorkflowPanel({ steps, theme }) {
   );
 }
 
+WorkflowPanel.propTypes = {
+  steps: PropTypes.arrayOf(
+    PropTypes.shape({
+      num: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  theme: PropTypes.oneOf(["employer", "seeker"]).isRequired,
+};
+
+StepPair.propTypes = {
+  left: PropTypes.shape({
+    num: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }).isRequired,
+  right: PropTypes.shape({
+    num: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }).isRequired,
+  pairIndex: PropTypes.number.isRequired,
+  totalPairs: PropTypes.number.isRequired,
+  theme: PropTypes.oneOf(["employer", "seeker"]).isRequired,
+};
+
 const tabs = [
   {
     id: "employer",
@@ -182,6 +211,7 @@ const tabs = [
 ];
 
 export default function JobWorkflow() {
+  JobWorkflow.propTypes = {};
   const [active, setActive] = useState("employer");
   const current = tabs.find((t) => t.id === active);
 
@@ -200,9 +230,9 @@ export default function JobWorkflow() {
           </span>
         </div>
         <h2
-className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4"
-style={{ fontFamily: "'Georgia', serif" }}
->
+          className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4"
+          style={{ fontFamily: "'Georgia', serif" }}
+        >
           How our platform works
         </h2>
       </div>
@@ -223,7 +253,10 @@ style={{ fontFamily: "'Georgia', serif" }}
         ))}
       </div>
 
-      <h3 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+      <h3
+        className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900"
+        style={{ fontFamily: "'Georgia', serif" }}
+      >
         {current.heading}
       </h3>
       <p className="text-base text-gray-500 leading-relaxed mb-6 max-w-3xl">

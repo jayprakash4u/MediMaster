@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
+import PropTypes from "prop-types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -505,7 +507,7 @@ function DesignCard({ item, index }) {
           start: "top 90%",
           toggleActions: "play none none none",
         },
-      },
+      }
     );
   }, [index]);
 
@@ -519,16 +521,15 @@ function DesignCard({ item, index }) {
         ${c.glow} ${c.border}
       `}
     >
-      <div
-        className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`}
-      />
+      <div className={`h-[2px] w-full bg-gradient-to-r ${c.line} to-transparent`} />
 
-      <div className="relative w-full h-44 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-40 sm:h-44 md:h-48 lg:h-52 bg-slate-50 border-b border-slate-200 flex items-center justify-center overflow-hidden">
         {item.image ? (
-          <img
+          <Image
             src={item.image}
             alt={item.category}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="flex flex-col items-center gap-2 text-slate-400">
@@ -543,7 +544,7 @@ function DesignCard({ item, index }) {
               <circle cx="8.5" cy="8.5" r="1.5" />
               <path d="M21 15l-5-5L5 21" />
             </svg>
-            <span className="text-xs font-medium tracking-wider uppercase">
+            <span className="text-xs sm:text-sm text-slate-400 font-medium tracking-wider uppercase">
               Image coming soon
             </span>
           </div>
@@ -553,23 +554,23 @@ function DesignCard({ item, index }) {
       <div className="flex flex-col flex-1 p-5 gap-4">
         <div className="flex items-start gap-3">
           <div
-            className={`shrink-0 w-12 h-12 rounded-xl border flex items-center justify-center ${c.icon} transition-transform duration-300 group-hover:scale-110`}
+            className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center ${c.icon} transition-transform duration-300 group-hover:scale-110`}
           >
             {item.icon}
           </div>
           <div>
             <p
-              className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
+              className={`text-xxs sm:text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}
             >
               {item.emoji} {item.color} Studio
             </p>
-<h3 className="text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-                    style={{ fontFamily: "'Georgia', serif" }}>
-                      {item.category}
-                    </h3>
-            <p className="text-xs text-slate-500 mt-0.5 italic">
-              {item.tagline}
-            </p>
+            <h3
+              className="text-sm sm:text-base md:text-lg font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              {item.category}
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5 italic">{item.tagline}</p>
           </div>
         </div>
 
@@ -579,25 +580,40 @@ function DesignCard({ item, index }) {
           {item.features.map((f, i) => (
             <li key={i} className="flex items-start gap-2.5">
               <span
-                className={`mt-[5px] w-1.5 h-1.5 rounded-full shrink-0 ${c.bullet}`}
+                className={`mt-[5px] w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shrink-0 ${c.bullet}`}
               />
-              <span className="text-xs text-slate-600 leading-relaxed">
-                {f}
-              </span>
+              <span className="text-xs sm:text-sm text-slate-600 leading-relaxed">{f}</span>
             </li>
           ))}
         </ul>
 
         <div className="pt-3 border-t border-slate-200">
-          <p className="text-xxs text-slate-500 uppercase tracking-widest font-semibold mb-1">
+          <p className="text-xxs sm:text-xs md:text-sm text-slate-500 uppercase tracking-widest font-semibold mb-1">
             Deliverables
           </p>
-          <p className="text-xs text-slate-500 italic">{item.examples}</p>
+          <p className="text-xs sm:text-sm text-slate-500 italic">{item.examples}</p>
         </div>
       </div>
     </div>
   );
 }
+
+DesignCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    emoji: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    features: PropTypes.arrayOf(PropTypes.string).isRequired,
+    examples: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+DesignServicesSection.propTypes = {};
 
 export default function DesignServicesSection() {
   const sectionRef = useRef(null);
@@ -616,7 +632,7 @@ export default function DesignServicesSection() {
           duration: 0.6,
           ease: "power2.out",
           scrollTrigger: { trigger: subheadRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         headerRef.current,
@@ -628,7 +644,7 @@ export default function DesignServicesSection() {
           ease: "power3.out",
           delay: 0.1,
           scrollTrigger: { trigger: headerRef.current, start: "top 88%" },
-        },
+        }
       );
       gsap.fromTo(
         descRef.current,
@@ -640,7 +656,7 @@ export default function DesignServicesSection() {
           ease: "power2.out",
           delay: 0.2,
           scrollTrigger: { trigger: descRef.current, start: "top 88%" },
-        },
+        }
       );
     }, sectionRef);
     return () => ctx.revert();
@@ -649,13 +665,12 @@ export default function DesignServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white py-20 overflow-hidden"
+      className="relative bg-white py-14 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(15,23,42,1) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -669,14 +684,14 @@ export default function DesignServicesSection() {
                 <circle cx="22" cy="5" r="2" fill="#0D9488" />
               </svg>
             </div>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+            <span className="text-xs sm:text-sm md:text-base font-bold tracking-[0.2em] uppercase text-teal-600">
               Creative Capabilities
             </span>
           </div>
 
           <h2
             ref={headerRef}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
             style={{ fontFamily: "'Georgia', serif" }}
           >
             Design Services <span className="text-teal-600">We Offer</span>
@@ -684,15 +699,14 @@ export default function DesignServicesSection() {
 
           <p
             ref={descRef}
-            className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto"
+            className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto"
           >
-            From comprehensive brand design architectures to production-grade 3D
-            renders — we engineer impactful visual content built to elevate
-            corporate communication.
+            From comprehensive brand design architectures to production-grade 3D renders — we
+            engineer impactful visual content built to elevate corporate communication.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {designTypes.map((item, i) => (
             <DesignCard key={item.id} item={item} index={i} />
           ))}

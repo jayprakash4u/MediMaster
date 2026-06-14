@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import WorkNepalOrbit from "@/components/pages/work-nepal/WorkNepalOrbit";
 
 export default function WorkNepalHero() {
+  WorkNepalHero.propTypes = {};
   return (
     <section className="relative bg-navy-950 py-16 md:py-20 overflow-visible">
       <div
@@ -21,12 +22,15 @@ export default function WorkNepalHero() {
           <span className="inline-block text-teal-400 font-bold text-xs tracking-[0.2em] uppercase mb-4">
             Job Marketplace
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
-            Find Your Next{" "}
-            <span className="text-teal-400">Dream Job</span>
+          <h1
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            Find Your Next <span className="text-teal-400">Dream Job</span>
           </h1>
           <p className="text-slate-300 text-lg mb-8 max-w-2xl leading-relaxed">
-            Nepal's trusted job platform connecting top employers with talented professionals. Explore verified listings and advance your career.
+            Nepal&apos;s trusted job platform connecting top employers with talented professionals.
+            Explore verified listings and advance your career.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function SupportTicketingBenefitsSection() {
   const benefits = [
@@ -26,9 +27,10 @@ export default function SupportTicketingBenefitsSection() {
             <div className="relative w-[85%] z-20 transform hover:-translate-y-2 transition-transform duration-500 ease-out">
               <div className="bg-slate-900 p-2 pb-3 rounded-t-2xl shadow-2xl border border-slate-700/50">
                 <div className="relative aspect-[16/10] bg-white rounded-lg overflow-hidden border border-slate-800">
-                  <img
+                  <Image
                     src="/products/supprot benefit.png"
                     alt="Support Ticketing Benefits"
+                    fill
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -38,7 +40,10 @@ export default function SupportTicketingBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-8" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2
+            className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-8"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Benefits of Using Support <br className="hidden md:block" />
             <span className="text-emerald-600">Ticketing System</span>
           </h2>

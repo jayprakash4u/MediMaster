@@ -19,7 +19,12 @@ const features = [
       <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
         <circle cx="20" cy="20" r="18" fill="#0D9488" opacity=".15" />
         <circle cx="20" cy="16" r="5" stroke="#0D9488" strokeWidth="2.5" />
-        <path d="M10 30c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#0D9488" strokeWidth="2.5" strokeLinecap="round" />
+        <path
+          d="M10 30c0-5.523 4.477-10 10-10s10 4.477 10 10"
+          stroke="#0D9488"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
       </svg>
     ),
     title: "Trusted Platform",
@@ -30,16 +35,13 @@ const features = [
 export default function RamroGadiAboutSection() {
   return (
     <section className="relative w-full bg-white overflow-hidden py-20 px-4 md:px-8">
-
       {/* Subtle background decoration */}
       <div className="absolute right-0 top-0 w-1/2 h-full bg-slate-50 -z-0" />
       <div className="absolute left-0 bottom-0 w-32 h-32 rounded-full bg-teal-50 -z-0 -translate-x-1/2 translate-y-1/2" />
 
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
         {/* ── LEFT: IMAGE COLLAGE ── */}
         <div className="relative w-full min-h-[460px] md:min-h-[520px]">
-
           {/* BIG image — top left, slightly tall */}
           <div className="absolute top-0 left-0 w-[58%] h-[62%] rounded-2xl overflow-hidden border-4 border-white shadow-xl z-10 bg-slate-100">
             <Image src="/Ramro gadi/1.png" alt="Vehicle Listing" fill className="object-cover" />
@@ -59,7 +61,9 @@ export default function RamroGadiAboutSection() {
           <div className="absolute bottom-10 -left-2 z-30 bg-teal-600 text-white rounded-2xl px-5 py-4 shadow-lg flex flex-col items-center min-w-[110px]">
             <span className="text-2xl font-black leading-none">10+</span>
             <span className="text-xxs font-semibold uppercase tracking-wide leading-tight mt-1 text-center opacity-90">
-              Years Of<br />Quality Service
+              Years Of
+              <br />
+              Quality Service
             </span>
           </div>
 
@@ -69,12 +73,10 @@ export default function RamroGadiAboutSection() {
               <div key={i} className="w-1.5 h-1.5 rounded-full bg-teal-200" />
             ))}
           </div>
-
         </div>
 
         {/* ── RIGHT: CONTENT ── */}
         <div className="flex flex-col gap-6">
-
           {/* Eyebrow */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
@@ -89,16 +91,19 @@ export default function RamroGadiAboutSection() {
           </div>
 
           {/* Headline */}
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
-            Our Automotive Marketplace{" "}
-            <span className="text-teal-600 italic">Inspires</span>{" "}
-            You More.
+          <h2
+            className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            Our Automotive Marketplace <span className="text-teal-600 italic">Inspires</span> You
+            More.
           </h2>
 
           {/* Body */}
           <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-md">
-            Nepal's leading automotive marketplace connecting buyers and sellers with verified listings,
-            secure transactions, and integrated financing tools. Trusted by thousands of customers nationwide.
+            Nepal&apos;s leading automotive marketplace connecting buyers and sellers with verified
+            listings, secure transactions, and integrated financing tools. Trusted by thousands of
+            customers nationwide.
           </p>
 
           {/* Feature list */}
@@ -110,7 +115,12 @@ export default function RamroGadiAboutSection() {
                   {f.icon}
                 </div>
                 <div>
-                  <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{f.title}</h4>
+                  <h4
+                    className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
+                    {f.title}
+                  </h4>
                   <p className="text-xs text-slate-500 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
@@ -124,15 +134,31 @@ export default function RamroGadiAboutSection() {
               className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-full shadow-md shadow-teal-200 transition-colors"
             >
               Discover More
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 16 16"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h10M9 4l4 4-4 4" />
               </svg>
             </a>
 
             <a href="tel:+9779801234567" className="flex items-center gap-3 group">
               <div className="w-9 h-9 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 transition-colors">
-                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
                 </svg>
               </div>
               <div>
@@ -146,7 +172,6 @@ export default function RamroGadiAboutSection() {
               99
             </span>
           </div>
-
         </div>
       </div>
     </section>

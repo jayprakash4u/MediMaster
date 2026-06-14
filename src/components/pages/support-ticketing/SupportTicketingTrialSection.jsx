@@ -18,11 +18,14 @@ export default function SupportTicketingTrialSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    // Form submission handled - console statement removed
   };
 
   return (
-    <section id="support-trial" className="relative w-full bg-slate-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section
+      id="support-trial"
+      className="relative w-full bg-slate-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    >
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-teal-600 to-transparent rounded-full blur-3xl" />
       </div>
@@ -34,25 +37,42 @@ export default function SupportTicketingTrialSection() {
               Smart Support Ticketing
             </h2>
             <p className="text-sm text-teal-50/90 leading-relaxed mb-8">
-              Transform your customer support with intelligent ticket management,
-              automated workflows, and multi-channel support. Ensure fast
-              resolutions and happier customers.
+              Transform your customer support with intelligent ticket management, automated
+              workflows, and multi-channel support. Ensure fast resolutions and happier customers.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-teal-50">
-                <svg className="w-5 h-5 text-teal-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                <svg
+                  className="w-5 h-5 text-teal-200 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Automated Ticket Routing</span>
               </li>
               <li className="flex items-start gap-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-teal-50">
-                <svg className="w-5 h-5 text-teal-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                <svg
+                  className="w-5 h-5 text-teal-200 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Multi-Channel Support</span>
               </li>
               <li className="flex items-start gap-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-teal-50">
-                <svg className="w-5 h-5 text-teal-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                <svg
+                  className="w-5 h-5 text-teal-200 flex-shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Real-Time Analytics & Reports</span>
@@ -63,7 +83,10 @@ export default function SupportTicketingTrialSection() {
             <button className="bg-white text-[#0F766E] font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-sm hover:bg-teal-50 transition-colors">
               Try For Free
             </button>
-            <a href="#quote" className="text-xs font-bold uppercase tracking-wider text-white underline underline-offset-4 hover:text-teal-200 transition-colors">
+            <a
+              href="#quote"
+              className="text-xs font-bold uppercase tracking-wider text-white underline underline-offset-4 hover:text-teal-200 transition-colors"
+            >
               Request a Quote
             </a>
           </div>
@@ -79,17 +102,64 @@ export default function SupportTicketingTrialSection() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input type="text" name="name" required placeholder="Your Name*" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all" />
-              <input type="text" name="jobTitle" placeholder="Job Title" value={formData.jobTitle} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all" />
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name*"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all"
+              />
+              <input
+                type="text"
+                name="jobTitle"
+                placeholder="Job Title"
+                value={formData.jobTitle}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all"
+              />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input type="text" name="companyName" required placeholder="Company Name*" value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all" />
-              <input type="email" name="email" required placeholder="Work Email*" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all" />
+              <input
+                type="text"
+                name="companyName"
+                required
+                placeholder="Company Name*"
+                value={formData.companyName}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Work Email*"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all"
+              />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input type="tel" name="phone" required placeholder="Phone/WhatsApp*" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all" />
-              <select name="country" required value={formData.country} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-700 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all appearance-none cursor-pointer">
-                <option value="" disabled hidden>Select Country*</option>
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="Phone/WhatsApp*"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all"
+              />
+              <select
+                name="country"
+                required
+                value={formData.country}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-700 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all appearance-none cursor-pointer"
+              >
+                <option value="" disabled hidden>
+                  Select Country*
+                </option>
                 <option value="NP">Nepal</option>
                 <option value="IN">India</option>
                 <option value="US">United States</option>
@@ -98,7 +168,10 @@ export default function SupportTicketingTrialSection() {
               </select>
             </div>
             <div className="pt-4">
-              <button type="submit" className="w-full bg-navy-950 text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl hover:bg-navy-900 shadow-md active:scale-[0.99] transition-all">
+              <button
+                type="submit"
+                className="w-full bg-navy-950 text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl hover:bg-navy-900 shadow-md active:scale-[0.99] transition-all"
+              >
                 Get Started
               </button>
             </div>

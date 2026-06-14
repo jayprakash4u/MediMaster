@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const features = [
@@ -17,10 +18,15 @@ export default function SupportTicketingManagement() {
         <div className="lg:col-span-6 space-y-6 max-w-xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 text-teal-700">
             <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-            <span className="text-xs font-bold tracking-wider uppercase">Customer Service Platform</span>
+            <span className="text-xs font-bold tracking-wider uppercase">
+              Customer Service Platform
+            </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-600">
               Support Ticketing System
@@ -28,9 +34,9 @@ export default function SupportTicketingManagement() {
           </h2>
 
           <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-            Intelligent support ticketing with automated workflows, multi-channel inbox,
-            SLA tracking, and customer satisfaction management. Manage every support
-            interaction — from creation to resolution — with one unified platform.
+            Intelligent support ticketing with automated workflows, multi-channel inbox, SLA
+            tracking, and customer satisfaction management. Manage every support interaction — from
+            creation to resolution — with one unified platform.
           </p>
 
           <div className="pt-4 space-y-4">
@@ -52,7 +58,10 @@ export default function SupportTicketingManagement() {
               className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>GET STARTED NOW</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
+              <ArrowRight
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                strokeWidth={2.5}
+              />
             </Link>
           </div>
         </div>
@@ -62,9 +71,10 @@ export default function SupportTicketingManagement() {
 
           <div className="relative w-full max-w-[540px] aspect-[4/3] rounded-2xl border-4 border-slate-100/80 bg-slate-50 shadow-2xl overflow-hidden group">
             <div className="w-full h-full bg-slate-50 flex items-center justify-center">
-              <img
+              <Image
                 src="/products/ticketing mgmnt.jpg"
                 alt="Support Ticketing System"
+                fill
                 className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
               />
             </div>

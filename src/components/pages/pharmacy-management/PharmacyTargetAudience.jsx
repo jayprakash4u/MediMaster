@@ -53,7 +53,7 @@ export default function PharmacyTargetAudience() {
   return (
     <section className="w-full bg-white py-16 px-6 md:px-12 font-sans select-none">
       <div className="max-w-7xl mx-auto space-y-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
           Who Is This{" "}
           <span className="text-teal-600">Pharmacy Management System For?</span>
         </h2>
@@ -85,7 +85,7 @@ export default function PharmacyTargetAudience() {
                   <div className={`w-24 h-24 rounded-full bg-gradient-to-br border flex items-center justify-center shadow-sm ${c.iconBg} transition-transform duration-300 ${c.iconHover}`}>
                     <IconComponent className="w-12 h-12 stroke-[1.25]" />
                   </div>
-                  <h3 className={`font-bold text-base md:text-base tracking-tight whitespace-nowrap ${c.heading}`}>
+                  <h3 className={`font-bold text-sm md:text-base tracking-tight whitespace-nowrap ${c.heading}`}>
                     {card.title}
                   </h3>
                 </div>

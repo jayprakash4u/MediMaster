@@ -75,7 +75,7 @@ export default function DiagnosticCenterScalableSolution() {
     <section className="bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4 max-w-3xl" style={{ fontFamily: "'Georgia', serif" }}>
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4 max-w-3xl" style={{ fontFamily: "'Georgia', serif" }}>
           Scalable diagnostic center solution for every lab setup
         </h2>
 

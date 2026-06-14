@@ -15,7 +15,7 @@ export default function StatisticsSection() {
         <span className="text-xs font-bold tracking-widest text-teal-600 uppercase">
           Streamlining Care. Protecting Patient Trust.
         </span>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
           Numbers That <span className="text-teal-600 font-bold">Speak For Themselves</span>
         </h2>
       </div>

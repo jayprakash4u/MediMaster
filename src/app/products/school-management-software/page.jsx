@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import SchoolHero from "@/components/pages/school-management/SchoolHero";
 import SchoolManagement from "@/components/pages/school-management/SchoolManagement";
 import SchoolBenefitsSection from "@/components/pages/school-management/SchoolBenefitsSection";
 import SchoolModulesWithVideo from "@/components/pages/school-management/SchoolModulesWithVideo";
@@ -10,11 +11,11 @@ import SchoolTrialSection from "@/components/pages/school-management/SchoolTrial
 export default function SchoolManagementSoftwarePage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <SchoolHero />
       <SchoolManagement />
       <SchoolBenefitsSection />
       <SchoolModulesWithVideo />
       <SchoolScalableSolution />
-      <SchoolTargetAudience />
       <SchoolWorkflow />
       <SchoolTrialSection />
       <Footer />

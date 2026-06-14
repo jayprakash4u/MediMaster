@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function HospitalSoftwareSection() {
@@ -23,7 +24,7 @@ export default function HospitalSoftwareSection() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             The only software you&apos;ll ever need to run your hospital
           </h2>
 
@@ -37,9 +38,12 @@ export default function HospitalSoftwareSection() {
             <button className="bg-[#1e1e1e] hover:bg-black text-white text-xs font-bold uppercase tracking-wider px-6 py-4 rounded-none transition-colors duration-200">
               Discover All Features
             </button>
-            <button className="border border-[#1e1e1e] hover:bg-slate-50 text-slate-900 text-xs font-bold uppercase tracking-wider px-8 py-4 rounded-none transition-colors duration-200">
+            <Link
+              href="#hms-trial"
+              className="inline-block border border-[#1e1e1e] hover:bg-slate-50 text-slate-900 text-xs font-bold uppercase tracking-wider px-8 py-4 rounded-none transition-colors duration-200"
+            >
               Try For Free
-            </button>
+            </Link>
           </div>
         </div>
       </div>

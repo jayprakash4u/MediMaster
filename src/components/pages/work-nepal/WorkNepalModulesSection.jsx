@@ -40,10 +40,7 @@ export default function WorkNepalModulesSection() {
             Modules
           </span>
         </div>
-        <h2
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.12] text-slate-900 mb-4"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
           Work Nepal Job Platform Modules
         </h2>
       </div>

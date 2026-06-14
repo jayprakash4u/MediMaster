@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import { HEADING, FONT_FAMILY, COMPONENT_STYLES, BODY, TEXT_COLOR } from "@/lib/typography";
 
 export default function SchoolBenefitsSection() {
   const benefits = [
@@ -41,7 +42,7 @@ export default function SchoolBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white mb-8" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className={`${HEADING.h2} text-white mb-8`} style={{ fontFamily: FONT_FAMILY.serif }}>
             Benefits of Using School <br className="hidden md:block" />
             <span className="text-emerald-600">Management System</span>
           </h2>
@@ -60,7 +61,7 @@ export default function SchoolBenefitsSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="text-base md:text-lg text-slate-200 font-medium group-hover:text-white transition-colors duration-200">
+                <p className={`${COMPONENT_STYLES.bodyLarge} group-hover:text-white transition-colors duration-200`}>
                   {text}
                 </p>
               </li>

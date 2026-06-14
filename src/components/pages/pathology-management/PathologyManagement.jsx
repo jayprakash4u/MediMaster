@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function PathologyManagement() {
@@ -19,7 +20,7 @@ export default function PathologyManagement() {
             <span className="text-xs font-bold tracking-wider uppercase">Inbuilt HMS Module</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-600">
               Pathology Lab Management
@@ -46,10 +47,13 @@ export default function PathologyManagement() {
           </div>
 
           <div className="pt-6">
-            <button className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0">
+            <Link
+              href="#pathology-trial"
+              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
+            >
               <span>GET STARTED NOW</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -70,7 +74,7 @@ export default function PathologyManagement() {
               2x
             </div>
             <div>
-              <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">Faster Reporting</h4>
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider leading-tight">Faster Reporting</h4>
               <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">Auto result entry & validation.</p>
             </div>
           </div>

@@ -24,10 +24,7 @@ export default function WorkNepalAboutSection() {
             </span>
           </div>
 
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Nepal's Trusted Job Platform
           </h2>
 
@@ -54,7 +51,7 @@ export default function WorkNepalAboutSection() {
                 </svg>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-800 mb-1">Verified Employers</h4>
+                <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>Verified Employers</h4>
                 <p className="text-xs text-slate-500 leading-relaxed">Every job listing goes through validation to ensure authentic opportunities.</p>
               </div>
             </div>
@@ -67,7 +64,7 @@ export default function WorkNepalAboutSection() {
                 </svg>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-800 mb-1">Trusted Platform</h4>
+                <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>Trusted Platform</h4>
                 <p className="text-xs text-slate-500 leading-relaxed">Secure recruitment process with data protection and privacy for all users.</p>
               </div>
             </div>
@@ -75,7 +72,7 @@ export default function WorkNepalAboutSection() {
 
           <div className="flex flex-wrap items-center gap-5 mt-3 pt-5 border-t border-slate-100">
             <a
-              href="#"
+              href="https://worknp.com/"
               className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-full shadow-md shadow-teal-200 transition-colors"
             >
               Discover More

@@ -14,12 +14,7 @@ const workingSteps = [
     description:
       "Deep dive into technical requirements, user personas, and data architectures to map clean interface flows.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -34,12 +29,7 @@ const workingSteps = [
     description:
       "Engineering wireframes and humanized layouts built for clarity, high conversion rates, and fast navigation pacing.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,12 +44,7 @@ const workingSteps = [
     description:
       "Writing ultra-performant, optimized front-end components seamlessly integrated with powerful backend frameworks.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -74,12 +59,7 @@ const workingSteps = [
     description:
       "Strict latency screening, responsive rendering diagnostics, and full functional alignment testing before delivery.",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -145,12 +125,7 @@ export default function CompanyWorkingSteps() {
         <div className="flex items-center gap-3 mb-8">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-              <path
-                d="M0 5h20"
-                stroke="#14B8A6"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+              <path d="M0 5h20" stroke="#14B8A6" strokeWidth="2" strokeLinecap="round" />
               <circle cx="22" cy="5" r="2" fill="#14B8A6" />
             </svg>
           </div>

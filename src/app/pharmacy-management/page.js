@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import PharmacyHero from "@/components/pages/pharmacy-management/PharmacyHero";
 import PharmacyManagement from "@/components/pages/pharmacy-management/PharmacyManagement";
 import PharmacyBenefitsSection from "@/components/pages/pharmacy-management/PharmacyBenefitsSection";
 import PharmacyTargetAudience from "@/components/pages/pharmacy-management/PharmacyTargetAudience";
@@ -9,6 +10,7 @@ import PharmacyWorkflow from "@/components/pages/pharmacy-management/PharmacyWor
 export default function PharmacyManagementPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <PharmacyHero />
       <PharmacyManagement />
       <PharmacyBenefitsSection />
       <PharmacyModulesWithVideo />

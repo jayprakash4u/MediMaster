@@ -22,7 +22,7 @@ export default function PolyclinicTrialSection() {
   };
 
   return (
-    <section className="relative w-full bg-slate-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="polyclinic-trial" className="relative w-full bg-slate-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-teal-600 to-transparent rounded-full blur-3xl" />
       </div>

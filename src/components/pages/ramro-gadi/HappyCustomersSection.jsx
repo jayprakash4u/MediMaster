@@ -268,7 +268,7 @@ export default function HappyCustomers() {
           <p className="text-xxs sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
             Testimonials
           </p>
-          <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Our Happy Customers
           </h2>
           <p className="text-slate-500 text-sm sm:text-base max-w-md leading-relaxed">
@@ -324,7 +324,7 @@ export default function HappyCustomers() {
                     {/* Profile Information Block */}
                     <div className="p-4 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-sm font-semibold text-slate-900 tracking-wide truncate">
+                        <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
                           {slide.name}
                         </h4>
                         <p className="text-xxs font-medium text-emerald-600 mt-0.5">

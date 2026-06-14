@@ -89,10 +89,7 @@ export default function RamroGadiAboutSection() {
           </div>
 
           {/* Headline */}
-          <h2
-            className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Our Automotive Marketplace{" "}
             <span className="text-teal-600 italic">Inspires</span>{" "}
             You More.
@@ -113,7 +110,7 @@ export default function RamroGadiAboutSection() {
                   {f.icon}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-800 mb-1">{f.title}</h4>
+                  <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{f.title}</h4>
                   <p className="text-xs text-slate-500 leading-relaxed">{f.desc}</p>
                 </div>
               </div>
@@ -123,7 +120,7 @@ export default function RamroGadiAboutSection() {
           {/* Bottom row: CTA + phone */}
           <div className="flex flex-wrap items-center gap-5 mt-3 pt-5 border-t border-slate-100">
             <a
-              href="#"
+              href="https://ramrogaadi.com/"
               className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold uppercase tracking-widest px-7 py-3.5 rounded-full shadow-md shadow-teal-200 transition-colors"
             >
               Discover More

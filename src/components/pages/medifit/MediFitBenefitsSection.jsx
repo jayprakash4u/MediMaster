@@ -38,7 +38,7 @@ export default function MediFitBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className={`${HEADING.h2} mb-8`}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
             Benefits of Using Health <br className="hidden md:block" />
             <span className="text-emerald-600">Analytics Platform</span>
           </h2>

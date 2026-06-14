@@ -25,7 +25,7 @@ export default function BillingModulesWithVideo() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
       <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-navy-700 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
           Medical Billing System Modules
         </h2>
       </div>

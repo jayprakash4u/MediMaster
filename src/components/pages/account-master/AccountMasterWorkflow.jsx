@@ -108,7 +108,7 @@ export default function AccountMasterWorkflow() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-2" style={{ fontFamily: "'Georgia', serif" }}>
+      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-2" style={{ fontFamily: "'Georgia', serif" }}>
         Streamline your Account Master workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />

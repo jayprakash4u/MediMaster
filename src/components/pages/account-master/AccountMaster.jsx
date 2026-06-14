@@ -48,7 +48,7 @@ export default function AccountMaster() {
 
           <div className="pt-6">
             <a
-              href="#trial"
+              href="#account-master-trial"
               className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>GET STARTED NOW</span>

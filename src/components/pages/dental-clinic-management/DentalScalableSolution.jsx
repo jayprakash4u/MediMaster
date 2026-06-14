@@ -57,7 +57,7 @@ export default function DentalScalableSolution() {
     <section className="bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight max-w-3xl">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
           Scalable dental clinic management solution to fit any practice size
         </h2>
 

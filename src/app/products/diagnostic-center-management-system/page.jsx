@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import DiagnosticCenterHero from "@/components/pages/diagnostic-center-management/DiagnosticCenterHero";
 import DiagnosticCenterManagement from "@/components/pages/diagnostic-center-management/DiagnosticCenterManagement";
 import DiagnosticCenterBenefitsSection from "@/components/pages/diagnostic-center-management/DiagnosticCenterBenefitsSection";
 import DiagnosticCenterModulesWithVideo from "@/components/pages/diagnostic-center-management/DiagnosticCenterModulesWithVideo";
@@ -10,11 +11,11 @@ import DiagnosticCenterTrialSection from "@/components/pages/diagnostic-center-m
 export default function DiagnosticCenterManagementSystemPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <DiagnosticCenterHero />
       <DiagnosticCenterManagement />
       <DiagnosticCenterBenefitsSection />
       <DiagnosticCenterModulesWithVideo />
       <DiagnosticCenterScalableSolution />
-      <DiagnosticCenterTargetAudience />
       <DiagnosticCenterWorkflow />
       <DiagnosticCenterTrialSection />
       <Footer />

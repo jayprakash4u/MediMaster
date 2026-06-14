@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
 
@@ -20,7 +21,7 @@ export default function MediFitManagement() {
             <span className="text-xs font-bold tracking-wider uppercase">Wellness & Health Tech</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-600">
               Patient Health Analytics
@@ -47,13 +48,16 @@ export default function MediFitManagement() {
           </div>
 
           <div className="pt-6">
-            <button className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0">
+            <Link
+              href="#medifit-trial"
+              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
+            >
               <span>GET STARTED NOW</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -74,7 +78,7 @@ export default function MediFitManagement() {
               2x
             </div>
             <div>
-              <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">Faster Care</h4>
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider leading-tight">Faster Care</h4>
               <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">AI-driven health insights.</p>
             </div>
           </div>

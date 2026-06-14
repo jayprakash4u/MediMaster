@@ -72,13 +72,7 @@ const icons = {
       <path d="M14 3 L24 7 L24 14 C24 19 19 23 14 25 C9 23 4 19 4 14 L4 7 Z" />
       <rect x="10" y="13" width="8" height="7" rx="1.5" />
       <path d="M11 13 L11 10.5 A3 3 0 0 1 17 10.5 L17 13" />
-      <circle
-        cx="14"
-        cy="16.5"
-        r="1"
-        fill="currentColor"
-        className="text-teal-400"
-      />
+      <circle cx="14" cy="16.5" r="1" fill="currentColor" className="text-teal-400" />
     </svg>
   ),
   mis: (
@@ -98,13 +92,7 @@ const icons = {
       <line x1="17" y1="22" x2="17" y2="26" />
       <line x1="8" y1="26" x2="20" y2="26" />
       <polyline points="6,16 9,11 13,14 17,8 22,10" strokeWidth="2" />
-      <circle
-        cx="22"
-        cy="10"
-        r="1.5"
-        fill="currentColor"
-        className="text-teal-400"
-      />
+      <circle cx="22" cy="10" r="1.5" fill="currentColor" className="text-teal-400" />
     </svg>
   ),
   print: (
@@ -124,13 +112,7 @@ const icons = {
       <rect x="7" y="17" width="14" height="9" rx="1" />
       <line x1="10" y1="20" x2="18" y2="20" />
       <line x1="10" y1="22" x2="15" y2="22" />
-      <circle
-        cx="22"
-        cy="15"
-        r="1.2"
-        fill="currentColor"
-        className="text-teal-400"
-      />
+      <circle cx="22" cy="15" r="1.2" fill="currentColor" className="text-teal-400" />
     </svg>
   ),
   admin: (
@@ -277,27 +259,9 @@ const icons = {
       <path d="M10 3 L10 14 L4 22 A2 2 0 0 0 6 25 L22 25 A2 2 0 0 0 24 22 L18 14 L18 3" />
       <line x1="8" y1="3" x2="20" y2="3" />
       <path d="M6 20 C9 17 12 20 15 17 C18 14 20 18 22 20" strokeWidth="1.5" />
-      <circle
-        cx="8"
-        cy="21"
-        r="1.5"
-        fill="currentColor"
-        className="text-teal-400 opacity-60"
-      />
-      <circle
-        cx="13"
-        cy="19"
-        r="1"
-        fill="currentColor"
-        className="text-teal-400 opacity-40"
-      />
-      <circle
-        cx="19"
-        cy="21"
-        r="1.2"
-        fill="currentColor"
-        className="text-teal-400 opacity-60"
-      />
+      <circle cx="8" cy="21" r="1.5" fill="currentColor" className="text-teal-400 opacity-60" />
+      <circle cx="13" cy="19" r="1" fill="currentColor" className="text-teal-400 opacity-40" />
+      <circle cx="19" cy="21" r="1.2" fill="currentColor" className="text-teal-400 opacity-60" />
     </svg>
   ),
   pharmacy: (
@@ -317,13 +281,7 @@ const icons = {
       <ellipse cx="19" cy="18" rx="4" ry="2.5" className="fill-teal-500/20" />
       <ellipse cx="19" cy="18" rx="4" ry="2.5" />
       <line x1="19" y1="15.5" x2="19" y2="20.5" />
-      <circle
-        cx="6.5"
-        cy="9"
-        r="1.2"
-        fill="currentColor"
-        className="text-teal-400 opacity-60"
-      />
+      <circle cx="6.5" cy="9" r="1.2" fill="currentColor" className="text-teal-400 opacity-60" />
       <line x1="5" y1="17" x2="8" y2="17" />
       <line x1="6.5" y1="15.5" x2="6.5" y2="18.5" />
     </svg>
@@ -408,18 +366,16 @@ export default function HMSCrossLayout() {
           <span className="text-xs font-extrabold tracking-widest text-teal-600 uppercase bg-teal-50 px-4 py-1.5 rounded-full">
             All-In-One Healthcare Management
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight leading-tight">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
             An Interconnected Network <br />
             For Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-600">
               Entire Infrastructure
             </span>
           </h2>
-          <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-2xl mx-auto">
-            Bring administrative control, financial auditing, and point-of-care
-            modules together into a unified operational dashboard. Everything
-            speaks to the core ecosystem in real time.
-          </p>
         </div>
 
         {/* 2. MAIN GRID NETWORK DIAGRAM */}
@@ -427,10 +383,7 @@ export default function HMSCrossLayout() {
           {/* LEFT COLUMN MODULES */}
           <div className="flex flex-col gap-4 w-full max-w-[310px] order-2 lg:order-1">
             {leftData.map((item) => (
-              <div
-                key={item.key}
-                className="flex items-center group cursor-pointer"
-              >
+              <div key={item.key} className="flex items-center group cursor-pointer">
                 <div className="flex-1 bg-white border border-slate-200 group-hover:border-teal-500 rounded-l-xl py-3 px-4 text-xs font-bold text-slate-700 group-hover:text-slate-900 shadow-sm transition-all duration-200 text-center leading-snug">
                   {item.label.map((line, i) => (
                     <div key={i}>{line}</div>

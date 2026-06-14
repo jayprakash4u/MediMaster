@@ -172,7 +172,7 @@ export default function PopularBrandsNepal() {
           <p className="text-xxs sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
             Two Wheelers
           </p>
-          <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Popular Bike Brands
           </h2>
           <p className="text-slate-500 text-sm sm:text-base max-w-md leading-relaxed">

@@ -2,18 +2,18 @@
  * Typography Tokens
  *
  * Centralized typography token exports for consistent text usage
- * across the application. These tokens match the homepage patterns.
+ * across the application. Use these tokens to maintain a clear visual
+ * hierarchy and avoid duplicated inline Tailwind classes.
  */
 
-// Font families
 export const FONT_FAMILY = {
-  sans: ["Inter", "system-ui", "sans-serif"],
-  display: ["Inter", "system-ui", "sans-serif"],
-  body: ["Inter", "system-ui", "sans-serif"],
-  mono: ["JetBrains Mono", "Fira Code", "monospace"],
+  sans: "Inter, system-ui, sans-serif",
+  display: "Georgia, serif",
+  serif: "Georgia, serif",
+  body: "Inter, system-ui, sans-serif",
+  mono: "JetBrains Mono, Fira Code, monospace",
 };
 
-// Font weights
 export const FONT_WEIGHT = {
   thin: "font-thin",
   extralight: "font-extralight",
@@ -26,25 +26,24 @@ export const FONT_WEIGHT = {
   black: "font-black",
 };
 
-// Heading scale - matches homepage patterns
 export const HEADING = {
-  h1: "text-3xl font-black sm:text-4xl md:text-5xl tracking-tight leading-[1.15] lg:leading-[1.12]",
-  h2: "text-3xl font-semibold sm:text-4xl md:text-5xl tracking-tight leading-[1.15]",
-  h3: "text-xl font-bold sm:text-2xl",
-  h4: "text-lg font-semibold sm:text-xl",
+  display: "text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12]",
+  h1: "text-3xl font-black sm:text-4xl lg:text-5xl tracking-tight leading-[1.12]",
+  h2: "text-3xl font-extrabold sm:text-4xl lg:text-4xl tracking-tight leading-[1.12]",
+  h3: "text-xl font-bold sm:text-2xl tracking-tight",
+  h4: "text-lg font-semibold sm:text-xl tracking-tight",
+  label: "text-sm font-semibold tracking-tight",
 };
 
-// Body text scale
 export const BODY = {
   hero: "text-sm sm:text-base leading-relaxed",
-  large: "text-lg",
+  large: "text-base md:text-lg",
   base: "text-base",
   small: "text-sm",
   caption: "text-xs",
   overline: "text-xxs uppercase tracking-wider",
 };
 
-// Component-specific text styles - matches homepage
 export const COMPONENT_STYLES = {
   badge: "text-xxs font-semibold uppercase tracking-wider",
   label: "text-xs font-semibold uppercase tracking-widest",
@@ -59,7 +58,6 @@ export const COMPONENT_STYLES = {
   serviceSubtitle: "text-xxs font-medium text-teal-600/70",
 };
 
-// Color patterns - matches homepage
 export const TEXT_COLOR = {
   primary: "text-slate-900",
   secondary: "text-gray-500",
@@ -67,15 +65,4 @@ export const TEXT_COLOR = {
   tealLight: "text-teal-500",
 };
 
-/**
- * Usage Examples
- *
- * // Import typography tokens
- * import { HEADING, BODY, COMPONENT_STYLES, TEXT_COLOR } from '@/lib/typography';
- *
- * // Use in components
- * <h1 className={HEADING.h1}>Title</h1>
- * <p className={COMPONENT_STYLES.heroText}>Hero text</p>
- * <span className={TEXT_COLOR.teal}>Tealed text</span>
- */
 export default { HEADING, BODY, COMPONENT_STYLES, FONT_WEIGHT, FONT_FAMILY, TEXT_COLOR };

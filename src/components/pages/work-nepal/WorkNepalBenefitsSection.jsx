@@ -51,9 +51,9 @@ export default function WorkNepalBenefitsSection() {
             </span>
           </div>
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white mb-4"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-4"
+style={{ fontFamily: "'Georgia', serif" }}
+>
             Benefits of Using Work Nepal <br className="hidden md:block" />
             Job Platform
           </h2>

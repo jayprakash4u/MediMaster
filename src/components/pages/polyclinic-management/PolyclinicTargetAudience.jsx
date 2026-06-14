@@ -53,7 +53,7 @@ export default function PolyclinicTargetAudience() {
   return (
     <section className="w-full bg-white py-16 px-6 md:px-12 font-sans select-none">
       <div className="max-w-7xl mx-auto space-y-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
           Who Is This{" "}
           <span className="text-navy-600">Polyclinic Management System For?</span>
         </h2>

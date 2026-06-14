@@ -40,7 +40,7 @@ export default function PolyclinicBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white mb-8" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-8" style={{ fontFamily: "'Georgia', serif" }}>
             Benefits of Using Polyclinic <br className="hidden md:block" />
             <span className="text-emerald-600">Management System</span>
           </h2>

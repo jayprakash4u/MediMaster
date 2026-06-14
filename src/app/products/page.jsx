@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import ProductShowcase from "@/components/pages/products/ProductShowcase";
 import { products } from "@/lib/products";
+import { HEADING, FONT_FAMILY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 export const metadata = {
   title: "Products — MediMaster",
@@ -12,10 +13,10 @@ export default function ProductsPage() {
     <main>
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h1 className={`${HEADING.h1} text-slate-900`} style={{ fontFamily: FONT_FAMILY.display }}>
             Our Products
           </h1>
-          <p className="text-slate-600 max-w-2xl mb-8">
+          <p className={`${COMPONENT_STYLES.bodyText} max-w-2xl mb-8`}>
             Explore the suite of products we deliver for hospitals, labs and
             wellness teams. Click any product to see details and integrations.
           </p>

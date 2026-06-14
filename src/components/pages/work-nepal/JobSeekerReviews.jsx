@@ -101,7 +101,7 @@ function ReviewCard({ review }) {
               {review.avatar}
             </div>
             <div>
-              <h4 className="font-semibold text-zinc-900 text-xs tracking-tight">
+                <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
                 {review.name}
               </h4>
               <p className="text-zinc-400 text-xxs">
@@ -175,7 +175,7 @@ export default function JobSeekerReviews() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             They found their next chapter.
           </h2>
 

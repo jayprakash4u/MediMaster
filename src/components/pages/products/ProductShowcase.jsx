@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING, FONT_FAMILY, BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,6 +16,30 @@ export default function ProductShowcase({ product, index }) {
   const sectionRef = useRef(null);
   const imgContainerRef = useRef(null);
   const imgInnerRef = useRef(null);
+
+  function ProductContent() {
+    return (
+      <>
+        <h3 className={`${HEADING.h2} ${TEXT_COLOR.primary}`} style={{ fontFamily: FONT_FAMILY.serif }}>
+          {product.name}
+        </h3>
+        <p className={`${COMPONENT_STYLES.label} text-teal-600 mt-2 mb-4`}>{product.tag}</p>
+        <p className={`text-slate-600 ${BODY.base} mb-4`}>{product.description}</p>
+        <ul className="list-none text-slate-700 mb-6 space-y-1.5">
+          {product.features?.map((f, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <Image src="/products/mediproduct.png" alt="feature bullet" width={24} height={24} className="mt-0.5" />
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="flex gap-3">
+          <Link href={`/products/${slug}`} className="inline-block bg-teal-600 text-white px-4 py-2 rounded-md font-medium hover:bg-teal-700">Learn More</Link>
+          <Link href={`/contact?product=${slug}`} className="inline-block border border-slate-200 px-4 py-2 rounded-md text-slate-700 hover:bg-slate-50">Request Demo</Link>
+        </div>
+      </>
+    );
+  }
 
   useEffect(() => {
     if (!imgContainerRef.current || !imgInnerRef.current || !sectionRef.current) return;
@@ -106,55 +131,15 @@ export default function ProductShowcase({ product, index }) {
               </div>
             </div>
           ) : (
-            <div className="order-2 md:order-1">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{product.name}</h3>
-              <p className="text-sm text-teal-600 font-semibold uppercase mt-2 mb-4">{product.tag}</p>
-              <p className="text-slate-600 mb-4">{product.description}</p>
-              <ul className="list-none text-slate-700 mb-6 space-y-1.5">
-                {product.features?.map((f, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Image
-                      src="/products/mediproduct.png"
-                      alt="feature bullet"
-                      width={24}
-                      height={24}
-                      className="mt-0.5"
-                    />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex gap-3">
-                <Link href={`/products/${slug}`} className="inline-block bg-teal-600 text-white px-4 py-2 rounded-md font-medium hover:bg-teal-700">Learn More</Link>
-                <Link href={`/contact?product=${slug}`} className="inline-block border border-slate-200 px-4 py-2 rounded-md text-slate-700 hover:bg-slate-50">Request Demo</Link>
-              </div>
+            <div className="order-1 md:order-2">
+              <ProductContent />
             </div>
           )}
 
           {/* Right: content when even, image when odd */}
           {isEven ? (
             <div className="order-2 md:order-2">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{product.name}</h3>
-              <p className="text-sm text-teal-600 font-semibold uppercase mt-2 mb-4">{product.tag}</p>
-              <p className="text-slate-600 mb-4">{product.description}</p>
-              <ul className="list-none text-slate-700 mb-6 space-y-1.5">
-                {product.features?.map((f, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Image
-                      src="/products/mediproduct.png"
-                      alt="feature bullet"
-                      width={24}
-                      height={24}
-                      className="mt-0.5"
-                    />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex gap-3">
-                <Link href={`/products/${slug}`} className="inline-block bg-teal-600 text-white px-4 py-2 rounded-md font-medium hover:bg-teal-700">Learn More</Link>
-                <Link href={`/contact?product=${slug}`} className="inline-block border border-slate-200 px-4 py-2 rounded-md text-slate-700 hover:bg-slate-50">Request Demo</Link>
-              </div>
+              <ProductContent />
             </div>
           ) : (
             <div className="order-1 md:order-2">

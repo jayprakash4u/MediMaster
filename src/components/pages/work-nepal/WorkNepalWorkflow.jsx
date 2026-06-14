@@ -200,9 +200,9 @@ export default function JobWorkflow() {
           </span>
         </div>
         <h2
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4"
+style={{ fontFamily: "'Georgia', serif" }}
+>
           How our platform works
         </h2>
       </div>
@@ -223,7 +223,7 @@ export default function JobWorkflow() {
         ))}
       </div>
 
-      <h3 className="text-xl font-semibold text-gray-900 mb-1">
+      <h3 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
         {current.heading}
       </h3>
       <p className="text-base text-gray-500 leading-relaxed mb-6 max-w-3xl">

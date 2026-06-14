@@ -37,7 +37,7 @@ export default function HMSTrialSection() {
     "w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all";
 
   return (
-    <section className="w-full bg-navy-950 py-16 md:py-24 px-6 sm:px-12 lg:px-16 overflow-hidden">
+    <section id="hms-trial" className="w-full bg-navy-950 py-16 md:py-24 px-6 sm:px-12 lg:px-16 overflow-hidden">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-teal-600 to-transparent rounded-full blur-3xl" />
       </div>

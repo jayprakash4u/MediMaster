@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import DentalHero from "@/components/pages/dental-clinic-management/DentalHero";
 import DentalManagement from "@/components/pages/dental-clinic-management/DentalManagement";
 import DentalBenefitsSection from "@/components/pages/dental-clinic-management/DentalBenefitsSection";
 import DentalModulesWithVideo from "@/components/pages/dental-clinic-management/DentalModulesWithVideo";
@@ -10,6 +11,7 @@ import DentalTrialSection from "@/components/pages/dental-clinic-management/Dent
 export default function DentalClinicManagementPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <DentalHero />
       <DentalManagement />
       <DentalBenefitsSection />
       <DentalModulesWithVideo />

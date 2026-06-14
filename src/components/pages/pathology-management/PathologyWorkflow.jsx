@@ -123,7 +123,7 @@ export default function PathologyWorkflow() {
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
       {/* Heading */}
-      <h2 className="text-3xl font-semibold text-gray-900 mb-2">
+      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
         Streamline your pathology lab workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />

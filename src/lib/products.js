@@ -130,11 +130,11 @@ export const products = [
       "Staff rostering, room scheduling, and inventory management",
     ],
     cta: {
-      learnMore: "/pharmacy-management",
+      learnMore: "/products/polyclinic-management-system",
       requestDemo: "/contact?product=polyclinic-management-system",
     },
     image: "/hospital/polyclinic.jpg",
-    href: "/pharmacy-management",
+    href: "/products/polyclinic-management-system",
   },
   {
     name: "Patient Management System",
@@ -150,10 +150,10 @@ export const products = [
       "Integrated billing, insurance verification, and payment tracking",
     ],
     cta: {
-      learnMore: "/hospital-management",
+      learnMore: "/products/patient-management-system",
       requestDemo: "/contact?product=patient-management-system",
     },
-    href: "/hospital-management",
+    href: "/products/patient-management-system",
   },
   {
     name: "Diagnostic Center Management System",
@@ -169,10 +169,10 @@ export const products = [
       "NABL compliance, QC logs, and multi-branch lab management",
     ],
     cta: {
-      learnMore: "/pathology-management",
+      learnMore: "/products/diagnostic-center-management-system",
       requestDemo: "/contact?product=diagnostic-center-management-system",
     },
-    href: "/pathology-management",
+    href: "/products/diagnostic-center-management-system",
   },
   {
     name: "Support Ticketing System",
@@ -188,10 +188,10 @@ export const products = [
       "Knowledge base and self-service portal for faster resolution",
     ],
     cta: {
-      learnMore: "/contact",
+      learnMore: "/products/support-ticketing-system",
       requestDemo: "/contact?product=support-ticketing-system",
     },
-    href: "/contact",
+    href: "/products/support-ticketing-system",
   },
   {
     name: "School Management Software",
@@ -207,10 +207,67 @@ export const products = [
       "Fee management, online payments, and parent communication portal",
     ],
     cta: {
-      learnMore: "/contact",
+      learnMore: "/products/school-management-software",
       requestDemo: "/contact?product=school-management-software",
     },
-    href: "/contact",
+    href: "/products/school-management-software",
+  },
+  {
+    name: "Account Master",
+    tag: "Financial Management",
+    description:
+      "Complete accounting and financial management with automated invoicing, GST compliance, bank reconciliation, and comprehensive reporting.",
+    stats: "GST Compliant",
+    iconColor: "#0D9488",
+    features: [
+      "Automated invoicing and billing with GST compliance",
+      "Bank reconciliation and expense tracking",
+      "Multi-branch accounting with consolidated reports",
+      "Payroll integration and statutory reporting",
+    ],
+    cta: {
+      learnMore: "/products/account-master",
+      requestDemo: "/contact?product=account-master",
+    },
+    href: "/products/account-master",
+  },
+  {
+    name: "Dental Clinic Management",
+    tag: "Dental Practice Software",
+    description:
+      "Specialized dental clinic management with patient records, appointment scheduling, treatment planning, and billing.",
+    stats: "All-in-One",
+    iconColor: "#0D9488",
+    features: [
+      "Patient dental records and treatment history",
+      "Appointment scheduling with reminders",
+      "Treatment planning and procedure tracking",
+      "Integrated billing and insurance claims",
+    ],
+    cta: {
+      learnMore: "/products/dental-clinic-management-system",
+      requestDemo: "/contact?product=dental-clinic-management",
+    },
+    href: "/products/dental-clinic-management-system",
+  },
+  {
+    name: "Accounting Software",
+    tag: "Easy Accounting & GST Fillings",
+    description:
+      "Smart accounting software for GST-compliant invoicing, bookkeeping, and financial reporting.",
+    stats: "GST Ready",
+    iconColor: "#047857",
+    features: [
+      "GST-compliant invoicing and billing",
+      "Automated bookkeeping and ledger management",
+      "Financial reporting and tax filing",
+      "Multi-user access with role-based permissions",
+    ],
+    cta: {
+      learnMore: "/products/accounting-software",
+      requestDemo: "/contact?product=accounting-software",
+    },
+    href: "/products/accounting-software",
   },
 ];
 

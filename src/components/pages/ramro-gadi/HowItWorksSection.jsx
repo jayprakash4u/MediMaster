@@ -86,7 +86,7 @@ export default function HowItWorksSection() {
             <span className="text-xs font-bold tracking-[0.25em] uppercase text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full w-fit">
               TRANSPARENT MARKETPLACE
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-[1.1]">
+            <h2 className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
               Your Next Vehicle is Just{" "}
               <span className="text-emerald-600">3 Steps</span> Away
             </h2>
@@ -122,7 +122,7 @@ export default function HowItWorksSection() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <h4 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
                         {step.title}
                       </h4>
                       <span
@@ -170,7 +170,7 @@ export default function HowItWorksSection() {
                 <p className="text-white/60 text-xs uppercase tracking-widest font-semibold mb-0.5">
                   Top Matched Listing
                 </p>
-                <h3 className="text-white text-2xl font-black tracking-tight">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
                   {activeStep === 0
                     ? "Hyundai Creta SX"
                     : activeStep === 1
@@ -248,7 +248,7 @@ export default function HowItWorksSection() {
               <span className="text-white/40 text-xxs uppercase tracking-wider font-bold block mb-1">
                 Avg. Local Price
               </span>
-              <h4 className="text-white text-lg font-extrabold tracking-tight">
+              <h4 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
                 NPR 32.5L — 44L
               </h4>
               <p className="text-slate-400 text-xxs mt-1">

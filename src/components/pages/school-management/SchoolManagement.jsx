@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { HEADING, FONT_FAMILY, COMPONENT_STYLES, BODY, FONT_WEIGHT, TEXT_COLOR } from "@/lib/typography";
 
 const features = [
   "Complete student lifecycle management from admission to graduation",
@@ -20,14 +22,14 @@ export default function SchoolManagement() {
             <span className="text-xs font-bold tracking-wider uppercase">Education ERP</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className={`${HEADING.display} ${TEXT_COLOR.primary}`} style={{ fontFamily: FONT_FAMILY.serif }}>
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-600">
               School Management
             </span>
           </h2>
 
-          <p className="text-slate-500 text-sm md:text-base leading-relaxed">
+          <p className={`${COMPONENT_STYLES.bodyText} ${BODY.small} md:${BODY.base}`}>
             The complete school can be managed by an all-in-one school management system.
             You can manage students, teachers, attendance, exams, fees, and communication—
             all structured natively inside a single interface.
@@ -39,7 +41,7 @@ export default function SchoolManagement() {
                 <div className="mt-0.5 text-teal-600 shrink-0 group-hover:scale-110 transition-transform">
                   <CheckCircle2 className="w-5 h-5" strokeWidth={2.5} />
                 </div>
-                <p className="text-slate-700 font-semibold text-sm md:text-base leading-snug">
+                <p className={`text-slate-700 ${FONT_WEIGHT.semibold} ${BODY.small} md:${BODY.base} leading-snug`}>
                   {feature}
                 </p>
               </div>
@@ -47,10 +49,13 @@ export default function SchoolManagement() {
           </div>
 
           <div className="pt-6">
-            <button className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0">
+            <Link
+              href="#school-trial"
+              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
+            >
               <span>GET STARTED NOW</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
-            </button>
+            </Link>
           </div>
         </div>
 

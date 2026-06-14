@@ -15,11 +15,11 @@ export default function HMSStatic() {
         }}
       >
         {/* Arena */}
-        <div style={{ position: "relative", width: 260, height: 260, overflow: "visible" }}>
+        <div style={{ position: "relative", width: 340, height: 340, overflow: "visible" }}>
 
           {/* Decorative rings */}
           <div style={{ position:"absolute", inset:0,  borderRadius:"50%", border:"1px solid rgba(255,255,255,0.08)" }} />
-          <div style={{ position:"absolute", inset:36, borderRadius:"50%", border:"1px dashed rgba(255,255,255,0.05)" }} />
+          <div style={{ position:"absolute", inset:48, borderRadius:"50%", border:"1px dashed rgba(255,255,255,0.05)" }} />
 
           {/* Connector lines outer */}
           {[
@@ -36,10 +36,10 @@ export default function HMSStatic() {
               key={"oc-" + mod.angle}
               style={{
                 position: "absolute",
-                top: 130,
-                left: 130,
+                top: 170,
+                left: 170,
                 width: 1,
-                height: 80,
+                height: 155,
                 background: "rgba(255,255,255,0.1)",
                 transform: "translateX(-0.5px) rotate(" + mod.angle + "deg)",
                 transformOrigin: "top center",
@@ -59,10 +59,10 @@ export default function HMSStatic() {
               key={"ic-" + mod.angle}
               style={{
                 position: "absolute",
-                top: 130,
-                left: 130,
+                top: 170,
+                left: 170,
                 width: 1,
-                height: 30,
+                height: 65,
                 background: "rgba(255,255,255,0.1)",
                 transform: "translateX(-0.5px) rotate(" + mod.angle + "deg)",
                 transformOrigin: "top center",
@@ -86,15 +86,15 @@ export default function HMSStatic() {
               key={"op-" + mod.angle}
               style={{
                 position: "absolute",
-                left: 130 + 118 * Math.cos(((mod.angle - 90) * Math.PI) / 180),
-                top: 130 + 118 * Math.sin(((mod.angle - 90) * Math.PI) / 180),
+                left: 170 + 155 * Math.cos(((mod.angle - 90) * Math.PI) / 180),
+                top: 170 + 155 * Math.sin(((mod.angle - 90) * Math.PI) / 180),
                 transform: "translate(-50%, -50%)",
                 display: "flex",
                 alignItems: "center",
-                gap: 4,
-                background: "rgba(255,255,255,0.1)",
+                gap: 6,
+                background: "rgba(255,255,255,0.15)",
                 borderRadius: 999,
-                padding: "4px 8px 4px 5px",
+                padding: "5px 10px 5px 6px",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
                 border: "1px solid rgba(255,255,255,0.3)",
                 whiteSpace: "nowrap",
@@ -113,20 +113,20 @@ export default function HMSStatic() {
             >
               <div
                 style={{
-                  width: 18,
-                  height: 18,
+                  width: 20,
+                  height: 20,
                   borderRadius: "50%",
                   background: mod.bg + "15",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 9,
+                  fontSize: 11,
                   flexShrink: 0,
                 }}
               >
                 {mod.icon}
               </div>
-              <div style={{ fontSize: 8, fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>
                 {mod.lines.map((line, i) => (
                   <div key={i}>{line}</div>
                 ))}
@@ -145,15 +145,15 @@ export default function HMSStatic() {
               key={"ip-" + mod.angle}
               style={{
                 position: "absolute",
-                left: 130 + 52 * Math.cos(((mod.angle - 90) * Math.PI) / 180),
-                top: 130 + 52 * Math.sin(((mod.angle - 90) * Math.PI) / 180),
+                left: 170 + 65 * Math.cos(((mod.angle - 90) * Math.PI) / 180),
+                top: 170 + 65 * Math.sin(((mod.angle - 90) * Math.PI) / 180),
                 transform: "translate(-50%, -50%)",
                 display: "flex",
                 alignItems: "center",
-                gap: 4,
-                background: "rgba(255,255,255,0.1)",
+                gap: 5,
+                background: "rgba(255,255,255,0.15)",
                 borderRadius: 999,
-                padding: "3px 6px 3px 4px",
+                padding: "4px 7px 4px 5px",
                 boxShadow: "0 1px 6px rgba(0,0,0,0.2)",
                 border: "1px solid rgba(255,255,255,0.3)",
                 whiteSpace: "nowrap",
@@ -172,20 +172,20 @@ export default function HMSStatic() {
             >
               <div
                 style={{
-                  width: 14,
-                  height: 14,
+                  width: 16,
+                  height: 16,
                   borderRadius: "50%",
                   background: mod.bg + "15",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 8,
+                  fontSize: 10,
                   flexShrink: 0,
                 }}
               >
                 {mod.icon}
               </div>
-              <div style={{ fontSize: 7, fontWeight: 700, color: "#fff", lineHeight: 1.2 }}>
+              <div style={{ fontSize: 9, fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>
                 {mod.lines.map((line, i) => (
                   <div key={i}>{line}</div>
                 ))}
@@ -199,7 +199,7 @@ export default function HMSStatic() {
               position: "absolute", top: "50%", left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 10,
-              width: 110, height: 110, borderRadius: 16,
+              width: 144, height: 144, borderRadius: "50%",
               background: "rgba(255,255,255,0.05)",
               display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
               boxShadow: "0 0 0 6px rgba(255,255,255,0.1), 0 0 0 12px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.25)",

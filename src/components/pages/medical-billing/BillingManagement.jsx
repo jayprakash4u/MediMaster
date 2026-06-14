@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -20,7 +21,7 @@ export default function BillingManagement() {
             <span className="text-xs font-bold tracking-wider uppercase">Revenue Cycle Management</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Smarter billing, claims <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-navy-600">
               &amp; collections
@@ -46,13 +47,13 @@ export default function BillingManagement() {
           </div>
 
           <div className="pt-6 flex gap-3">
-            <button className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0">
+            <Link href="#billing-trial" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0">
               <span>GET STARTED NOW</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
-            </button>
-            <button className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 border border-emerald-700 rounded-full px-5 py-2 hover:bg-emerald-50 transition-colors">
+            </Link>
+            <Link href="/contact?product=medical-billing-system" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 border border-emerald-700 rounded-full px-5 py-2 hover:bg-emerald-50 transition-colors">
               Request a Demo
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -76,7 +77,7 @@ export default function BillingManagement() {
               30%
             </div>
             <div>
-              <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">Faster Claims</h4>
+              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider leading-tight">Faster Claims</h4>
               <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">Reduced rejection & faster reimbursements.</p>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import SupportTicketingHero from "@/components/pages/support-ticketing/SupportTicketingHero";
 import SupportTicketingManagement from "@/components/pages/support-ticketing/SupportTicketingManagement";
 import SupportTicketingBenefitsSection from "@/components/pages/support-ticketing/SupportTicketingBenefitsSection";
 import SupportTicketingModulesWithVideo from "@/components/pages/support-ticketing/SupportTicketingModulesWithVideo";
@@ -10,6 +11,7 @@ import SupportTicketingTrialSection from "@/components/pages/support-ticketing/S
 export default function SupportTicketingSystemPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <SupportTicketingHero />
       <SupportTicketingManagement />
       <SupportTicketingBenefitsSection />
       <SupportTicketingModulesWithVideo />

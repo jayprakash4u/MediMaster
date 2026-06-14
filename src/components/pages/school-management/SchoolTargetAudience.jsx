@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Check, GraduationCap, Network, UserRound } from "lucide-react";
+import { HEADING, FONT_FAMILY, COMPONENT_STYLES, BODY, TEXT_COLOR, FONT_WEIGHT } from "@/lib/typography";
 
 const targetPoints = [
   "K-12 schools managing student records and academic performance",
@@ -53,7 +54,7 @@ export default function SchoolTargetAudience() {
   return (
     <section className="w-full bg-white py-16 px-6 md:px-12 font-sans select-none">
       <div className="max-w-7xl mx-auto space-y-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
+         <h2 className={`${HEADING.h2} ${TEXT_COLOR.primary}`} style={{ fontFamily: FONT_FAMILY.serif }}>
           Who Is This{" "}
           <span className="text-navy-600">School Management System For?</span>
         </h2>
@@ -66,7 +67,7 @@ export default function SchoolTargetAudience() {
                   <Check className="w-4 h-4 stroke-[3]" />
                   <Check className="w-4 h-4 stroke-[3] absolute left-1 top-[7px] opacity-70" />
                 </div>
-                <p className="text-slate-600 font-medium text-base leading-relaxed">
+                <p className={`${COMPONENT_STYLES.bodyLarge} ${BODY.base} leading-relaxed`}>
                   {text}
                 </p>
               </div>
@@ -76,16 +77,16 @@ export default function SchoolTargetAudience() {
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 lg:pt-0">
             {cards.map((card, index) => {
               const IconComponent = card.icon;
-              const c = colorMap[card.color];
+              const cardColor = colorMap[card.color];
               return (
                 <div
                   key={index}
                   className="flex flex-col items-center text-center space-y-6 p-4 rounded-2xl transition-all duration-200 hover:bg-slate-50/80"
                 >
-                  <div className={`w-24 h-24 rounded-full bg-gradient-to-br border flex items-center justify-center shadow-sm ${c.iconBg} transition-transform duration-300 ${c.iconHover}`}>
+                  <div className={`w-24 h-24 rounded-full bg-gradient-to-br border flex items-center justify-center shadow-sm ${cardColor.iconBg} transition-transform duration-300 ${cardColor.iconHover}`}>
                     <IconComponent className="w-12 h-12 stroke-[1.25]" />
                   </div>
-                  <h3 className={`font-bold text-base md:text-base tracking-tight whitespace-nowrap ${c.heading}`}>
+                  <h3 className={`${FONT_WEIGHT.bold} ${BODY.base} tracking-tight whitespace-nowrap ${cardColor.heading}`}>
                     {card.title}
                   </h3>
                 </div>

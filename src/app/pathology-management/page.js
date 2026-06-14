@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import PathologyHero from "@/components/pages/pathology-management/PathologyHero";
 import PathologyManagement from "@/components/pages/pathology-management/PathologyManagement";
 import PathologyBenefitsSection from "@/components/pages/pathology-management/PathologyBenefitsSection";
 import PathologyModulesWithVideo from "@/components/pages/pathology-management/PathologyModulesWithVideo";
@@ -10,6 +11,7 @@ import PathologyTrialSection from "@/components/pages/pathology-management/Patho
 export default function PathologyManagementPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <PathologyHero />
       <PathologyManagement />
       <PathologyBenefitsSection />
       <PathologyModulesWithVideo />

@@ -9,6 +9,11 @@ export default function MediFitModulesWithVideo() {
     "Personalized Care Pathway Generation",
     "Real-Time Wearable Device Integration",
     "Telemedicine & Virtual Consultation Hub",
+    "OPD (Out-Patient Department)",
+    "IPD (In-Patient Department)",
+    "Patient Management",
+    "Appointment Scheduling",
+    "Pharmacy Inventory & Sales Management",
   ];
 
   const rightColumnModules = [
@@ -16,12 +21,17 @@ export default function MediFitModulesWithVideo() {
     "Medication Adherence Tracking",
     "Lifestyle & Wellness Recommendations",
     "Health Report Generation & Sharing",
+    "Pathology Labs",
+    "Radiology Labs",
+    "Business Analytics",
+    "Application Security & Configuration",
+    "Patient and Staff Messaging System",
   ];
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
       <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-navy-700 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
           MediFit Platform Modules
         </h2>
       </div>

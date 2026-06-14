@@ -25,7 +25,7 @@ export default function DiagnosticCenterModulesWithVideo() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
             Diagnostic Center Management Software Modules
           </h2>
         </div>

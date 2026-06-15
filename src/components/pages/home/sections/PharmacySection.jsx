@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const allItems = [
   "Auto-fetch Prescriptions for Fast Dispensing",
@@ -58,15 +59,16 @@ export default function PharmacySection() {
               <li key={i} className="flex items-start gap-2 overflow-hidden">
                 <span className="inline-flex items-start gap-2 w-full">
                   <ArrowIcon />
-                  <span className="text-sm text-slate-700 leading-relaxed">
-                    {item}
-                  </span>
+                  <span className="text-sm text-slate-700 leading-relaxed">{item}</span>
                 </span>
               </li>
             ))}
           </ul>
 
-          <button className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 border border-teal-600 rounded-full px-5 py-2 hover:bg-teal-50 transition-colors mt-6">
+          <Link
+            href="/pharmacy-management"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 border border-teal-600 rounded-full px-5 py-2 hover:bg-teal-50 transition-colors mt-6"
+          >
             Learn more
             <svg
               className="w-4 h-4"
@@ -80,7 +82,7 @@ export default function PharmacySection() {
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
-          </button>
+          </Link>
         </div>
 
         {/* ── RIGHT — static image (first on mobile via flex-col-reverse) ── */}

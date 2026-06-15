@@ -1,177 +1,96 @@
 "use client";
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HEADING, FONT_FAMILY, BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+const LEFT_SIDE_PRODUCTS = [
+  "MediMaster",
+  "Cutis Path Lab",
+  "Patient Management System",
+  "Dental Clinic Management",
+  "Polyclinic Management System",
+  "Diagnostic Center Management System",
+  "Medical Billing System",
+  "Account Master",
+  "Accounting Software",
+];
 
-export default function ProductShowcase({ product, index }) {
-  const isEven = index % 2 === 0;
-  const slug = product.name.toLowerCase().replace(/\s+/g, "-");
-  const sectionRef = useRef(null);
-  const imgContainerRef = useRef(null);
-  const imgInnerRef = useRef(null);
+export default function ProductShowcase({ allProducts }) {
+  const leftProducts = allProducts.filter((p) => LEFT_SIDE_PRODUCTS.includes(p.name));
+  const rightProducts = allProducts.filter((p) => !LEFT_SIDE_PRODUCTS.includes(p.name));
 
-  function ProductContent() {
+  const slugify = (name) => name.toLowerCase().replace(/\s+/g, "-");
+
+  const ProductItem = ({ product }) => {
+    const slug = slugify(product.name);
     return (
-      <>
-        <h3 className={`${HEADING.h2} ${TEXT_COLOR.primary}`} style={{ fontFamily: FONT_FAMILY.serif }}>
+      <div className="bg-white rounded-xl p-6 shadow-md border border-slate-100 hover:shadow-lg transition-shadow">
+        <h3
+          className={`${HEADING.h3} ${TEXT_COLOR.primary}`}
+          style={{ fontFamily: FONT_FAMILY.serif }}
+        >
           {product.name}
         </h3>
-        <p className={`${COMPONENT_STYLES.label} text-teal-600 mt-2 mb-4`}>{product.tag}</p>
-        <p className={`text-slate-600 ${BODY.base} mb-4`}>{product.description}</p>
-        <ul className="list-none text-slate-700 mb-6 space-y-1.5">
-          {product.features?.map((f, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <Image src="/products/mediproduct.png" alt="feature bullet" width={24} height={24} className="mt-0.5" />
+        <p className={`${COMPONENT_STYLES.label} text-teal-600 mt-1 mb-3`}>{product.tag}</p>
+        <p className={`text-slate-600 ${BODY.small} mb-4 line-clamp-3`}>{product.description}</p>
+        <ul className="list-none text-slate-700 mb-4 space-y-1">
+          {product.features?.slice(0, 3).map((f, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm">
+              <span className="w-1.5 h-1.5 bg-teal-600 rounded-full shrink-0 mt-1.5" />
               <span>{f}</span>
             </li>
           ))}
         </ul>
         <div className="flex gap-3">
-          <Link href={`/products/${slug}`} className="inline-block bg-teal-600 text-white px-4 py-2 rounded-md font-medium hover:bg-teal-700">Learn More</Link>
-          <Link href={`/contact?product=${slug}`} className="inline-block border border-slate-200 px-4 py-2 rounded-md text-slate-700 hover:bg-slate-50">Request Demo</Link>
-        </div>
-      </>
-    );
-  }
-
-  useEffect(() => {
-    if (!imgContainerRef.current || !imgInnerRef.current || !sectionRef.current) return;
-
-    let tt;
-
-    const startAutoScroll = () => {
-      const container = imgContainerRef.current;
-      const inner = imgInnerRef.current;
-
-      // compute how much we can scroll (inner height - container height)
-      let overflow = inner.scrollHeight - container.clientHeight;
-      if (overflow <= 10) {
-        // image may not have fully loaded; try again shortly
-        setTimeout(() => {
-          overflow = inner.scrollHeight - container.clientHeight;
-          if (overflow <= 10) return;
-          startAutoScroll();
-        }, 200);
-        return;
-      }
-
-      // Tune duration based on overflow so longer screenshots scroll faster
-      // New formula: 0.6s + overflow/800 px, clamped between 0.6 and 5s
-      const duration = Math.min(Math.max(0.6 + overflow / 800, 0.6), 5);
-
-      // animate translateY of inner div to reveal the rest of the tall image
-      tt = gsap.to(inner, {
-        y: -overflow,
-        duration,
-        ease: "power2.out",
-        overwrite: true,
-      });
-    };
-
-    const resetAutoScroll = () => {
-      if (tt) tt.kill();
-      gsap.set(imgInnerRef.current, { y: 0 });
-    };
-
-    const trig = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top 60%",
-      end: "bottom 20%",
-      onEnter: () => startAutoScroll(),
-      onEnterBack: () => startAutoScroll(),
-      onLeave: () => resetAutoScroll(),
-      onLeaveBack: () => resetAutoScroll(),
-    });
-
-    return () => {
-      trig.kill();
-      resetAutoScroll();
-    };
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className={`grid gap-8 items-center ${isEven ? "md:grid-cols-2" : "md:grid-cols-2"}`}>
-          {/* Left: image when even, content when odd */}
-          {isEven ? (
-            <div className="order-1 md:order-1">
-              <div className="rounded-lg bg-gradient-to-br from-slate-50 to-white p-6 shadow-md h-full flex items-center justify-center">
-                <div
-                  ref={imgContainerRef}
-                  className="w-full max-h-[320px] md:max-h-[560px] bg-slate-100 rounded-lg overflow-hidden"
-                  // hide native scrollbars visually
-                  style={{ scrollbarWidth: "none" }}
-                >
-                  {product.image ? (
-                    <div ref={imgInnerRef} className="w-full">
-                      <Image
-                        src={product.image}
-                        alt={`${product.name} screenshot`}
-                        width={920}
-                        height={2000}
-                        className="object-contain w-full"
-                      />
-                    </div>
-                  ) : (
-                    <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                      <rect width="220" height="140" rx="12" fill="#F8FAFC" />
-                      <rect x="16" y="16" width="188" height="108" rx="8" fill="white" stroke="#E6EEF6" />
-                      <circle cx="60" cy="70" r="28" fill={product.iconColor} />
-                    </svg>
-                  )}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="order-1 md:order-2">
-              <ProductContent />
-            </div>
-          )}
-
-          {/* Right: content when even, image when odd */}
-          {isEven ? (
-            <div className="order-2 md:order-2">
-              <ProductContent />
-            </div>
-          ) : (
-            <div className="order-1 md:order-2">
-              <div className="rounded-lg bg-gradient-to-br from-slate-50 to-white p-6 shadow-md h-full flex items-center justify-center">
-                <div
-                  ref={imgContainerRef}
-                  className="w-full max-h-[320px] md:max-h-[560px] bg-slate-100 rounded-lg overflow-hidden"
-                  style={{ scrollbarWidth: "none" }}
-                >
-                  {product.image ? (
-                    <div ref={imgInnerRef} className="w-full">
-                      <Image
-                        src={product.image}
-                        alt={`${product.name} screenshot`}
-                        width={920}
-                        height={2000}
-                        className="object-contain w-full"
-                      />
-                    </div>
-                  ) : (
-                    <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                      <rect width="220" height="140" rx="12" fill="#F8FAFC" />
-                      <rect x="16" y="16" width="188" height="108" rx="8" fill="white" stroke="#E6EEF6" />
-                      <circle cx="60" cy="70" r="28" fill={product.iconColor} />
-                    </svg>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
+          <Link
+            href={`/products/${slug}`}
+            className="inline-block bg-teal-600 text-white px-3 py-1.5 rounded-md font-medium hover:bg-teal-700 text-sm"
+          >
+            Learn More
+          </Link>
+          <Link
+            href={`/contact?product=${slug}`}
+            className="inline-block border border-slate-200 px-3 py-1.5 rounded-md text-slate-700 hover:bg-slate-50 text-sm"
+          >
+            Request Demo
+          </Link>
         </div>
       </div>
-    </section>
+    );
+  };
+
+  return (
+    <>
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h1
+            className={`${HEADING.h1} text-slate-900`}
+            style={{ fontFamily: FONT_FAMILY.display }}
+          >
+            Our Products
+          </h1>
+          <p className={`${COMPONENT_STYLES.bodyText} max-w-2xl mb-8`}>
+            Explore the suite of products we deliver for hospitals, labs and wellness teams. Click
+            any product to see details and integrations.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              {leftProducts.map((product) => (
+                <ProductItem key={product.name} product={product} />
+              ))}
+            </div>
+            <div className="space-y-6">
+              {rightProducts.map((product) => (
+                <ProductItem key={product.name} product={product} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

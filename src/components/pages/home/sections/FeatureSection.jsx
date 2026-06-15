@@ -11,8 +11,18 @@ const services = [
     title: "Website Development",
     desc: "Highly functional & visually appealing websites tailored to capture attention and scale seamlessly.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+        />
       </svg>
     ),
   },
@@ -20,8 +30,18 @@ const services = [
     title: "App Development",
     desc: "Innovative and responsive cross-platform mobile apps engineered for fluid interaction.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 002-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 002-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+        />
       </svg>
     ),
   },
@@ -29,8 +49,18 @@ const services = [
     title: "System/Software Dev",
     desc: "Enterprise-grade automation systems and backend software tailored to optimize operations.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+        />
       </svg>
     ),
   },
@@ -38,8 +68,18 @@ const services = [
     title: "UI/UX Engineering",
     desc: "Polished user experience wireframes and user-centric flows engineered for effortless clarity.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z"
+        />
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v10m-5-5h10" />
       </svg>
     ),
@@ -48,7 +88,13 @@ const services = [
     title: "Search Engine Optimization",
     desc: "Data-driven organic architecture layout modifications to elevate domain visibility and capture leads.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     ),
@@ -57,8 +103,18 @@ const services = [
     title: "Premium Email Hosting",
     desc: "Secure, custom-domain corporate mailing infrastructure to protect business communication pipelines.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
   },
@@ -66,8 +122,18 @@ const services = [
     title: "Scalable Web Hosting",
     desc: "High-performance enterprise environments delivering low latency and verified uptime execution.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+        />
       </svg>
     ),
   },
@@ -75,8 +141,18 @@ const services = [
     title: "Modern Web Design",
     desc: "Minimalist, responsive web canvases mapped thoughtfully around established identity guidelines.",
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+        />
       </svg>
     ),
   },
@@ -92,10 +168,9 @@ export default function FeatureSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 72%",
-          toggleActions: "play none none none",
+          toggleActions: "play none none reverse",
         },
-        y: 50,
-        opacity: 0,
+        y: 30,
         duration: 0.8,
         stagger: 0.08,
         ease: "power2.out",
@@ -106,7 +181,10 @@ export default function FeatureSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#FAF9F6] py-20 md:py-28 px-6 sm:px-12 lg:px-16 font-sans antialiased overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="w-full bg-[#FAF9F6] py-20 md:py-28 px-6 sm:px-12 lg:px-16 font-sans antialiased overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
         {/* --- SECTION INTRO HEADER --- */}
         <div className="max-w-3xl mb-16 space-y-4">
@@ -137,11 +215,14 @@ export default function FeatureSection() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className="group relative rounded-2xl p-7 bg-white border-2 border-slate-200 transition-all duration-300 ease-in-out flex flex-col justify-between hover:border-teal-400 hover:shadow-xl hover:shadow-teal-100/50"
+              ref={(el) => (cardsRef.current[idx] = el)}
+              className="group relative rounded-2xl p-7 bg-white border-2 border-slate-200 transition-all duration-300 ease-in-out flex flex-col justify-between hover:shadow-xl hover:shadow-teal-100/50"
             >
               <div className="space-y-5">
                 <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 transition-all duration-300 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:text-white group-hover:scale-105 shadow-sm">
-                  {item.icon}
+                  <span className="group-hover:rotate-12 transition-transform duration-300">
+                    {item.icon}
+                  </span>
                 </div>
                 <div className="space-y-2">
                   <h3
@@ -150,9 +231,7 @@ export default function FeatureSection() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
               <div className="pt-5 mt-5 border-t border-slate-100 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-teal-600 transition-colors duration-300">

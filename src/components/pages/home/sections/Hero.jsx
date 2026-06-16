@@ -61,20 +61,6 @@ export default function Hero() {
           />
         ))}
       </div>
-
-      {/* Responsive SVG wave height */}
-      <div className="absolute bottom-0 left-0 w-full leading-[0] z-20">
-        <svg
-          className="relative block w-full h-[30px] sm:h-[50px] md:h-[80px]"
-          viewBox="0 24 150 28"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-            fill="#F8FAFC"
-          />
-        </svg>
-      </div>
     </section>
   );
 }

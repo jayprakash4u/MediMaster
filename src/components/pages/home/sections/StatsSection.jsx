@@ -10,15 +10,15 @@ import {
 } from "./stats-icons";
 
 const stats = [
-  { Icon: HospitalIcon, value: 248, suffix: "+", label: "Hospitals Onboarded", accent: "blue" },
-  { Icon: PatientsIcon, value: 94200, suffix: "+", label: "Patients Managed", accent: "green" },
-  { Icon: PharmacyIcon, value: 512, suffix: "+", label: "Pharmacy Units", accent: "teal" },
-  { Icon: LabTestIcon, value: 38700, suffix: "+", label: "Lab Tests Processed", accent: "amber" },
-  { Icon: DentalIcon, value: 126, suffix: "+", label: "Dental Clinics", accent: "blue" },
-  { Icon: UptimeIcon, value: 99.7, suffix: "%", label: "System Uptime", accent: "green" },
+  { Icon: HospitalIcon, value: 248, suffix: "+", label: "Hospitals Onboarded" },
+  { Icon: PatientsIcon, value: 94200, suffix: "+", label: "Patients Managed" },
+  { Icon: PharmacyIcon, value: 512, suffix: "+", label: "Pharmacy Units" },
+  { Icon: LabTestIcon, value: 38700, suffix: "+", label: "Lab Tests Processed" },
+  { Icon: DentalIcon, value: 126, suffix: "+", label: "Dental Clinics" },
+  { Icon: UptimeIcon, value: 99.7, suffix: "%", label: "System Uptime" },
 ];
 
-function StatItem({ Icon, value, suffix, label, accent, started }) {
+function StatItem({ Icon, value, suffix, label, started }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -41,21 +41,14 @@ function StatItem({ Icon, value, suffix, label, accent, started }) {
 
   const display = !Number.isInteger(value) ? count.toFixed(1) : count.toLocaleString();
 
-  const accentMap = {
-    blue: "text-blue-400",
-    green: "text-green-400",
-    teal: "text-teal-400",
-    amber: "text-amber-400",
-  };
-
   return (
     <div className="flex flex-col items-center gap-3 text-center">
-      <Icon className="w-16 h-16" />
+      <Icon />
       <p className="text-xl md:text-2xl font-bold text-white">
         {display}
-        <span className={accentMap[accent] || "text-teal-400"}>{suffix}</span>
+        <span className="text-teal-400">{suffix}</span>
       </p>
-      <p className="text-sm text-gray-400">{label}</p>
+      <p className="text-sm text-slate-400">{label}</p>
     </div>
   );
 }
@@ -80,7 +73,7 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section className="w-full bg-gray-900 py-12 md:py-16 px-6 sm:px-12 lg:px-16">
+    <section className="w-full bg-[#0F1F4D] py-12 md:py-16 px-6 sm:px-12 lg:px-16">
       <div className="max-w-7xl mx-auto">
         <div ref={ref} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
           {stats.map((stat, i) => (

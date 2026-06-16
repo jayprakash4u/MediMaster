@@ -65,7 +65,6 @@ export default function ClinicHeroSection() {
         {/* ── LEFT COLUMN: CONTENT & FEATURES LIST ─────────────────────────── */}
         <div ref={leftRef} className="lg:col-span-6 space-y-6 lg:pr-6 order-2 lg:order-1">
           <div className="space-y-3">
-
             <h1
               className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight leading-[1.15] lg:leading-[1.12]"
               style={{ fontFamily: "'Georgia', serif" }}
@@ -149,7 +148,7 @@ export default function ClinicHeroSection() {
 
           {/* 5. FLOATING ALL-IN-ONE OVERLAY BADGE */}
           {/* Reduced component and font layout structure cleanly for narrower screens */}
-          <div className="absolute bottom-10 left-2 sm:bottom-16 sm:left-6 bg-[#0f2460] text-white rounded-xl sm:rounded-2xl px-3 py-2.5 sm:px-5 sm:py-4 shadow-xl z-10 flex items-center gap-2.5 sm:gap-4 select-none">
+          <div className="absolute bottom-10 left-2 sm:bottom-16 sm:left-6 bg-[#0F1F4D] text-white rounded-xl sm:rounded-2xl px-3 py-2.5 sm:px-5 sm:py-4 shadow-xl z-10 flex items-center gap-2.5 sm:gap-4 select-none">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
               🏥
             </div>
@@ -157,11 +156,11 @@ export default function ClinicHeroSection() {
               <p className="text-sm sm:text-lg font-black leading-none tracking-tight">
                 All-in-One
               </p>
-<span className="text-xxs sm:text-xxs opacity-75 mt-0.5 sm:mt-1 leading-tight font-medium uppercase tracking-wider">
-                 Healthcare <br /> Software Suite
-               </span>
-             </div>
-           </div>
+              <span className="text-xxs sm:text-xxs opacity-75 mt-0.5 sm:mt-1 leading-tight font-medium uppercase tracking-wider">
+                Healthcare <br /> Software Suite
+              </span>
+            </div>
+          </div>
 
           {/* 6. FLOATING RATING BADGE */}
           {/* Scaled dimensions from w-18 to w-26 to prevent overlapping image textures on mobile devices */}

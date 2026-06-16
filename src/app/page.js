@@ -26,8 +26,8 @@ export default function HomePage() {
     <>
       <main className="pb-20 md:pb-0">
         <Hero />
-        <ClinicHeroSection />
         <StatsSection />
+        <ClinicHeroSection />
         <PharmacySection />
         <PathologySection />
         <HospitalSection />

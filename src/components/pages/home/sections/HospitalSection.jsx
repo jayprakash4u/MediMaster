@@ -63,7 +63,8 @@ export default function HospitalSection() {
         <div className="flex flex-col-reverse lg:flex-row items-start gap-10 lg:gap-14">
           {/* ── LEFT — single bullet grid ── */}
           <div className="flex-1 min-w-0">
-            <p className="text-xxs sm:text-xs font-semibold text-teal-400 uppercase tracking-widest mb-2">
+            {/* Added dynamic mobile text sizing to fix arbitrary text-xxs class tracking */}
+            <p className="text-[10px] sm:text-xs font-semibold text-teal-400 uppercase tracking-widest mb-2">
               Hospital Management
             </p>
             <h2
@@ -74,9 +75,10 @@ export default function HospitalSection() {
               Roof
             </h2>
 
-            <ul className="m-0 p-0 list-none grid grid-cols-2 gap-x-6 gap-y-2 mt-8">
+            {/* Change: Set to block list for mobile, falls back to your grid-cols-2 structure starting at sm breakpoint */}
+            <ul className="m-0 p-0 list-none block sm:grid sm:grid-cols-2 gap-y-3 sm:gap-x-6 sm:gap-y-2 mt-8">
               {allItems.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 overflow-hidden">
+                <li key={i} className="flex items-start gap-2 overflow-hidden mb-3 sm:mb-0">
                   <span className="inline-flex items-start gap-2 w-full">
                     <ArrowIcon />
                     <span className="text-sm text-slate-300 leading-relaxed">{item}</span>
@@ -87,7 +89,7 @@ export default function HospitalSection() {
 
             <Link
               href="/hospital-management"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400 border border-teal-400 rounded-full px-5 py-2 hover:bg-teal-500 hover:text-white transition-colors mt-6"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400 border border-teal-400 rounded-full px-5 py-2 hover:bg-teal-500 hover:text-white transition-colors mt-6 w-full sm:w-auto justify-center sm:justify-start"
             >
               Learn more
               <svg
@@ -107,7 +109,7 @@ export default function HospitalSection() {
 
           {/* ── RIGHT — static image overlay ── */}
           <div className="w-full lg:w-[400px] shrink-0 lg:sticky lg:top-10">
-            <div className="rounded-xl overflow-hidden border-2 border-teal-400 bg-navy-950/50">
+            <div className="rounded-xl overflow-hidden border-2 border-teal-400 bg-navy-950/50 shadow-xl">
               <Image
                 src="/home/homeherosction/a_professional_hero_banner_image_for_a_hospital_management_system._the_scene.png"
                 alt="MediMaster Hospital Management Interface"

@@ -163,31 +163,42 @@ export default function FeatureSection() {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(cardsRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 72%",
-          toggleActions: "play none none reverse",
-        },
-        y: 30,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power2.out",
-      });
-    }, sectionRef);
+    const mm = gsap.matchMedia();
 
-    return () => ctx.revert();
+    mm.add(
+      {
+        isMobile: "(max-width: 639px)",
+        isDesktop: "(min-width: 640px)",
+      },
+      (context) => {
+        const { isMobile } = context.conditions;
+
+        gsap.from(cardsRef.current, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: isMobile ? "top 85%" : "top 72%", // Fires earlier on small phone screens
+            toggleActions: "play none none reverse",
+          },
+          y: isMobile ? 20 : 30, // Subtle lift effect on mobile viewport execution
+          duration: isMobile ? 0.5 : 0.8,
+          stagger: isMobile ? 0.05 : 0.08,
+          ease: "power2.out",
+        });
+      },
+      sectionRef
+    );
+
+    return () => mm.revert();
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#FAF9F6] py-20 md:py-28 px-6 sm:px-12 lg:px-16 font-sans antialiased overflow-hidden"
+      className="w-full bg-[#FAF9F6] py-16 md:py-28 px-6 sm:px-12 lg:px-16 font-sans antialiased overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* --- SECTION INTRO HEADER --- */}
-        <div className="max-w-3xl mb-16 space-y-4">
+        <div className="max-w-3xl mb-12 sm:mb-16 space-y-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
@@ -195,7 +206,7 @@ export default function FeatureSection() {
                 <circle cx="22" cy="5" r="2" fill="#0D9488" />
               </svg>
             </div>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
+            <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
               Capabilities
             </span>
           </div>
@@ -211,16 +222,16 @@ export default function FeatureSection() {
         </div>
 
         {/* --- HIGH-END MINIMALIST CARD GRID --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch">
           {services.map((item, idx) => (
             <div
               key={idx}
               ref={(el) => (cardsRef.current[idx] = el)}
-              className="group relative rounded-2xl p-7 bg-white border-2 border-slate-200 transition-all duration-300 ease-in-out flex flex-col justify-between hover:shadow-xl hover:shadow-teal-100/50"
+              className="group relative rounded-2xl p-6 sm:p-7 bg-white border-2 border-slate-200 transition-all duration-300 ease-in-out flex flex-col justify-between hover:shadow-xl hover:shadow-teal-100/50"
             >
               <div className="space-y-5">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 transition-all duration-300 group-hover:bg-teal-500 group-hover:border-teal-500 group-hover:text-white group-hover:scale-105 shadow-sm">
-                  <span className="group-hover:rotate-12 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 transition-all duration-300 sm:group-hover:bg-teal-500 sm:group-hover:border-teal-500 sm:group-hover:text-white sm:group-hover:scale-105 shadow-sm">
+                  <span className="sm:group-hover:rotate-12 transition-transform duration-300">
                     {item.icon}
                   </span>
                 </div>
@@ -237,7 +248,7 @@ export default function FeatureSection() {
               <div className="pt-5 mt-5 border-t border-slate-100 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-teal-600 transition-colors duration-300">
                 <span>View Details</span>
                 <svg
-                  className="w-3.5 h-3.5 transform transition-all duration-300 group-hover:translate-x-1"
+                  className="w-3.5 h-3.5 transform transition-all duration-300 sm:group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

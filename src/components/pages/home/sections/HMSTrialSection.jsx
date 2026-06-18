@@ -37,13 +37,17 @@ export default function HMSTrialSection() {
     "w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 bg-slate-50 focus:outline-none focus:border-teal-500 focus:bg-white transition-all";
 
   return (
-    <section id="hms-trial" className="w-full bg-navy-950 py-16 md:py-24 px-6 sm:px-12 lg:px-16 overflow-hidden">
+    <section
+      id="hms-trial"
+      className="w-full bg-navy-950 py-16 md:py-24 px-6 sm:px-12 lg:px-16 overflow-hidden"
+    >
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-teal-600 to-transparent rounded-full blur-3xl" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-xxs sm:text-xs font-semibold text-teal-400 uppercase tracking-widest mb-2">
+          {/* Changed non-standard text-xxs to fallback nicely to standard sizes on mobile */}
+          <p className="text-[10px] sm:text-xs font-semibold text-teal-400 uppercase tracking-widest mb-2">
             Free Trial
           </p>
           <h2
@@ -62,13 +66,12 @@ export default function HMSTrialSection() {
                   The Most Affordable Hospital Software
                 </h2>
                 <p className="text-sm text-slate-300 leading-relaxed mb-7">
-                  Tired of monthly software payments? Never pay monthly again. Our
-                  Hospital Management System is a highly affordable self-hosted
-                  software solution. We&apos;re offering a pay-once lifetime
-                  license—just pay once and forget about recurring monthly or
-                  annual fees.
+                  Tired of monthly software payments? Never pay monthly again. Our Hospital
+                  Management System is a highly affordable self-hosted software solution. We&apos;re
+                  offering a pay-once lifetime license—just pay once and forget about recurring
+                  monthly or annual fees.
                 </p>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-8 m-0 p-0 list-none">
                   {[
                     "Portals for Doctors, Patients and Staff",
                     "OPD, IPD, OT, and Pharmacy Management",
@@ -84,13 +87,14 @@ export default function HMSTrialSection() {
                   ))}
                 </ul>
               </div>
-              <div className="flex flex-wrap items-center gap-4 pt-5 border-t border-slate-700">
-                <button className="bg-teal-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-sm hover:bg-teal-600 transition-colors">
+              {/* Changed alignment to adapt gracefully on pure mobile viewports */}
+              <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 pt-5 border-t border-slate-700">
+                <button className="w-full sm:w-auto bg-teal-500 text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-sm hover:bg-teal-600 transition-colors text-center">
                   Try For Free
                 </button>
                 <a
                   href="#quote"
-                  className="text-xs font-bold uppercase tracking-wider text-white underline underline-offset-4 hover:text-teal-400 transition-colors"
+                  className="text-xs font-bold uppercase tracking-wider text-white underline underline-offset-4 hover:text-teal-400 transition-colors py-2"
                 >
                   Request a Quote
                 </a>
@@ -103,36 +107,91 @@ export default function HMSTrialSection() {
                 Try Hospital Software For Free
               </h3>
               <p className="text-sm text-slate-500 mb-7">
-                Start your free trial and experience the full-featured Hospital
-                Management Software.
+                Start your free trial and experience the full-featured Hospital Management Software.
               </p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input type="text" name="name" required placeholder="Your Name*" value={formData.name} onChange={handleChange} className={inputClass} />
-                  <input type="text" name="jobTitle" placeholder="Job Title" value={formData.jobTitle} onChange={handleChange} className={inputClass} />
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your Name*"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
+                  <input
+                    type="text"
+                    name="jobTitle"
+                    placeholder="Job Title"
+                    value={formData.jobTitle}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input type="text" name="hospitalName" required placeholder="Hospital/Clinic Name*" value={formData.hospitalName} onChange={handleChange} className={inputClass} />
-                  <input type="email" name="email" required placeholder="Work Email*" value={formData.email} onChange={handleChange} className={inputClass} />
+                  <input
+                    type="text"
+                    name="hospitalName"
+                    required
+                    placeholder="Hospital/Clinic Name*"
+                    value={formData.hospitalName}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Work Email*"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input type="tel" name="phone" required placeholder="Phone/WhatsApp*" value={formData.phone} onChange={handleChange} className={inputClass} />
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="Phone/WhatsApp*"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
                   <div className="relative">
-                    <select name="country" required value={formData.country} onChange={handleChange} className={`${inputClass} appearance-none cursor-pointer pr-10`}>
-                      <option value="" disabled hidden>Select Country*</option>
+                    <select
+                      name="country"
+                      required
+                      value={formData.country}
+                      onChange={handleChange}
+                      className={`${inputClass} appearance-none cursor-pointer pr-10`}
+                    >
+                      <option value="" disabled hidden>
+                        Select Country*
+                      </option>
                       <option value="NP">Nepal</option>
                       <option value="IN">India</option>
                       <option value="US">United States</option>
                       <option value="UK">United Kingdom</option>
                       <option value="AE">United Arab Emirates</option>
                     </select>
-                    <svg className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <svg
+                      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
                   </div>
                 </div>
                 <div className="pt-3">
-                  <button type="submit" className="w-full bg-[#07112e] hover:bg-[#0f2050] text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl shadow-md active:scale-[0.99] transition-all">
+                  <button
+                    type="submit"
+                    className="w-full bg-[#07112e] hover:bg-[#0f2050] text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl shadow-md active:scale-[0.99] transition-all text-center"
+                  >
                     Get Started
                   </button>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -79,12 +79,32 @@ const blogs = [
   },
 ];
 
-const VISIBLE = 3;
-
 export default function LatestBlogs() {
   const [current, setCurrent] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3);
   const total = blogs.length;
-  const maxIndex = Math.max(total - VISIBLE, 0);
+
+  // Track viewport safely on resize to fix mobile matrix positioning layouts
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setVisibleCards(1); // Mobile
+      } else if (window.innerWidth < 1024) {
+        setVisibleCards(2); // Tablet
+      } else {
+        setVisibleCards(3); // Desktop (Your exact framework)
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(total - visibleCards, 0);
+
+  // Safety fallback bounds check on window mutation transformations
+  const safeCurrent = Math.min(current, maxIndex);
 
   const prev = () => setCurrent((c) => Math.max(c - 1, 0));
   const next = () => setCurrent((c) => Math.min(c + 1, maxIndex));
@@ -93,7 +113,7 @@ export default function LatestBlogs() {
     <section className="bg-navy-950 py-16 px-6 md:px-12 overflow-hidden">
       {/* Header */}
       <div className="text-center mb-10">
-        <p className="text-xxs sm:text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">
+        <p className="text-[11px] sm:text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">
           Insights
         </p>
         <h2
@@ -103,19 +123,19 @@ export default function LatestBlogs() {
           Stay Updated With Our Latest <span className="text-teal-400">Blogs</span>
         </h2>
         <p className="mt-4 text-white/80 text-base max-w-2xl mx-auto">
-          Our blogs offers in-depth insight, expert opinions, and the latest
-          innovations shaping the future of healthcare.
+          Our blogs offers in-depth insight, expert opinions, and the latest innovations shaping the
+          future of healthcare.
         </p>
       </div>
 
       {/* Carousel wrapper */}
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-7xl mx-auto px-2 sm:px-0">
         {/* Prev arrow */}
         <button
           onClick={prev}
-          disabled={current === 0}
+          disabled={safeCurrent === 0}
           aria-label="Previous"
-          className="absolute -left-6 md:-left-10 top-1/2 -translate-y-1/2 z-10 text-white text-3xl font-bold disabled:opacity-30 transition-opacity hover:opacity-70"
+          className="absolute -left-4 md:-left-10 top-1/2 -translate-y-1/2 z-10 text-white text-3xl font-bold disabled:opacity-20 transition-opacity hover:opacity-70"
         >
           ‹‹
         </button>
@@ -125,24 +145,19 @@ export default function LatestBlogs() {
           <div
             className="flex gap-6 transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(calc(-${current} * (100% / ${VISIBLE} + 24px / ${VISIBLE})))`,
+              transform: `translateX(calc(-${safeCurrent} * (100% / ${visibleCards} + 24px - 24px / ${visibleCards})))`,
             }}
           >
             {blogs.map((blog) => (
               <article
                 key={blog.id}
-                className="flex-shrink-0 w-[calc((100%-48px)/3)] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col"
+                className="flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col"
               >
                 {/* Image area */}
-                <div className="relative w-full h-56 bg-gray-200">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative w-full h-48 sm:h-56 bg-gray-200">
+                  <Image src={blog.image} alt={blog.title} fill className="object-cover" />
                   {/* Tag badge */}
-                  <span className="absolute top-3 left-3 text-xxs font-bold uppercase tracking-widest bg-white/90 text-slate-800 px-3 py-1 rounded-full shadow-sm">
+                  <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-white/90 text-slate-800 px-3 py-1 rounded-full shadow-sm">
                     {blog.tag}
                   </span>
                 </div>
@@ -157,9 +172,7 @@ export default function LatestBlogs() {
                     {blog.title}
                   </h3>
 
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1">
-                    {blog.excerpt}
-                  </p>
+                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{blog.excerpt}</p>
 
                   <Link
                     href={blog.href}
@@ -189,15 +202,15 @@ export default function LatestBlogs() {
         {/* Next arrow */}
         <button
           onClick={next}
-          disabled={current === maxIndex}
+          disabled={safeCurrent === maxIndex}
           aria-label="Next"
-          className="absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 z-10 text-white text-3xl font-bold disabled:opacity-30 transition-opacity hover:opacity-70"
+          className="absolute -right-4 md:-right-10 top-1/2 -translate-y-1/2 z-10 text-white text-3xl font-bold disabled:opacity-20 transition-opacity hover:opacity-70"
         >
           ››
         </button>
       </div>
 
-      {/* Dot indicators */}
+      {/* Dynamic Dot indicators matching responsive slider page counts */}
       <div className="flex justify-center gap-2 mt-8">
         {Array.from({ length: maxIndex + 1 }).map((_, i) => (
           <button
@@ -205,7 +218,7 @@ export default function LatestBlogs() {
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
             className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 ${
-              i === current ? "bg-white" : "bg-white/40"
+              i === safeCurrent ? "bg-white" : "bg-white/40"
             }`}
           />
         ))}

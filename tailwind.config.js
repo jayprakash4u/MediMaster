@@ -281,9 +281,16 @@ module.exports = {
         "fade-out": "fadeOut 0.3s ease-out",
         "slide-up": "slideUp 0.4s ease-out",
         "slide-down": "slideDown 0.4s ease-out",
+        "slide-in-right": "slideInRight 0.3s ease-out",
+        "slide-out-right": "slideOutRight 0.3s ease-in",
         "scale-in": "scaleIn 0.2s ease-out",
         "pulse-subtle": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "spin-slow": "spin 3s linear infinite",
+        "heartbeat": "heartbeat 3s ease-in-out infinite",
+        "ecg-scroll": "ecgScroll 8s linear infinite",
+        "float-slow": "floatSlow 10s ease-in-out infinite",
+        "pulse-ring": "pulseRing 4s ease-out infinite",
+        "scan-line": "scanLine 6s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -302,9 +309,43 @@ module.exports = {
           "0%": { transform: "translateY(-10px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        slideInRight: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideOutRight: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
         scaleIn: {
           "0%": { transform: "scale(0.95)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        heartbeat: {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "14%": { transform: "scale(1.08)", opacity: "0.9" },
+          "28%": { transform: "scale(1)", opacity: "1" },
+          "42%": { transform: "scale(1.12)", opacity: "0.85" },
+          "70%": { transform: "scale(1)", opacity: "1" },
+        },
+        ecgScroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        floatSlow: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        pulseRing: {
+          "0%": { transform: "scale(0.8)", opacity: "0.6" },
+          "70%": { transform: "scale(1.6)", opacity: "0" },
+          "100%": { transform: "scale(1.6)", opacity: "0" },
+        },
+        scanLine: {
+          "0%, 100%": { transform: "translateY(-100%)", opacity: "0" },
+          "10%": { opacity: "0.6" },
+          "50%": { transform: "translateY(200%)", opacity: "0.3" },
+          "90%": { opacity: "0" },
         },
       },
     },

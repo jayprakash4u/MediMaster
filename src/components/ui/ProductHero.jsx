@@ -17,16 +17,9 @@ export default function ProductHero({
   className,
 }) {
   return (
-    <section className={cn("relative overflow-visible bg-navy-950 py-16 md:py-20", className)}>
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%), url('/home/hero.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+    <section className={cn("hero-page py-16 md:py-20", className)}>
+      <div className="hero-page__atmosphere" aria-hidden="true" />
+      <div className="hero-page__grid" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 md:grid-cols-2">
         <div>
@@ -35,7 +28,7 @@ export default function ProductHero({
           </span>
 
           <h1 className={`${HEADING.display} text-white`}>
-            {titleBefore} <span className={TEXT_COLOR.tealOnDark}>{highlight}</span>
+            {titleBefore} <span className="text-gradient-brand">{highlight}</span>
             {titleAfter ? ` ${titleAfter}` : ""}
           </h1>
 

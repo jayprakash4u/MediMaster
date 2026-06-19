@@ -53,6 +53,8 @@ const rightSteps = [
   },
 ];
 
+export const GRAPHIC_DESIGN_PROCESS = [...leftSteps, ...rightSteps];
+
 const roadmapTabs = [
   { id: "left", label: "Discovery", steps: leftSteps },
   { id: "right", label: "Production", steps: rightSteps },

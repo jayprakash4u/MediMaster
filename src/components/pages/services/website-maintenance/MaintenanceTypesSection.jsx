@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const maintenanceServices = [
+export const maintenanceServices = [
   {
     id: 1,
     emoji: "🔐",

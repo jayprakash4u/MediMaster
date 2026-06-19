@@ -20,3 +20,10 @@ export * from "./heroes/floating-icons";
 
 export * from "./sections/home";
 export * from "./sections/trials";
+export * from "./sections/clients";
+export * from "./sections/support";
+export * from "./sections/portfolio";
+export * from "./sections/contact";
+export * from "./sections/blog";
+export * from "./sections/website-development";
+export * from "./sections/service-pages";

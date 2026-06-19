@@ -1,19 +1,13 @@
 "use client";
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import dynamic from "next/dynamic";
+import SectionHeader from "@/components/ui/SectionHeader";
 import "leaflet/dist/leaflet.css";
 
 const NEPAL_CENTER = [28.3949, 84.124];
 const NEPAL_ZOOM = 7;
 
-const STATS = [
-  { value: "150+", label: "Active Districts" },
-  { value: "77", label: "Districts Covered" },
-  { value: "2M+", label: "Registered Users" },
-];
-
-// Nepal approximate polygon (simplified border points [lat, lng])
 const NEPAL_POLYGON = [
   [30.42, 81.03],
   [30.38, 81.41],
@@ -79,7 +73,6 @@ const NEPAL_POLYGON = [
   [30.42, 81.03],
 ];
 
-// Point-in-polygon ray casting
 function pointInPolygon(lat, lng, polygon) {
   let inside = false;
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
@@ -92,13 +85,13 @@ function pointInPolygon(lat, lng, polygon) {
 }
 
 function generateNepalMarkers(count) {
-  // Nepal tight bounding box
-  const LAT_MIN = 26.35,
-    LAT_MAX = 30.45;
-  const LNG_MIN = 80.05,
-    LNG_MAX = 88.2;
+  const LAT_MIN = 26.35;
+  const LAT_MAX = 30.45;
+  const LNG_MIN = 80.05;
+  const LNG_MAX = 88.2;
   const markers = [];
   let attempts = 0;
+
   while (markers.length < count && attempts < count * 20) {
     attempts++;
     const lat = LAT_MIN + Math.random() * (LAT_MAX - LAT_MIN);
@@ -107,79 +100,38 @@ function generateNepalMarkers(count) {
       markers.push({ id: markers.length, coords: [lat, lng] });
     }
   }
+
   return markers;
 }
 
 const MapComponent = dynamic(() => import("./MapContainerComponent"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full flex items-center justify-center bg-slate-100 dark:bg-slate-800">
-      <div className="flex flex-col items-center gap-3 text-slate-400">
-        <svg
-          className="animate-spin h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            className="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            strokeWidth="4"
-          />
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-        </svg>
-        <span className="text-sm font-medium tracking-wide">Loading map…</span>
-      </div>
+    <div className="flex h-[360px] w-full items-center justify-center rounded-xl bg-slate-100 sm:h-[420px]">
+      <span className="text-sm text-slate-400">Loading map…</span>
     </div>
   ),
 });
 
 export default function CityUserMap() {
-  const markers = useMemo(() => generateNepalMarkers(120), []);
+  const markers = useMemo(() => generateNepalMarkers(48), []);
 
   return (
-    <section
-      className="w-full flex flex-col lg:flex-row min-h-[560px] relative"
-      style={{ zIndex: 0 }}
-    >
-      <div className="relative w-full lg:w-[62%] h-[420px] lg:h-auto">
-        <MapComponent
-          center={NEPAL_CENTER}
-          zoom={NEPAL_ZOOM}
-          markers={markers}
-          mapStyle="z-index: 0"
+    <section id="clients-map" className="section-shell border-t border-slate-200 bg-slate-50">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader
+          align="left"
+          eyebrow="Coverage"
+          title="Nationwide"
+          highlight="presence"
+          className="mb-8 max-w-xl"
         />
 
-        <div
-          className="absolute bottom-4 left-4 z-[10] bg-white/90 dark:bg-slate-900/90
-                        backdrop-blur-sm rounded-lg px-3 py-2 flex items-center gap-2
-                        shadow-md border border-slate-200 dark:border-slate-700"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
-          </span>
-          <span className="text-xs font-medium text-slate-700 dark:text-slate-200">
-            Live — Nepal
-          </span>
-        </div>
-      </div>
-
-      <div
-        className="w-full lg:w-[38%] bg-[#1a5276] flex flex-col items-center justify-center
-                      px-10 py-14 gap-10"
-      >
-        {STATS.map((stat, i) => (
-          <div key={i} className="text-center">
-            <p className="text-5xl sm:text-6xl font-bold text-white leading-none tracking-tight">
-              {stat.value}
-            </p>
-            <p className="mt-2 text-base font-medium text-blue-200 tracking-wide">{stat.label}</p>
+        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <div className="h-[360px] w-full sm:h-[420px]">
+            <MapComponent center={NEPAL_CENTER} zoom={NEPAL_ZOOM} markers={markers} />
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

@@ -1,23 +1,6 @@
-"use client";
-
-import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
-import ContentWritingHero from "@/components/pages/services/content-writing/ContentWritingHero";
-import ContentTypesSection from "@/components/pages/services/content-writing/ContentTypesSection";
-import ContentWritingRoadmap from "@/components/pages/services/content-writing/ContentWritingRoadmap";
+import ServicePageLayout from "@/components/pages/services/shared/ServicePageLayout";
+import { contentWritingPage } from "@/config/sections/service-pages";
 
 export default function ContentWritingPage() {
-  return (
-    <>
-      <ContentWritingHero />
-      <ServiceDetailLayout
-        title="CONTENT WRITING"
-        description="Engage your audience with compelling, high-quality content that drives results. From blog posts and web copy to technical documentation and marketing materials, our expert writers craft content that converts readers into customers."
-        imageSrc="/services/shared/content writing.png"
-        imageAlt="Content Writing"
-        activeHref="/services/content-writing"
-      />
-      <ContentTypesSection />
-      <ContentWritingRoadmap />
-    </>
-  );
+  return <ServicePageLayout {...contentWritingPage} />;
 }

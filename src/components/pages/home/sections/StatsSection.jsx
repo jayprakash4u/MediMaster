@@ -12,6 +12,7 @@ import {
   UptimeIcon,
 } from "./StatsIcons";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { CardCompact } from "@/components/ui/Card";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -89,27 +90,27 @@ function StatItem({ Icon, value, suffix, label, accent, started }) {
   const display = !Number.isInteger(value) ? count.toFixed(1) : count.toLocaleString();
 
   return (
-    <div className="group flex items-center gap-3 rounded-xl border border-navy-800/80 bg-navy-900/50 px-3 py-2.5 backdrop-blur-sm transition-colors duration-300 hover:border-teal-500/30 hover:bg-navy-900/70 sm:gap-3.5 sm:px-3.5 sm:py-3 xl:flex-col xl:items-center xl:gap-2 xl:px-3 xl:py-3.5 xl:text-center">
+    <CardCompact className="group flex items-center gap-3 sm:gap-3.5 xl:flex-col xl:items-center xl:gap-2 xl:text-center">
       <div className={`hidden h-px w-full bg-gradient-to-r ${accent} opacity-60 xl:block`} />
 
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-teal-500/25 bg-teal-500/10 sm:h-10 sm:w-10">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-teal-500/20 bg-teal-50 sm:h-10 sm:w-10">
         <div className="scale-[0.5] sm:scale-[0.55]">
           <Icon />
         </div>
       </div>
 
       <div className="min-w-0 flex-1 xl:flex-none">
-        <p className="text-lg font-black leading-none tracking-tight text-white sm:text-xl">
+        <p className="text-lg font-black leading-none tracking-tight text-slate-900 sm:text-xl">
           <span className={`bg-gradient-to-r ${accent} bg-clip-text text-transparent`}>
             {display}
           </span>
-          <span className="ml-0.5 text-sm font-bold text-teal-400 sm:text-base">{suffix}</span>
+          <span className="ml-0.5 text-sm font-bold text-teal-600 sm:text-base">{suffix}</span>
         </p>
-        <p className="mt-1 text-[11px] font-medium leading-tight text-slate-400 sm:text-xs xl:line-clamp-2">
+        <p className="mt-1 text-[11px] font-medium leading-tight text-slate-500 sm:text-xs xl:line-clamp-2">
           {label}
         </p>
       </div>
-    </div>
+    </CardCompact>
   );
 }
 
@@ -172,15 +173,15 @@ export default function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-y border-navy-800 bg-navy-950 px-4 py-8 sm:px-6 sm:py-9 lg:px-12 lg:py-10"
+      className="relative w-full overflow-hidden border-b border-slate-200 bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(20,184,166,0.08),transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(20,184,166,0.06),transparent_50%)]" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(20,184,166,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(20,184,166,0.9) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
+            "radial-gradient(circle at 1px 1px, rgb(203 213 225 / 0.35) 1px, transparent 0)",
+          backgroundSize: "28px 28px",
         }}
       />
 
@@ -188,7 +189,6 @@ export default function StatsSection() {
         <SectionHeader
           headerRef={headerRef}
           align="left"
-          theme="dark"
           eyebrow="Our Impact"
           title="Trusted Across"
           highlight="Healthcare Nepal"

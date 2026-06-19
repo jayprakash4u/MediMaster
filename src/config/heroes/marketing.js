@@ -12,32 +12,29 @@ export const aboutHero = {
 };
 
 export const contactHero = {
-  eyebrow: "Get in Touch",
+  eyebrow: "Contact",
   eyebrowStyle: "badge",
   badgeLetter: "C",
-  title: "Contact",
-  highlight: "Us",
+  title: "Let's",
+  highlight: "connect",
   description:
-    "Have a project in mind? Ready to transform your digital presence or solve a technical challenge? Let's start a conversation and bring your vision to life.",
-  primaryCta: { href: "#contact-form", label: "Send Message" },
-  secondaryCta: { href: "tel:+9779876543210", label: "Call Now" },
+    "Book a demo, ask about our products, or talk to our team — we respond within one business day.",
+  primaryCta: { href: "#contact-form", label: "Send a Message" },
   imageSrc: "/contact/hero.png",
-  imageAlt: "Contact Us",
+  imageAlt: "Contact MediMaster",
 };
 
 export const blogHero = {
-  eyebrow: "Resources",
+  eyebrow: "Blog",
   eyebrowStyle: "badge",
   badgeLetter: "B",
-  title: "Our",
-  highlight: "Insightful",
-  titleAfter: "Blog",
+  title: "Insights &",
+  highlight: "articles",
   description:
-    "Stay ahead with expert insights, practical guides, and the latest trends in technology, healthcare software, and digital innovation.",
-  primaryCta: { href: "/blog", label: "Read Articles" },
-  secondaryCta: { href: "/services", label: "Our Services" },
+    "Practical guides on healthcare software, compliance, patient experience, and digital growth.",
+  primaryCta: { href: "#blog-articles", label: "Browse Articles" },
   imageSrc: "/blog/bloghero.png",
-  imageAlt: "Blog Insights",
+  imageAlt: "MediMaster Blog",
 };
 
 export const supportHero = {
@@ -47,9 +44,23 @@ export const supportHero = {
   title: "Support",
   highlight: "Center",
   description:
-    "Have questions or running into technical roadblocks? Our dedicated team is here to guide you every step of the way.",
+    "Questions, technical issues, or onboarding help — our Nepal-based team is ready to assist you.",
+  primaryCta: { href: "#support-channels", label: "View Channels" },
   imageSrc: "/support/support-hero.png",
   imageAlt: "Support Center",
+};
+
+export const portfolioHero = {
+  eyebrow: "Portfolio",
+  eyebrowStyle: "badge",
+  badgeLetter: "P",
+  title: "Work we're",
+  highlight: "proud of",
+  description:
+    "Websites, apps, ERP systems, and digital campaigns — selected projects delivered for clients across Nepal.",
+  primaryCta: { href: "#portfolio-projects", label: "View Projects" },
+  imageSrc: "/portfolio/portfolioheroimag-removebg-preview.png",
+  imageAlt: "MediMaster Portfolio",
 };
 
 export const clientsHero = {
@@ -57,9 +68,10 @@ export const clientsHero = {
   eyebrowStyle: "badge",
   badgeLetter: "C",
   title: "Trusted by",
-  highlight: "Leading Organizations",
+  highlight: "Healthcare Leaders",
   description:
-    "Healthcare providers, labs, and enterprises across Nepal rely on MediMaster to power their daily operations.",
+    "Hospitals, pharmacies, and labs across Nepal use MediMaster to manage patients, billing, and daily operations.",
+  primaryCta: { href: "/contact", label: "Work With Us" },
   imageSrc: "/clients/hero.png",
   imageAlt: "Our Clients",
 };

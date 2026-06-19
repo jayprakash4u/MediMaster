@@ -1,0 +1,15 @@
+export const SERVICE_NAV = [
+  { label: "Website Development", href: "/services/website-development" },
+  { label: "Website Maintenance", href: "/services/website-maintenance" },
+  { label: "Server Management", href: "/services/server-management" },
+  { label: "App Development", href: "/services/app-development" },
+  { label: "System/Software Development", href: "/services/system-software-development" },
+  { label: "UI/UX", href: "/services/ui-ux" },
+  { label: "E-commerce Solution", href: "/services/ecommerce-solution" },
+  { label: "SEO", href: "/services/seo" },
+  { label: "Social Media Marketing", href: "/services/smm" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
+  { label: "IT Outsourcing", href: "/services/it-outsourcing" },
+  { label: "Graphic Design", href: "/services/graphic-design" },
+  { label: "Content Writing", href: "/services/content-writing" },
+];

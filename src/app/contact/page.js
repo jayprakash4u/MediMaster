@@ -3,11 +3,9 @@ import Contact from "@/components/pages/contact/Contact";
 
 export default function ContactPage() {
   return (
-    <>
-      <main>
-        <ContactHero />
-        <Contact />
-      </main>
-    </>
+    <main>
+      <ContactHero />
+      <Contact />
+    </main>
   );
 }

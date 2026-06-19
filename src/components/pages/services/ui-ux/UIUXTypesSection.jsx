@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const uiuxTypes = [
+export const uiuxTypes = [
   {
     id: 1,
     emoji: "📱",

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { CardMedia, CardMediaBody, CardMediaImage } from "@/components/ui/Card";
 import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
 
 const blogs = [
@@ -137,18 +138,18 @@ export default function LatestBlogs() {
             }}
           >
             {blogs.map((blog) => (
-              <article
+              <CardMedia
                 key={blog.id}
-                className="flex w-full flex-shrink-0 flex-col overflow-hidden rounded-2xl bg-white shadow-lg sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
+                className="w-full flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
               >
-                <div className="relative h-48 w-full bg-gray-200 sm:h-56">
+                <CardMediaImage className="h-48 sm:h-56 sm:aspect-auto">
                   <Image src={blog.image} alt={blog.title} fill className="object-cover" />
                   <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xxs font-bold uppercase tracking-widest text-slate-800 shadow-sm">
                     {blog.tag}
                   </span>
-                </div>
+                </CardMediaImage>
 
-                <div className="flex flex-1 flex-col gap-4 p-6">
+                <CardMediaBody className="gap-4">
                   <p className={`${COMPONENT_STYLES.caption} ${TEXT_COLOR.teal} tracking-wide`}>
                     {blog.date} · {blog.readTime}
                   </p>
@@ -176,8 +177,8 @@ export default function LatestBlogs() {
                       />
                     </svg>
                   </Link>
-                </div>
-              </article>
+                </CardMediaBody>
+              </CardMedia>
             ))}
           </div>
         </div>

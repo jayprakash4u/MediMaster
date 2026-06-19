@@ -8,7 +8,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const smmTypes = [
+export const smmTypes = [
   {
     id: 1,
     emoji: "📘",

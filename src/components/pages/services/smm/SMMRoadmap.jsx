@@ -53,6 +53,8 @@ const rightSteps = [
   },
 ];
 
+export const SMM_PROCESS = [...leftSteps, ...rightSteps];
+
 const PETAL =
   "M0,-34 C14,-34 24,-22 24,-12 C24,0 14,18 0,30 C-14,18 -24,0 -24,-12 C-24,-22 -14,-34 0,-34 Z";
 

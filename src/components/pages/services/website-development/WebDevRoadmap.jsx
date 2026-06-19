@@ -1,422 +1,134 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import PropTypes from "prop-types";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { drawLineOnScroll, fadeUpOnScroll, scaleInOnScroll } from "@/lib/gsap-scroll";
+import { WEB_DEV_PROCESS } from "@/config/sections/website-development";
+import { cn } from "@/lib/cn";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const leftSteps = [
-  {
-    num: "01",
-    title: "Requirement Analysis",
-    desc: "We conduct a thorough analysis of your requirements to establish the foundation for your website",
-  },
-  {
-    num: "02",
-    title: "Planning",
-    desc: "We make detailed plans and customized strategies to ensure a secure roadmap to success",
-  },
-  {
-    num: "03",
-    title: "Design (UI/UX)",
-    desc: "We craft UI/UX aligned with your vision using best technology ensuring best user experience",
-  },
-  {
-    num: "04",
-    title: "Development",
-    desc: "After designing UI/UX, we implement concepts with cutting-edge programming languages and standards",
-  },
+const STEP_ACCENTS = [
+  "border-teal-500",
+  "border-cyan-500",
+  "border-teal-600",
+  "border-emerald-500",
+  "border-teal-500",
+  "border-cyan-600",
+  "border-teal-600",
+  "border-emerald-600",
 ];
 
-const rightSteps = [
-  {
-    num: "05",
-    title: "System Testing and QA",
-    desc: "We ensure reliability through rigorous System Testing and QA for a seamless user experience",
-  },
-  {
-    num: "06",
-    title: "Deployment",
-    desc: "After ensuring quality, we launch from prototype to fully-fledged, live for your entire audience",
-  },
-  {
-    num: "07",
-    title: "Maintenance & Monitoring",
-    desc: "We provide ongoing monitoring and support to ensure your website runs smoothly post-launch",
-  },
-  {
-    num: "08",
-    title: "Knowledge Transfer",
-    desc: "We provide training on operations, troubleshooting, implementation, and user data access",
-  },
+const DOT_ACCENTS = [
+  "bg-teal-500 ring-teal-100",
+  "bg-cyan-500 ring-cyan-100",
+  "bg-teal-600 ring-teal-100",
+  "bg-emerald-500 ring-emerald-100",
+  "bg-teal-500 ring-teal-100",
+  "bg-cyan-600 ring-cyan-100",
+  "bg-teal-600 ring-teal-100",
+  "bg-emerald-600 ring-emerald-100",
 ];
 
-const PETAL =
-  "M0,-34 C14,-34 24,-22 24,-12 C24,0 14,18 0,30 C-14,18 -24,0 -24,-12 C-24,-22 -14,-34 0,-34 Z";
-
-function PetalIcon({ num }) {
-  const icons = {
-    "01": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <circle cx="0" cy="-6" r="7" />
-        <line x1="5" y1="-1" x2="9" y2="3" />
-      </g>
-    ),
-    "02": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <rect x="-8" y="-11" width="16" height="14" rx="2" />
-        <line x1="-8" y1="-7" x2="8" y2="-7" />
-      </g>
-    ),
-    "03": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <rect x="-9" y="-10" width="18" height="13" rx="2" />
-        <line x1="0" y1="3" x2="0" y2="6" />
-      </g>
-    ),
-    "04": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <rect x="-9" y="-6" width="18" height="12" rx="2" />
-        <line x1="-5" y1="0" x2="5" y2="0" />
-      </g>
-    ),
-    "05": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <circle cx="0" cy="0" r="8" />
-        <line x1="-3" y1="0" x2="0" y2="3" />
-        <line x1="0" y1="3" x2="3" y2="0" />
-      </g>
-    ),
-    "06": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <path d="M-6,2 C-9,2 -11,-1 -9,-4 C-10,-8 -5,-11 -1,-9 C0,-12 5,-12 7,-9 C10,-9 11,-6 9,-4 L6,-4" />
-        <polyline points="-2,2 0,-2 2,2" />
-        <line x1="0" y1="-2" x2="0" y2="5" />
-      </g>
-    ),
-    "07": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <path d="M-6,-4 L6,4 M-6,4 L6,-4" />
-        <circle cx="0" cy="-8" r="3" />
-      </g>
-    ),
-    "08": (
-      <g fill="none" stroke="#2dd4bf" strokeWidth="1.3" strokeLinecap="round">
-        <path d="M-9,-9 L-9,5 C-5,4 -1,4 0,5 C1,4 5,4 9,5 L9,-9 C5,-10 1,-10 0,-9 C-1,-10 -5,-10 -9,-9 Z" />
-        <line x1="0" y1="-9" x2="0" y2="5" />
-      </g>
-    ),
-  };
-  return icons[num] || null;
-}
-
-PetalIcon.propTypes = {
-  num: PropTypes.string.isRequired,
-};
-
-function ModuleWheel({ steps }) {
-  const angles = [0, 90, 180, 270];
-  const R = 72;
+function RoadmapStep({ step, index, isLast }) {
   return (
-    <svg
-      width="160"
-      height="160"
-      viewBox="0 0 210 210"
-      className="shrink-0 w-32 h-32 md:w-40 md:h-40 lg:w-[210px] lg:h-[210px]"
-      aria-hidden="true"
-    >
-      <circle
-        cx="105"
-        cy="105"
-        r="96"
-        fill="none"
-        stroke="#2dd4bf"
-        strokeWidth="1"
-        strokeDasharray="4 7"
-        opacity=".3"
-      />
-      <circle cx="105" cy="105" r="46" fill="#0f2236" stroke="#2dd4bf" strokeWidth="1.5" />
-      <circle
-        cx="105"
-        cy="105"
-        r="40"
-        fill="none"
-        stroke="#2dd4bf"
-        strokeWidth=".5"
-        strokeDasharray="2 4"
-        opacity=".4"
-      />
-      {steps.map((step, i) => {
-        const angleDeg = angles[i];
-        const rad = (angleDeg * Math.PI) / 180;
-        const px = 105 + R * Math.sin(rad);
-        const py = 105 - R * Math.cos(rad);
-        const sx1 = 105 + 46 * Math.sin(rad);
-        const sy1 = 105 - 46 * Math.cos(rad);
-        const sx2 = 105 + 60 * Math.sin(rad);
-        const sy2 = 105 + 60 * Math.cos(rad);
-        return (
-          <g key={step.num}>
-            <line
-              x1={sx1}
-              y1={sy1}
-              x2={sx2}
-              y2={sy2}
-              stroke="#2dd4bf"
-              strokeWidth="1"
-              strokeDasharray="3 3"
-              opacity=".35"
-            />
-            <g transform={`translate(${px},${py}) rotate(${angleDeg})`}>
-              <path d={PETAL} fill="#111f2e" stroke="#2dd4bf" strokeWidth="1" />
-              <g transform={`rotate(${-angleDeg})`}>
-                <PetalIcon num={step.num} />
-                <text
-                  x="0"
-                  y="21"
-                  textAnchor="middle"
-                  fontSize="7.5"
-                  fontWeight="900"
-                  fontFamily="monospace"
-                  fill="#2dd4bf"
-                >
-                  {step.num}
-                </text>
-              </g>
-            </g>
-          </g>
-        );
-      })}
-      <text
-        x="105"
-        y="101"
-        textAnchor="middle"
-        fontSize="7"
-        fontWeight="900"
-        fontFamily="monospace"
-        fill="#2dd4bf"
-        letterSpacing="1.5"
-      >
-        MODULES
-      </text>
-      <text
-        x="105"
-        y="113"
-        textAnchor="middle"
-        fontSize="5.5"
-        fontFamily="monospace"
-        fill="#2dd4bf"
-        opacity=".5"
-      >
-        {steps[0].num} – {steps[steps.length - 1].num}
-      </text>
-    </svg>
-  );
-}
+    <li className="roadmap-step group relative pb-8 last:pb-0">
+      {!isLast ? (
+        <span
+          aria-hidden
+          className="roadmap-connector absolute left-[11px] top-6 bottom-0 w-px origin-top bg-gradient-to-b from-slate-300 to-slate-200"
+        />
+      ) : null}
 
-function StepItem({ step, side, index }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    gsap.fromTo(
-      el,
-      { opacity: 0, x: side === "left" ? -24 : 24 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.55,
-        ease: "power3.out",
-        delay: index * 0.08,
-        scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
-      }
-    );
-  }, [side, index]);
+      <div className="relative flex gap-5">
+        <div
+          className={cn(
+            "roadmap-dot relative z-10 mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ring-4 transition-transform duration-300 group-hover:scale-110",
+            DOT_ACCENTS[index % DOT_ACCENTS.length]
+          )}
+        >
+          <span className="text-[9px] font-bold text-white">{step.num}</span>
+        </div>
 
-  return (
-    <div ref={ref} className="flex items-start gap-2.5 group">
-      <div className="shrink-0 w-7 h-7 rounded-full border border-[#2dd4bf]/40 bg-[#2dd4bf]/10 flex items-center justify-center text-xxs font-black font-mono text-[#2dd4bf] group-hover:bg-[#2dd4bf]/20 group-hover:border-[#2dd4bf]/70 transition-all duration-200 mt-0.5">
-        {step.num}
+        <article
+          className={cn(
+            "roadmap-card min-w-0 flex-1 rounded-r-xl rounded-bl-xl border border-slate-200 border-l-4 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-24px_rgba(20,184,166,0.35)] sm:p-6",
+            STEP_ACCENTS[index % STEP_ACCENTS.length]
+          )}
+        >
+          <h3 className="text-base font-bold text-slate-900">{step.title}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.desc}</p>
+        </article>
       </div>
-      <div>
-        <h3 className="text-xs font-bold text-white leading-snug mb-1">{step.title}</h3>
-        <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
-      </div>
-    </div>
-  );
-}
-
-function MobileStepItem({ step, index }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power3.out",
-        delay: index * 0.08,
-        scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
-      }
-    );
-  }, [index]);
-
-  return (
-    <div
-      ref={ref}
-      className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4"
-    >
-      <div className="shrink-0 w-8 h-8 rounded-full bg-[#2dd4bf]/20 border border-[#2dd4bf]/40 flex items-center justify-center text-xs font-black font-mono text-[#2dd4bf]">
-        {step.num}
-      </div>
-      <div>
-        <h3 className="text-sm font-bold text-white leading-snug mb-1">{step.title}</h3>
-        <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
-      </div>
-    </div>
+    </li>
   );
 }
 
 export default function WebDevRoadmap() {
   const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const subRef = useRef(null);
-  const [activeTab, setActiveTab] = useState("left");
+  const headerRef = useRef(null);
+  const timelineRef = useRef(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const timeline = timelineRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        subRef.current,
-        { opacity: 0, y: -14 },
-        {
-          opacity: 1,
+      if (header) {
+        fadeUpOnScroll(header, section, { y: 24, start: "top 82%" });
+      }
+
+      if (timeline) {
+        drawLineOnScroll(timeline.querySelectorAll(".roadmap-connector"), timeline);
+        scaleInOnScroll(timeline.querySelectorAll(".roadmap-dot"), timeline, { stagger: 0.08 });
+        fadeUpOnScroll(timeline.querySelectorAll(".roadmap-card"), timeline, {
+          x: 16,
           y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: { trigger: subRef.current, start: "top 85%" },
-        }
-      );
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: -18 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          delay: 0.15,
-          scrollTrigger: { trigger: titleRef.current, start: "top 85%" },
-        }
-      );
-    }, sectionRef);
+          stagger: 0.08,
+        });
+      }
+    }, section);
+
     return () => ctx.revert();
   }, []);
 
+  const firstPhase = WEB_DEV_PROCESS.slice(0, 4);
+  const secondPhase = WEB_DEV_PROCESS.slice(4);
+
   return (
-    <section ref={sectionRef} className="relative bg-[#0d1b2a] py-14 overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(45,212,191,1) 1px,transparent 1px),linear-gradient(90deg,rgba(45,212,191,1) 1px,transparent 1px)`,
-          backgroundSize: "48px 48px",
-        }}
-      />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] md:w-[500px] h-[100px] md:h-[150px] rounded-full bg-[#2dd4bf]/5 blur-[60px] pointer-events-none" />
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <div className="text-center mb-8 md:mb-10">
-          <div ref={subRef} className="flex items-center justify-center gap-3 mb-4">
-            <div className="flex items-center gap-1.5">
-              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#2dd4bf" />
-              </svg>
-            </div>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-400">
-              Web Development
-            </span>
+    <section ref={sectionRef} className="section-shell border-t border-slate-200 bg-slate-50">
+      <div className="mx-auto max-w-7xl">
+        <div ref={headerRef} className="mb-10 max-w-xl lg:mb-12">
+          <SectionHeader align="left" eyebrow="Process" title="Your project" highlight="roadmap" />
+        </div>
+
+        <div ref={timelineRef} className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-600">
+              Phase 1 — Discovery & Build
+            </p>
+            <ol className="relative list-none">
+              {firstPhase.map((step, index) => (
+                <RoadmapStep key={step.num} step={step} index={index} isLast={index === 3} />
+              ))}
+            </ol>
           </div>
-          <h2
-            ref={titleRef}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-          >
-            <span className="text-teal-400">Roadmap</span> to Success
-          </h2>
-          <p className="mt-3 md:mt-4 text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed px-4">
-            Our systematic approach to website development ensures quality and results.
-          </p>
-        </div>
 
-        {/* Mobile tab buttons */}
-        <div className="flex lg:hidden gap-3 mb-6 px-4">
-          <button
-            onClick={() => setActiveTab("left")}
-            className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-bold transition-all duration-200 ${
-              activeTab === "left"
-                ? "bg-[#2dd4bf]/20 border border-[#2dd4bf]/40 text-[#2dd4bf]"
-                : "bg-white/5 border border-white/10 text-slate-400"
-            }`}
-          >
-            Planning
-          </button>
-          <button
-            onClick={() => setActiveTab("right")}
-            className={`flex-1 py-2.5 px-4 rounded-lg text-sm font-bold transition-all duration-200 ${
-              activeTab === "right"
-                ? "bg-[#2dd4bf]/20 border border-[#2dd4bf]/40 text-[#2dd4bf]"
-                : "bg-white/5 border border-white/10 text-slate-400"
-            }`}
-          >
-            Launch
-          </button>
-        </div>
-
-        {/* Mobile content */}
-        <div className="lg:hidden">
-          {activeTab === "left" ? (
-            <div className="space-y-3">
-              <div className="flex justify-center mb-4">
-                <ModuleWheel steps={leftSteps} />
-              </div>
-              {leftSteps.map((s, i) => (
-                <MobileStepItem key={s.num} step={s} index={i} />
+          <div>
+            <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-600">
+              Phase 2 — Launch & Support
+            </p>
+            <ol className="relative list-none">
+              {secondPhase.map((step, index) => (
+                <RoadmapStep
+                  key={step.num}
+                  step={step}
+                  index={index + 4}
+                  isLast={index === secondPhase.length - 1}
+                />
               ))}
-            </div>
-          ) : (
-            <div className="space-y-3">
-              <div className="flex justify-center mb-4">
-                <ModuleWheel steps={rightSteps} />
-              </div>
-              {rightSteps.map((s, i) => (
-                <MobileStepItem key={s.num} step={s} index={i} />
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Tablet and Desktop layout */}
-        <div className="hidden lg:flex items-center gap-0">
-          <div className="flex items-center gap-3 flex-1 min-w-0">
-            <ModuleWheel steps={leftSteps} />
-            <div className="flex flex-col gap-4 flex-1 min-w-0">
-              {leftSteps.map((s, i) => (
-                <StepItem key={s.num} step={s} side="left" index={i} />
-              ))}
-            </div>
-          </div>
-          <div className="self-stretch w-px mx-3 bg-gradient-to-b from-transparent via-[#2dd4bf]/25 to-transparent shrink-0" />
-          <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="flex flex-col gap-4 flex-1 min-w-0">
-              {rightSteps.map((s, i) => (
-                <StepItem key={s.num} step={s} side="right" index={i} />
-              ))}
-            </div>
-            <ModuleWheel steps={rightSteps} />
+            </ol>
           </div>
         </div>
       </div>

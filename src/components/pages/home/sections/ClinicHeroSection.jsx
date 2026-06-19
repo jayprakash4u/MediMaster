@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { BODY, TEXT_COLOR } from "@/lib/typography";
 import { Check, PhoneCall, Shield, Star, Zap } from "lucide-react";
+import { CardCompact } from "@/components/ui/Card";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -114,17 +115,14 @@ export default function ClinicHeroSection() {
 
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
             {FEATURES.map((feat) => (
-              <div
-                key={feat}
-                className="flex items-start gap-2.5 rounded-xl border border-slate-100 bg-slate-50/80 px-3 py-2.5 transition-colors hover:border-teal-200 hover:bg-teal-50/50"
-              >
+              <CardCompact key={feat} className="flex items-start gap-2.5 hover:bg-teal-50/40">
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 text-white shadow-sm shadow-teal-500/20">
                   <Check className="h-3 w-3 stroke-[3]" />
                 </span>
                 <span className={`${BODY.small} font-medium leading-snug text-slate-700`}>
                   {feat}
                 </span>
-              </div>
+              </CardCompact>
             ))}
           </div>
 

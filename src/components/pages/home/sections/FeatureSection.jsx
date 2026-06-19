@@ -16,6 +16,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { Card, CardIcon } from "@/components/ui/Card";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { cn } from "@/lib/cn";
 import { BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
@@ -133,22 +134,23 @@ export default function FeatureSection() {
           className="mb-12 sm:mb-14"
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+        <div className="card-grid-4">
           {services.map((item, idx) => {
             const Icon = item.icon;
 
             return (
-              <Link
+              <Card
                 key={item.title}
+                as={Link}
                 href={item.href}
                 ref={(el) => {
                   cardsRef.current[idx] = el;
                 }}
-                className="card-surface group flex h-full flex-col p-5 sm:p-6"
+                className="group flex h-full flex-col p-5 sm:p-6"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-teal-500/15 bg-teal-50 text-teal-600 transition-colors duration-300 group-hover:bg-teal-500 group-hover:text-white">
+                <CardIcon className="mb-4 group-hover:bg-teal-500 group-hover:text-white">
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
-                </div>
+                </CardIcon>
 
                 <h3
                   className={cn(
@@ -169,7 +171,7 @@ export default function FeatureSection() {
                   Learn more
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </span>
-              </Link>
+              </Card>
             );
           })}
         </div>

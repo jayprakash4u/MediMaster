@@ -12,7 +12,7 @@ export default function SystemSoftwareDevelopmentPage() {
       <ServiceDetailLayout
         title="SYSTEM / SOFTWARE DEVELOPMENT"
         description="At Medimaster, we engineer robust, scalable, and high-performance software systems tailored to your business needs. From desktop applications and backend services to enterprise-grade platforms and embedded solutions, our expert team delivers comprehensive software development services using cutting-edge technologies and industry best practices."
-        imageSrc="/services/shared/system-software-development.jpg"
+        imageSrc="/services/system-software/softwaredeveloplayout.jpg"
         imageAlt="System Software Development"
         activeHref="/services/system-software-development"
       />

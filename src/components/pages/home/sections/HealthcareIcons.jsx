@@ -89,30 +89,9 @@ const ecosystemItems = [
         <circle cx="27" cy="44" r="5" stroke="currentColor" strokeWidth="1.6" />
         <circle cx="10" cy="37" r="5" stroke="currentColor" strokeWidth="1.6" />
         <circle cx="44" cy="37" r="5" stroke="currentColor" strokeWidth="1.6" />
-        <line
-          x1="27"
-          y1="35"
-          x2="27"
-          y2="39"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="14"
-          y1="28"
-          x2="11"
-          y2="32"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="40"
-          y1="28"
-          x2="43"
-          y2="32"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
+        <line x1="27" y1="35" x2="27" y2="39" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="14" y1="28" x2="11" y2="32" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="40" y1="28" x2="43" y2="32" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
   },
@@ -142,14 +121,7 @@ const ecosystemItems = [
           strokeLinecap="round"
           strokeDasharray="2,2"
         />
-        <rect
-          x="19"
-          y="33"
-          width="5"
-          height="11"
-          rx="1.5"
-          fill="currentColor"
-        />
+        <rect x="19" y="33" width="5" height="11" rx="1.5" fill="currentColor" />
       </svg>
     ),
   },
@@ -299,12 +271,8 @@ export default function HealthcareEcosystem() {
                 {item.icon}
               </div>
               <div className="text-center">
-                <p className="text-sm font-bold text-navy-900 leading-tight">
-                  {item.title}
-                </p>
-                <p className="text-xs font-medium text-gray-400 mt-0.5">
-                  {item.subtitle}
-                </p>
+                <p className="text-sm font-bold text-navy-900 leading-tight">{item.title}</p>
+                <p className="text-xs font-medium text-gray-400 mt-0.5">{item.subtitle}</p>
               </div>
             </div>
           ))}

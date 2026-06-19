@@ -59,8 +59,7 @@ export default function AccountingTargetAudience() {
     <section className="w-full bg-white py-16 px-6 md:px-12 font-sans select-none">
       <div className="max-w-7xl mx-auto space-y-12">
         <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
-          Who Is This{" "}
-          <span className="text-navy-600">Accounting Software For?</span>
+          Who Is This <span className="text-navy-600">Accounting Software For?</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

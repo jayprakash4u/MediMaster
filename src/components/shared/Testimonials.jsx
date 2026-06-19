@@ -75,7 +75,7 @@ export default function Testimonials() {
             trigger: containerRef.current,
             start: "top 65%",
           },
-        },
+        }
       );
     });
     return () => ctx.revert();
@@ -101,12 +101,7 @@ export default function Testimonials() {
           {/* Navigational Slider Arrows */}
           <div className="testimonial-arrows flex items-center space-x-3 pb-1">
             <button className="w-12 h-12 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center text-slate-400 hover:border-teal-400 hover:text-teal-400 transition-all duration-200">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -116,12 +111,7 @@ export default function Testimonials() {
               </svg>
             </button>
             <button className="w-12 h-12 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center text-slate-400 hover:border-teal-400 hover:text-teal-400 transition-all duration-200">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -159,12 +149,8 @@ export default function Testimonials() {
 
                 {/* Identity Metadata Footer */}
                 <div className="mt-8 pt-6 border-t border-slate-800/80">
-                  <h4 className="font-bold text-white text-base tracking-wide">
-                    {t.position}
-                  </h4>
-                  <p className="text-sm text-slate-400 font-medium">
-                    {t.company}
-                  </p>
+                  <h4 className="font-bold text-white text-base tracking-wide">{t.position}</h4>
+                  <p className="text-sm text-slate-400 font-medium">{t.company}</p>
                 </div>
               </div>
 

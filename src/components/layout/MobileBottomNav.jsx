@@ -32,7 +32,10 @@ export default function MobileBottomNav() {
         {/* Navigation Icons */}
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-around px-6 pb-2">
           {/* Home - Left */}
-          <Link href="/" className="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+          <Link
+            href="/"
+            className="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors"
+          >
             <Home size={22} strokeWidth={1.5} />
           </Link>
 
@@ -44,7 +47,10 @@ export default function MobileBottomNav() {
           </div>
 
           {/* Settings - Right */}
-          <Link href="/settings" className="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors">
+          <Link
+            href="/settings"
+            className="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-colors"
+          >
             <Settings size={22} strokeWidth={1.5} />
           </Link>
         </div>

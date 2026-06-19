@@ -85,8 +85,7 @@ function pointInPolygon(lat, lng, polygon) {
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
     const [yi, xi] = polygon[i];
     const [yj, xj] = polygon[j];
-    const intersect =
-      yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi;
+    const intersect = yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi;
     if (intersect) inside = !inside;
   }
   return inside;
@@ -130,11 +129,7 @@ const MapComponent = dynamic(() => import("./MapContainerComponent"), {
             stroke="currentColor"
             strokeWidth="4"
           />
-          <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8v8z"
-          />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
         </svg>
         <span className="text-sm font-medium tracking-wide">Loading map…</span>
       </div>
@@ -146,7 +141,10 @@ export default function CityUserMap() {
   const markers = useMemo(() => generateNepalMarkers(120), []);
 
   return (
-    <section className="w-full flex flex-col lg:flex-row min-h-[560px] relative" style={{ zIndex: 0 }}>
+    <section
+      className="w-full flex flex-col lg:flex-row min-h-[560px] relative"
+      style={{ zIndex: 0 }}
+    >
       <div className="relative w-full lg:w-[62%] h-[420px] lg:h-auto">
         <MapComponent
           center={NEPAL_CENTER}
@@ -179,9 +177,7 @@ export default function CityUserMap() {
             <p className="text-5xl sm:text-6xl font-bold text-white leading-none tracking-tight">
               {stat.value}
             </p>
-            <p className="mt-2 text-base font-medium text-blue-200 tracking-wide">
-              {stat.label}
-            </p>
+            <p className="mt-2 text-base font-medium text-blue-200 tracking-wide">{stat.label}</p>
           </div>
         ))}
       </div>

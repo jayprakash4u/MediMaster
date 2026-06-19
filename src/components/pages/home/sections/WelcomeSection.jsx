@@ -35,19 +35,17 @@ export default function WelcomeSection() {
   return (
     <section className="max-w-[1280px] mx-auto px-4 sm:px-6 py-10 lg:py-24 font-sans">
       <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
-
         {/* ── LEFT — checklist content ── */}
         <div className="flex-1 min-w-0">
-
           <p className="text-xxs sm:text-xs font-semibold text-blue-700 uppercase tracking-widest mb-2">
             Platform Overview
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-            Platform Architecture &{" "}
-            <span className="text-blue-700">Core Capabilities</span>
+            Platform Architecture & <span className="text-blue-700">Core Capabilities</span>
           </h2>
           <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-8 max-w-xl">
-            A cloud-native platform built for hospitals, labs, pharmacies, and clinics — accessible from any browser with no installation.
+            A cloud-native platform built for hospitals, labs, pharmacies, and clinics — accessible
+            from any browser with no installation.
           </p>
 
           {/* Group 1 */}
@@ -115,7 +113,6 @@ export default function WelcomeSection() {
             />
           </div>
         </div>
-
       </div>
     </section>
   );

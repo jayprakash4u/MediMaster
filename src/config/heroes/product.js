@@ -8,6 +8,16 @@ export const pharmacyHero = {
   ctaHref: "#pharmacy-trial",
 };
 
+export const hospitalHero = {
+  eyebrow: "Hospital Management System",
+  titleBefore: "Complete Hospital",
+  highlight: "Management",
+  titleAfter: "Solution",
+  description:
+    "Enterprise-grade HMS for OPD, IPD, pharmacy, pathology, billing, and HR — all orchestrated in one secure ecosystem built for modern healthcare teams.",
+  ctaHref: "#hms-trial",
+};
+
 export const patientHero = {
   eyebrow: "Patient Management System",
   titleBefore: "Complete",

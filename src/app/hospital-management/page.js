@@ -1,10 +1,9 @@
-import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import HospitalHero from "@/components/pages/hospital-management/HospitalHero";
 import StatisticsSection from "@/components/pages/hospital-management/StatisticsSection";
 import HMSCrossLayout from "@/components/pages/hospital-management/HMSCrossLayout";
 import HospitalSoftwareSection from "@/components/pages/hospital-management/HospitalSoftwareSection";
-import HmsModulesWithVideo from "@/components/pages/hospital-management/HmsModulesWithVideo";
+import HMSModulesWithVideo from "@/components/pages/hospital-management/HMSModulesWithVideo";
 import HMSBenefitsSection from "@/components/pages/hospital-management/HMSBenefitsSection";
 import HMSTrialSection from "@/components/pages/home/sections/HMSTrialSection";
 
@@ -77,12 +76,10 @@ export default function HospitalManagementPage() {
         </div>
       </section>
 
-      <HmsModulesWithVideo />
+      <HMSModulesWithVideo />
       <HMSBenefitsSection />
       <StatisticsSection />
       <HMSTrialSection />
-
-      <Footer />
     </main>
   );
 }

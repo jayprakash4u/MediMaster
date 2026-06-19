@@ -1,14 +1,13 @@
 "use client";
 
-import Footer from "@/components/layout/Footer.jsx";
-import BillingHero from "@/components/pages/medical-billing/BillingHero";
-import BillingManagement from "@/components/pages/medical-billing/BillingManagement";
-import BillingBenefitsSection from "@/components/pages/medical-billing/BillingBenefitsSection";
-import BillingModulesWithVideo from "@/components/pages/medical-billing/BillingModulesWithVideo";
-import BillingScalableSolution from "@/components/pages/medical-billing/BillingScalableSolution";
-import BillingTargetAudience from "@/components/pages/medical-billing/BillingTargetAudience";
-import BillingWorkflow from "@/components/pages/medical-billing/BillingWorkflow";
-import BillingTrialSection from "@/components/pages/medical-billing/BillingTrialSection";
+import BillingHero from "@/components/pages/medical-billing-system/BillingHero";
+import BillingManagement from "@/components/pages/medical-billing-system/BillingManagement";
+import BillingBenefitsSection from "@/components/pages/medical-billing-system/BillingBenefitsSection";
+import BillingModulesWithVideo from "@/components/pages/medical-billing-system/BillingModulesWithVideo";
+import BillingScalableSolution from "@/components/pages/medical-billing-system/BillingScalableSolution";
+import BillingTargetAudience from "@/components/pages/medical-billing-system/BillingTargetAudience";
+import BillingWorkflow from "@/components/pages/medical-billing-system/BillingWorkflow";
+import BillingTrialSection from "@/components/pages/medical-billing-system/BillingTrialSection";
 
 export default function MedicalBillingSystemPage() {
   return (
@@ -21,7 +20,6 @@ export default function MedicalBillingSystemPage() {
       <BillingTargetAudience />
       <BillingWorkflow />
       <BillingTrialSection />
-      <Footer />
     </main>
   );
 }

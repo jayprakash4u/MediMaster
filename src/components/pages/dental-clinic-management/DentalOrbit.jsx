@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 export default function DentalOrbit() {
   return (
     <>
       <div
+        className="font-outfit"
         style={{
           width: "100%",
           display: "flex",
@@ -11,23 +12,35 @@ export default function DentalOrbit() {
           alignItems: "center",
           position: "relative",
           overflow: "visible",
-          fontFamily: "'Outfit', sans-serif",
         }}
       >
         <div style={{ position: "relative", width: 340, height: 340, overflow: "visible" }}>
-
-          <div style={{ position:"absolute", inset:0,  borderRadius:"50%", border:"1px solid rgba(255,255,255,0.08)" }} />
-          <div style={{ position:"absolute", inset:48, borderRadius:"50%", border:"1px dashed rgba(255,255,255,0.05)" }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 48,
+              borderRadius: "50%",
+              border: "1px dashed rgba(255,255,255,0.05)",
+            }}
+          />
 
           {[
-            { icon: "📋", lines: ["Patient", "Records"],       bg: "#0D9488", angle: 0   },
-            { icon: "📅", lines: ["Appointment", "Scheduling"],bg: "#06B6D4", angle: 45  },
-            { icon: "🦷", lines: ["Treatment", "Plans"],       bg: "#3B66E2", angle: 90  },
-            { icon: "📊", lines: ["Tooth", "Charting"],        bg: "#254DC8", angle: 135 },
-            { icon: "📦", lines: ["Inventory", "Mgmt"],       bg: "#14B8A6", angle: 180 },
-            { icon: "💳", lines: ["Billing &", "Insurance"],  bg: "#0891B2", angle: 225 },
-            { icon: "📱", lines: ["Patient", "Portal"],       bg: "#3B66E2", angle: 270 },
-            { icon: "🔔", lines: ["Reminders &", "Alerts"],   bg: "#254DC8", angle: 315 },
+            { icon: "📋", lines: ["Patient", "Records"], bg: "#0D9488", angle: 0 },
+            { icon: "📅", lines: ["Appointment", "Scheduling"], bg: "#06B6D4", angle: 45 },
+            { icon: "🦷", lines: ["Treatment", "Plans"], bg: "#3B66E2", angle: 90 },
+            { icon: "📊", lines: ["Tooth", "Charting"], bg: "#254DC8", angle: 135 },
+            { icon: "📦", lines: ["Inventory", "Mgmt"], bg: "#14B8A6", angle: 180 },
+            { icon: "💳", lines: ["Billing &", "Insurance"], bg: "#0891B2", angle: 225 },
+            { icon: "📱", lines: ["Patient", "Portal"], bg: "#3B66E2", angle: 270 },
+            { icon: "🔔", lines: ["Reminders &", "Alerts"], bg: "#254DC8", angle: 315 },
           ].map((mod) => (
             <div
               key={"oc-" + mod.angle}
@@ -46,10 +59,10 @@ export default function DentalOrbit() {
           ))}
 
           {[
-            { icon: "🩻", lines: ["X-Ray &", "Imaging"],      bg: "#14B8A6", angle: 45  },
-            { icon: "🔬", lines: ["Lab", "Orders"],            bg: "#254DC8", angle: 135 },
-            { icon: "📑", lines: ["Insurance", "Claims"],      bg: "#0D9488", angle: 225 },
-            { icon: "📈", lines: ["Follow-up", "Tracking"],    bg: "#3B66E2", angle: 315 },
+            { icon: "🩻", lines: ["X-Ray &", "Imaging"], bg: "#14B8A6", angle: 45 },
+            { icon: "🔬", lines: ["Lab", "Orders"], bg: "#254DC8", angle: 135 },
+            { icon: "📑", lines: ["Insurance", "Claims"], bg: "#0D9488", angle: 225 },
+            { icon: "📈", lines: ["Follow-up", "Tracking"], bg: "#3B66E2", angle: 315 },
           ].map((mod) => (
             <div
               key={"ic-" + mod.angle}
@@ -68,14 +81,14 @@ export default function DentalOrbit() {
           ))}
 
           {[
-            { icon: "📋", lines: ["Patient", "Records"],       bg: "#0D9488", angle: 0   },
-            { icon: "📅", lines: ["Appointment", "Scheduling"],bg: "#06B6D4", angle: 45  },
-            { icon: "🦷", lines: ["Treatment", "Plans"],       bg: "#3B66E2", angle: 90  },
-            { icon: "📊", lines: ["Tooth", "Charting"],        bg: "#254DC8", angle: 135 },
-            { icon: "📦", lines: ["Inventory", "Mgmt"],       bg: "#14B8A6", angle: 180 },
-            { icon: "💳", lines: ["Billing &", "Insurance"],  bg: "#0891B2", angle: 225 },
-            { icon: "📱", lines: ["Patient", "Portal"],       bg: "#3B66E2", angle: 270 },
-            { icon: "🔔", lines: ["Reminders &", "Alerts"],   bg: "#254DC8", angle: 315 },
+            { icon: "📋", lines: ["Patient", "Records"], bg: "#0D9488", angle: 0 },
+            { icon: "📅", lines: ["Appointment", "Scheduling"], bg: "#06B6D4", angle: 45 },
+            { icon: "🦷", lines: ["Treatment", "Plans"], bg: "#3B66E2", angle: 90 },
+            { icon: "📊", lines: ["Tooth", "Charting"], bg: "#254DC8", angle: 135 },
+            { icon: "📦", lines: ["Inventory", "Mgmt"], bg: "#14B8A6", angle: 180 },
+            { icon: "💳", lines: ["Billing &", "Insurance"], bg: "#0891B2", angle: 225 },
+            { icon: "📱", lines: ["Patient", "Portal"], bg: "#3B66E2", angle: 270 },
+            { icon: "🔔", lines: ["Reminders &", "Alerts"], bg: "#254DC8", angle: 315 },
           ].map((mod) => (
             <div
               key={"op-" + mod.angle}
@@ -95,13 +108,12 @@ export default function DentalOrbit() {
                 whiteSpace: "nowrap",
                 cursor: "pointer",
                 transition: "transform 0.2s, box-shadow 0.2s",
-                fontFamily: "'Outfit', sans-serif",
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.05)";
                 e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
                 e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
               }}
@@ -130,10 +142,10 @@ export default function DentalOrbit() {
           ))}
 
           {[
-            { icon: "🩻", lines: ["X-Ray &", "Imaging"],      bg: "#14B8A6", angle: 45  },
-            { icon: "🔬", lines: ["Lab", "Orders"],            bg: "#254DC8", angle: 135 },
-            { icon: "📑", lines: ["Insurance", "Claims"],      bg: "#0D9488", angle: 225 },
-            { icon: "📈", lines: ["Follow-up", "Tracking"],    bg: "#3B66E2", angle: 315 },
+            { icon: "🩻", lines: ["X-Ray &", "Imaging"], bg: "#14B8A6", angle: 45 },
+            { icon: "🔬", lines: ["Lab", "Orders"], bg: "#254DC8", angle: 135 },
+            { icon: "📑", lines: ["Insurance", "Claims"], bg: "#0D9488", angle: 225 },
+            { icon: "📈", lines: ["Follow-up", "Tracking"], bg: "#3B66E2", angle: 315 },
           ].map((mod) => (
             <div
               key={"ip-" + mod.angle}
@@ -153,13 +165,12 @@ export default function DentalOrbit() {
                 whiteSpace: "nowrap",
                 cursor: "pointer",
                 transition: "transform 0.2s, box-shadow 0.2s",
-                fontFamily: "'Outfit', sans-serif",
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.05)";
                 e.currentTarget.style.boxShadow = "0 3px 10px rgba(0,0,0,0.3)";
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
                 e.currentTarget.style.boxShadow = "0 1px 6px rgba(0,0,0,0.2)";
               }}
@@ -189,21 +200,46 @@ export default function DentalOrbit() {
 
           <div
             style={{
-              position: "absolute", top: "50%", left: "50%",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 10,
-              width: 144, height: 144, borderRadius: "50%",
+              width: 144,
+              height: 144,
+              borderRadius: "50%",
               background: "rgba(255,255,255,0.05)",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 0 0 6px rgba(255,255,255,0.1), 0 0 0 12px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.25)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow:
+                "0 0 0 6px rgba(255,255,255,0.1), 0 0 0 12px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.25)",
               border: "2px solid rgba(255,255,255,0.25)",
             }}
           >
             <div style={{ fontSize: 26, marginBottom: 2 }}>🦷</div>
-            <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", letterSpacing: -0.5, lineHeight: 1 }}>
+            <div
+              style={{
+                fontSize: 18,
+                fontWeight: 900,
+                color: "#fff",
+                letterSpacing: -0.5,
+                lineHeight: 1,
+              }}
+            >
               Dental Clinic
             </div>
-            <div style={{ fontSize: 7, fontWeight: 700, color: "#06B6D4", letterSpacing: "1px", textTransform: "uppercase", marginTop: 3 }}>
+            <div
+              style={{
+                fontSize: 7,
+                fontWeight: 700,
+                color: "#06B6D4",
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                marginTop: 3,
+              }}
+            >
               Dental Care
             </div>
           </div>

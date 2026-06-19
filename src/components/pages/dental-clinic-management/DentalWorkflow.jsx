@@ -1,13 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  CalendarCheck,
-  ClipboardList,
-  FileText,
-  Receipt,
-  Package,
-} from "lucide-react";
+import { CalendarCheck, ClipboardList, FileText, Receipt, Package } from "lucide-react";
 import { COMPONENT_STYLES } from "@/lib/typography";
 
 const steps = [
@@ -84,9 +78,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
               <div className="w-10 h-10 rounded-lg bg-navy-100 flex items-center justify-center flex-shrink-0">
                 <Icon size={20} className="text-navy-600" />
               </div>
-              <span className={COMPONENT_STYLES.stepTitle}>
-                {step.title}
-              </span>
+              <span className={COMPONENT_STYLES.stepTitle}>{step.title}</span>
             </div>
           );
         })}
@@ -116,14 +108,14 @@ export default function DentalWorkflow() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
-      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
         Streamline your dental clinic workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />
       <p className="text-base text-gray-500 leading-relaxed mb-10 max-w-4xl">
-        Our dental management platform connects practitioners, staff, and patients
-        through a centralized system for appointments, treatment management, billing,
-        and inventory. It ensures efficiency across all clinic operations.
+        Our dental management platform connects practitioners, staff, and patients through a
+        centralized system for appointments, treatment management, billing, and inventory. It
+        ensures efficiency across all clinic operations.
       </p>
 
       <div className="rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden">
@@ -132,12 +124,7 @@ export default function DentalWorkflow() {
             key={left.num}
             className={pairIndex < pairs.length - 1 ? "border-b border-gray-100" : ""}
           >
-            <StepPair
-              left={left}
-              right={right}
-              pairIndex={pairIndex}
-              totalPairs={pairs.length}
-            />
+            <StepPair left={left} right={right} pairIndex={pairIndex} totalPairs={pairs.length} />
           </div>
         ))}
       </div>

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
 
 const blogs = [
   {
@@ -84,15 +86,14 @@ export default function LatestBlogs() {
   const [visibleCards, setVisibleCards] = useState(3);
   const total = blogs.length;
 
-  // Track viewport safely on resize to fix mobile matrix positioning layouts
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setVisibleCards(1); // Mobile
+        setVisibleCards(1);
       } else if (window.innerWidth < 1024) {
-        setVisibleCards(2); // Tablet
+        setVisibleCards(2);
       } else {
-        setVisibleCards(3); // Desktop (Your exact framework)
+        setVisibleCards(3);
       }
     };
 
@@ -102,45 +103,32 @@ export default function LatestBlogs() {
   }, []);
 
   const maxIndex = Math.max(total - visibleCards, 0);
-
-  // Safety fallback bounds check on window mutation transformations
   const safeCurrent = Math.min(current, maxIndex);
 
   const prev = () => setCurrent((c) => Math.max(c - 1, 0));
   const next = () => setCurrent((c) => Math.min(c + 1, maxIndex));
 
   return (
-    <section className="bg-navy-950 py-16 px-6 md:px-12 overflow-hidden">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <p className="text-[11px] sm:text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">
-          Insights
-        </p>
-        <h2
-          className="text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12]"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
-          Stay Updated With Our Latest <span className="text-teal-400">Blogs</span>
-        </h2>
-        <p className="mt-4 text-white/80 text-base max-w-2xl mx-auto">
-          Our blogs offers in-depth insight, expert opinions, and the latest innovations shaping the
-          future of healthcare.
-        </p>
-      </div>
+    <section className="overflow-hidden bg-navy-950 px-6 py-16 md:px-12">
+      <SectionHeader
+        eyebrow="Insights"
+        title="Stay Updated With Our Latest"
+        highlight="Blogs"
+        description="Our blogs offers in-depth insight, expert opinions, and the latest innovations shaping the future of healthcare."
+        theme="dark"
+        className="mb-10"
+      />
 
-      {/* Carousel wrapper */}
-      <div className="relative max-w-7xl mx-auto px-2 sm:px-0">
-        {/* Prev arrow */}
+      <div className="relative mx-auto max-w-7xl px-2 sm:px-0">
         <button
           onClick={prev}
           disabled={safeCurrent === 0}
           aria-label="Previous"
-          className="absolute -left-4 md:-left-10 top-1/2 -translate-y-1/2 z-10 text-white text-3xl font-bold disabled:opacity-20 transition-opacity hover:opacity-70"
+          className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-left-10"
         >
           ‹‹
         </button>
 
-        {/* Cards viewport */}
         <div className="overflow-hidden">
           <div
             className="flex gap-6 transition-transform duration-500 ease-in-out"
@@ -151,36 +139,31 @@ export default function LatestBlogs() {
             {blogs.map((blog) => (
               <article
                 key={blog.id}
-                className="flex-shrink-0 w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col"
+                className="flex w-full flex-shrink-0 flex-col overflow-hidden rounded-2xl bg-white shadow-lg sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
               >
-                {/* Image area */}
-                <div className="relative w-full h-48 sm:h-56 bg-gray-200">
+                <div className="relative h-48 w-full bg-gray-200 sm:h-56">
                   <Image src={blog.image} alt={blog.title} fill className="object-cover" />
-                  {/* Tag badge */}
-                  <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-white/90 text-slate-800 px-3 py-1 rounded-full shadow-sm">
+                  <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xxs font-bold uppercase tracking-widest text-slate-800 shadow-sm">
                     {blog.tag}
                   </span>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-1 gap-4">
-                  <p className="text-xs font-medium text-teal-600 tracking-wide mb-1">
+                <div className="flex flex-1 flex-col gap-4 p-6">
+                  <p className={`${COMPONENT_STYLES.caption} ${TEXT_COLOR.teal} tracking-wide`}>
                     {blog.date} · {blog.readTime}
                   </p>
 
-                  <h3 className="text-teal-700 font-bold text-sm md:text-base uppercase leading-snug">
-                    {blog.title}
-                  </h3>
+                  <h3 className={`${HEADING.h4} uppercase ${TEXT_COLOR.teal}`}>{blog.title}</h3>
 
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{blog.excerpt}</p>
+                  <p className={`flex-1 ${BODY.small} ${TEXT_COLOR.muted}`}>{blog.excerpt}</p>
 
                   <Link
                     href={blog.href}
-                    className="text-teal-600 font-semibold text-sm hover:text-teal-700 transition-colors mt-auto inline-flex items-center gap-1 group"
+                    className={`mt-auto inline-flex items-center gap-1 ${COMPONENT_STYLES.linkAccent} group`}
                   >
                     Read More
                     <svg
-                      className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
+                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -199,25 +182,23 @@ export default function LatestBlogs() {
           </div>
         </div>
 
-        {/* Next arrow */}
         <button
           onClick={next}
           disabled={safeCurrent === maxIndex}
           aria-label="Next"
-          className="absolute -right-4 md:-right-10 top-1/2 -translate-y-1/2 z-10 text-white text-3xl font-bold disabled:opacity-20 transition-opacity hover:opacity-70"
+          className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-right-10"
         >
           ››
         </button>
       </div>
 
-      {/* Dynamic Dot indicators matching responsive slider page counts */}
-      <div className="flex justify-center gap-2 mt-8">
+      <div className="mt-8 flex justify-center gap-2">
         {Array.from({ length: maxIndex + 1 }).map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 ${
+            className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 ${
               i === safeCurrent ? "bg-white" : "bg-white/40"
             }`}
           />

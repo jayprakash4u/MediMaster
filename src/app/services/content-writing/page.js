@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import ContentWritingHero from "@/components/pages/services/content-writing/ContentWritingHero";
 import ContentTypesSection from "@/components/pages/services/content-writing/ContentTypesSection";
@@ -19,7 +18,6 @@ export default function ContentWritingPage() {
       />
       <ContentTypesSection />
       <ContentWritingRoadmap />
-      <Footer />
     </>
   );
 }

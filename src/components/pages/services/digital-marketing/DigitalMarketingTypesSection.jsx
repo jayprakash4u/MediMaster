@@ -258,10 +258,7 @@ function MarketingCard({ item, index }) {
             <p className={`text-xxs font-bold tracking-[0.2em] uppercase mb-0.5 ${c.tag}`}>
               Marketing
             </p>
-            <h3
-              className="text-sm sm:text-base md:text-lg font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
+            <h3 className="text-sm sm:text-base md:text-lg font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200">
               {item.category}
             </h3>
             <p className="text-xs text-slate-500 mt-0.5 italic">{item.tagline}</p>
@@ -352,8 +349,14 @@ export default function DigitalMarketingTypesSection() {
           <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-4">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <path
+                  d="M0 5h20"
+                  stroke="currentColor"
+                  className="text-teal-600"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -364,7 +367,6 @@ export default function DigitalMarketingTypesSection() {
           <h2
             ref={headerRef}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
           >
             Digital <span className="text-teal-600">Marketing</span> Services
           </h2>

@@ -1,264 +1,184 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  ArrowRight,
+  Code2,
+  Globe,
+  LayoutTemplate,
+  Mail,
+  Palette,
+  Search,
+  Server,
+  Smartphone,
+} from "lucide-react";
+import Button from "@/components/ui/Button";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { cn } from "@/lib/cn";
+import { BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const services = [
   {
     title: "Website Development",
-    desc: "Highly functional & visually appealing websites tailored to capture attention and scale seamlessly.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
-      </svg>
-    ),
+    desc: "Fast, responsive websites built to represent your brand and convert visitors.",
+    href: "/services/website-development",
+    icon: Globe,
   },
   {
     title: "App Development",
-    desc: "Innovative and responsive cross-platform mobile apps engineered for fluid interaction.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 002-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-        />
-      </svg>
-    ),
+    desc: "Cross-platform mobile apps with smooth UX and reliable performance.",
+    href: "/services/app-development",
+    icon: Smartphone,
   },
   {
-    title: "System/Software Dev",
-    desc: "Enterprise-grade automation systems and backend software tailored to optimize operations.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-        />
-      </svg>
-    ),
+    title: "System / Software Dev",
+    desc: "Custom software and automation tailored to your business workflows.",
+    href: "/services/system-software-development",
+    icon: Code2,
   },
   {
-    title: "UI/UX Engineering",
-    desc: "Polished user experience wireframes and user-centric flows engineered for effortless clarity.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z"
-        />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v10m-5-5h10" />
-      </svg>
-    ),
+    title: "UI / UX Design",
+    desc: "Clear interfaces and user flows that make every interaction effortless.",
+    href: "/services/ui-ux",
+    icon: LayoutTemplate,
   },
   {
     title: "Search Engine Optimization",
-    desc: "Data-driven organic architecture layout modifications to elevate domain visibility and capture leads.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
+    desc: "Improve visibility and reach the right audience through organic search.",
+    href: "/services/seo",
+    icon: Search,
   },
   {
-    title: "Premium Email Hosting",
-    desc: "Secure, custom-domain corporate mailing infrastructure to protect business communication pipelines.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z"
-        />
-      </svg>
-    ),
+    title: "Email & Hosting",
+    desc: "Secure business email and dependable hosting for stable online operations.",
+    href: "/services/server-management",
+    icon: Mail,
   },
   {
-    title: "Scalable Web Hosting",
-    desc: "High-performance enterprise environments delivering low latency and verified uptime execution.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-        />
-      </svg>
-    ),
+    title: "Server Management",
+    desc: "Monitored infrastructure with uptime-focused support and maintenance.",
+    href: "/services/server-management",
+    icon: Server,
   },
   {
-    title: "Modern Web Design",
-    desc: "Minimalist, responsive web canvases mapped thoughtfully around established identity guidelines.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-        />
-      </svg>
-    ),
+    title: "Web Design",
+    desc: "Modern, on-brand layouts that look polished on every screen size.",
+    href: "/services/graphic-design",
+    icon: Palette,
   },
 ];
 
 export default function FeatureSection() {
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    const mm = gsap.matchMedia();
-
-    mm.add(
-      {
-        isMobile: "(max-width: 639px)",
-        isDesktop: "(min-width: 640px)",
-      },
-      (context) => {
-        const { isMobile } = context.conditions;
-
-        gsap.from(cardsRef.current, {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 16 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: isMobile ? "top 85%" : "top 72%", // Fires earlier on small phone screens
-            toggleActions: "play none none reverse",
+            start: "top 85%",
+            toggleActions: "play none none none",
           },
-          y: isMobile ? 20 : 30, // Subtle lift effect on mobile viewport execution
-          duration: isMobile ? 0.5 : 0.8,
-          stagger: isMobile ? 0.05 : 0.08,
-          ease: "power2.out",
-        });
-      },
-      sectionRef
-    );
+        }
+      );
 
-    return () => mm.revert();
+      gsap.fromTo(
+        cardsRef.current.filter(Boolean),
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.06,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full bg-[#FAF9F6] py-16 md:py-28 px-6 sm:px-12 lg:px-16 font-sans antialiased overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* --- SECTION INTRO HEADER --- */}
-        <div className="max-w-3xl mb-12 sm:mb-16 space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5">
-              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
-              </svg>
-            </div>
-            <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
-              Capabilities
-            </span>
-          </div>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
-            Digital Architecture Built For <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">
-              Sustainable Growth
-            </span>
-          </h2>
+    <section ref={sectionRef} className="section-shell bg-gray-50 font-sans">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(20,184,166,0.06),transparent_45%)]" />
+
+      <div className="relative mx-auto max-w-7xl">
+        <SectionHeader
+          headerRef={headerRef}
+          eyebrow="Our Services"
+          title="Professional Digital"
+          highlight="Solutions"
+          description="From healthcare software to web and marketing services — everything you need to grow online, delivered with clarity and care."
+          className="mb-12 sm:mb-14"
+        />
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+          {services.map((item, idx) => {
+            const Icon = item.icon;
+
+            return (
+              <Link
+                key={item.title}
+                href={item.href}
+                ref={(el) => {
+                  cardsRef.current[idx] = el;
+                }}
+                className="card-surface group flex h-full flex-col p-5 sm:p-6"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-teal-500/15 bg-teal-50 text-teal-600 transition-colors duration-300 group-hover:bg-teal-500 group-hover:text-white">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                </div>
+
+                <h3
+                  className={cn(
+                    COMPONENT_STYLES.cardTitle,
+                    "transition-colors group-hover:text-teal-700"
+                  )}
+                >
+                  {item.title}
+                </h3>
+                <p className={cn("mt-2 flex-1", BODY.small, TEXT_COLOR.secondary)}>{item.desc}</p>
+
+                <span
+                  className={cn(
+                    "mt-5 inline-flex items-center gap-1.5",
+                    COMPONENT_STYLES.linkAccent
+                  )}
+                >
+                  Learn more
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            );
+          })}
         </div>
 
-        {/* --- HIGH-END MINIMALIST CARD GRID --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch">
-          {services.map((item, idx) => (
-            <div
-              key={idx}
-              ref={(el) => (cardsRef.current[idx] = el)}
-              className="group relative rounded-2xl p-6 sm:p-7 bg-white border-2 border-slate-200 transition-all duration-300 ease-in-out flex flex-col justify-between hover:shadow-xl hover:shadow-teal-100/50"
-            >
-              <div className="space-y-5">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 transition-all duration-300 sm:group-hover:bg-teal-500 sm:group-hover:border-teal-500 sm:group-hover:text-white sm:group-hover:scale-105 shadow-sm">
-                  <span className="sm:group-hover:rotate-12 transition-transform duration-300">
-                    {item.icon}
-                  </span>
-                </div>
-                <div className="space-y-2">
-                  <h3
-                    className="text-lg font-extrabold tracking-tight text-slate-900 transition-colors duration-200"
-                    style={{ fontFamily: "'Georgia', serif" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-              <div className="pt-5 mt-5 border-t border-slate-100 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-teal-600 transition-colors duration-300">
-                <span>View Details</span>
-                <svg
-                  className="w-3.5 h-3.5 transform transition-all duration-300 sm:group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </div>
-          ))}
+        <div className="mt-10 flex justify-center sm:mt-12">
+          <Button href="/services" variant="secondary">
+            View All Services
+            <ArrowRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>

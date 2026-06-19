@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import WebsiteDevHero from "@/components/pages/services/website-development/WebsiteDevHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import WebsiteTypesSection from "@/components/pages/services/website-development/WebsiteTypesSection";
@@ -19,7 +18,6 @@ export default function WebsiteDevelopmentPage() {
       />
       <WebsiteTypesSection />
       <WebDevRoadmap />
-      <Footer />
     </>
   );
 }

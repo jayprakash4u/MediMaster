@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 export default function MediFitOrbit() {
   return (
     <>
       <div
+        className="font-outfit"
         style={{
           width: "100%",
           display: "flex",
@@ -11,26 +12,38 @@ export default function MediFitOrbit() {
           alignItems: "center",
           position: "relative",
           overflow: "visible",
-          fontFamily: "'Outfit', sans-serif",
         }}
       >
         {/* Arena */}
         <div style={{ position: "relative", width: 340, height: 340, overflow: "visible" }}>
-
           {/* Decorative rings */}
-          <div style={{ position:"absolute", inset:0,  borderRadius:"50%", border:"1px solid rgba(255,255,255,0.08)" }} />
-          <div style={{ position:"absolute", inset:48, borderRadius:"50%", border:"1px dashed rgba(255,255,255,0.05)" }} />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 48,
+              borderRadius: "50%",
+              border: "1px dashed rgba(255,255,255,0.05)",
+            }}
+          />
 
           {/* Connector lines outer */}
           {[
-            { icon: "🧠", lines: ["AI Health", "Scoring"],          bg: "#06B6D4", angle: 0   },
-            { icon: "⌚", lines: ["Wearable", "Integration"],       bg: "#0D9488", angle: 45  },
-            { icon: "📊", lines: ["Predictive", "Analytics"],      bg: "#3B66E2", angle: 90  },
-            { icon: "🩺", lines: ["Telemedicine", "Consult"],       bg: "#254DC8", angle: 135 },
-            { icon: "📈", lines: ["Risk", "Assessment"],           bg: "#14B8A6", angle: 180 },
-            { icon: "🏃", lines: ["Wellness", "Plans"],            bg: "#0891B2", angle: 225 },
-            { icon: "📋", lines: ["Care", "Pathways"],             bg: "#3B66E2", angle: 270 },
-            { icon: "📡", lines: ["Real-time", "Monitoring"],      bg: "#254DC8", angle: 315 },
+            { icon: "🧠", lines: ["AI Health", "Scoring"], bg: "#06B6D4", angle: 0 },
+            { icon: "⌚", lines: ["Wearable", "Integration"], bg: "#0D9488", angle: 45 },
+            { icon: "📊", lines: ["Predictive", "Analytics"], bg: "#3B66E2", angle: 90 },
+            { icon: "🩺", lines: ["Telemedicine", "Consult"], bg: "#254DC8", angle: 135 },
+            { icon: "📈", lines: ["Risk", "Assessment"], bg: "#14B8A6", angle: 180 },
+            { icon: "🏃", lines: ["Wellness", "Plans"], bg: "#0891B2", angle: 225 },
+            { icon: "📋", lines: ["Care", "Pathways"], bg: "#3B66E2", angle: 270 },
+            { icon: "📡", lines: ["Real-time", "Monitoring"], bg: "#254DC8", angle: 315 },
           ].map((mod) => (
             <div
               key={"oc-" + mod.angle}
@@ -50,10 +63,10 @@ export default function MediFitOrbit() {
 
           {/* Connector lines inner */}
           {[
-            { icon: "🔗", lines: ["HIS / EMR", "Integration"],   bg: "#14B8A6", angle: 45  },
+            { icon: "🔗", lines: ["HIS / EMR", "Integration"], bg: "#14B8A6", angle: 45 },
             { icon: "🛡️", lines: ["Data Privacy", "& Security"], bg: "#254DC8", angle: 135 },
-            { icon: "📱", lines: ["Patient Portal", "App"],      bg: "#0D9488", angle: 225 },
-            { icon: "☁️", lines: ["Cloud-based", "Reports"],     bg: "#3B66E2", angle: 315 },
+            { icon: "📱", lines: ["Patient Portal", "App"], bg: "#0D9488", angle: 225 },
+            { icon: "☁️", lines: ["Cloud-based", "Reports"], bg: "#3B66E2", angle: 315 },
           ].map((mod) => (
             <div
               key={"ic-" + mod.angle}
@@ -73,14 +86,14 @@ export default function MediFitOrbit() {
 
           {/* Pills outer */}
           {[
-            { icon: "🧠", lines: ["AI Health", "Scoring"],          bg: "#06B6D4", angle: 0   },
-            { icon: "⌚", lines: ["Wearable", "Integration"],       bg: "#0D9488", angle: 45  },
-            { icon: "📊", lines: ["Predictive", "Analytics"],      bg: "#3B66E2", angle: 90  },
-            { icon: "🩺", lines: ["Telemedicine", "Consult"],       bg: "#254DC8", angle: 135 },
-            { icon: "📈", lines: ["Risk", "Assessment"],           bg: "#14B8A6", angle: 180 },
-            { icon: "🏃", lines: ["Wellness", "Plans"],            bg: "#0891B2", angle: 225 },
-            { icon: "📋", lines: ["Care", "Pathways"],             bg: "#3B66E2", angle: 270 },
-            { icon: "📡", lines: ["Real-time", "Monitoring"],      bg: "#254DC8", angle: 315 },
+            { icon: "🧠", lines: ["AI Health", "Scoring"], bg: "#06B6D4", angle: 0 },
+            { icon: "⌚", lines: ["Wearable", "Integration"], bg: "#0D9488", angle: 45 },
+            { icon: "📊", lines: ["Predictive", "Analytics"], bg: "#3B66E2", angle: 90 },
+            { icon: "🩺", lines: ["Telemedicine", "Consult"], bg: "#254DC8", angle: 135 },
+            { icon: "📈", lines: ["Risk", "Assessment"], bg: "#14B8A6", angle: 180 },
+            { icon: "🏃", lines: ["Wellness", "Plans"], bg: "#0891B2", angle: 225 },
+            { icon: "📋", lines: ["Care", "Pathways"], bg: "#3B66E2", angle: 270 },
+            { icon: "📡", lines: ["Real-time", "Monitoring"], bg: "#254DC8", angle: 315 },
           ].map((mod) => (
             <div
               key={"op-" + mod.angle}
@@ -100,13 +113,12 @@ export default function MediFitOrbit() {
                 whiteSpace: "nowrap",
                 cursor: "pointer",
                 transition: "transform 0.2s, box-shadow 0.2s",
-                fontFamily: "'Outfit', sans-serif",
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.05)";
                 e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
                 e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)";
               }}
@@ -136,10 +148,10 @@ export default function MediFitOrbit() {
 
           {/* Pills inner */}
           {[
-            { icon: "🔗", lines: ["HIS / EMR", "Integration"],   bg: "#14B8A6", angle: 45  },
+            { icon: "🔗", lines: ["HIS / EMR", "Integration"], bg: "#14B8A6", angle: 45 },
             { icon: "🛡️", lines: ["Data Privacy", "& Security"], bg: "#254DC8", angle: 135 },
-            { icon: "📱", lines: ["Patient Portal", "App"],      bg: "#0D9488", angle: 225 },
-            { icon: "☁️", lines: ["Cloud-based", "Reports"],     bg: "#3B66E2", angle: 315 },
+            { icon: "📱", lines: ["Patient Portal", "App"], bg: "#0D9488", angle: 225 },
+            { icon: "☁️", lines: ["Cloud-based", "Reports"], bg: "#3B66E2", angle: 315 },
           ].map((mod) => (
             <div
               key={"ip-" + mod.angle}
@@ -159,13 +171,12 @@ export default function MediFitOrbit() {
                 whiteSpace: "nowrap",
                 cursor: "pointer",
                 transition: "transform 0.2s, box-shadow 0.2s",
-                fontFamily: "'Outfit', sans-serif",
               }}
-              onMouseEnter={e => {
+              onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1.05)";
                 e.currentTarget.style.boxShadow = "0 3px 10px rgba(0,0,0,0.3)";
               }}
-              onMouseLeave={e => {
+              onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translate(-50%, -50%) scale(1)";
                 e.currentTarget.style.boxShadow = "0 1px 6px rgba(0,0,0,0.2)";
               }}
@@ -196,21 +207,46 @@ export default function MediFitOrbit() {
           {/* Center core */}
           <div
             style={{
-              position: "absolute", top: "50%", left: "50%",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
               transform: "translate(-50%, -50%)",
               zIndex: 10,
-              width: 144, height: 144, borderRadius: "50%",
+              width: 144,
+              height: 144,
+              borderRadius: "50%",
               background: "rgba(255,255,255,0.05)",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 0 0 6px rgba(255,255,255,0.1), 0 0 0 12px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.25)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow:
+                "0 0 0 6px rgba(255,255,255,0.1), 0 0 0 12px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.25)",
               border: "2px solid rgba(255,255,255,0.25)",
             }}
           >
             <div style={{ fontSize: 28, marginBottom: 2 }}>🏋️</div>
-            <div style={{ fontSize: 22, fontWeight: 900, color: "#fff", letterSpacing: -0.5, lineHeight: 1 }}>
+            <div
+              style={{
+                fontSize: 22,
+                fontWeight: 900,
+                color: "#fff",
+                letterSpacing: -0.5,
+                lineHeight: 1,
+              }}
+            >
               MediFit
             </div>
-            <div style={{ fontSize: 7, fontWeight: 700, color: "#06B6D4", letterSpacing: "1px", textTransform: "uppercase", marginTop: 3 }}>
+            <div
+              style={{
+                fontSize: 7,
+                fontWeight: 700,
+                color: "#06B6D4",
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                marginTop: 3,
+              }}
+            >
               Health Analytics
             </div>
           </div>

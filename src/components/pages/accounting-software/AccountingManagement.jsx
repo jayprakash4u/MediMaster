@@ -22,7 +22,7 @@ export default function AccountingManagement() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-600">
               Accounting Software
@@ -30,9 +30,9 @@ export default function AccountingManagement() {
           </h2>
 
           <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-            Smart accounting software for GST-compliant invoicing, bookkeeping,
-            and financial reporting. Simplify your accounting workflow with
-            automated processes and comprehensive financial insights.
+            Smart accounting software for GST-compliant invoicing, bookkeeping, and financial
+            reporting. Simplify your accounting workflow with automated processes and comprehensive
+            financial insights.
           </p>
 
           <ul className="space-y-3">

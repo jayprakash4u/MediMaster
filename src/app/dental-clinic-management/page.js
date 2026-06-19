@@ -1,4 +1,3 @@
-import Footer from "@/components/layout/Footer";
 import DentalHero from "@/components/pages/dental-clinic-management/DentalHero";
 import DentalManagement from "@/components/pages/dental-clinic-management/DentalManagement";
 import DentalBenefitsSection from "@/components/pages/dental-clinic-management/DentalBenefitsSection";
@@ -19,7 +18,6 @@ export default function DentalClinicManagementPage() {
       <DentalTargetAudience />
       <DentalWorkflow />
       <DentalTrialSection />
-      <Footer />
     </main>
   );
 }

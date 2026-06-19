@@ -8,8 +8,7 @@ const slides = [
     id: 1,
     name: "Aarav Sharma",
     role: "Medical Student",
-    quote:
-      "Fast results and flawless lab dashboard tracking. Saved me weeks of manual follow-ups.",
+    quote: "Fast results and flawless lab dashboard tracking. Saved me weeks of manual follow-ups.",
     image:
       "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80",
   },
@@ -35,8 +34,7 @@ const slides = [
     id: 4,
     name: "Deepa Rai",
     role: "Clinic Manager",
-    quote:
-      "Simple onboarding workspace. My patients love the real-time status update feeds.",
+    quote: "Simple onboarding workspace. My patients love the real-time status update feeds.",
     image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
   },
@@ -44,8 +42,7 @@ const slides = [
     id: 5,
     name: "Rohan Shrestha",
     role: "Software Architect",
-    quote:
-      "Clean components, robust layout integrity, and zero latency during high-load tests.",
+    quote: "Clean components, robust layout integrity, and zero latency during high-load tests.",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
   },
@@ -53,8 +50,7 @@ const slides = [
     id: 6,
     name: "Ananya Mishra",
     role: "Nutritionist",
-    quote:
-      "I recommend this platform to all my clients. The clean metrics make data digestible.",
+    quote: "I recommend this platform to all my clients. The clean metrics make data digestible.",
     image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
   },
@@ -89,8 +85,7 @@ const slides = [
     id: 10,
     name: "Pooja Chaudhary",
     role: "System Administrator",
-    quote:
-      "Role separations and permission modules map perfectly to institutional hierarchies.",
+    quote: "Role separations and permission modules map perfectly to institutional hierarchies.",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
   },
@@ -107,8 +102,7 @@ const slides = [
     id: 12,
     name: "Nisha Pradhan",
     role: "Diagnostic Consultant",
-    quote:
-      "A polished application aesthetic that removes friction for senior citizen users.",
+    quote: "A polished application aesthetic that removes friction for senior citizen users.",
     image:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
   },
@@ -125,8 +119,7 @@ const slides = [
     id: 14,
     name: "Sunita Maharjan",
     role: "Wellness Specialist",
-    quote:
-      "Every single record panel is crisp, minimal, and premium. A design masterpiece.",
+    quote: "Every single record panel is crisp, minimal, and premium. A design masterpiece.",
     image:
       "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
   },
@@ -134,8 +127,7 @@ const slides = [
     id: 15,
     name: "Ayush Bhattarai",
     role: "Frontend Developer",
-    quote:
-      "Component layouts maintain exact pixel ratios on mobile screens. Highly modular.",
+    quote: "Component layouts maintain exact pixel ratios on mobile screens. Highly modular.",
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80",
   },
@@ -152,8 +144,7 @@ const slides = [
     id: 17,
     name: "Dipendra Shah",
     role: "Hospital Board Director",
-    quote:
-      "Reduced our patient data retrieval times by nearly eighty percent. Exceptional build.",
+    quote: "Reduced our patient data retrieval times by nearly eighty percent. Exceptional build.",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
   },
@@ -265,10 +256,10 @@ export default function HappyCustomers() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Simple Header */}
         <div className="text-left mb-16">
-          <p className="text-xxs sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
+          <p className="text-xxs sm:text-xs font-bold text-teal-600 uppercase tracking-widest mb-2 lg:mb-3">
             Testimonials
           </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             Our Happy Customers
           </h2>
           <p className="text-slate-500 text-sm sm:text-base max-w-md leading-relaxed">
@@ -277,10 +268,7 @@ export default function HappyCustomers() {
         </div>
 
         {/* 3D Track */}
-        <div
-          className="relative flex items-center justify-center w-full"
-          style={{ height: 380 }}
-        >
+        <div className="relative flex items-center justify-center w-full" style={{ height: 380 }}>
           <div
             ref={trackRef}
             className="relative flex items-center justify-center w-full h-full"
@@ -305,9 +293,7 @@ export default function HappyCustomers() {
                 >
                   <div
                     className={`w-full rounded-xl bg-white border overflow-hidden flex flex-col transition-all duration-300 ${
-                      isActive
-                        ? "border-emerald-500 shadow-md"
-                        : "border-slate-200 opacity-60"
+                      isActive ? "border-teal-500 shadow-md" : "border-slate-200 opacity-60"
                     }`}
                     style={{ height: 340 }}
                   >
@@ -324,12 +310,10 @@ export default function HappyCustomers() {
                     {/* Profile Information Block */}
                     <div className="p-4 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+                        <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900">
                           {slide.name}
                         </h4>
-                        <p className="text-xxs font-medium text-emerald-600 mt-0.5">
-                          {slide.role}
-                        </p>
+                        <p className="text-xxs font-medium text-teal-600 mt-0.5">{slide.role}</p>
                       </div>
 
                       <p className="text-xs text-slate-500 line-clamp-3 mt-2 leading-relaxed">
@@ -350,9 +334,7 @@ export default function HappyCustomers() {
               key={i}
               onClick={() => setActive(i)}
               className={`h-1 rounded-full transition-all duration-300 ${
-                i === active
-                  ? "w-6 bg-emerald-500"
-                  : "w-1.5 bg-slate-300 hover:bg-slate-400"
+                i === active ? "w-6 bg-teal-500" : "w-1.5 bg-slate-300 hover:bg-slate-400"
               }`}
             />
           ))}

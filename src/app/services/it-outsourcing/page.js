@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ITOutsourcingHero from "@/components/pages/services/it-outsourcing/ITOutsourcingHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import ITOutsourcingTypesSection from "@/components/pages/services/it-outsourcing/ITOutsourcingTypesSection";
@@ -17,7 +16,6 @@ export default function ITOutsourcingPage() {
         activeHref="/services/it-outsourcing"
       />
       <ITOutsourcingTypesSection />
-      <Footer />
     </>
   );
 }

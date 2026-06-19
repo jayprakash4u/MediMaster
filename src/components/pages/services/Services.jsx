@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -259,7 +260,15 @@ const SERVICES = [
   {
     name: "Digital Marketing",
     icon: (
-      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        viewBox="0 0 54 54"
+        fill="none"
+        className="w-8 h-8"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <circle cx="27" cy="27" r="18" />
         <polyline points="22,20 30,27 22,34" />
         <line x1="34" y1="18" x2="34" y2="32" />
@@ -290,9 +299,21 @@ const SERVICES = [
   {
     name: "PPC Campaigns",
     icon: (
-      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+      <svg
+        viewBox="0 0 54 54"
+        fill="none"
+        className="w-8 h-8"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      >
         <circle cx="35" cy="24" r="12" />
-        <text x="35" y="29" textAnchor="middle" style={{ fontSize: 13, fontWeight: 700, fill: "currentColor" }}>
+        <text
+          x="35"
+          y="29"
+          textAnchor="middle"
+          style={{ fontSize: 13, fontWeight: 700, fill: "currentColor" }}
+        >
           $
         </text>
         <line x1="10" y1="11" x2="18" y2="19" />
@@ -305,7 +326,14 @@ const SERVICES = [
   {
     name: "Social Media",
     icon: (
-      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <svg
+        viewBox="0 0 54 54"
+        fill="none"
+        className="w-8 h-8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      >
         <circle cx="26" cy="10" r="6" />
         <circle cx="9" cy="34" r="6" />
         <circle cx="45" cy="34" r="6" />
@@ -319,7 +347,15 @@ const SERVICES = [
   {
     name: "Reputation Mgmt",
     icon: (
-      <svg viewBox="0 0 54 54" fill="none" className="w-8 h-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        viewBox="0 0 54 54"
+        fill="none"
+        className="w-8 h-8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M27 5 L30 17 L43 17 L33 24 L37 37 L27 29 L17 37 L21 24 L11 17 L24 17 Z" />
       </svg>
     ),
@@ -430,7 +466,7 @@ export default function Services() {
             stagger: 0.08,
             ease: "power2.out",
             scrollTrigger: { trigger: gridRef.current, start: "top 76%" },
-          },
+          }
         );
       }
     }, sectionRef);
@@ -439,13 +475,24 @@ export default function Services() {
 
   return (
     <section id="services" ref={sectionRef} className="relative py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-6">
-        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader
+          align="left"
+          eyebrow="Digital Services"
+          title="Healthcare &"
+          highlight="Technology Services"
+          description="End-to-end digital services for healthcare providers — from hospital software to websites, apps, and marketing."
+          className="mb-12 max-w-none"
+        />
+        <div
+          ref={gridRef}
+          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 md:gap-6 lg:grid-cols-4"
+        >
           {SERVICES.map((svc, idx) => (
             <div
               key={idx}
               ref={(el) => (cardsRef.current[idx] = el)}
-              className="service-card group bg-white border border-slate-200 rounded-2xl p-5 flex flex-col items-center gap-4 text-center shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+              className="service-card group card-surface flex flex-col items-center gap-4 p-5 text-center hover:-translate-y-1"
             >
               <div className="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-500/25 flex items-center justify-center group-hover:scale-110 group-hover:bg-teal-100 group-hover:border-teal-400/50 transition-all duration-300">
                 {svc.icon}

@@ -22,25 +22,29 @@ export default function WorkNepalModulesSection() {
   ];
 
   return (
-    <section id="worknepal-modules" className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
+    <section
+      id="worknepal-modules"
+      className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white"
+    >
       <div className="text-left mb-12">
         <div className="flex items-center gap-3 mb-2">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
                 d="M0 5h20"
-                stroke="#0D9488"
+                stroke="currentColor"
+                className="text-teal-600"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              <circle cx="22" cy="5" r="2" fill="#0D9488" />
+              <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
             </svg>
           </div>
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
             Modules
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
           Work Nepal Job Platform Modules
         </h2>
       </div>

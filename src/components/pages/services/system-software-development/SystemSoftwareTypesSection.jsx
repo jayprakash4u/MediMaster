@@ -295,10 +295,7 @@ function SoftwareCard({ item, index }) {
             >
               {item.emoji}
             </p>
-            <h3
-              className="text-xs sm:text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
+            <h3 className="text-xs sm:text-sm font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200">
               {item.category}
             </h3>
             <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 italic">{item.tagline}</p>
@@ -408,8 +405,14 @@ export default function SystemSoftwareTypesSection() {
           <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-3 sm:mb-4">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-7 h-2.5 sm:w-8 sm:h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <path
+                  d="M0 5h20"
+                  stroke="currentColor"
+                  className="text-teal-600"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -420,7 +423,6 @@ export default function SystemSoftwareTypesSection() {
           <h2
             ref={headerRef}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
           >
             Software <span className="text-teal-600">We Build</span>
           </h2>

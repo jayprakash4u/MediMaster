@@ -1,6 +1,6 @@
-"use client";
-import Link from "next/link";
-import { HEADING, FONT_FAMILY, BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
+import Button from "@/components/ui/Button";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
 
 const LEFT_SIDE_PRODUCTS = [
   "MediMaster",
@@ -23,36 +23,31 @@ export default function ProductShowcase({ allProducts }) {
   const ProductItem = ({ product }) => {
     const slug = slugify(product.name);
     return (
-      <div className="bg-white rounded-xl p-6 shadow-md border border-slate-100 hover:shadow-lg transition-shadow">
-        <h3
-          className={`${HEADING.h3} ${TEXT_COLOR.primary}`}
-          style={{ fontFamily: FONT_FAMILY.serif }}
-        >
-          {product.name}
-        </h3>
-        <p className={`${COMPONENT_STYLES.label} text-teal-600 mt-1 mb-3`}>{product.tag}</p>
-        <p className={`text-slate-600 ${BODY.small} mb-4 line-clamp-3`}>{product.description}</p>
-        <ul className="list-none text-slate-700 mb-4 space-y-1">
+      <div className="card-surface p-6">
+        <h3 className={`${HEADING.h3} ${TEXT_COLOR.primary}`}>{product.name}</h3>
+        <p className={`${COMPONENT_STYLES.label} mt-1 mb-3 ${TEXT_COLOR.teal}`}>{product.tag}</p>
+        <p className={`${BODY.small} mb-4 line-clamp-3 ${TEXT_COLOR.muted}`}>
+          {product.description}
+        </p>
+        <ul className="mb-4 list-none space-y-1 text-slate-700">
           {product.features?.slice(0, 3).map((f, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
-              <span className="w-1.5 h-1.5 bg-teal-600 rounded-full shrink-0 mt-1.5" />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-600" />
               <span>{f}</span>
             </li>
           ))}
         </ul>
         <div className="flex gap-3">
-          <Link
-            href={`/products/${slug}`}
-            className="inline-block bg-teal-600 text-white px-3 py-1.5 rounded-md font-medium hover:bg-teal-700 text-sm"
-          >
+          <Button href={`/products/${slug}`} variant="primary" className="px-3 py-1.5 text-sm">
             Learn More
-          </Link>
-          <Link
+          </Button>
+          <Button
             href={`/contact?product=${slug}`}
-            className="inline-block border border-slate-200 px-3 py-1.5 rounded-md text-slate-700 hover:bg-slate-50 text-sm"
+            variant="outline"
+            className="px-3 py-1.5 text-sm"
           >
             Request Demo
-          </Link>
+          </Button>
         </div>
       </div>
     );
@@ -60,24 +55,21 @@ export default function ProductShowcase({ allProducts }) {
 
   return (
     <>
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h1
-            className={`${HEADING.h1} text-slate-900`}
-            style={{ fontFamily: FONT_FAMILY.display }}
-          >
-            Our Products
-          </h1>
-          <p className={`${COMPONENT_STYLES.bodyText} max-w-2xl mb-8`}>
-            Explore the suite of products we deliver for hospitals, labs and wellness teams. Click
-            any product to see details and integrations.
-          </p>
+      <section className="section-shell bg-gray-50">
+        <div className="relative mx-auto max-w-7xl">
+          <SectionHeader
+            align="left"
+            as="h1"
+            title="Our Products"
+            description="Explore the suite of products we deliver for hospitals, labs and wellness teams. Click any product to see details and integrations."
+            className="mb-8 max-w-none"
+          />
         </div>
       </section>
 
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12">
+      <section className="pb-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-6">
               {leftProducts.map((product) => (
                 <ProductItem key={product.name} product={product} />

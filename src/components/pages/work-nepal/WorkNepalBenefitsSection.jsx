@@ -14,7 +14,10 @@ const benefits = [
 
 export default function WorkNepalBenefitsSection() {
   return (
-    <section id="worknepal-benefits" className="relative w-full bg-navy-950 text-white overflow-hidden py-20 px-6 sm:px-12 lg:px-20">
+    <section
+      id="worknepal-benefits"
+      className="relative w-full bg-navy-950 text-white overflow-hidden py-20 px-6 sm:px-12 lg:px-20"
+    >
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-500 rounded-full blur-3xl" />
         <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] bg-teal-500 rounded-full blur-3xl opacity-30" />
@@ -42,18 +45,21 @@ export default function WorkNepalBenefitsSection() {
           <div className="flex items-center gap-3 mb-2">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <path
+                  d="M0 5h20"
+                  stroke="currentColor"
+                  className="text-teal-600"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-400">
               Benefits
             </span>
           </div>
-          <h2
-className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-4"
-style={{ fontFamily: "'Georgia', serif" }}
->
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-4">
             Benefits of Using Work Nepal <br className="hidden md:block" />
             Job Platform
           </h2>

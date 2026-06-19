@@ -49,7 +49,7 @@ const reviews = [
     role: "Data Scientist",
     company: "Anthropic",
     avatar: "TV",
-    avatarColor: "bg-emerald-50 text-emerald-600",
+    avatarColor: "bg-emerald-50 text-teal-600",
     tag: "Data & AI",
     review:
       "The skill-gap insights showed me exactly what I was missing. I spent two weeks on those gaps, updated my profile, and suddenly the quality of inbound changed.",
@@ -102,10 +102,7 @@ function ReviewCard({ review }) {
               {review.avatar}
             </div>
             <div>
-              <h4
-                className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900"
-                style={{ fontFamily: "'Georgia', serif" }}
-              >
+              <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900">
                 {review.name}
               </h4>
               <p className="text-zinc-400 text-xxs">
@@ -182,14 +179,11 @@ export default function JobSeekerReviews() {
         {/* LEFT COLUMN: Static Info Controls */}
         <div className="lg:col-span-4 mb-10 lg:mb-0 lg:sticky lg:top-10">
           <div className="inline-flex items-center gap-1.5 bg-white border border-zinc-200 rounded-full px-2.5 py-0.5 mb-4 shadow-sm">
-            <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-1 h-1 rounded-full bg-teal-500 animate-pulse" />
             <span className="text-xxs text-zinc-500 font-medium tracking-tight">Real matches</span>
           </div>
 
-          <h2
-            className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-2xl sm:text-3xl md:text-3xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             They found their next chapter.
           </h2>
 

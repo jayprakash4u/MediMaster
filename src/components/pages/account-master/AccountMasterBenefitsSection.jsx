@@ -37,15 +37,15 @@ export default function AccountMasterBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-8" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white mb-8">
             Benefits of Using Account <br className="hidden md:block" />
-            <span className="text-emerald-600">Master</span>
+            <span className="text-teal-600">Master</span>
           </h2>
 
           <ul className="space-y-4 max-w-2xl">
             {benefits.map((text, idx) => (
               <li key={idx} className="flex items-start gap-3.5 group">
-                <div className="flex-shrink-0 mt-1 flex items-center justify-center text-emerald-300">
+                <div className="flex-shrink-0 mt-1 flex items-center justify-center text-teal-300">
                   <svg
                     className="w-5 h-5 transform group-hover:scale-110 transition-transform duration-200"
                     fill="none"

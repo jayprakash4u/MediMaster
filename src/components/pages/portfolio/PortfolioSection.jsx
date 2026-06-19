@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -122,33 +123,22 @@ export default function PortfolioSection() {
   ];
 
   const filteredProjects =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+    activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="w-full bg-[#f8fafc] text-slate-900 py-20 px-4 sm:px-6 lg:px-8 font-sans antialiased">
+    <section className="section-shell bg-slate-50 text-slate-900 font-sans antialiased">
       <div className="max-w-7xl mx-auto">
-        {/* --- PAGE HEADER --- */}
-        <div className="mb-12 space-y-3">
-          <span className="text-xs font-mono font-bold tracking-widest text-teal-600 uppercase block">
-            Our Case Studies
-          </span>
-          <h2
-            className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-[1.15]"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
-            Showcase of Our Work
-          </h2>
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal max-w-xl">
-            Explore our diverse portfolio across digital design, corporate
-            systems, and robust technical infrastructure execution.
-          </p>
-        </div>
+        <SectionHeader
+          align="left"
+          eyebrow="Our Case Studies"
+          title="Showcase of Our Work"
+          description="Explore our diverse portfolio across digital design, corporate systems, and robust technical infrastructure execution."
+          className="mb-12 max-w-xl"
+        />
 
         {/* --- HORIZONTAL STICKY FILTER MENU --- */}
         {/* Uses smart inline horizontal scrolling on smaller screens so the interface stays ultra-clean */}
-        <div className="sticky top-0 z-30 bg-[#f8fafc]/90 backdrop-blur-md py-4 mb-10 border-b border-slate-200 overflow-x-auto scrollbar-none flex gap-2 items-center mask-image">
+        <div className="sticky top-0 z-30 bg-slate-50/90 backdrop-blur-md py-4 mb-10 border-b border-slate-200 overflow-x-auto scrollbar-none flex gap-2 items-center mask-image">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -164,46 +154,46 @@ export default function PortfolioSection() {
           ))}
         </div>
 
-         {/* --- PORTFOLIO BALANCED GRID --- */}
-         {filteredProjects.length > 0 ? (
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-             {filteredProjects.map((project) => (
-               <div
-                 key={project.id}
-                 className="group relative flex flex-col overflow-hidden bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md"
-               >
-                 {/* Visual Canvas Block */}
-                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
-                   <img
-                     src={project.image}
-                     alt={project.title}
-                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                     loading="lazy"
-                   />
-                 </div>
+        {/* --- PORTFOLIO BALANCED GRID --- */}
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="group relative flex flex-col overflow-hidden bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md"
+              >
+                {/* Visual Canvas Block */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </div>
 
-                 {/* Content Metadata Block */}
-                 <div className="p-3 flex-1 flex flex-col justify-between bg-white">
-                   <div className="space-y-0.5">
-                     <span className="text-xxs font-mono font-bold tracking-widest text-teal-600 uppercase block">
-                       {project.category}
-                     </span>
-                     <h3 className="text-sm font-bold text-slate-800 tracking-tight group-hover:text-slate-900 transition-colors">
-                       {project.title}
-                     </h3>
-                   </div>
-                 </div>
-               </div>
-             ))}
-           </div>
-         ) : (
-           /* Empty Filter State Fallback */
-           <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
-             <p className="text-slate-400 text-sm font-medium">
-               No projects showcase listed under this category yet.
-             </p>
-           </div>
-         )}
+                {/* Content Metadata Block */}
+                <div className="p-3 flex-1 flex flex-col justify-between bg-white">
+                  <div className="space-y-0.5">
+                    <span className="text-xxs font-mono font-bold tracking-widest text-teal-600 uppercase block">
+                      {project.category}
+                    </span>
+                    <h3 className="text-sm font-bold text-slate-800 tracking-tight group-hover:text-slate-900 transition-colors">
+                      {project.title}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* Empty Filter State Fallback */
+          <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
+            <p className="text-slate-400 text-sm font-medium">
+              No projects showcase listed under this category yet.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

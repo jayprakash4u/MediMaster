@@ -341,7 +341,6 @@ export default function GraphicDesignRoadmap() {
           <h2
             ref={titleRef}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white"
-            style={{ fontFamily: "'Georgia', serif" }}
           >
             <span className="text-teal-400">Roadmap</span> to Success
           </h2>

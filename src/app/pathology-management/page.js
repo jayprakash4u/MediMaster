@@ -1,4 +1,3 @@
-import Footer from "@/components/layout/Footer";
 import PathologyHero from "@/components/pages/pathology-management/PathologyHero";
 import PathologyManagement from "@/components/pages/pathology-management/PathologyManagement";
 import PathologyBenefitsSection from "@/components/pages/pathology-management/PathologyBenefitsSection";
@@ -18,7 +17,6 @@ export default function PathologyManagementPage() {
       <ScalableSolution />
       <PathologyWorkflow />
       <PathologyTrialSection />
-      <Footer />
     </main>
   );
 }

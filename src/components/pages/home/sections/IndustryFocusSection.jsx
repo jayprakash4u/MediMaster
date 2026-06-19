@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React, { useState } from "react";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Button from "@/components/ui/Button";
+import { HEADING } from "@/lib/typography";
 
 export default function IndustryFocusSection() {
   const industries = [
@@ -14,12 +13,7 @@ export default function IndustryFocusSection() {
       title: "Seamlessly delivering end-to-end digital health experiences",
       image: "/industries/healthcare.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -35,12 +29,7 @@ export default function IndustryFocusSection() {
       title: "Empowering secure, robust enterprise-grade banking operations",
       image: "/industries/banking and finance service.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -56,12 +45,7 @@ export default function IndustryFocusSection() {
       title: "Optimized claiming pipelines & modernized system matrices",
       image: "/industries/insurance.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -77,12 +61,7 @@ export default function IndustryFocusSection() {
       title: "Building modern communications infrastructure arrays",
       image: "/industries/telecom.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -98,12 +77,7 @@ export default function IndustryFocusSection() {
       title: "Accelerating discovery channels with analytical precision",
       image: "/industries/life science.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -119,12 +93,7 @@ export default function IndustryFocusSection() {
       title: "Next-gen frameworks scaled for fast cloud implementation",
       image: null,
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -146,12 +115,7 @@ export default function IndustryFocusSection() {
       title: "Interactive user layout structures engineered to scale",
       image: "/industries/media and entertenment.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -167,12 +131,7 @@ export default function IndustryFocusSection() {
       title: "Secure, humanized solutions for regional public utilities",
       image: "/industries/education and learning.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -188,12 +147,7 @@ export default function IndustryFocusSection() {
       title: "Real-time process telemetry and material tracking models",
       image: "/industries/human resources managment.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -209,12 +163,7 @@ export default function IndustryFocusSection() {
       title: "Optimized infrastructure distribution for sustainable growth",
       image: "/industries/retail and ecommerce.jpg",
       icon: (
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -229,34 +178,15 @@ export default function IndustryFocusSection() {
   const [activeTab, setActiveTab] = useState(industries[0]);
 
   return (
-    <section className="w-full bg-slate-50/50 py-20 md:py-28 font-sans text-slate-600 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Top Header Section */}
-        <div className="max-w-4xl mb-16 space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5">
-              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
-              </svg>
-            </div>
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-emerald-600">
-              Market Segments
-            </span>
-          </div>
-          <h2
-            className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
-            Purpose-built, next-gen solutions grounded in deep industry
-            expertise
-          </h2>
-          <p className="text-base md:text-lg text-slate-500 font-normal leading-relaxed max-w-3xl pt-1">
-            We collaborate with clients across multiple critical global sectors
-            to build highly tailored architectures that address unique
-            structural friction vectors.
-          </p>
-        </div>
+    <section className="section-shell bg-slate-50/50 font-sans text-slate-600 overflow-hidden">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader
+          align="left"
+          eyebrow="Market Segments"
+          title="Purpose-built, next-gen solutions grounded in deep industry expertise"
+          description="We collaborate with clients across multiple critical global sectors to build highly tailored architectures that address unique structural friction vectors."
+          className="mb-16 max-w-4xl"
+        />
 
         {/* Core Layout Split Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -278,7 +208,7 @@ export default function IndustryFocusSection() {
                   <div className="flex items-center space-x-4">
                     <span
                       className={`transition-colors duration-200 
-                      ${isSelected ? "text-emerald-400" : "text-slate-400 group-hover:text-slate-900"}`}
+                      ${isSelected ? "text-teal-400" : "text-slate-400 group-hover:text-slate-900"}`}
                     >
                       {item.icon}
                     </span>
@@ -290,7 +220,7 @@ export default function IndustryFocusSection() {
                   {/* Right Arrow indicator showing state tracking */}
                   <svg
                     className={`w-4 h-4 transition-all duration-200 transform
-                      ${isSelected ? "opacity-100 translate-x-0 text-emerald-400" : "opacity-0 -translate-x-2 text-slate-900 group-hover:opacity-100 group-hover:translate-x-0"}`}
+                      ${isSelected ? "opacity-100 translate-x-0 text-teal-400" : "opacity-0 -translate-x-2 text-slate-900 group-hover:opacity-100 group-hover:translate-x-0"}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -346,31 +276,21 @@ export default function IndustryFocusSection() {
               {/* Bottom Card Overlay Container */}
               <div className="relative mt-auto mx-4 mb-4 sm:mx-6 sm:mb-6 p-6 sm:p-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl z-10 space-y-5 max-w-xl border border-white/20 shadow-xl transition-all duration-300">
                 <div className="space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">
+                  <span className="text-xs font-bold uppercase tracking-widest text-teal-600">
                     Featured Vector
                   </span>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-neutral-50 leading-snug tracking-tight">
+                  <h3 className={`${HEADING.h3} text-slate-900 dark:text-neutral-50 leading-snug`}>
                     {activeTab.title}
                   </h3>
                 </div>
 
                 <div>
-                  <button className="inline-flex items-center justify-center bg-[#E0532B] hover:bg-[#C2411D] text-neutral-50 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide shadow-sm transition-colors duration-200 group/btn">
-                    <span>Explore Framework</span>
-                    <svg
-                      className="w-4 h-4 ml-2 transform transition-transform duration-200 group-hover/btn:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </button>
+                  <Button
+                    variant="primary"
+                    className="rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold tracking-wide bg-orange-500 hover:bg-orange-600"
+                  >
+                    Explore Framework
+                  </Button>
                 </div>
               </div>
             </div>

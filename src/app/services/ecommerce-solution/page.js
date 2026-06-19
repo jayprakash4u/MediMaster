@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import EcommerceHero from "@/components/pages/services/ecommerce-solution/EcommerceHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import EcommerceTypesSection from "@/components/pages/services/ecommerce-solution/EcommerceTypesSection";
@@ -17,7 +16,6 @@ export default function EcommerceSolutionPage() {
         activeHref="/services/ecommerce-solution"
       />
       <EcommerceTypesSection />
-      <Footer />
     </>
   );
 }

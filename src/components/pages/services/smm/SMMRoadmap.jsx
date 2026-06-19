@@ -323,7 +323,6 @@ export default function SMMRoadmap() {
           <h2
             ref={titleRef}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-            style={{ fontFamily: "'Georgia', serif" }}
           >
             <span className="text-teal-400">Roadmap</span> to Success
           </h2>

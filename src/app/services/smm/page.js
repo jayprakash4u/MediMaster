@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import SMMHero from "@/components/pages/services/smm/SMMHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import SMMTypesSection from "@/components/pages/services/smm/SMMTypesSection";
@@ -19,7 +18,6 @@ export default function SMMPage() {
       />
       <SMMTypesSection />
       <SMMRoadmap />
-      <Footer />
     </>
   );
 }

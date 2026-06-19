@@ -256,7 +256,7 @@ function CenterHub() {
   );
 }
 
-export default function HMSStatic() {
+export default function HMSOrbit() {
   const [hovered, setHovered] = useState(null);
 
   return (

@@ -1,5 +1,9 @@
 "use client";
+
 import { useState } from "react";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Button from "@/components/ui/Button";
+import { HEADING } from "@/lib/typography";
 
 const CONTACTS = [
   {
@@ -24,30 +28,22 @@ export default function Contact() {
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   return (
-    <section id="contact" className="py-20 px-6 bg-slate-50">
+    <section id="contact" className="section-shell bg-slate-50">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 space-y-3">
-          <span className="text-xs font-mono font-bold tracking-widest text-teal-600 uppercase block">
-            Get in Touch
-          </span>
-          <h2
-            className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight leading-[1.15]"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
-            Contact Us
-          </h2>
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal max-w-xl">
-            Have a project in mind? Let&apos;s discuss how we can help you achieve your goals.
-          </p>
-        </div>
+        <SectionHeader
+          align="left"
+          eyebrow="Get in Touch"
+          title="Contact Us"
+          description="Have a project in mind? Let's discuss how we can help you achieve your goals."
+          className="mb-12 max-w-xl"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          {/* contact info */}
           <div className="space-y-6">
             {CONTACTS.map((c) => (
               <div
                 key={c.label}
-                className="flex items-start gap-4 bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-all"
+                className="card-surface flex items-start gap-4 p-4 hover:shadow-md transition-all"
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-deepNavy-50 text-deepNavy-600">
                   <svg
@@ -72,7 +68,7 @@ export default function Contact() {
               </div>
             ))}
 
-            <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+            <div className="card-surface p-4">
               <p className="text-xs font-semibold uppercase tracking-wide mb-2 text-slate-500">
                 Working Hours
               </p>
@@ -93,15 +89,14 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* form */}
           <form
-            className="bg-white rounded-2xl p-7 border border-gray-200 shadow-sm"
+            className="card-surface p-7"
             onSubmit={(e) => {
               e.preventDefault();
               alert("Thank you! We'll be in touch soon.");
             }}
           >
-            <h3 className="text-base font-semibold mb-5 text-deepNavy-800">Send a Message</h3>
+            <h3 className={`${HEADING.h4} mb-5 text-deepNavy-800`}>Send a Message</h3>
             <div className="space-y-4">
               {[
                 { label: "Full Name", type: "text", k: "name", ph: "Your full name" },
@@ -117,7 +112,7 @@ export default function Contact() {
                     placeholder={f.ph}
                     value={form[f.k]}
                     onChange={set(f.k)}
-                    className="w-full h-10 px-4 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all text-slate-700 bg-white"
+                    className="input-field"
                   />
                 </div>
               ))}
@@ -128,15 +123,12 @@ export default function Contact() {
                   placeholder="How can we help you?"
                   value={form.message}
                   onChange={set("message")}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 resize-none transition-all text-slate-700 bg-white"
+                  className="input-field resize-none"
                 />
               </div>
-              <button
-                type="submit"
-                className="w-full py-3 rounded-lg text-sm font-semibold text-white transition-all duration-200 bg-teal-500 hover:bg-teal-600 shadow-lg shadow-teal-500/25"
-              >
+              <Button type="submit" variant="primary" className="w-full py-3">
                 Send Message
-              </button>
+              </Button>
             </div>
           </form>
         </div>

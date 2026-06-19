@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { HEADING, FONT_FAMILY, TEXT_COLOR } from "@/lib/typography";
+import { HEADING, TEXT_COLOR } from "@/lib/typography";
 
 export default function PharmacyManagement() {
   const features = [
@@ -21,7 +21,7 @@ export default function PharmacyManagement() {
             <span className="text-xs font-bold tracking-wider uppercase">Inbuilt HMS Module</span>
           </div>
 
-          <h2 className={`${HEADING.display} ${TEXT_COLOR.primary}`} style={{ fontFamily: FONT_FAMILY.serif }}>
+          <h2 className={`${HEADING.display} ${TEXT_COLOR.primary}`}>
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-700">
               Pharmacy Management
@@ -29,8 +29,9 @@ export default function PharmacyManagement() {
           </h2>
 
           <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-            The complete pharmacy store can be managed by an inbuilt pharmacy module.
-            You can add medicines, import inventory, track purchase pipelines, and look up batch analytics—much more all structured natively inside a single interface.
+            The complete pharmacy store can be managed by an inbuilt pharmacy module. You can add
+            medicines, import inventory, track purchase pipelines, and look up batch analytics—much
+            more all structured natively inside a single interface.
           </p>
 
           <div className="pt-4 space-y-4">
@@ -52,7 +53,10 @@ export default function PharmacyManagement() {
               className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>GET STARTED NOW</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
+              <ArrowRight
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                strokeWidth={2.5}
+              />
             </Link>
           </div>
         </div>
@@ -61,11 +65,11 @@ export default function PharmacyManagement() {
           <div className="absolute w-72 h-72 bg-gradient-to-tr from-teal-400/10 to-navy-400/10 rounded-full blur-3xl -z-10" />
 
           <div className="relative w-full max-w-[540px] aspect-[4/3] rounded-2xl border-4 border-slate-100/80 bg-slate-50 shadow-2xl overflow-hidden group">
-              <img
-                src="/pharmacy/management.jpg"
-                alt="Pharmacy Management Panel"
-                className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
-              />
+            <img
+              src="/pharmacy/management.jpg"
+              alt="Pharmacy Management Panel"
+              className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" />
           </div>
 
@@ -74,8 +78,12 @@ export default function PharmacyManagement() {
               3x
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider leading-none">Faster Billing</h4>
-              <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">Optimized medicine batch lookups.</p>
+              <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider leading-none">
+                Faster Billing
+              </h4>
+              <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">
+                Optimized medicine batch lookups.
+              </p>
             </div>
           </div>
         </div>

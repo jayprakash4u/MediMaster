@@ -1,4 +1,3 @@
-import Footer from "@/components/layout/Footer";
 import MediFitHero from "@/components/pages/medifit/MediFitHero";
 import MediFitManagement from "@/components/pages/medifit/MediFitManagement";
 import MediFitBenefitsSection from "@/components/pages/medifit/MediFitBenefitsSection";
@@ -18,7 +17,6 @@ export default function MediFitPage() {
       <MediFitScalableSolution />
       <MediFitWorkflow />
       <MediFitTrialSection />
-      <Footer />
     </main>
   );
 }

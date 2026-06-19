@@ -151,7 +151,8 @@ function GsapEcgMonitor() {
             ref={drawRef}
             d={ECG_PATH}
             fill="none"
-            stroke="#14B8A6"
+            stroke="currentColor"
+            className="text-teal-500"
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -224,7 +225,8 @@ function BottomEcgStrip() {
             <path
               d={ECG_PATH}
               fill="none"
-              stroke="#14B8A6"
+              stroke="currentColor"
+              className="text-teal-500"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

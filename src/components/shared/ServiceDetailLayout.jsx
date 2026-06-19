@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
 
 const services = [
   { label: "Website Development", href: "/services/website-development" },
@@ -190,19 +191,10 @@ export default function ServiceDetailLayout({
               )}
             </div>
             <div>
-              <p className="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">
-                Services
-              </p>
-              <h1
-                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-                style={{ fontFamily: "'Georgia', serif" }}
-              >
-                {title}
-              </h1>
+              <p className={`${COMPONENT_STYLES.label} mb-2 ${TEXT_COLOR.teal}`}>Services</p>
+              <h1 className={`${HEADING.h2} ${TEXT_COLOR.primary}`}>{title}</h1>
             </div>
-            <p className="text-slate-600 leading-relaxed text-sm sm:text-base font-sans">
-              {description}
-            </p>
+            <p className={`${BODY.base} ${TEXT_COLOR.muted}`}>{description}</p>
             {children}
           </main>
         </div>

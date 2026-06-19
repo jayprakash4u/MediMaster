@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Monitor,
-  Layers,
-  FileText,
-  RefreshCw,
-  Search,
-  SlidersHorizontal,
-} from "lucide-react";
+import { Monitor, Layers, FileText, RefreshCw, Search, SlidersHorizontal } from "lucide-react";
 import { COMPONENT_STYLES } from "@/lib/typography";
 
 const steps = [
@@ -86,9 +79,7 @@ function StepPair({ left, right, pairIndex, totalPairs }) {
                   <Icon size={20} className="text-navy-600" />
                 </div>
               )}
-              <span className={COMPONENT_STYLES.stepTitle}>
-                {step.title}
-              </span>
+              <span className={COMPONENT_STYLES.stepTitle}>{step.title}</span>
             </div>
           );
         })}
@@ -118,15 +109,14 @@ export default function PharmacyWorkflow() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
-      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+      <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
         Organize your pharmacy management workflow
       </h2>
       <div className="border-t-2 border-gray-900 mb-4" />
       <p className="text-base text-gray-500 leading-relaxed mb-10 max-w-4xl">
-        LinkHMS helps to connect doctors, pharmacists, and administrative staff
-        through a centralized solution for real-time prescription processing,
-        inventory tracking, and billing. It covers efficiency and accuracy across
-        varying clinical and pharmacy operations.
+        LinkHMS helps to connect doctors, pharmacists, and administrative staff through a
+        centralized solution for real-time prescription processing, inventory tracking, and billing.
+        It covers efficiency and accuracy across varying clinical and pharmacy operations.
       </p>
 
       <div className="rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden">
@@ -135,12 +125,7 @@ export default function PharmacyWorkflow() {
             key={left.num}
             className={pairIndex < pairs.length - 1 ? "border-b border-gray-100" : ""}
           >
-            <StepPair
-              left={left}
-              right={right}
-              pairIndex={pairIndex}
-              totalPairs={pairs.length}
-            />
+            <StepPair left={left} right={right} pairIndex={pairIndex} totalPairs={pairs.length} />
           </div>
         ))}
       </div>

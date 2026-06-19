@@ -54,11 +54,12 @@ export default function AboutImageSplitSection() {
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
                 d="M0 5h20"
-                stroke="#14B8A6"
+                stroke="currentColor"
+                className="text-teal-500"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+              <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-500" />
             </svg>
           </div>
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -66,10 +67,7 @@ export default function AboutImageSplitSection() {
           </span>
         </div>
 
-        <h2
-          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12">
           Building <span className="text-teal-600">Healthcare</span> Excellence
         </h2>
       </div>
@@ -133,12 +131,7 @@ export default function AboutImageSplitSection() {
         <div ref={textSideRef} className="lg:col-span-6 space-y-6 lg:pl-6">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-teal-600 font-bold tracking-widest text-xs uppercase">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -150,16 +143,14 @@ export default function AboutImageSplitSection() {
             </div>
 
             <h2 className="text-3xl font-black text-navy-950 sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              Data-Driven <span className="text-teal-500">Insights</span> For
-              Smart Decisions
+              Data-Driven <span className="text-teal-500">Insights</span> For Smart Decisions
             </h2>
           </div>
 
           <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal">
-            We engineer advanced health data infrastructure and full-stack web
-            environments tailored to meet your clinical workflow and online
-            branding goals. Regardless of structural scope or scale, we assure
-            high-performance systems operating cleanly without hidden bugs or
+            We engineer advanced health data infrastructure and full-stack web environments tailored
+            to meet your clinical workflow and online branding goals. Regardless of structural scope
+            or scale, we assure high-performance systems operating cleanly without hidden bugs or
             processing latency.
           </p>
 
@@ -175,12 +166,7 @@ export default function AboutImageSplitSection() {
                 className="flex items-start space-x-3 text-sm sm:text-base text-gray-700 font-medium"
               >
                 <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-500 shadow-inner">
-                  <svg
-                    className="w-3 h-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

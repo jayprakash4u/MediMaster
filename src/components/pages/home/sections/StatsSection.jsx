@@ -10,7 +10,8 @@ import {
   LabTestIcon,
   DentalIcon,
   UptimeIcon,
-} from "./stats-icons";
+} from "./StatsIcons";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -184,20 +185,16 @@ export default function StatsSection() {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div ref={headerRef} className="mb-5 flex flex-col items-start gap-1.5 text-left sm:mb-6">
-          <div>
-            <span className="mb-1.5 inline-flex items-center gap-1.5 rounded-full border border-teal-500/25 bg-teal-500/10 px-3 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-teal-400">
-              <span className="h-1 w-1 rounded-full bg-teal-500 animate-pulse" />
-              Our Impact
-            </span>
-            <h2 className="text-lg font-extrabold tracking-tight text-white sm:text-xl lg:text-2xl">
-              Trusted Across{" "}
-              <span className="bg-gradient-to-r from-teal-500 to-aqua-500 bg-clip-text text-transparent">
-                Healthcare Nepal
-              </span>
-            </h2>
-          </div>
-        </div>
+        <SectionHeader
+          headerRef={headerRef}
+          align="left"
+          theme="dark"
+          eyebrow="Our Impact"
+          title="Trusted Across"
+          highlight="Healthcare Nepal"
+          className="mb-5 max-w-none sm:mb-6 [&_h2]:text-lg [&_h2]:sm:text-xl [&_h2]:lg:text-2xl"
+          as="h2"
+        />
 
         <div
           ref={gridRef}

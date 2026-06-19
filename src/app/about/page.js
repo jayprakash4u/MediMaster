@@ -1,4 +1,3 @@
-import Footer from "@/components/layout/Footer";
 import AboutHero from "@/components/pages/about/AboutHero";
 import BusinessMetricsSection from "@/components/pages/about/BusinessMetricsSection";
 import AboutImageSplitSection from "@/components/pages/about/AboutImageSplitSection";
@@ -15,7 +14,6 @@ export default function AboutPage() {
       <MissionVisionSection />
       <CompanyWorkingSteps />
       <InnovationWheelSection />
-      <Footer />
     </main>
   );
 }

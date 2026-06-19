@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import WebsiteMaintenanceHero from "@/components/pages/services/website-maintenance/WebsiteMaintenanceHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import MaintenanceTypesSection from "@/components/pages/services/website-maintenance/MaintenanceTypesSection";
@@ -17,7 +16,6 @@ export default function WebsiteMaintenancePage() {
         activeHref="/services/website-maintenance"
       />
       <MaintenanceTypesSection />
-      <Footer />
     </>
   );
 }

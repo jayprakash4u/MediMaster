@@ -12,12 +12,7 @@ const features = [
     description:
       "Allow patients to schedule and fix appointments with the available doctors with a single click.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <rect
           x="8"
           y="10"
@@ -37,14 +32,7 @@ const features = [
           strokeWidth="2.5"
           fill="none"
         />
-        <line
-          x1="8"
-          y1="22"
-          x2="56"
-          y2="22"
-          className="stroke-teal-500"
-          strokeWidth="2"
-        />
+        <line x1="8" y1="22" x2="56" y2="22" className="stroke-teal-500" strokeWidth="2" />
         <line
           x1="20"
           y1="6"
@@ -134,12 +122,7 @@ const features = [
     description:
       "Make a complete profile of doctors and manage their availability and schedule their meetings.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <circle
           cx="32"
           cy="20"
@@ -196,12 +179,7 @@ const features = [
     description:
       "Manage records of in-patients along with their admission details, bed number, diet, payments and case scenario.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <rect
           x="14"
           y="6"
@@ -273,12 +251,7 @@ const features = [
     description:
       "Manage payments, services received, medicines and lab reports of patients who are not admitted to the hospital.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <rect
           x="6"
           y="26"
@@ -350,12 +323,7 @@ const features = [
     title: "BILLINGS",
     description: "Manage all transactions related to payments and invoices.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <ellipse
           cx="32"
           cy="32"
@@ -415,12 +383,7 @@ const features = [
     title: "BED MANAGEMENT SYSTEM",
     description: "Allocate and ensure a unique bed number for each patient.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <path
           d="M6 42 L6 30 Q6 26 10 26 L54 26 Q58 26 58 30 L58 42"
           className="stroke-teal-500"
@@ -502,15 +465,9 @@ const features = [
   },
   {
     title: "LABORATORY MANAGEMENT",
-    description:
-      "Keep detailed records of the tests performed on each patient.",
+    description: "Keep detailed records of the tests performed on each patient.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <path
           d="M24 8 L24 34 L10 52 Q8 56 12 58 L52 58 Q56 56 54 52 L40 34 L40 8"
           className="stroke-teal-500"
@@ -538,26 +495,15 @@ const features = [
         <circle cx="22" cy="52" r="2" className="fill-teal-500" opacity="0.5" />
         <circle cx="30" cy="50" r="2" className="fill-teal-500" opacity="0.5" />
         <circle cx="38" cy="52" r="2" className="fill-teal-500" opacity="0.5" />
-        <path
-          d="M24 34 L40 34"
-          className="stroke-teal-500"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
+        <path d="M24 34 L40 34" className="stroke-teal-500" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
   },
   {
     title: "PHARMACY MANAGEMENT",
-    description:
-      "Keep track of medicines prescribed and given to each patient.",
+    description: "Keep track of medicines prescribed and given to each patient.",
     icon: (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-12 h-12"
-      >
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-12 h-12">
         <path
           d="M32 8 L32 8 C32 8 20 8 16 20 C12 32 20 40 24 46 C26 50 28 54 32 56 C36 54 38 50 40 46 C44 40 52 32 48 20 C44 8 32 8 32 8 Z"
           className="stroke-teal-500"
@@ -643,10 +589,7 @@ export default function KeyFeatures() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-white py-16 px-6 sm:px-12 lg:px-16 antialiased"
-    >
+    <section ref={sectionRef} className="bg-white py-16 px-6 sm:px-12 lg:px-16 antialiased">
       {/* Dynamic One-Line Header Layout */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between border-b-2 border-navy-950 pb-8 mb-12 gap-4">
         <div>
@@ -655,21 +598,19 @@ export default function KeyFeatures() {
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
                 <path
                   d="M0 5h20"
-                  stroke="#0D9488"
+                  stroke="currentColor"
+                  className="text-teal-600"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-xs font-bold uppercase tracking-widest text-teal-600">
               Platform Capabilities
             </span>
           </div>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-navy-950"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-navy-950">
             Key Features
           </h2>
         </div>

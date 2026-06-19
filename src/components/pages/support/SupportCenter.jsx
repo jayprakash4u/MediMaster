@@ -1,13 +1,22 @@
-import React from "react";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
 
 export default function SupportCenter() {
   return (
-    <section className="py-20 px-4 sm:px-6 bg-slate-50/50 font-sans antialiased">
-      <div className="max-w-6xl mx-auto">
+    <section className="section-shell bg-gray-50/80 font-sans antialiased">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          align="left"
+          eyebrow="Support Channels"
+          title="How Can We"
+          highlight="Help You?"
+          description="Reach our team through email, phone, or WhatsApp. We typically respond within a few hours."
+          className="mb-10 max-w-none"
+        />
         {/* Primary Channels Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Email Support Card */}
-          <div className="bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col items-center text-center transform hover:-translate-y-1 hover:shadow-md transition-all duration-300 ease-out">
+          <div className="card-surface flex flex-col items-center p-6 text-center sm:p-8">
             <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-5 ring-4 ring-teal-50/50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,12 +33,7 @@ export default function SupportCenter() {
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
             </div>
-            <h3
-              className="text-xl font-bold text-slate-800 mb-2.5"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Email Support
-            </h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-2.5">Email Support</h3>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 min-h-[40px]">
               Reach out via email anytime. Our team typically replies within a few hours.
             </p>
@@ -65,7 +69,7 @@ export default function SupportCenter() {
           </div>
 
           {/* Phone Support Card */}
-          <div className="bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col items-center text-center transform hover:-translate-y-1 hover:shadow-md transition-all duration-300 ease-out">
+          <div className="card-surface flex flex-col items-center p-6 text-center sm:p-8">
             <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-5 ring-4 ring-teal-50/50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -81,12 +85,7 @@ export default function SupportCenter() {
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
             </div>
-            <h3
-              className="text-xl font-bold text-slate-800 mb-2.5"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Phone Support
-            </h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-2.5">Phone Support</h3>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 min-h-[40px]">
               Speak directly with our regional representatives for immediate onboarding help.
             </p>
@@ -122,7 +121,7 @@ export default function SupportCenter() {
           </div>
 
           {/* Live Chat Card */}
-          <div className="bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col items-center text-center transform hover:-translate-y-1 hover:shadow-md transition-all duration-300 ease-out">
+          <div className="card-surface flex flex-col items-center p-6 text-center sm:p-8">
             <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-5 ring-4 ring-teal-50/50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,12 +137,7 @@ export default function SupportCenter() {
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
             </div>
-            <h3
-              className="text-xl font-bold text-slate-800 mb-2.5"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Live Chat Support
-            </h3>
+            <h3 className="text-xl font-bold text-slate-800 mb-2.5">Live Chat Support</h3>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 min-h-[40px]">
               Chat instantly with an online agent for troubleshooting and instant answers.
             </p>
@@ -196,7 +190,7 @@ export default function SupportCenter() {
                   <rect width="8" height="4" x="8" y="2" rx="1" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-1" style={{ fontFamily: "'Georgia', serif" }}>
+              <h3 className="text-xl font-bold mb-1">
                 Looking for a comprehensive technical diagnostic?
               </h3>
               <p className="text-slate-400 text-sm max-w-md leading-relaxed">
@@ -216,12 +210,7 @@ export default function SupportCenter() {
 
           {/* Quick Context / SLA Card */}
           <div className="bg-teal-50/50 border border-teal-100 rounded-2xl p-6 sm:p-8 flex flex-col justify-center">
-            <h4
-              className="text-slate-800 font-bold text-base mb-1"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Standard SLA Response
-            </h4>
+            <h4 className="text-slate-800 font-bold text-base mb-1">Standard SLA Response</h4>
             <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-3">
               We try our best to address system incidents quickly:
             </p>

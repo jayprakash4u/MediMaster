@@ -1,4 +1,3 @@
-import Footer from "@/components/layout/Footer";
 import PharmacyHero from "@/components/pages/pharmacy-management/PharmacyHero";
 import PharmacyManagement from "@/components/pages/pharmacy-management/PharmacyManagement";
 import PharmacyBenefitsSection from "@/components/pages/pharmacy-management/PharmacyBenefitsSection";
@@ -17,7 +16,6 @@ export default function PharmacyManagementPage() {
       <PharmacyTargetAudience />
       <PharmacyWorkflow />
       <PharmacyTrialSection />
-      <Footer />
     </main>
   );
 }

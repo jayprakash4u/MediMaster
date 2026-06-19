@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import SEOHero from "@/components/pages/services/seo/SEOHero";
 import SEOTypesSection from "@/components/pages/services/seo/SEOTypesSection";
@@ -19,7 +18,6 @@ export default function SEOPage() {
       />
       <SEOTypesSection />
       <SEORoadmap />
-      <Footer />
     </>
   );
 }

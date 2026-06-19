@@ -677,6 +677,6 @@ export const NAV_LINKS = [
 ];
 
 export const COMPANY = {
-  name: "ServicesPlus",
-  description: "Comprehensive professional services for all your business needs.",
+  name: "MediMaster",
+  description: "Complete software suite for hospitals, pharmacies, pathology labs, and clinics.",
 };

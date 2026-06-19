@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import UIUXHero from "@/components/pages/services/ui-ux/UIUXHero";
 import UIUXTypesSection from "@/components/pages/services/ui-ux/UIUXTypesSection";
@@ -19,7 +18,6 @@ export default function UIUXPage() {
       />
       <UIUXTypesSection />
       <UIUXRoadmap />
-      <Footer />
     </>
   );
 }

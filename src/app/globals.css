@@ -1,75 +1,54 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&family=Barlow+Condensed:wght@500;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f4f6f9;
-  color: #2c3e50;
-  font-family: "Inter", system-ui, sans-serif;
-}
-
-/* Typography base styles */
-h1, .h1 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-h2, .h2 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-h3, .h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-}
-
-h4, .h4 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-}
-
-p, .body-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.caption {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.text-overline {
-  font-size: 0.625rem;
-  letter-spacing: 0.05em;
-}
-
-/* Responsive heading styles */
-@media (min-width: 640px) {
-  h1, .h1 {
-    font-size: 3rem;
-    line-height: 1;
+@layer base {
+  * {
+    @apply box-border;
   }
-  h2, .h2 {
-    font-size: 3rem;
-    line-height: 1;
+
+  html {
+    @apply scroll-smooth;
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    @apply min-h-screen bg-gray-50 font-sans text-slate-900 antialiased;
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+@layer components {
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-teal-500 to-aqua-500 bg-clip-text text-transparent;
+  }
+
+  .badge-eyebrow {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-teal-500/20 bg-teal-500/10 px-3 py-1 text-xxs font-bold uppercase tracking-[0.18em] text-teal-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-glowTeal transition-colors hover:bg-teal-600;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-navy-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-card transition-all duration-300 hover:border-teal-500/30 hover:shadow-cardHover;
+  }
+
+  .section-shell {
+    @apply relative w-full overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-24;
+  }
+
+  .prose-legal {
+    @apply prose prose-slate max-w-none prose-headings:font-semibold prose-headings:text-slate-900 prose-a:text-teal-600 prose-a:no-underline hover:prose-a:text-teal-700;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder-slate-400 transition-all focus:border-teal-500 focus:bg-white focus:outline-none;
+  }
 }
 
 @keyframes moveGrid {

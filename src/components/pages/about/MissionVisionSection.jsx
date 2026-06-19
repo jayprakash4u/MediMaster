@@ -14,12 +14,7 @@ const companyValues = [
     description:
       "Our mission is to get regarded as one of the credible names in the IT industry. With our specialization in the field of website & Software Development, we prioritize quality, research and innovation.",
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -34,12 +29,7 @@ const companyValues = [
     description:
       "Our vision is to go for long by continuously expanding our global reach in different industry verticals where quality, customer satisfaction and innovation will always be among our top priorities.",
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,12 +44,7 @@ const companyValues = [
     description:
       "Our core value is to foster a culture of integrity, collaboration, and excellence, ensuring that we deliver innovative solutions while prioritizing our clients' needs and driving sustainable growth.",
     icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -90,7 +75,7 @@ export default function MissionVisionSection() {
             trigger: containerRef.current,
             start: "top 80%",
           },
-        },
+        }
       );
     }, containerRef);
 
@@ -108,11 +93,12 @@ export default function MissionVisionSection() {
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
                 d="M0 5h20"
-                stroke="#14B8A6"
+                stroke="currentColor"
+                className="text-teal-500"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+              <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-500" />
             </svg>
           </div>
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -120,10 +106,7 @@ export default function MissionVisionSection() {
           </span>
         </div>
 
-        <h2
-          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12">
           Mission, Vision & <span className="text-teal-600">Goals</span>
         </h2>
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ServerManagementHero from "@/components/pages/services/server-management/ServerManagementHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import ServerTypesSection from "@/components/pages/services/server-management/ServerTypesSection";
@@ -17,7 +16,6 @@ export default function ServerManagementPage() {
         activeHref="/services/server-management"
       />
       <ServerTypesSection />
-      <Footer />
     </>
   );
 }

@@ -366,10 +366,7 @@ export default function HMSCrossLayout() {
           <span className="text-xs font-extrabold tracking-widest text-teal-600 uppercase bg-teal-50 px-4 py-1.5 rounded-full">
             All-In-One Healthcare Management
           </span>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             An Interconnected Network <br />
             For Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-600">

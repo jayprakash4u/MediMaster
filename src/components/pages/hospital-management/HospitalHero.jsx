@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
-import HMSStatic from "@/components/pages/hospital-management/HMSOrbit";
+import Button from "@/components/ui/Button";
+import { cn } from "@/lib/cn";
+import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
+import HMSOrbit from "@/components/pages/hospital-management/HMSOrbit";
 
 const HIGHLIGHTS = [
   "OPD & IPD Management",
@@ -72,24 +74,17 @@ export default function HospitalHero() {
           {/* Content */}
           <div ref={contentRef}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-400/30 bg-teal-500/10 px-4 py-1.5">
-              <span className="h-2 w-2 rounded-full bg-teal-400 animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-teal-300">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-teal-400" />
+              <span className={`${COMPONENT_STYLES.label} text-teal-300`}>
                 Hospital Management System
               </span>
             </div>
 
-            <h1
-              className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
-              style={{ fontFamily: "Georgia, serif" }}
-            >
-              Complete Hospital{" "}
-              <span className="bg-gradient-to-r from-teal-300 to-cyan-400 bg-clip-text text-transparent">
-                Management
-              </span>{" "}
-              Solution
+            <h1 className={`${HEADING.h1} text-white`}>
+              Complete Hospital <span className="text-gradient-brand">Management</span> Solution
             </h1>
 
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            <p className={cn("mt-5 max-w-xl", BODY.large, "text-slate-300")}>
               Enterprise-grade HMS for OPD, IPD, pharmacy, pathology, billing, and HR — all
               orchestrated in one secure ecosystem built for modern healthcare teams.
             </p>
@@ -114,18 +109,20 @@ export default function HospitalHero() {
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
+              <Button
                 href="#hms-trial"
-                className="inline-flex items-center justify-center rounded-xl bg-teal-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-teal-500/30 transition hover:bg-teal-400"
+                variant="primary"
+                className="px-8 py-3.5 font-bold shadow-lg shadow-teal-500/30"
               >
                 Request Demo
-              </Link>
-              <Link
+              </Button>
+              <Button
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-bold text-white transition hover:border-teal-400/50 hover:bg-white/10"
+                variant="outline"
+                className="border-white/20 bg-white/5 px-8 py-3.5 font-bold text-white hover:border-teal-400/50 hover:bg-white/10"
               >
                 Talk to Sales
-              </Link>
+              </Button>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-8 border-t border-white/10 pt-8">
@@ -146,7 +143,7 @@ export default function HospitalHero() {
               <div className="h-72 w-72 rounded-full bg-teal-500/20 blur-3xl sm:h-80 sm:w-80" />
             </div>
             <div className="relative h-[360px] w-full max-w-[400px] sm:h-[400px]">
-              <HMSStatic />
+              <HMSOrbit />
             </div>
           </div>
         </div>
@@ -160,7 +157,7 @@ export default function HospitalHero() {
           preserveAspectRatio="none"
         >
           <path
-            fill="#F8FAFC"
+            className="fill-slate-50"
             d="M0,32 C360,48 720,16 1080,32 C1260,40 1380,44 1440,32 L1440,48 L0,48 Z"
           />
         </svg>

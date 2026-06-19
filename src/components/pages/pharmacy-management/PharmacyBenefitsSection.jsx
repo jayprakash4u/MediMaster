@@ -30,7 +30,9 @@ export default function PharmacyBenefitsSection() {
                     <div className="flex items-center justify-between border-b border-slate-200 pb-1.5 mb-2">
                       <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-navy-600" />
-                        <span className="font-bold text-xxs tracking-tight text-navy-900">MediMaster Pharmacy</span>
+                        <span className="font-bold text-xxs tracking-tight text-navy-900">
+                          MediMaster Pharmacy
+                        </span>
                       </div>
                       <div className="w-12 h-2 bg-slate-200 rounded" />
                     </div>
@@ -53,7 +55,10 @@ export default function PharmacyBenefitsSection() {
                       <div className="w-3/4 h-2 bg-slate-100 rounded mb-2" />
                       <div className="space-y-1">
                         {[...Array(3)].map((_, i) => (
-                          <div key={i} className="flex items-center justify-between py-0.5 border-b border-slate-100 last:border-0">
+                          <div
+                            key={i}
+                            className="flex items-center justify-between py-0.5 border-b border-slate-100 last:border-0"
+                          >
                             <div className="w-16 h-1.5 bg-slate-200 rounded" />
                             <div className="w-6 h-1.5 bg-slate-200 rounded" />
                           </div>
@@ -74,7 +79,7 @@ export default function PharmacyBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white">
             Benefits of Using Pharmacy <br className="hidden md:block" />
             Inventory Management System
           </h2>

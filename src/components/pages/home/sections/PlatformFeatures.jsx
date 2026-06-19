@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,36 +128,15 @@ export default function PlatformFeatures() {
   const active = tabs[activeTab];
 
   return (
-    <section className="bg-slate-50 py-20 px-6">
+    <section className="section-shell bg-slate-50">
       <div className="max-w-6xl mx-auto">
-
-        {/* Top label */}
-        <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="flex items-center gap-1.5">
-            <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-              <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-              <circle cx="22" cy="5" r="2" fill="#0D9488" />
-            </svg>
-          </div>
-          <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
-            Platform Features
-          </span>
-        </div>
-
-        {/* Heading */}
-        <h2
-          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 text-center"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
-          Everything Your Hospital Needs —{" "}
-          <span className="text-teal-700">In One Platform</span>
-        </h2>
-
-        {/* Subheading */}
-        <p className="text-center text-gray-500 text-base max-w-2xl mx-auto mb-10 leading-relaxed">
-          Every module is connected. Data flows automatically between appointments,
-          EMR, billing, pharmacy and labs — no manual re-entry, no data silos.
-        </p>
+        <SectionHeader
+          eyebrow="Platform Features"
+          title="Everything Your Hospital Needs —"
+          highlight="In One Platform"
+          description="Every module is connected. Data flows automatically between appointments, EMR, billing, pharmacy and labs — no manual re-entry, no data silos."
+          className="mb-10"
+        />
 
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 justify-center mb-12">
@@ -177,13 +157,27 @@ export default function PlatformFeatures() {
 
         {/* Content panel */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
           {/* Left — image placeholder */}
           <div className="rounded-2xl bg-white border-2 border-dashed border-gray-200 flex items-center justify-center min-h-[420px]">
             <div className="text-center text-gray-300">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
-                <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M3 9h18M9 21V9" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-16 h-16 mx-auto mb-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="1"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path d="M3 9h18M9 21V9" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <p className="text-sm font-medium">Image goes here</p>
             </div>
@@ -191,22 +185,27 @@ export default function PlatformFeatures() {
 
           {/* Right — text content */}
           <div className="flex flex-col gap-5">
-
             {/* Badge */}
             <span className="inline-flex items-center gap-2 text-teal-600 text-xs font-semibold tracking-wide">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
               </svg>
               {active.badge}
             </span>
 
             {/* Heading */}
-            <h3
-              className="text-3xl font-bold text-gray-900 leading-snug"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              {active.heading}
-            </h3>
+            <h3 className="text-3xl font-bold text-gray-900 leading-snug">{active.heading}</h3>
 
             {/* Description */}
             <p className="text-gray-500 text-base leading-relaxed text-justify">
@@ -218,8 +217,19 @@ export default function PlatformFeatures() {
               {active.points.map((point) => (
                 <li key={point} className="flex items-start gap-3">
                   <span className="mt-0.5 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l4.5 4.5 9-9" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-5 h-5 text-teal-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l4.5 4.5 9-9"
+                      />
                     </svg>
                   </span>
                   <span className="text-base text-gray-700 font-medium">{point}</span>
@@ -233,9 +243,16 @@ export default function PlatformFeatures() {
                 href={active.cta.href}
                 className="inline-flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full transition-colors duration-200"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8l4 4-4 4M8 12h8"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8l4 4-4 4M8 12h8" />
                 </svg>
                 {active.cta.label}
               </Link>

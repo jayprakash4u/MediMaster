@@ -24,14 +24,15 @@ export default function HospitalSoftwareSection() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             The only software you&apos;ll ever need to run your hospital
           </h2>
 
           <p className="text-sm md:text-base text-slate-500 font-normal leading-relaxed max-w-xl">
             Hospital Management Software allows you to control all the organizational aspects of a
-            hospital practice: whether it is OPD, IPD, appointments, pharmacy, laboratory, bed management,
-            portals for doctors, patients and staff, electronic medical billing, accounting, HR and Payroll.
+            hospital practice: whether it is OPD, IPD, appointments, pharmacy, laboratory, bed
+            management, portals for doctors, patients and staff, electronic medical billing,
+            accounting, HR and Payroll.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">

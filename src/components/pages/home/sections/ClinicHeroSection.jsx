@@ -2,10 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Check, PhoneCall, Shield, Star, Zap } from "lucide-react";
+import Button from "@/components/ui/Button";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { BODY, TEXT_COLOR } from "@/lib/typography";
+import { Check, PhoneCall, Shield, Star, Zap } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -89,22 +91,14 @@ export default function ClinicHeroSection() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
         {/* Content */}
         <div ref={leftRef} className="order-2 space-y-6 lg:order-1">
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-teal-500 animate-pulse" />
-            Clinic Management
-          </span>
-
-          <h2 className="text-3xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
-            Smarter healthcare management{" "}
-            <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
-              starts here.
-            </span>
-          </h2>
-
-          <p className="max-w-xl text-sm leading-relaxed text-slate-500 sm:text-base">
-            A complete software suite for clinics, pharmacies, pathology labs & hospitals — digitize
-            patient records, appointments, billing & reports in one secure platform.
-          </p>
+          <SectionHeader
+            align="left"
+            eyebrow="Clinic Management"
+            description="A complete software suite for clinics, pharmacies, pathology labs & hospitals — digitize patient records, appointments, billing & reports in one secure platform."
+            className="max-w-none"
+          >
+            Smarter healthcare management <span className="text-gradient-brand">starts here.</span>
+          </SectionHeader>
 
           <div className="flex flex-wrap gap-2">
             {HIGHLIGHTS.map(({ icon: Icon, label }) => (
@@ -127,7 +121,7 @@ export default function ClinicHeroSection() {
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 text-white shadow-sm shadow-teal-500/20">
                   <Check className="h-3 w-3 stroke-[3]" />
                 </span>
-                <span className="text-xs font-medium leading-snug text-slate-700 sm:text-sm">
+                <span className={`${BODY.small} font-medium leading-snug text-slate-700`}>
                   {feat}
                 </span>
               </div>
@@ -135,20 +129,13 @@ export default function ClinicHeroSection() {
           </div>
 
           <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-teal-600/20 transition hover:from-teal-500 hover:to-cyan-500"
-            >
+            <Button href="/contact" variant="primary" className="shadow-lg shadow-teal-600/20">
               <PhoneCall className="h-4 w-4" />
               Book a Demo
-            </Link>
-            <Link
-              href="/products"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-teal-300 hover:text-teal-700"
-            >
+            </Button>
+            <Button href="/products" variant="outline">
               Explore Products
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            </Button>
           </div>
         </div>
 
@@ -182,7 +169,7 @@ export default function ClinicHeroSection() {
             />
           </div>
 
-          <div className="absolute bottom-8 left-4 z-10 flex items-center gap-3 rounded-2xl border border-white/20 bg-[#0F1F4D]/95 px-4 py-3 shadow-xl backdrop-blur-sm sm:bottom-12 sm:left-6">
+          <div className="absolute bottom-8 left-4 z-10 flex items-center gap-3 rounded-2xl border border-white/20 bg-navy-950/95 px-4 py-3 shadow-xl backdrop-blur-sm sm:bottom-12 sm:left-6">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-lg">
               🏥
             </div>

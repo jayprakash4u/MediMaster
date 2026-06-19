@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import DigitalMarketingHero from "@/components/pages/services/digital-marketing/DigitalMarketingHero";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import DigitalMarketingTypesSection from "@/components/pages/services/digital-marketing/DigitalMarketingTypesSection";
@@ -17,7 +16,6 @@ export default function DigitalMarketingPage() {
         activeHref="/services/digital-marketing"
       />
       <DigitalMarketingTypesSection />
-      <Footer />
     </>
   );
 }

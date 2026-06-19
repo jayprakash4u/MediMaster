@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import AppDevelopmentHero from "@/components/pages/services/app-development/AppDevelopmentHero";
 import AppDevelopmentTypesSection from "@/components/pages/services/app-development/AppDevelopmentTypesSection";
@@ -19,7 +18,6 @@ export default function AppDevelopmentPage() {
       />
       <AppDevelopmentTypesSection />
       <AppDevRoadmap />
-      <Footer />
     </>
   );
 }

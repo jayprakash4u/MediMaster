@@ -289,10 +289,7 @@ function AppCard({ item, index }) {
             >
               {item.emoji}
             </p>
-            <h3
-              className="text-sm sm:text-base md:text-lg font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
+            <h3 className="text-sm sm:text-base md:text-lg font-extrabold tracking-tight text-slate-900 leading-snug transition-colors duration-200">
               {item.category}
             </h3>
             <p className="text-xs sm:text-sm md:text-base text-slate-500 mt-0.5 italic">
@@ -404,8 +401,14 @@ export default function AppDevelopmentTypesSection() {
           <div ref={subheadRef} className="flex items-center justify-center gap-3 mb-4">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <path
+                  d="M0 5h20"
+                  stroke="currentColor"
+                  className="text-teal-600"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-[0.65rem] sm:text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -416,7 +419,6 @@ export default function AppDevelopmentTypesSection() {
           <h2
             ref={headerRef}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
           >
             Apps <span className="text-teal-600">We Build</span>
           </h2>

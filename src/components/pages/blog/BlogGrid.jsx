@@ -5,6 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Button from "@/components/ui/Button";
+import { COMPONENT_STYLES } from "@/lib/typography";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,22 +45,19 @@ const BLOG_POSTS = [
     author: "Dr. Priya Nair",
     tag: "Innovation",
     readTime: "7 min read",
-    image:
-      "/blog/How AI-Powered Diagnostics Are Transforming Rural Healthcare.jpg",
+    image: "/blog/How AI-Powered Diagnostics Are Transforming Rural Healthcare.jpg",
     href: "/blog/ai-diagnostics-rural-healthcare",
   },
   {
     id: 4,
-    title:
-      "Building a Patient Portal That Actually Gets Used: UX Best Practices",
+    title: "Building a Patient Portal That Actually Gets Used: UX Best Practices",
     excerpt:
       "A patient portal is only valuable if people use it. Learn the UX principles and design patterns that drive adoption, engagement, and better health outcomes.",
     date: "May 28, 2026",
     author: "Aisha Johnson",
     tag: "Patient Experience",
     readTime: "5 min read",
-    image:
-      "/blog/Building a Patient Portal That Actually Gets Used UX Best.jpg",
+    image: "/blog/Building a Patient Portal That Actually Gets Used UX Best.jpg",
     href: "/blog/patient-portal-ux-best-practices",
   },
   {
@@ -102,7 +102,7 @@ export default function BlogGrid() {
           duration: 0.8,
           ease: "power3.out",
           scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
-        },
+        }
       );
 
       cardsRef.current.forEach((card, i) => {
@@ -117,14 +117,14 @@ export default function BlogGrid() {
             ease: "power2.out",
             delay: i * 0.08,
             scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
-          },
+          }
         );
 
         card.addEventListener("mouseenter", () =>
-          gsap.to(card, { y: -6, duration: 0.3, ease: "power2.out" }),
+          gsap.to(card, { y: -6, duration: 0.3, ease: "power2.out" })
         );
         card.addEventListener("mouseleave", () =>
-          gsap.to(card, { y: 0, duration: 0.35, ease: "power2.out" }),
+          gsap.to(card, { y: 0, duration: 0.35, ease: "power2.out" })
         );
       });
     });
@@ -133,24 +133,17 @@ export default function BlogGrid() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-28 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div ref={headingRef} className="mb-12 space-y-3">
-          <span className="text-xs font-mono font-bold tracking-widest text-teal-600 uppercase block">
-            Our Case Studies
-          </span>
-          <h2
-            className="text-3xl font-black text-slate-900 sm:text-4xl md:text-5xl tracking-tight leading-[1.15]"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
-            Explore Our Latest{" "}
-            <span className="text-teal-600">Articles</span>
-          </h2>
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed font-normal max-w-xl">
-            Discover expert insights, practical guides, and the latest trends in technology, healthcare software, and digital innovation.
-          </p>
-        </div>
+    <section ref={sectionRef} className="section-shell bg-gray-50">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader
+          headerRef={headingRef}
+          align="left"
+          eyebrow="Our Case Studies"
+          title="Explore Our Latest"
+          highlight="Articles"
+          description="Discover expert insights, practical guides, and the latest trends in technology, healthcare software, and digital innovation."
+          className="mb-12 max-w-xl"
+        />
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -192,12 +185,10 @@ export default function BlogGrid() {
 
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                  <span className="text-xs font-semibold text-slate-600">
-                    {post.author}
-                  </span>
+                  <span className="text-xs font-semibold text-slate-600">{post.author}</span>
                   <Link
                     href={post.href}
-                    className="text-xs font-bold text-teal-600 hover:text-teal-700 transition-colors inline-flex items-center gap-1 group"
+                    className={`${COMPONENT_STYLES.linkAccent} inline-flex items-center gap-1 group`}
                   >
                     Read More
                     <svg
@@ -222,12 +213,9 @@ export default function BlogGrid() {
 
         {/* View All Button */}
         <div className="flex justify-center mt-12">
-          <Link
-            href="/blog"
-            className="inline-block bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold px-8 py-3 rounded-lg transition-colors duration-200"
-          >
+          <Button href="/blog" variant="secondary" className="px-8 py-3 font-bold">
             View all articles
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

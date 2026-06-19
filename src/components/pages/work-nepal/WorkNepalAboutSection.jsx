@@ -18,8 +18,14 @@ export default function WorkNepalAboutSection() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <path
+                  d="M0 5h20"
+                  stroke="currentColor"
+                  className="text-teal-600"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -27,10 +33,7 @@ export default function WorkNepalAboutSection() {
             </span>
           </div>
 
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             Nepal&apos;s Trusted Job Platform
           </h2>
 
@@ -40,9 +43,9 @@ export default function WorkNepalAboutSection() {
             opportunity.
           </p>
 
-          <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-xl px-5 py-3.5">
+          <div className="flex items-center gap-3 bg-emerald-50 border border-teal-200 rounded-xl px-5 py-3.5">
             <svg
-              className="w-5 h-5 text-emerald-600 shrink-0"
+              className="w-5 h-5 text-teal-600 shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -59,21 +62,26 @@ export default function WorkNepalAboutSection() {
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 border-2 border-teal-100 flex items-center justify-center">
                 <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-                  <circle cx="20" cy="20" r="18" fill="#0D9488" opacity=".15" />
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="18"
+                    fill="currentColor"
+                    className="text-teal-600"
+                    opacity=".15"
+                  />
                   <path
                     d="M12 20h16M20 12v16"
-                    stroke="#0D9488"
+                    stroke="currentColor"
+                    className="text-teal-600"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                   />
-                  <circle cx="20" cy="20" r="4" fill="#0D9488" />
+                  <circle cx="20" cy="20" r="4" fill="currentColor" className="text-teal-600" />
                 </svg>
               </div>
               <div>
-                <h4
-                  className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900"
-                  style={{ fontFamily: "'Georgia', serif" }}
-                >
+                <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900">
                   Verified Employers
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
@@ -84,21 +92,33 @@ export default function WorkNepalAboutSection() {
             <div className="flex items-start gap-4">
               <div className="flex-shrink-0 w-10 h-10 rounded-full bg-teal-50 border-2 border-teal-100 flex items-center justify-center">
                 <svg viewBox="0 0 40 40" fill="none" className="w-6 h-6">
-                  <circle cx="20" cy="20" r="18" fill="#0D9488" opacity=".15" />
-                  <circle cx="20" cy="16" r="5" stroke="#0D9488" strokeWidth="2.5" />
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="18"
+                    fill="currentColor"
+                    className="text-teal-600"
+                    opacity=".15"
+                  />
+                  <circle
+                    cx="20"
+                    cy="16"
+                    r="5"
+                    stroke="currentColor"
+                    className="text-teal-600"
+                    strokeWidth="2.5"
+                  />
                   <path
                     d="M10 30c0-5.523 4.477-10 10-10s10 4.477 10 10"
-                    stroke="#0D9488"
+                    stroke="currentColor"
+                    className="text-teal-600"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                   />
                 </svg>
               </div>
               <div>
-                <h4
-                  className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900"
-                  style={{ fontFamily: "'Georgia', serif" }}
-                >
+                <h4 className="text-lg sm:text-xl font-extrabold tracking-tight leading-tight text-slate-900">
                   Trusted Platform
                 </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">

@@ -20,7 +20,7 @@ export default function AccountMaster() {
             <span className="text-xs font-bold tracking-wider uppercase">Enterprise Finance</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             Everything you need for <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-navy-600">
               Account Master
@@ -28,9 +28,9 @@ export default function AccountMaster() {
           </h2>
 
           <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-            Streamline financial operations with automated invoicing, expense tracking,
-            and multi-branch accounting. Manage every financial touchpoint—from billing
-            to reporting—with one unified platform.
+            Streamline financial operations with automated invoicing, expense tracking, and
+            multi-branch accounting. Manage every financial touchpoint—from billing to
+            reporting—with one unified platform.
           </p>
 
           <div className="pt-4 space-y-4">
@@ -52,7 +52,15 @@ export default function AccountMaster() {
               className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>GET STARTED NOW</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
@@ -72,13 +80,20 @@ export default function AccountMaster() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent" />
           </div>
 
-          <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white border border-slate-100 rounded-2xl p-4 shadow-xl flex items-center gap-4 max-w-[220px] animate-bounce" style={{ animationDuration: "5s" }}>
+          <div
+            className="absolute -bottom-6 -left-4 md:-left-8 bg-white border border-slate-100 rounded-2xl p-4 shadow-xl flex items-center gap-4 max-w-[220px] animate-bounce"
+            style={{ animationDuration: "5s" }}
+          >
             <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center font-black text-lg shadow-inner shrink-0">
               2x
             </div>
             <div>
-              <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">Faster Books</h4>
-              <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">Automated reconciliation & reporting.</p>
+              <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider leading-none">
+                Faster Books
+              </h4>
+              <p className="text-xxs text-slate-400 font-medium mt-1 leading-tight">
+                Automated reconciliation & reporting.
+              </p>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import GallerySection from "@/components/pages/portfolio/GallerySection";
 import PortfolioSection from "@/components/pages/portfolio/PortfolioSection";
-import Footer from "@/components/layout/Footer";
 
 export default function PortfolioPage() {
   return (
@@ -9,7 +8,6 @@ export default function PortfolioPage() {
         <PortfolioSection />
         <GallerySection />
       </main>
-      <Footer />
     </>
   );
 }

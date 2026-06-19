@@ -38,9 +38,7 @@ export default function RamroGadiBenefitsSection() {
                         d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                       />
                     </svg>
-                    <span className="text-xs text-slate-400">
-                      Ramro Gadi Benefits
-                    </span>
+                    <span className="text-xs text-slate-400">Ramro Gadi Benefits</span>
                   </div>
                 </div>
               </div>
@@ -49,7 +47,7 @@ export default function RamroGadiBenefitsSection() {
         </div>
 
         <div className="lg:col-span-7 flex flex-col justify-center text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-white">
             Benefits of Using Ramro Gadi <br className="hidden md:block" />
             Automotive Marketplace Platform
           </h2>
@@ -65,11 +63,7 @@ export default function RamroGadiBenefitsSection() {
                     stroke="currentColor"
                     strokeWidth="3"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <p className="text-base md:text-lg text-slate-200 font-medium group-hover:text-white transition-colors duration-200">

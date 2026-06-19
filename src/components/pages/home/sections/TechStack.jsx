@@ -1,16 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function ExpertiseSection() {
   const [activeTab, setActiveTab] = useState("Web Development");
 
-  const categories = [
-    "Web Development",
-    "App Development",
-    "Database",
-    "Cloud Platform",
-  ];
+  const categories = ["Web Development", "App Development", "Database", "Cloud Platform"];
 
   const techStack = {
     "Web Development": [
@@ -148,26 +144,17 @@ export default function ExpertiseSection() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-gray-50 pt-16 pb-0 md:pt-24 font-sans">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="section-shell relative w-full overflow-hidden bg-gray-50 pb-0 pt-0 md:pt-4 font-sans">
+      <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-12">
-          {/* Left Column Content */}
           <div className="lg:col-span-6 space-y-8 pb-12 lg:pb-20">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                  <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="22" cy="5" r="2" fill="#0D9488" />
-                </svg>
-              </div>
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
-                Our Expertise
-              </span>
-            </div>
-
-            <h2
-              className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-navy-950"
-              style={{ fontFamily: "'Georgia', serif" }}
+            <SectionHeader
+              align="left"
+              eyebrow="Our Expertise"
+              title="Technologies We Rely On To"
+              highlight="Achieve Success"
+              description={null}
+              className="max-w-xl"
             >
               Technologies We Rely On To{" "}
               <span className="text-teal-500 relative inline-block">
@@ -175,7 +162,7 @@ export default function ExpertiseSection() {
                 <span className="absolute bottom-1 left-0 w-full h-2 bg-teal-100 -z-10 rounded-sm" />
               </span>{" "}
               <span className="text-teal-500">Success</span>
-            </h2>
+            </SectionHeader>
 
             <div className="flex items-center gap-1 border-b border-gray-200 pb-4">
               {categories.map((category, idx) => (
@@ -191,9 +178,7 @@ export default function ExpertiseSection() {
                   >
                     {category}
                   </button>
-                  {idx < categories.length - 1 && (
-                    <span className="text-gray-300">|</span>
-                  )}
+                  {idx < categories.length - 1 && <span className="text-gray-300">|</span>}
                 </React.Fragment>
               ))}
             </div>

@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING, TEXT_COLOR } from "@/lib/typography";
+import EyebrowMarker from "@/components/ui/EyebrowMarker";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,18 +85,12 @@ function FeatureCard({ feature }) {
   const styles = themeStyles[theme];
 
   return (
-    <div
-      className={`h-full flex flex-col gap-3 p-6 md:p-7 ${styles.bg} border ${styles.border}`}
-    >
-      <div
-        className={`w-11 h-11 flex items-center justify-center rounded-lg ${styles.iconBg}`}
-      >
+    <div className={`h-full flex flex-col gap-3 p-6 md:p-7 ${styles.bg} border ${styles.border}`}>
+      <div className={`w-11 h-11 flex items-center justify-center rounded-lg ${styles.iconBg}`}>
         <Icon size={24} className={styles.iconColor} strokeWidth={1.5} />
       </div>
       <div className={`w-9 h-0.5 ${styles.line}`} />
-      <p
-        className={`text-xs font-bold tracking-widest uppercase font-sans ${styles.title}`}
-      >
+      <p className={`text-xs font-bold tracking-widest uppercase font-sans ${styles.title}`}>
         {headline}
       </p>
       <p className={`text-sm leading-relaxed ${styles.desc}`}>{text}</p>
@@ -130,20 +126,9 @@ export default function WhyChooseUs() {
         <div className="flex flex-col gap-0 md:hidden">
           {/* Headline block */}
           <div className="flex flex-col items-start justify-center px-6 py-10 bg-white border border-slate-100">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center gap-1.5">
-                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                  <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="22" cy="5" r="2" fill="#0D9488" />
-                </svg>
-              </div>
-              <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Why Choose Us</span>
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Why Choose <span className="text-teal-600">MediMaster?</span>
+            <EyebrowMarker label="Why Choose Us" />
+            <h2 className={`${HEADING.h2} ${TEXT_COLOR.primary}`}>
+              Why Choose <span className={TEXT_COLOR.teal}>MediMaster?</span>
             </h2>
           </div>
 
@@ -172,20 +157,9 @@ export default function WhyChooseUs() {
         <div className="hidden md:grid lg:hidden grid-cols-2 gap-0">
           {/* Headline */}
           <div className="flex flex-col items-start justify-center px-8 py-10 bg-white border border-slate-100 col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center gap-1.5">
-                <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                  <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="22" cy="5" r="2" fill="#0D9488" />
-                </svg>
-              </div>
-              <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Why Choose Us</span>
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Why Choose <span className="text-teal-600">MediMaster?</span>
+            <EyebrowMarker label="Why Choose Us" />
+            <h2 className={`${HEADING.h2} ${TEXT_COLOR.primary}`}>
+              Why Choose <span className={TEXT_COLOR.teal}>MediMaster?</span>
             </h2>
           </div>
 
@@ -209,10 +183,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* ── DESKTOP LAYOUT (≥ lg) ── */}
-        <div
-          className="hidden lg:grid grid-cols-4"
-          style={{ gridTemplateRows: "1fr 1fr" }}
-        >
+        <div className="hidden lg:grid grid-cols-4" style={{ gridTemplateRows: "1fr 1fr" }}>
           {/* Row 1, Col 1 — Patient Safety */}
           <div className="row-start-1 col-start-1">
             <FeatureCard feature={features[0]} />
@@ -231,18 +202,9 @@ export default function WhyChooseUs() {
 
           {/* Row 1, Col 3–4 — Headline */}
           <div className="row-start-1 col-start-3 col-span-2 flex flex-col items-end justify-center px-8 py-10 bg-white">
-            <div className="flex items-center gap-3 mb-4">
-              <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
-              </svg>
-              <span className="text-xs font-bold uppercase tracking-widest text-teal-600">Why Choose Us</span>
-            </div>
-            <h2
-              className="text-right text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
-              Why Choose <span className="text-teal-600">MediMaster?</span>
+            <EyebrowMarker label="Why Choose Us" className="justify-end" />
+            <h2 className={`text-right ${HEADING.h2} ${TEXT_COLOR.primary}`}>
+              Why Choose <span className={TEXT_COLOR.teal}>MediMaster?</span>
             </h2>
           </div>
 

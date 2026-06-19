@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import ServiceDetailLayout from "@/components/shared/ServiceDetailLayout";
 import GraphicDesignHero from "@/components/pages/services/graphic-design/GraphicDesignHero";
 import DesignServicesSection from "@/components/pages/services/graphic-design/DesignServicesSection";
@@ -19,8 +18,6 @@ export default function GraphicDesignPage() {
       />
       <DesignServicesSection />
       <GraphicDesignRoadmap />
-
-      <Footer />
     </>
   );
 }

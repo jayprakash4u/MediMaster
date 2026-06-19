@@ -125,8 +125,14 @@ export default function CompanyWorkingSteps() {
         <div className="flex items-center gap-3 mb-8">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-              <path d="M0 5h20" stroke="#14B8A6" strokeWidth="2" strokeLinecap="round" />
-              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+              <path
+                d="M0 5h20"
+                stroke="currentColor"
+                className="text-teal-500"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-500" />
             </svg>
           </div>
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -134,10 +140,7 @@ export default function CompanyWorkingSteps() {
           </span>
         </div>
 
-        <h2
-          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-white mb-12"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-white mb-12">
           How We <span className="text-teal-400">Work</span>
         </h2>
 

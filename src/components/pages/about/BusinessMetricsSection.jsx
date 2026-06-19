@@ -14,12 +14,7 @@ const statsData = [
     suffix: "+",
     label: "Team Members",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -34,12 +29,7 @@ const statsData = [
     suffix: "+",
     label: "Years Of Experience",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,12 +44,7 @@ const statsData = [
     suffix: "+",
     label: "Projects",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -74,12 +59,7 @@ const statsData = [
     suffix: "+",
     label: "Happy Clients",
     icon: (
-      <svg
-        className="w-7 h-7"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -108,7 +88,7 @@ export default function BusinessMetricsSection() {
             trigger: containerRef.current,
             start: "top 85%",
           },
-        },
+        }
       );
 
       gsap.fromTo(
@@ -125,7 +105,7 @@ export default function BusinessMetricsSection() {
             trigger: containerRef.current,
             start: "top 85%",
           },
-        },
+        }
       );
 
       gsap.utils.toArray(".count-number").forEach((el) => {
@@ -162,11 +142,12 @@ export default function BusinessMetricsSection() {
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
                 d="M0 5h20"
-                stroke="#14B8A6"
+                stroke="currentColor"
+                className="text-teal-500"
                 strokeWidth="2"
                 strokeLinecap="round"
               />
-              <circle cx="22" cy="5" r="2" fill="#14B8A6" />
+              <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-500" />
             </svg>
           </div>
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
@@ -174,10 +155,7 @@ export default function BusinessMetricsSection() {
           </span>
         </div>
 
-        <h2
-          className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12"
-          style={{ fontFamily: "'Georgia', serif" }}
-        >
+        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12">
           Success by <span className="text-teal-600">Numbers</span>
         </h2>
 
@@ -186,9 +164,7 @@ export default function BusinessMetricsSection() {
             <div
               key={idx}
               className={`flex flex-col items-center text-center px-6 py-10 relative group ${
-                idx !== statsData.length - 1
-                  ? "lg:border-r border-slate-200/50"
-                  : ""
+                idx !== statsData.length - 1 ? "lg:border-r border-slate-200/50" : ""
               } ${idx % 2 === 0 ? "sm:border-r-0 lg:sm:border-r" : ""}`}
             >
               <div className="metric-icon-wrap relative -mt-16 mb-4 z-20">
@@ -203,9 +179,7 @@ export default function BusinessMetricsSection() {
                 <span className="count-number" data-target={stat.value}>
                   0
                 </span>
-                <span className="text-teal-600 ml-0.5 font-extrabold">
-                  {stat.suffix}
-                </span>
+                <span className="text-teal-600 ml-0.5 font-extrabold">{stat.suffix}</span>
               </div>
 
               <p className="text-xs sm:text-sm font-bold tracking-wide text-gray-500 group-hover:text-navy-900 transition-colors duration-200">

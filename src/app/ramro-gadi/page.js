@@ -1,11 +1,10 @@
-import Footer from "@/components/layout/Footer";
 import RamroGadiBenefitsSection from "@/components/pages/ramro-gadi/RamroGadiBenefitsSection";
 import RamroGadiAboutSection from "@/components/pages/ramro-gadi/RamroGadiAboutSection";
 import PopularBrandsNepal from "@/components/pages/ramro-gadi/PopularBrandsNepal";
 import HowItWorksSection from "@/components/pages/ramro-gadi/HowItWorksSection";
 import HappyCustomersSection from "@/components/pages/ramro-gadi/HappyCustomersSection";
 import Link from "next/link";
-import RamroGaadiOrbit from "@/components/pages/ramro-gaadi/RamroGaadiOrbit";
+import RamroGadiOrbit from "@/components/pages/ramro-gadi/RamroGadiOrbit";
 
 const stats = [
   { value: "15K+", label: "Verified Listings" },
@@ -33,10 +32,7 @@ export default function RamroGadiPage() {
             <span className="inline-block text-teal-400 font-bold text-xs tracking-[0.2em] uppercase mb-4">
               Automotive Marketplace
             </span>
-            <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white"
-              style={{ fontFamily: "'Georgia', serif" }}
-            >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12] text-white">
               Buy & Sell Vehicles <span className="text-teal-400">With Confidence</span>
             </h1>
             <p className="text-slate-300 text-lg mb-8 max-w-2xl leading-relaxed">
@@ -45,10 +41,7 @@ export default function RamroGadiPage() {
               platform.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="https://ramrogaadi.com/"
-                className="inline-block px-8 py-4 bg-teal-500 text-white font-bold rounded-xl shadow-glowTeal hover:bg-teal-600 transition-all"
-              >
+              <Link href="https://ramrogaadi.com/" className="btn-primary px-8 py-4 font-bold">
                 Get Started
               </Link>
             </div>
@@ -57,7 +50,7 @@ export default function RamroGadiPage() {
           {/* Ramro Gaadi Orbit Visualization */}
           <div className="relative h-[320px] md:h-[340px] w-full flex justify-center items-center -mt-4">
             <div className="w-full max-w-[340px] h-full">
-              <RamroGaadiOrbit />
+              <RamroGadiOrbit />
             </div>
           </div>
         </div>
@@ -90,8 +83,6 @@ export default function RamroGadiPage() {
       <HowItWorksSection />
 
       <HappyCustomersSection />
-
-      <Footer />
     </main>
   );
 }

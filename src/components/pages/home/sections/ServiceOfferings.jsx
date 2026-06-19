@@ -14,9 +14,7 @@ const servicePoints = [
   {
     title: "Cloud-based HMS",
     description: "Simple yet comprehensive — no server setup needed.",
-    icon: (
-      <path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999A5.002 5.002 0 003 15z" />
-    ),
+    icon: <path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999A5.002 5.002 0 003 15z" />,
   },
   {
     title: "Browser-only access",
@@ -132,12 +130,13 @@ export default function ServiceOfferings() {
 
   const handleMouseLeave = () => {
     if (scrollTween.current) scrollTween.current.kill();
-    if (imgInnerRef.current) gsap.to(imgInnerRef.current, {
-      y: 0,
-      duration: 0.5,
-      ease: "power2.out",
-      overwrite: true,
-    });
+    if (imgInnerRef.current)
+      gsap.to(imgInnerRef.current, {
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        overwrite: true,
+      });
   };
 
   useEffect(() => {
@@ -161,18 +160,21 @@ export default function ServiceOfferings() {
           <div className="flex items-center gap-3 mb-3">
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
-                <path d="M0 5h20" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="22" cy="5" r="2" fill="#0D9488" />
+                <path
+                  d="M0 5h20"
+                  stroke="currentColor"
+                  className="text-teal-600"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <circle cx="22" cy="5" r="2" fill="currentColor" className="text-teal-600" />
               </svg>
             </div>
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-600">
               What We Offer
             </span>
           </div>
-          <h2
-            className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900"
-            style={{ fontFamily: "'Georgia', serif" }}
-          >
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900">
             Software products &amp; <span style={{ color: "#14B8A6" }}>service offerings</span>
           </h2>
         </div>
@@ -182,30 +184,31 @@ export default function ServiceOfferings() {
           {/* Left — feature grid + CTA */}
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {servicePoints.map((pt, i) => (
+              {servicePoints.map((pt, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    background: "#FFFFFF",
+                    border: "1px solid #E2E8F0",
+                    borderRadius: "12px",
+                    padding: "16px",
+                    transition: "border-color 0.3s, box-shadow 0.3s",
+                    boxShadow: "0 1px 3px rgba(16,24,40,0.06)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#14B8A6";
+                    e.currentTarget.style.boxShadow = "0 12px 32px rgba(20,184,166,0.12)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "#E2E8F0";
+                    e.currentTarget.style.boxShadow = "0 1px 3px rgba(16,24,40,0.06)";
+                  }}
+                >
                   <div
-                    key={i}
                     style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "12px",
-                      background: "#FFFFFF",
-                      border: "1px solid #E2E8F0",
-                      borderRadius: "12px",
-                      padding: "16px",
-                      transition: "border-color 0.3s, box-shadow 0.3s",
-                      boxShadow: "0 1px 3px rgba(16,24,40,0.06)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "#14B8A6";
-                      e.currentTarget.style.boxShadow = "0 12px 32px rgba(20,184,166,0.12)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "#E2E8F0";
-                      e.currentTarget.style.boxShadow = "0 1px 3px rgba(16,24,40,0.06)";
-                    }}
-                  >
-                    <div style={{
                       width: "32px",
                       height: "32px",
                       borderRadius: "8px",
@@ -215,41 +218,46 @@ export default function ServiceOfferings() {
                       alignItems: "center",
                       justifyContent: "center",
                       flexShrink: 0,
-                    }}>
-                      <svg
-                        className="w-4 h-4"
-                        style={{ color: "#14B8A6" }}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        viewBox="0 0 24 24"
-                      >
-                        {pt.icon}
-                      </svg>
-                    </div>
-                    <div>
-                      <p style={{
+                    }}
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      style={{ color: "#14B8A6" }}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      viewBox="0 0 24 24"
+                    >
+                      {pt.icon}
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      style={{
                         fontSize: "0.875rem",
                         fontWeight: 600,
                         color: "#0F172A",
                         lineHeight: "1.4",
                         marginBottom: "2px",
-                      }}>
-                        {pt.title}
-                      </p>
-                      <p style={{
+                      }}
+                    >
+                      {pt.title}
+                    </p>
+                    <p
+                      style={{
                         fontSize: "0.75rem",
                         color: "#64748B",
                         lineHeight: "1.6",
-                      }}>
-                        {pt.description}
-                      </p>
-                    </div>
+                      }}
+                    >
+                      {pt.description}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
 
             <div className="flex items-center gap-5">
               <Link
@@ -264,11 +272,7 @@ export default function ServiceOfferings() {
                   strokeWidth={2.5}
                   viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 18l6-6-6-6"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" />
                 </svg>
               </Link>
               <Link
@@ -304,9 +308,7 @@ export default function ServiceOfferings() {
               <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-                  <span className="text-xs text-slate-500">
-                    Live cloud platform
-                  </span>
+                  <span className="text-xs text-slate-500">Live cloud platform</span>
                 </div>
                 <span className="text-xxs text-slate-400 bg-slate-50 border border-slate-200 rounded-full px-3 py-0.5">
                   v3.0 · 2025
@@ -331,9 +333,7 @@ export default function ServiceOfferings() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-semibold text-slate-800">
-                  100% cloud — no installation
-                </p>
+                <p className="text-xs font-semibold text-slate-800">100% cloud — no installation</p>
                 <p className="text-sm text-slate-400">
                   Any browser, any device, anywhere in the world
                 </p>

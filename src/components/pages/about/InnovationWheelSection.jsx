@@ -491,7 +491,8 @@ export default function InnovationWheelSection() {
               dominantBaseline="middle"
               fontSize="9"
               fontWeight="800"
-              fill="#0D9488"
+              fill="currentColor"
+              className="text-teal-600"
               fontFamily={WHEEL_FONT}
               letterSpacing="0.14em"
               pointerEvents="none"

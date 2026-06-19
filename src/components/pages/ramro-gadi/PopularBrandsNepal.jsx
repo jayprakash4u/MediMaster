@@ -117,10 +117,7 @@ function BrandCard({ brand }) {
       />
 
       {/* Logo placeholder — replace with <Image /> */}
-      <div
-        className="relative z-10 flex items-center justify-center w-full"
-        style={{ height: 60 }}
-      >
+      <div className="relative z-10 flex items-center justify-center w-full" style={{ height: 60 }}>
         {/* ── SWAP THIS DIV WITH YOUR LOGO IMAGE ── */}
         <div
           className="flex items-center justify-center rounded-xl px-3 py-2 transition-transform duration-300 group-hover:scale-110"
@@ -130,13 +127,9 @@ function BrandCard({ brand }) {
             className="font-black tracking-tight leading-none"
             style={{
               color: brand.textColor,
-              fontSize:
-                brand.name.length > 8 ? 13 : brand.name.length > 5 ? 17 : 22,
+              fontSize: brand.name.length > 8 ? 13 : brand.name.length > 5 ? 17 : 22,
               fontFamily: "'Barlow Condensed', sans-serif",
-              letterSpacing:
-                brand.name === "KTM" || brand.name === "TVS"
-                  ? "0.05em"
-                  : "-0.01em",
+              letterSpacing: brand.name === "KTM" || brand.name === "TVS" ? "0.05em" : "-0.01em",
             }}
           >
             {brand.name.toUpperCase()}
@@ -162,22 +155,19 @@ function BrandCard({ brand }) {
 
 export default function PopularBrandsNepal() {
   return (
-    <section
-      className="w-full bg-white py-20 px-6"
-      style={{ fontFamily: "'Barlow Condensed', 'DM Sans', sans-serif" }}
-    >
+    <section className="font-condensed w-full bg-white px-6 py-20">
       <div className="max-w-5xl mx-auto">
         {/* ── Header ───────────────────────────────────────────────── */}
         <div className="mb-12">
-          <p className="text-xxs sm:text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 lg:mb-3">
+          <p className="text-xxs sm:text-xs font-bold text-teal-600 uppercase tracking-widest mb-2 lg:mb-3">
             Two Wheelers
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
             Popular Bike Brands
           </h2>
           <p className="text-slate-500 text-sm sm:text-base max-w-md leading-relaxed">
-            Top two-wheeler brands trusted by thousands of Nepali riders — from
-            everyday commuters to premium machines.
+            Top two-wheeler brands trusted by thousands of Nepali riders — from everyday commuters
+            to premium machines.
           </p>
         </div>
 
@@ -235,11 +225,7 @@ export default function PopularBrandsNepal() {
               stroke="currentColor"
               strokeWidth={2.5}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </div>

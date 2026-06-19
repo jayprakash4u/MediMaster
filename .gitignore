@@ -36,6 +36,9 @@ Thumbs.db
 # Test coverage
 coverage/
 
+# Cursor/Kilo worktrees (duplicate jest modules locally)
+.kilo/
+
 # Misc
 *.local
 *.swp

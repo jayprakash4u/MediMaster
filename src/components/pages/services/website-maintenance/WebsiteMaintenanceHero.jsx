@@ -1,6 +1,6 @@
 import ServiceHero from "@/components/ui/ServiceHero";
-import { websiteMaintenanceHero } from "@/lib/service-heroes";
-import { websiteMaintenanceFloatingIcons } from "@/lib/service-floating-icons";
+import { websiteMaintenanceHero } from "@/config/heroes/service";
+import { websiteMaintenanceFloatingIcons } from "@/config/heroes/floating-icons";
 
 export default function WebsiteMaintenanceHero() {
   return (

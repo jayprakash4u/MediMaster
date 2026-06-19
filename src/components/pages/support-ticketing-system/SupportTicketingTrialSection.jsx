@@ -1,5 +1,5 @@
 import TrialRequestSection from "@/components/ui/TrialRequestSection";
-import { supportTicketingTrial } from "@/lib/trial-sections";
+import { supportTicketingTrial } from "@/config/sections/trials";
 
 export default function SupportTicketingTrialSection() {
   return <TrialRequestSection {...supportTicketingTrial} />;

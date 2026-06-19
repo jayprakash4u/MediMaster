@@ -1,4 +1,4 @@
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS } from "@/config/constants";
 
 export const PRODUCTS_LEFT_COLUMN = [
   "Hospital Management",

@@ -38,5 +38,5 @@ for (const { file, exportName } of sources) {
   output += `export const ${exportName} = ${match[1]};\n\n`;
 }
 
-fs.writeFileSync(path.join(root, "lib/service-floating-icons.js"), output);
-console.log("Wrote src/lib/service-floating-icons.js");
+fs.writeFileSync(path.join(root, "config/heroes/floating-icons.js"), output);
+console.log("Wrote src/config/heroes/floating-icons.js");

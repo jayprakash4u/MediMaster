@@ -1,5 +1,5 @@
 import TrialRequestSection from "@/components/ui/TrialRequestSection";
-import { pathologyTrial } from "@/lib/trial-sections";
+import { pathologyTrial } from "@/config/sections/trials";
 
 export default function PathologyTrialSection() {
   return <TrialRequestSection {...pathologyTrial} />;

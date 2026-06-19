@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS } from "@/config/constants";
 import { DROPDOWN_COMPONENTS } from "../navbar.dropdowns";
 import { useDropdownPosition } from "../hooks/useDropdownPosition";
 

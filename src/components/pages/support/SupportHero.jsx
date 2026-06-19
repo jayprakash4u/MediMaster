@@ -1,5 +1,5 @@
 import MarketingHero from "@/components/ui/MarketingHero";
-import { supportHero } from "@/lib/marketing-heroes";
+import { supportHero } from "@/config/heroes/marketing";
 
 export default function SupportHero() {
   return <MarketingHero {...supportHero} />;

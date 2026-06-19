@@ -1,5 +1,5 @@
 import ProductShowcase from "@/components/pages/products/ProductShowcase";
-import { products } from "@/lib/products";
+import { products } from "@/config/products";
 
 export const metadata = {
   title: "Products — MediMaster",

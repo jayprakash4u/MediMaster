@@ -1,5 +1,5 @@
 import DarkFeatureSection from "@/components/ui/DarkFeatureSection";
-import { pathologyFeature } from "@/lib/home-sections";
+import { pathologyFeature } from "@/config/sections/home";
 
 export default function PathologySection() {
   return <DarkFeatureSection {...pathologyFeature} />;

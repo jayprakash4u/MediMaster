@@ -1,5 +1,5 @@
 import TrialRequestSection from "@/components/ui/TrialRequestSection";
-import { hmsTrial } from "@/lib/trial-sections";
+import { hmsTrial } from "@/config/sections/trials";
 
 export default function HMSTrialSection() {
   return <TrialRequestSection {...hmsTrial} />;

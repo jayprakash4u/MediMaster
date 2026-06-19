@@ -194,7 +194,7 @@ for (const { file, config, orbit, orbitPath } of heroWrappers) {
     full,
     `import ProductHero from "@/components/ui/ProductHero";
 import ${orbit} from "${orbitPath}";
-import { ${config} } from "@/lib/product-heroes";
+import { ${config} } from "@/config/heroes/product";
 
 export default function ${name}() {
   return <ProductHero {...${config}} visual={<${orbit} />} />;
@@ -208,7 +208,7 @@ for (const { file, config, name } of marketingWrappers) {
   fs.writeFileSync(
     full,
     `import MarketingHero from "@/components/ui/MarketingHero";
-import { ${config} } from "@/lib/marketing-heroes";
+import { ${config} } from "@/config/heroes/marketing";
 
 export default function ${name}() {
   return <MarketingHero {...${config}} />;

@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { fontVariables, inter } from "@/lib/fonts";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config/site";
 
 export const metadata = {
   title: {

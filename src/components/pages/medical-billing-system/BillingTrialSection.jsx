@@ -1,5 +1,5 @@
 import TrialRequestSection from "@/components/ui/TrialRequestSection";
-import { billingTrial } from "@/lib/trial-sections";
+import { billingTrial } from "@/config/sections/trials";
 
 export default function BillingTrialSection() {
   return <TrialRequestSection {...billingTrial} />;

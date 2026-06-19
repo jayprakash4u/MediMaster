@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config/site";
 import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
 
 export const metadata = {

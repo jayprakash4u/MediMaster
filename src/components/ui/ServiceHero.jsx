@@ -108,14 +108,9 @@ export default function ServiceHero({
               ) : (
                 <p className={cn(COMPONENT_STYLES.label, TEXT_COLOR.tealOnDark)}>{eyebrow}</p>
               )}
-              <h1 className={cn(HEADING.h1, "text-white")}>
+              <h1 className={cn(HEADING.hero, "text-white")}>
                 {title}
-                {highlight ? (
-                  <>
-                    {" "}
-                    <span className="text-gradient-brand">{highlight}</span>
-                  </>
-                ) : null}
+                {highlight ? ` ${highlight}` : ""}
               </h1>
               <p className={cn(BODY.hero, "max-w-xl text-slate-300")}>{description}</p>
             </div>

@@ -99,8 +99,7 @@ export default function MarketingHero({
             {eyebrowStyle === "marker" ? (
               <EyebrowMarker
                 label={eyebrow}
-                className={cn(isCenter ? "justify-center" : "lg:justify-start")}
-                labelClassName={TEXT_COLOR.tealOnDark}
+                className={cn(isCenter ? "justify-center" : "lg:justify-start", "text-teal-400")}
               />
             ) : badgeLetter ? (
               <div ref={badgeRef} className="hero-badge mb-6 h-14 w-14">
@@ -114,9 +113,9 @@ export default function MarketingHero({
               {eyebrowStyle === "badge" && eyebrow ? (
                 <p className={cn(COMPONENT_STYLES.label, TEXT_COLOR.tealOnDark)}>{eyebrow}</p>
               ) : null}
-              <h1 className={cn(HEADING.h1, "text-white")}>
-                {title}{" "}
-                {highlight ? <span className="text-gradient-brand">{highlight}</span> : null}
+              <h1 className={cn(HEADING.hero, "text-white")}>
+                {title}
+                {highlight ? ` ${highlight}` : ""}
                 {titleAfter ? ` ${titleAfter}` : ""}
               </h1>
               <p className={cn(BODY.hero, "text-slate-300")}>{description}</p>

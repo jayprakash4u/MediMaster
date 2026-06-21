@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
+import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
 import { CardMedia, CardMediaBody, CardMediaImage } from "@/components/ui/Card";
-import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
+import { BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 const blogs = [
   {
@@ -110,100 +111,104 @@ export default function LatestBlogs() {
   const next = () => setCurrent((c) => Math.min(c + 1, maxIndex));
 
   return (
-    <section className="overflow-hidden bg-navy-950 px-6 py-16 md:px-12">
-      <SectionHeader
-        eyebrow="Insights"
-        title="Stay Updated With Our Latest"
-        highlight="Blogs"
-        description="Our blogs offers in-depth insight, expert opinions, and the latest innovations shaping the future of healthcare."
-        theme="dark"
-        className="mb-10"
-      />
+    <section className="relative overflow-hidden bg-navy-950 px-6 py-16 md:px-12">
+      <MedicalSectionBackdrop variant="dark" />
+      <div className="hero-page__grid opacity-[0.05]" aria-hidden />
+      <div className="relative">
+        <SectionHeader
+          eyebrow="Healthcare Insights"
+          title="Stay Updated With Our Latest"
+          highlight="Blogs"
+          description="Expert articles on healthcare software, compliance, patient experience, and digital transformation for medical teams."
+          theme="dark"
+          className="mb-10"
+        />
 
-      <div className="relative mx-auto max-w-7xl px-2 sm:px-0">
-        <button
-          onClick={prev}
-          disabled={safeCurrent === 0}
-          aria-label="Previous"
-          className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-left-10"
-        >
-          ‹‹
-        </button>
-
-        <div className="overflow-hidden">
-          <div
-            className="flex gap-6 transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(calc(-${safeCurrent} * (100% / ${visibleCards} + 24px - 24px / ${visibleCards})))`,
-            }}
+        <div className="relative mx-auto max-w-7xl px-2 sm:px-0">
+          <button
+            onClick={prev}
+            disabled={safeCurrent === 0}
+            aria-label="Previous"
+            className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-left-10"
           >
-            {blogs.map((blog) => (
-              <CardMedia
-                key={blog.id}
-                className="w-full flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
-              >
-                <CardMediaImage className="h-48 sm:h-56 sm:aspect-auto">
-                  <Image src={blog.image} alt={blog.title} fill className="object-cover" />
-                  <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xxs font-bold uppercase tracking-widest text-slate-800 shadow-sm">
-                    {blog.tag}
-                  </span>
-                </CardMediaImage>
+            ‹‹
+          </button>
 
-                <CardMediaBody className="gap-4">
-                  <p className={`${COMPONENT_STYLES.caption} ${TEXT_COLOR.teal} tracking-wide`}>
-                    {blog.date} · {blog.readTime}
-                  </p>
+          <div className="overflow-hidden">
+            <div
+              className="flex gap-6 transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(calc(-${safeCurrent} * (100% / ${visibleCards} + 24px - 24px / ${visibleCards})))`,
+              }}
+            >
+              {blogs.map((blog) => (
+                <CardMedia
+                  key={blog.id}
+                  className="w-full flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
+                >
+                  <CardMediaImage className="h-48 sm:h-56 sm:aspect-auto">
+                    <Image src={blog.image} alt={blog.title} fill className="object-cover" />
+                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xxs font-bold uppercase tracking-widest text-slate-800 shadow-sm">
+                      {blog.tag}
+                    </span>
+                  </CardMediaImage>
 
-                  <h3 className={`${HEADING.h4} uppercase ${TEXT_COLOR.teal}`}>{blog.title}</h3>
+                  <CardMediaBody className="gap-4">
+                    <p className={`${COMPONENT_STYLES.caption} ${TEXT_COLOR.teal} tracking-wide`}>
+                      {blog.date} · {blog.readTime}
+                    </p>
 
-                  <p className={`flex-1 ${BODY.small} ${TEXT_COLOR.muted}`}>{blog.excerpt}</p>
+                    <h3 className={COMPONENT_STYLES.cardTitle}>{blog.title}</h3>
 
-                  <Link
-                    href={blog.href}
-                    className={`mt-auto inline-flex items-center gap-1 ${COMPONENT_STYLES.linkAccent} group`}
-                  >
-                    Read More
-                    <svg
-                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    <p className={`flex-1 ${BODY.small} ${TEXT_COLOR.muted}`}>{blog.excerpt}</p>
+
+                    <Link
+                      href={blog.href}
+                      className={`mt-auto inline-flex items-center gap-1 ${COMPONENT_STYLES.linkAccent} group`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </Link>
-                </CardMediaBody>
-              </CardMedia>
-            ))}
+                      Read More
+                      <svg
+                        className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </Link>
+                  </CardMediaBody>
+                </CardMedia>
+              ))}
+            </div>
           </div>
+
+          <button
+            onClick={next}
+            disabled={safeCurrent === maxIndex}
+            aria-label="Next"
+            className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-right-10"
+          >
+            ››
+          </button>
         </div>
 
-        <button
-          onClick={next}
-          disabled={safeCurrent === maxIndex}
-          aria-label="Next"
-          className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-right-10"
-        >
-          ››
-        </button>
-      </div>
-
-      <div className="mt-8 flex justify-center gap-2">
-        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 ${
-              i === safeCurrent ? "bg-white" : "bg-white/40"
-            }`}
-          />
-        ))}
+        <div className="mt-8 flex justify-center gap-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 ${
+                i === safeCurrent ? "bg-teal-400" : "bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

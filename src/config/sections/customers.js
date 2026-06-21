@@ -1,0 +1,50 @@
+export const CUSTOMERS_SECTION = {
+  eyebrow: "Our Clients",
+  title: "Our",
+  highlight: "Customers",
+  subtitle: "Trusted by hospitals, clinics, pharmacies, and diagnostic labs across Nepal",
+  categories: [
+    {
+      id: "hospitals",
+      title: "Hospitals & Medical Centers",
+      image: "/hospital-management/hospitalbg.jpg",
+      imageAlt: "Hospitals and medical centers using MediMaster",
+      href: "/portfolio",
+      clients: [
+        "Multi-specialty hospitals — Kathmandu Valley",
+        "Janakpur ENT Hospital",
+        "EIPD Nepalgunj",
+        "Community health centers — Bagmati & Lumbini",
+        "Private nursing homes & day-care centers",
+      ],
+    },
+    {
+      id: "clinics",
+      title: "Clinics & Polyclinics",
+      image: "/home/homeherosction/Gemini_Generated_Image_27xs1y27xs1y27xs.png",
+      imageAlt: "Clinics and polyclinics using MediMaster",
+      href: "/portfolio",
+      clients: [
+        "Multi-specialty polyclinics",
+        "Dental & ENT outpatient clinics",
+        "Maternity & child care centers",
+        "Urban primary care clinics",
+        "Corporate & occupational health units",
+      ],
+    },
+    {
+      id: "pharmacy-labs",
+      title: "Pharmacies & Diagnostic Labs",
+      image: "/pathology/pathalogy.jpg",
+      imageAlt: "Pharmacies and pathology labs using MediMaster",
+      href: "/portfolio",
+      clients: [
+        "Cutis Path Lab",
+        "Everest Pathology",
+        "Capital Reference Lab",
+        "Mahato Vet Pharma",
+        "Retail & hospital-linked pharmacies",
+      ],
+    },
+  ],
+};

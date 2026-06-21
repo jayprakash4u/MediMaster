@@ -13,6 +13,8 @@ import {
 } from "./StatsIcons";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { CardCompact } from "@/components/ui/Card";
+import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
+import MedicalTrustBar from "@/components/pages/home/shared/MedicalTrustBar";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -173,28 +175,24 @@ export default function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-slate-200 bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12"
+      className="relative w-full overflow-hidden border-b border-slate-200 bg-white px-4 py-14 font-sans antialiased sm:px-6 sm:py-16 lg:px-12 lg:py-20"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(20,184,166,0.06),transparent_50%)]" />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgb(203 213 225 / 0.35) 1px, transparent 0)",
-          backgroundSize: "28px 28px",
-        }}
-      />
+      <MedicalSectionBackdrop />
 
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
           headerRef={headerRef}
           align="left"
-          eyebrow="Our Impact"
+          size="sm"
+          eyebrow="Clinical Impact"
           title="Trusted Across"
           highlight="Healthcare Nepal"
-          className="mb-5 max-w-none sm:mb-6 [&_h2]:text-lg [&_h2]:sm:text-xl [&_h2]:lg:text-2xl"
+          description="Real outcomes from hospitals, pharmacies, labs, and clinics running on MediMaster every day."
+          className="mb-5 max-w-none sm:mb-6"
           as="h2"
         />
+
+        <MedicalTrustBar theme="light" className="mb-5 sm:mb-6" />
 
         <div
           ref={gridRef}

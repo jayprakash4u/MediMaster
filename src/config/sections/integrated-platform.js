@@ -1,0 +1,75 @@
+import { Building2, FlaskConical, Globe, Pill } from "lucide-react";
+
+export const INTEGRATED_PLATFORM = {
+  eyebrow: "Platform Overview",
+  title: "Single Integrated",
+  highlight: "Platform",
+  description:
+    "MediMaster brings hospital, pharmacy, lab, and patient workflows into one connected system — so your team spends less time on admin and more time on care.",
+  columns: [
+    {
+      id: "hospital",
+      title: "Hospital Management",
+      icon: Building2,
+      href: "/hospital-management",
+      items: [
+        "OPD & IPD patient management",
+        "OT, ward & emergency workflows",
+        "Appointment scheduling",
+        "Insurance & claim management",
+        "Pathology & radiology integration",
+        "Pharmacy inventory & sales",
+        "Payroll & HR management",
+        "Business analytics & MIS",
+      ],
+    },
+    {
+      id: "pharmacy",
+      title: "Pharmacy Management",
+      icon: Pill,
+      href: "/pharmacy-management",
+      items: [
+        "Auto-fetch prescriptions for dispensing",
+        "Barcode & batch scanning",
+        "Expiry tracking with alerts",
+        "GST-compliant billing & invoicing",
+        "Inventory reorder management",
+        "Multi-branch pharmacy control",
+        "Drug interaction & allergy alerts",
+        "Mobile app for medicine ordering",
+      ],
+    },
+    {
+      id: "pathology",
+      title: "Pathology & Lab",
+      icon: FlaskConical,
+      href: "/pathology-management",
+      items: [
+        "1000+ lab investigations & panels",
+        "Sample collection & barcode tracking",
+        "Result entry with critical flags",
+        "Branded reports with digital signatures",
+        "SMS & WhatsApp report delivery",
+        "OPD, IPD & radiology integration",
+        "Patient portal for online reports",
+        "Revenue & collection analytics",
+      ],
+    },
+    {
+      id: "portal",
+      title: "Patient Portal",
+      icon: Globe,
+      href: "/products/patient-management-system",
+      items: [
+        "Online appointment booking",
+        "Scheduling & reminders",
+        "Report view & upload",
+        "E-prescription access",
+        "Medical record management",
+        "Digital payments",
+        "Web portal & mobile apps",
+        "Real-time status updates",
+      ],
+    },
+  ],
+};

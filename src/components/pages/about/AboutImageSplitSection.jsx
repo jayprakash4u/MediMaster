@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -67,8 +68,8 @@ export default function AboutImageSplitSection() {
           </span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12">
-          Building <span className="text-teal-600">Healthcare</span> Excellence
+        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-navy-950`}>
+          Building Healthcare Excellence
         </h2>
       </div>
 
@@ -142,8 +143,8 @@ export default function AboutImageSplitSection() {
               <span>About Us</span>
             </div>
 
-            <h2 className="text-3xl font-black text-navy-950 sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-              Data-Driven <span className="text-teal-500">Insights</span> For Smart Decisions
+            <h2 className={`${HEADING.sectionDisplay.md} text-navy-950`}>
+              Data-Driven Insights For Smart Decisions
             </h2>
           </div>
 

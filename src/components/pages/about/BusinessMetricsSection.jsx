@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -155,9 +156,7 @@ export default function BusinessMetricsSection() {
           </span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12">
-          Success by <span className="text-teal-600">Numbers</span>
-        </h2>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-navy-950`}>Success by Numbers</h2>
 
         <div className="metrics-panel w-full bg-teal-500/5 rounded-2xl border border-teal-500/10 shadow-[0_4px_30px_rgba(13,148,136,0.03)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative z-10 overflow-visible">
           {statsData.map((stat, idx) => (

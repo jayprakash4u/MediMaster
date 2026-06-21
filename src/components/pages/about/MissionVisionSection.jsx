@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -106,8 +107,8 @@ export default function MissionVisionSection() {
           </span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-slate-900 mb-12">
-          Mission, Vision & <span className="text-teal-600">Goals</span>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-navy-950`}>
+          Mission, Vision & Goals
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">

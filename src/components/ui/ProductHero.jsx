@@ -28,7 +28,7 @@ export default function ProductHero({
           </span>
 
           <h1 className={`${HEADING.display} text-white`}>
-            {titleBefore} <span className="text-gradient-brand">{highlight}</span>
+            {titleBefore} {highlight}
             {titleAfter ? ` ${titleAfter}` : ""}
           </h1>
 

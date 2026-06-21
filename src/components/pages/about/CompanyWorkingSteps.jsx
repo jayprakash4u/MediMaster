@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HEADING } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -140,9 +141,7 @@ export default function CompanyWorkingSteps() {
           </span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-4xl font-extrabold leading-[1.12] text-white mb-12">
-          How We <span className="text-teal-400">Work</span>
-        </h2>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-white`}>How We Work</h2>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-6 min-h-[300px]">
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative z-10">

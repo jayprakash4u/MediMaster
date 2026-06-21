@@ -34,7 +34,12 @@ export const HEADING = {
   h3: "text-xl font-bold sm:text-2xl tracking-tight",
   h4: "text-lg font-semibold sm:text-xl tracking-tight",
   label: "text-sm font-semibold tracking-tight",
-  hero: "text-2xl font-extrabold leading-[1.12] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem]",
+  hero: "text-2xl font-black leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem]",
+  sectionDisplay: {
+    sm: "text-2xl font-black leading-[1.05] tracking-tight sm:text-3xl",
+    md: "text-3xl font-black leading-[1.05] tracking-tight sm:text-4xl lg:text-[2.75rem]",
+    lg: "text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl",
+  },
 };
 
 export const BODY = {

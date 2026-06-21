@@ -1,6 +1,7 @@
 export const aboutHero = {
   eyebrow: "About Us",
-  eyebrowStyle: "marker",
+  eyebrowStyle: "badge",
+  badgeLetter: "A",
   title: "Transforming Healthcare with",
   highlight: "Technology",
   description:

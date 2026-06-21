@@ -99,6 +99,10 @@
     @apply flex min-h-[70vh] items-center lg:min-h-[80vh];
   }
 
+  .hero-page--home {
+    @apply min-h-[76vh] lg:min-h-[86vh];
+  }
+
   .hero-page__atmosphere {
     @apply pointer-events-none absolute inset-0;
     background:
@@ -126,6 +130,33 @@
 
   .hero-page__wave svg {
     @apply relative block h-[70px] w-full fill-white;
+  }
+
+  .hero-page__ecg {
+    @apply pointer-events-none absolute bottom-[68px] left-0 z-[5] w-full overflow-hidden;
+  }
+
+  .hero-page__ecg-track {
+    @apply flex h-12 w-[200%] animate-ecg-scroll opacity-60 sm:h-14 sm:opacity-70;
+  }
+
+  .hero-page__ecg-track path {
+    filter: drop-shadow(0 0 6px rgba(20, 184, 166, 0.45));
+  }
+
+  .medical-dot-grid {
+    opacity: 0.22;
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgb(203 213 225 / 0.55) 1px,
+      transparent 0
+    );
+    background-size: 32px 32px;
+  }
+
+  .home-medical-flow > section,
+  .home-medical-flow > div:not([aria-hidden]) {
+    @apply relative;
   }
 
   .hero-badge {

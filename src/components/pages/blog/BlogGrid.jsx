@@ -1,222 +1,82 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Link from "next/link";
+import { useMemo, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionHeader from "@/components/ui/SectionHeader";
-import Button from "@/components/ui/Button";
-import { COMPONENT_STYLES } from "@/lib/typography";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { CardMedia, CardMediaBody, CardMediaImage } from "@/components/ui/Card";
+import { BLOG_POSTS, BLOG_TAGS } from "@/config/sections/blog";
+import { cn } from "@/lib/cn";
 
-gsap.registerPlugin(ScrollTrigger);
+function ArticleCard({ post }) {
+  return (
+    <CardMedia as={Link} href={post.href} className="group h-full">
+      <CardMediaImage>
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+      </CardMediaImage>
 
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "10 Key Features Every Modern Healthcare ERP Should Have",
-    excerpt:
-      "From real-time inventory management to HIPAA-compliant patient data handling, discover the must-have features that make or break a healthcare management system in 2026.",
-    date: "Jun 12, 2026",
-    author: "Dr. Sarah Chen",
-    tag: "Healthcare Tech",
-    readTime: "6 min read",
-    image: "/blog/10 Key Features Every Modern Healthcare ERP Should Have.jpg",
-    href: "/blog/10-key-features-healthcare-erp",
-  },
-  {
-    id: 2,
-    title: "Telemedicine Compliance: A Complete Guide to Regulatory Standards",
-    excerpt:
-      "Navigate the complex landscape of telemedicine regulations across ACO, CMS, and state-level mandates with our comprehensive compliance checklist.",
-    date: "Jun 8, 2026",
-    author: "Marcus Rivera",
-    tag: "Compliance",
-    readTime: "8 min read",
-    image: "/blog/Telemedicine Compliance.jpg",
-    href: "/blog/telemedicine-compliance-guide",
-  },
-  {
-    id: 3,
-    title: "How AI-Powered Diagnostics Are Transforming Rural Healthcare",
-    excerpt:
-      "Artificial intelligence is breaking down geographic barriers — see how remote diagnostic tools are delivering specialist-level care to underserved communities.",
-    date: "Jun 3, 2026",
-    author: "Dr. Priya Nair",
-    tag: "Innovation",
-    readTime: "7 min read",
-    image: "/blog/How AI-Powered Diagnostics Are Transforming Rural Healthcare.jpg",
-    href: "/blog/ai-diagnostics-rural-healthcare",
-  },
-  {
-    id: 4,
-    title: "Building a Patient Portal That Actually Gets Used: UX Best Practices",
-    excerpt:
-      "A patient portal is only valuable if people use it. Learn the UX principles and design patterns that drive adoption, engagement, and better health outcomes.",
-    date: "May 28, 2026",
-    author: "Aisha Johnson",
-    tag: "Patient Experience",
-    readTime: "5 min read",
-    image: "/blog/Building a Patient Portal That Actually Gets Used UX Best.jpg",
-    href: "/blog/patient-portal-ux-best-practices",
-  },
-  {
-    id: 5,
-    title: "Pharmacy Management Systems: What to Expect After Implementation",
-    excerpt:
-      "Deployment is just day one. Here is a practical roadmap for rolling out a pharmacy management system, training staff, and measuring real-world impact.",
-    date: "May 21, 2026",
-    author: "Dr. Sarah Chen",
-    tag: "Pharmacy Tech",
-    readTime: "9 min read",
-    image: "/blog/Pharmacy Management Systems What to Expect After.jpg",
-    href: "/blog/pharmacy-management-after-implementation",
-  },
-  {
-    id: 6,
-    title: "Medical SEO: Why Your Practice Is Invisible Without It",
-    excerpt:
-      "Healthcare consumers start their search for providers on Google — but the rules have changed. Here is how to earn visibility in 2026's evolving search landscape.",
-    date: "May 15, 2026",
-    author: "Kai Tanaka",
-    tag: "Digital Marketing",
-    readTime: "6 min read",
-    image: "/blog/Medical SEOWhy Your Practice Is Invisible Without It.jpg",
-    href: "/blog/medical-seo-2026",
-  },
-];
+      <CardMediaBody>
+        <p className="card-eyebrow">{post.tag}</p>
+        <h2 className="card-title mt-2 transition-colors group-hover:text-teal-700">
+          {post.title}
+        </h2>
+        <p className="card-desc mt-2 line-clamp-2">{post.excerpt}</p>
+        <p className="mt-4 text-xs text-slate-400">
+          {post.date} · {post.readTime}
+        </p>
+        <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-teal-600">
+          Read more
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+        </span>
+      </CardMediaBody>
+    </CardMedia>
+  );
+}
 
 export default function BlogGrid() {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const cardsRef = useRef([]);
+  const [activeTag, setActiveTag] = useState("All");
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headingRef.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: { trigger: sectionRef.current, start: "top 85%" },
-        }
-      );
-
-      cardsRef.current.forEach((card, i) => {
-        if (!card) return;
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            delay: i * 0.08,
-            scrollTrigger: { trigger: sectionRef.current, start: "top 80%" },
-          }
-        );
-
-        card.addEventListener("mouseenter", () =>
-          gsap.to(card, { y: -6, duration: 0.3, ease: "power2.out" })
-        );
-        card.addEventListener("mouseleave", () =>
-          gsap.to(card, { y: 0, duration: 0.35, ease: "power2.out" })
-        );
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
+  const filteredPosts = useMemo(
+    () => (activeTag === "All" ? BLOG_POSTS : BLOG_POSTS.filter((post) => post.tag === activeTag)),
+    [activeTag]
+  );
 
   return (
-    <section ref={sectionRef} className="section-shell bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          headerRef={headingRef}
-          align="left"
-          eyebrow="Our Case Studies"
-          title="Explore Our Latest"
-          highlight="Articles"
-          description="Discover expert insights, practical guides, and the latest trends in technology, healthcare software, and digital innovation."
-          className="mb-12 max-w-xl"
-        />
-
-        {/* Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {BLOG_POSTS.map((post, index) => (
-            <article
-              key={post.id}
-              ref={(el) => {
-                cardsRef.current[index] = el;
-              }}
-              className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
+    <section id="blog-articles" className="section-shell bg-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 flex flex-wrap gap-2">
+          {BLOG_TAGS.map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              onClick={() => setActiveTag(tag)}
+              className={cn(
+                "rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
+                activeTag === tag ? "bg-slate-900 text-white" : "text-slate-600 hover:bg-slate-100"
+              )}
             >
-              {/* Image */}
-              <div className="relative h-48 md:h-52 overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {/* Tag badge */}
-                <span className="absolute top-3 left-3 text-xxs font-bold uppercase tracking-widest bg-white/90 text-slate-800 px-3 py-1 rounded-full shadow-sm">
-                  {post.tag}
-                </span>
-              </div>
-
-              {/* Body */}
-              <div className="p-6">
-                <p className="text-xs font-medium text-teal-600 tracking-wide mb-2">
-                  {post.date} · {post.readTime}
-                </p>
-
-                <h3 className="text-base md:text-lg font-bold text-slate-900 leading-snug mb-3 line-clamp-2">
-                  {post.title}
-                </h3>
-
-                <p className="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                  <span className="text-xs font-semibold text-slate-600">{post.author}</span>
-                  <Link
-                    href={post.href}
-                    className={`${COMPONENT_STYLES.linkAccent} inline-flex items-center gap-1 group`}
-                  >
-                    Read More
-                    <svg
-                      className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </article>
+              {tag}
+            </button>
           ))}
         </div>
 
-        {/* View All Button */}
-        <div className="flex justify-center mt-12">
-          <Button href="/blog" variant="secondary" className="px-8 py-3 font-bold">
-            View all articles
-          </Button>
-        </div>
+        {filteredPosts.length > 0 ? (
+          <div className="card-grid">
+            {filteredPosts.map((post) => (
+              <ArticleCard key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <p className="py-16 text-center text-sm text-slate-500">
+            No articles in this category yet.
+          </p>
+        )}
       </div>
     </section>
   );

@@ -32,25 +32,50 @@ export default function MarketingHero({
       gsap.fromTo(
         containerRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out", clearProps: "transform" }
       );
       if (badgeRef.current) {
         gsap.fromTo(
           badgeRef.current,
           { opacity: 0, scale: 0.8, rotation: -14 },
-          { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "back.out(1.7)", delay: 0.25 }
+          {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 1.1,
+            ease: "back.out(1.7)",
+            delay: 0.25,
+            clearProps: "transform",
+          }
         );
       }
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.45 }
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: 0.45,
+          clearProps: "transform",
+        }
       );
-      gsap.fromTo(
-        imageRef.current,
-        { opacity: 0, x: 60, scale: 0.92 },
-        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.4 }
-      );
+      if (imageRef.current) {
+        gsap.fromTo(
+          imageRef.current,
+          { opacity: 0, x: 60, scale: 0.92 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 1.1,
+            ease: "power3.out",
+            delay: 0.4,
+            clearProps: "transform",
+          }
+        );
+      }
     }, containerRef);
     return () => ctx.revert();
   }, []);
@@ -58,12 +83,9 @@ export default function MarketingHero({
   const isCenter = align === "center";
 
   return (
-    <section
-      ref={containerRef}
-      className="relative flex min-h-[70vh] items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 text-white lg:min-h-[80vh]"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.18)_0,_transparent_38%)] opacity-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(20,184,166,0.14)_0,_transparent_45%)] opacity-20" />
+    <section ref={containerRef} className="hero-page hero-page--tall">
+      <div className="hero-page__atmosphere" aria-hidden="true" />
+      <div className="hero-page__grid" aria-hidden="true" />
 
       <div className="relative z-10 container mx-auto px-6 py-8 lg:py-16">
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
@@ -77,24 +99,23 @@ export default function MarketingHero({
             {eyebrowStyle === "marker" ? (
               <EyebrowMarker
                 label={eyebrow}
-                className={cn(isCenter ? "justify-center" : "lg:justify-start")}
-                labelClassName="text-teal-300"
+                className={cn(isCenter ? "justify-center" : "lg:justify-start", "text-teal-400")}
               />
             ) : badgeLetter ? (
-              <div
-                ref={badgeRef}
-                className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal-300/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-              >
-                <span className="text-3xl font-black text-teal-300">{badgeLetter}</span>
+              <div ref={badgeRef} className="hero-badge mb-6 h-14 w-14">
+                <span className={cn("text-3xl font-black", TEXT_COLOR.tealOnDark)}>
+                  {badgeLetter}
+                </span>
               </div>
             ) : null}
 
             <div className="space-y-4">
               {eyebrowStyle === "badge" && eyebrow ? (
-                <p className={`${COMPONENT_STYLES.label} text-teal-300/80`}>{eyebrow}</p>
+                <p className={cn(COMPONENT_STYLES.label, TEXT_COLOR.tealOnDark)}>{eyebrow}</p>
               ) : null}
-              <h1 className={`${HEADING.h1} text-white`}>
-                {title} {highlight ? <span className="text-teal-300">{highlight}</span> : null}
+              <h1 className={cn(HEADING.hero, "text-white")}>
+                {title}
+                {highlight ? ` ${highlight}` : ""}
                 {titleAfter ? ` ${titleAfter}` : ""}
               </h1>
               <p className={cn(BODY.hero, "text-slate-300")}>{description}</p>
@@ -111,7 +132,7 @@ export default function MarketingHero({
                   <Button
                     href={primaryCta.href}
                     variant="primary"
-                    className="rounded-full bg-teal-400 text-slate-950 hover:bg-teal-300"
+                    className="rounded-full px-6 py-2.5"
                   >
                     {primaryCta.label}
                   </Button>
@@ -120,7 +141,7 @@ export default function MarketingHero({
                   <Button
                     href={secondaryCta.href}
                     variant="outline"
-                    className="rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10"
+                    className="rounded-full border-white/20 bg-navy-900/40 px-6 py-2.5 text-white backdrop-blur-sm hover:border-teal-500/50 hover:bg-navy-800/60 hover:text-white"
                   >
                     {secondaryCta.label}
                   </Button>
@@ -132,7 +153,7 @@ export default function MarketingHero({
           {imageSrc ? (
             <div ref={imageRef} className="flex flex-1 justify-center lg:justify-end">
               <div className="relative aspect-square w-full max-w-md lg:max-w-lg">
-                <div className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle,rgba(20,184,166,0.18)_0%,transparent_70%)] blur-xl" />
+                <div className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle,rgba(20,184,166,0.16)_0%,transparent_70%)] blur-2xl" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
                     src={imageSrc}
@@ -149,12 +170,8 @@ export default function MarketingHero({
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-        <svg
-          className="relative block h-[70px] w-full fill-gray-50"
-          viewBox="0 24 150 28"
-          preserveAspectRatio="none"
-        >
+      <div className="hero-page__wave" aria-hidden="true">
+        <svg viewBox="0 24 150 28" preserveAspectRatio="none">
           <path d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
         </svg>
       </div>

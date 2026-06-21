@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const contentTypes = [
+export const contentTypes = [
   {
     id: 1,
     emoji: "📰",

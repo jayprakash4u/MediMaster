@@ -4,9 +4,9 @@
  * Structure:
  *   config/site.js, constants.js, products.js
  *   config/heroes/   — marketing, product, service, floating-icons
- *   config/sections/ — home, trials
+ *   config/sections/ — trials, clients, support, etc.
  *
- * Design tokens & utilities stay in src/lib/ (typography, fonts, cn, colors).
+ * Design tokens & utilities stay in src/lib/ (typography, fonts, cn).
  */
 
 export { SITE } from "./site";
@@ -18,5 +18,11 @@ export * from "./heroes/product";
 export * from "./heroes/service";
 export * from "./heroes/floating-icons";
 
-export * from "./sections/home";
 export * from "./sections/trials";
+export * from "./sections/clients";
+export * from "./sections/support";
+export * from "./sections/portfolio";
+export * from "./sections/contact";
+export * from "./sections/blog";
+export * from "./sections/website-development";
+export * from "./sections/service-pages";

@@ -1,13 +1,13 @@
-import GallerySection from "@/components/pages/portfolio/GallerySection";
+import PortfolioHero from "@/components/pages/portfolio/PortfolioHero";
 import PortfolioSection from "@/components/pages/portfolio/PortfolioSection";
+import GallerySection from "@/components/pages/portfolio/GallerySection";
 
 export default function PortfolioPage() {
   return (
-    <>
-      <main>
-        <PortfolioSection />
-        <GallerySection />
-      </main>
-    </>
+    <main>
+      <PortfolioHero />
+      <PortfolioSection />
+      <GallerySection />
+    </main>
   );
 }

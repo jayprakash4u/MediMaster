@@ -3,13 +3,14 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { HEADING, FONT_FAMILY } from "@/lib/typography";
+import SectionHeader from "@/components/ui/SectionHeader";
+import Button from "@/components/ui/Button";
+import { FONT_FAMILY, BODY } from "@/lib/typography";
+import { cn } from "@/lib/cn";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
-
-// ─── Data ────────────────────────────────────────────────────────────────────
 
 const WHEEL_FONT = FONT_FAMILY.sans;
 const OUTER_LABEL_RADIUS = 192;
@@ -18,6 +19,18 @@ const OUTER_LINE_HEIGHT = 10.5;
 const INNER_LINE_HEIGHT = 10;
 const OUTER_FONT_SIZE = 7.75;
 const INNER_FONT_SIZE = 7.25;
+
+const BRAND_COLORS = {
+  navy950: { fill: "#0F1F4D", hover: "#0A1638", textColor: "#FFFFFF", textColorMuted: "#C5D7FF" },
+  navy800: { fill: "#153087", hover: "#122868", textColor: "#FFFFFF", textColorMuted: "#9AB1FF" },
+  navy600: { fill: "#254DC8", hover: "#1A3BA8", textColor: "#FFFFFF", textColorMuted: "#C5D7FF" },
+  navy500: { fill: "#3B66E2", hover: "#254DC8", textColor: "#FFFFFF", textColorMuted: "#E0EBFF" },
+  teal700: { fill: "#0F766E", hover: "#115E59", textColor: "#FFFFFF", textColorMuted: "#99F6E4" },
+  teal600: { fill: "#0D9488", hover: "#0F766E", textColor: "#FFFFFF", textColorMuted: "#99F6E4" },
+  teal500: { fill: "#14B8A6", hover: "#0D9488", textColor: "#FFFFFF", textColorMuted: "#CCFDF5" },
+  cyan600: { fill: "#0891B2", hover: "#0E7490", textColor: "#FFFFFF", textColorMuted: "#A5F3FC" },
+  navy700: { fill: "#1A3BA8", hover: "#153087", textColor: "#FFFFFF", textColorMuted: "#C5D7FF" },
+};
 
 function getSegmentMidPoint(index, total, radius, cx = 250, cy = 250) {
   const midAngleDeg = (index * 360) / total - 90 + 360 / total / 2;
@@ -101,80 +114,56 @@ const OUTER_SEGMENTS = [
     label: ["DEEP", "INDUSTRY", "EXPERTISE"],
     fullLabel: "Deep Industry Expertise",
     path: "M250,250 L250,20 A230,230 0 0,1 412,88 Z",
-    fill: "#1E3A8A",
-    hover: "#172554",
-    textColor: "#FFFFFF",
-    textColorMuted: "#BFDBFE",
+    ...BRAND_COLORS.navy950,
   },
   {
     id: "technology",
     label: ["TECHNOLOGY", "FRAMEWORKS"],
     fullLabel: "Technology Frameworks",
     path: "M250,250 L412,88 A230,230 0 0,1 480,250 Z",
-    fill: "#7C3AED",
-    hover: "#5B21B6",
-    textColor: "#FFFFFF",
-    textColorMuted: "#DDD6FE",
+    ...BRAND_COLORS.navy600,
   },
   {
     id: "manufacturing",
     label: ["MANU-", "FACTURING"],
     fullLabel: "Manufacturing Ecosystems",
     path: "M250,250 L480,250 A230,230 0 0,1 412,412 Z",
-    fill: "#EA580C",
-    hover: "#C2410C",
-    textColor: "#FFFFFF",
-    textColorMuted: "#FED7AA",
+    ...BRAND_COLORS.teal600,
   },
   {
     id: "banking",
     label: ["BANKING", "& FINANCE"],
     fullLabel: "Banking & Financial Services",
     path: "M250,250 L412,412 A230,230 0 0,1 250,480 Z",
-    fill: "#059669",
-    hover: "#047857",
-    textColor: "#FFFFFF",
-    textColorMuted: "#A7F3D0",
+    ...BRAND_COLORS.teal700,
   },
   {
     id: "media",
     label: ["MEDIA", "& DIGITAL"],
     fullLabel: "Media & Entertainment Systems",
     path: "M250,250 L250,480 A230,230 0 0,1 88,412 Z",
-    fill: "#DB2777",
-    hover: "#BE185D",
-    textColor: "#FFFFFF",
-    textColorMuted: "#FBCFE8",
+    ...BRAND_COLORS.navy800,
   },
   {
     id: "telecom",
     label: ["TELECOM", "INFRA"],
     fullLabel: "Telecom Integration Infrastructure",
     path: "M250,250 L88,412 A230,230 0 0,1 20,250 Z",
-    fill: "#0891B2",
-    hover: "#0E7490",
-    textColor: "#FFFFFF",
-    textColorMuted: "#A5F3FC",
+    ...BRAND_COLORS.cyan600,
   },
   {
     id: "healthcare",
     label: ["HEALTHCARE"],
     fullLabel: "Healthcare Architecture",
     path: "M250,250 L20,250 A230,230 0 0,1 88,88 Z",
-    fill: "#0D9488",
-    hover: "#0F766E",
-    textColor: "#FFFFFF",
-    textColorMuted: "#99F6E4",
+    ...BRAND_COLORS.teal500,
   },
   {
     id: "enterprise",
     label: ["ENTER-", "PRISE"],
     fullLabel: "Enterprise Core Operations",
     path: "M250,250 L88,88 A230,230 0 0,1 250,20 Z",
-    fill: "#4338CA",
-    hover: "#3730A3",
-    textColor: "#FFFFFF",
-    textColorMuted: "#C7D2FE",
+    ...BRAND_COLORS.navy500,
   },
 ];
 
@@ -184,40 +173,28 @@ const INNER_SEGMENTS = [
     label: ["INTELLECTUAL", "PROPERTY"],
     fullLabel: "Intellectual Property, Assets & Resources",
     path: "M250,250 L250,95 A155,155 0 0,1 405,250 Z",
-    fill: "#F59E0B",
-    hover: "#D97706",
-    textColor: "#422006",
-    textColorMuted: "#78350F",
+    ...BRAND_COLORS.navy700,
   },
   {
     id: "accelerators",
     label: ["ACCEL-", "ERATORS", "& LABS"],
     fullLabel: "Accelerators & Innovation Labs",
     path: "M250,250 L405,250 A155,155 0 0,1 250,405 Z",
-    fill: "#8B5CF6",
-    hover: "#6D28D9",
-    textColor: "#FFFFFF",
-    textColorMuted: "#EDE9FE",
+    ...BRAND_COLORS.teal600,
   },
   {
     id: "frameworks",
     label: ["FRAMEWORKS", "& CONNECTORS"],
     fullLabel: "Frameworks, Migration Tools & Connectors",
     path: "M250,250 L250,405 A155,155 0 0,1 95,250 Z",
-    fill: "#EF4444",
-    hover: "#DC2626",
-    textColor: "#FFFFFF",
-    textColorMuted: "#FEE2E2",
+    ...BRAND_COLORS.navy600,
   },
   {
     id: "platforms",
     label: ["PLATFORMS", "& COE HUB"],
     fullLabel: "Platforms & Centers of Excellence",
     path: "M250,250 L95,250 A155,155 0 0,1 250,95 Z",
-    fill: "#10B981",
-    hover: "#059669",
-    textColor: "#042F2E",
-    textColorMuted: "#065F46",
+    ...BRAND_COLORS.teal500,
   },
 ];
 
@@ -236,6 +213,7 @@ const OUTER_SPOKES = [
 
 export default function InnovationWheelSection() {
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
   const textSideRef = useRef(null);
   const wheelRef = useRef(null);
   const [hovered, setHovered] = useState(null);
@@ -253,6 +231,22 @@ export default function InnovationWheelSection() {
   // ── GSAP scroll animations ──
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 16 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 82%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
       gsap.from(textSideRef.current?.children ?? [], {
         opacity: 0,
         x: -40,
@@ -288,240 +282,253 @@ export default function InnovationWheelSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white py-20 font-sans antialiased overflow-hidden"
+      className="w-full overflow-hidden border-t border-slate-200/80 bg-[#F8FAFC] py-16 font-sans antialiased sm:py-20"
     >
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        {/* ── LEFT: Text ────────────────────────────────────────────── */}
-        <div ref={textSideRef} className="lg:col-span-5 space-y-6 text-left">
-          <h2 className={`${HEADING.h2} text-teal-600`}>MediMaster Innovation Ecosystem</h2>
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader
+          headerRef={headerRef}
+          align="left"
+          eyebrow="Innovation Ecosystem"
+          title="MediMaster Innovation Ecosystem"
+          description="A connected platform of healthcare expertise, technology frameworks, and enterprise operations built around your clinical workflows."
+          className="mb-10 sm:mb-12"
+        />
 
-          <p
-            className={`text-base font-semibold tracking-wide transition-all duration-300 ${
-              activeSegment
-                ? "text-slate-800 opacity-100 translate-y-0"
-                : "text-transparent opacity-0 -translate-y-1"
-            }`}
-            aria-live="polite"
-          >
-            {activeSegment?.fullLabel ?? "Hover a segment to explore"}
-          </p>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          <div ref={textSideRef} className="space-y-6 text-left lg:col-span-5">
+            <p
+              className={cn(
+                "text-base font-semibold tracking-wide transition-all duration-300",
+                activeSegment
+                  ? "translate-y-0 text-navy-950 opacity-100"
+                  : "-translate-y-1 text-transparent opacity-0"
+              )}
+              aria-live="polite"
+            >
+              {activeSegment?.fullLabel ?? "Hover a segment to explore"}
+            </p>
 
-          <div className="space-y-5 text-gray-700 text-base sm:text-base leading-relaxed font-normal">
-            <p>
-              Our cloud-native platform integrates cutting-edge technology with deep healthcare
-              expertise to deliver seamless practice management solutions.
-            </p>
-            <p>
-              From patient records to billing automation, we provide tools that simplify workflows,
-              ensure compliance, and scale with your practice&apos;s growth.
-            </p>
+            <div className={cn(BODY.base, "space-y-5 text-slate-600")}>
+              <p>
+                Our cloud-native platform integrates cutting-edge technology with deep healthcare
+                expertise to deliver seamless practice management solutions.
+              </p>
+              <p>
+                From patient records to billing automation, we provide tools that simplify
+                workflows, ensure compliance, and scale with your practice&apos;s growth.
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <Button href="/contact" className="rounded-full px-7 py-3 uppercase tracking-wide">
+                Book a Free Demo
+              </Button>
+            </div>
           </div>
 
-          <div className="pt-4">
-            <button className="px-7 py-3.5 bg-teal-600 hover:bg-teal-700 text-white text-base font-bold tracking-wide rounded-md shadow-md transition-colors duration-200 uppercase">
-              Book a Free Demo
-            </button>
-          </div>
-        </div>
+          <div className="flex w-full items-center justify-center lg:col-span-7">
+            <svg
+              ref={wheelRef}
+              viewBox="0 0 500 500"
+              className="w-full max-w-[520px] h-auto select-none drop-shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+              aria-label="Innovation ecosystem wheel"
+              onMouseLeave={handleSegmentLeave}
+            >
+              <defs>
+                <clipPath id="hubClip">
+                  <circle cx="250" cy="250" r="82" />
+                </clipPath>
+                <linearGradient id="hubRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#254DC8" />
+                  <stop offset="45%" stopColor="#14B8A6" />
+                  <stop offset="100%" stopColor="#0F1F4D" />
+                </linearGradient>
+              </defs>
 
-        {/* ── RIGHT: Wheel (Untouched configuration) ───────────────────────── */}
-        <div className="lg:col-span-7 flex justify-center items-center w-full">
-          <svg
-            ref={wheelRef}
-            viewBox="0 0 500 500"
-            className="w-full max-w-[520px] h-auto select-none drop-shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
-            aria-label="Innovation ecosystem wheel"
-            onMouseLeave={handleSegmentLeave}
-          >
-            <defs>
-              <clipPath id="hubClip">
-                <circle cx="250" cy="250" r="82" />
-              </clipPath>
-              <linearGradient id="hubRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#7C3AED" />
-                <stop offset="25%" stopColor="#0891B2" />
-                <stop offset="50%" stopColor="#059669" />
-                <stop offset="75%" stopColor="#EA580C" />
-                <stop offset="100%" stopColor="#DB2777" />
-              </linearGradient>
-            </defs>
+              {/* Outer Ring */}
+              <g>
+                {OUTER_SEGMENTS.map((seg) => (
+                  <WheelSegmentPath
+                    key={seg.id}
+                    seg={seg}
+                    ring="outer"
+                    hovered={hovered}
+                    onHover={handleSegmentHover}
+                    onLeave={handleSegmentLeave}
+                  />
+                ))}
+              </g>
 
-            {/* Outer Ring */}
-            <g>
-              {OUTER_SEGMENTS.map((seg) => (
-                <WheelSegmentPath
-                  key={seg.id}
-                  seg={seg}
-                  ring="outer"
-                  hovered={hovered}
-                  onHover={handleSegmentHover}
-                  onLeave={handleSegmentLeave}
+              {/* Outer spoke dividers */}
+              {OUTER_SPOKES.map(([x2, y2], i) => (
+                <line
+                  key={i}
+                  x1="250"
+                  y1="250"
+                  x2={x2}
+                  y2={y2}
+                  stroke="white"
+                  strokeWidth="1.5"
+                  pointerEvents="none"
                 />
               ))}
-            </g>
-
-            {/* Outer spoke dividers */}
-            {OUTER_SPOKES.map(([x2, y2], i) => (
-              <line
-                key={i}
-                x1="250"
-                y1="250"
-                x2={x2}
-                y2={y2}
+              <circle
+                cx="250"
+                cy="250"
+                r="230"
+                fill="none"
                 stroke="white"
                 strokeWidth="1.5"
                 pointerEvents="none"
               />
-            ))}
-            <circle
-              cx="250"
-              cy="250"
-              r="230"
-              fill="none"
-              stroke="white"
-              strokeWidth="1.5"
-              pointerEvents="none"
-            />
 
-            {/* Outer segment labels */}
-            {OUTER_SEGMENTS.map((seg, index) => {
-              const { x, y } = getSegmentMidPoint(index, OUTER_SEGMENTS.length, OUTER_LABEL_RADIUS);
+              {/* Outer segment labels */}
+              {OUTER_SEGMENTS.map((seg, index) => {
+                const { x, y } = getSegmentMidPoint(
+                  index,
+                  OUTER_SEGMENTS.length,
+                  OUTER_LABEL_RADIUS
+                );
 
-              return (
-                <WheelSegmentLabel
-                  key={`label-${seg.id}`}
-                  lines={seg.label}
-                  x={x}
-                  y={y}
-                  fontSize={OUTER_FONT_SIZE}
-                  lineHeight={OUTER_LINE_HEIGHT}
-                  primaryColor={seg.textColor}
-                  mutedColor={seg.textColorMuted}
-                  isActive={hovered?.id === seg.id && hovered?.ring === "outer"}
-                />
-              );
-            })}
+                return (
+                  <WheelSegmentLabel
+                    key={`label-${seg.id}`}
+                    lines={seg.label}
+                    x={x}
+                    y={y}
+                    fontSize={OUTER_FONT_SIZE}
+                    lineHeight={OUTER_LINE_HEIGHT}
+                    primaryColor={seg.textColor}
+                    mutedColor={seg.textColorMuted}
+                    isActive={hovered?.id === seg.id && hovered?.ring === "outer"}
+                  />
+                );
+              })}
 
-            {/* Inner Ring */}
-            <g>
-              {INNER_SEGMENTS.map((seg) => (
-                <WheelSegmentPath
-                  key={seg.id}
-                  seg={seg}
-                  ring="inner"
-                  hovered={hovered}
-                  onHover={handleSegmentHover}
-                  onLeave={handleSegmentLeave}
-                />
-              ))}
-            </g>
+              {/* Inner Ring */}
+              <g>
+                {INNER_SEGMENTS.map((seg) => (
+                  <WheelSegmentPath
+                    key={seg.id}
+                    seg={seg}
+                    ring="inner"
+                    hovered={hovered}
+                    onHover={handleSegmentHover}
+                    onLeave={handleSegmentLeave}
+                  />
+                ))}
+              </g>
 
-            {/* Inner dividers */}
-            <line
-              x1="250"
-              y1="95"
-              x2="250"
-              y2="405"
-              stroke="white"
-              strokeWidth="1.5"
-              pointerEvents="none"
-            />
-            <line
-              x1="95"
-              y1="250"
-              x2="405"
-              y2="250"
-              stroke="white"
-              strokeWidth="1.5"
-              pointerEvents="none"
-            />
-            <circle
-              cx="250"
-              cy="250"
-              r="155"
-              fill="none"
-              stroke="white"
-              strokeWidth="2"
-              pointerEvents="none"
-            />
+              {/* Inner dividers */}
+              <line
+                x1="250"
+                y1="95"
+                x2="250"
+                y2="405"
+                stroke="white"
+                strokeWidth="1.5"
+                pointerEvents="none"
+              />
+              <line
+                x1="95"
+                y1="250"
+                x2="405"
+                y2="250"
+                stroke="white"
+                strokeWidth="1.5"
+                pointerEvents="none"
+              />
+              <circle
+                cx="250"
+                cy="250"
+                r="155"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                pointerEvents="none"
+              />
 
-            {/* Inner segment labels */}
-            {INNER_SEGMENTS.map((seg, index) => {
-              const { x, y } = getSegmentMidPoint(index, INNER_SEGMENTS.length, INNER_LABEL_RADIUS);
+              {/* Inner segment labels */}
+              {INNER_SEGMENTS.map((seg, index) => {
+                const { x, y } = getSegmentMidPoint(
+                  index,
+                  INNER_SEGMENTS.length,
+                  INNER_LABEL_RADIUS
+                );
 
-              return (
-                <WheelSegmentLabel
-                  key={`ilabel-${seg.id}`}
-                  lines={seg.label}
-                  x={x}
-                  y={y}
-                  fontSize={INNER_FONT_SIZE}
-                  lineHeight={INNER_LINE_HEIGHT}
-                  primaryColor={seg.textColor}
-                  mutedColor={seg.textColorMuted}
-                  isActive={hovered?.id === seg.id && hovered?.ring === "inner"}
-                />
-              );
-            })}
+                return (
+                  <WheelSegmentLabel
+                    key={`ilabel-${seg.id}`}
+                    lines={seg.label}
+                    x={x}
+                    y={y}
+                    fontSize={INNER_FONT_SIZE}
+                    lineHeight={INNER_LINE_HEIGHT}
+                    primaryColor={seg.textColor}
+                    mutedColor={seg.textColorMuted}
+                    isActive={hovered?.id === seg.id && hovered?.ring === "inner"}
+                  />
+                );
+              })}
 
-            {/* Hub structure */}
-            <circle cx="250" cy="250" r="82" fill="white" pointerEvents="none" />
-            <circle cx="250" cy="250" r="78" fill="#E0F7FA" pointerEvents="none" />
+              {/* Hub structure */}
+              <circle cx="250" cy="250" r="82" fill="white" pointerEvents="none" />
+              <circle cx="250" cy="250" r="78" fill="#F0FDFE" pointerEvents="none" />
 
-            {/* MediMaster logo inside hub */}
-            <clipPath id="hubLogoClip">
-              <circle cx="250" cy="232" r="26" />
-            </clipPath>
-            <image
-              href="/brand/logo.png"
-              x="224"
-              y="206"
-              width="52"
-              height="52"
-              clipPath="url(#hubLogoClip)"
-              preserveAspectRatio="xMidYMid meet"
-              pointerEvents="none"
-            />
+              {/* MediMaster logo inside hub */}
+              <clipPath id="hubLogoClip">
+                <circle cx="250" cy="232" r="26" />
+              </clipPath>
+              <image
+                href="/brand/logo.png"
+                x="224"
+                y="206"
+                width="52"
+                height="52"
+                clipPath="url(#hubLogoClip)"
+                preserveAspectRatio="xMidYMid meet"
+                pointerEvents="none"
+              />
 
-            {/* Center Hub text labels */}
-            <text
-              x="250"
-              y="262"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fontSize="9"
-              fontWeight="800"
-              fill="currentColor"
-              className="text-teal-600"
-              fontFamily={WHEEL_FONT}
-              letterSpacing="0.14em"
-              pointerEvents="none"
-            >
-              <tspan x="250" dy="0">
-                INNOVATION
-              </tspan>
-              <tspan
+              {/* Center Hub text labels */}
+              <text
                 x="250"
-                dy="13"
-                fontSize="7.5"
-                fontWeight="700"
-                fill="#64748B"
-                letterSpacing="0.18em"
+                y="262"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="9"
+                fontWeight="800"
+                fill="#0D9488"
+                fontFamily={WHEEL_FONT}
+                letterSpacing="0.14em"
+                pointerEvents="none"
               >
-                ECOSYSTEM
-              </tspan>
-            </text>
+                <tspan x="250" dy="0">
+                  INNOVATION
+                </tspan>
+                <tspan
+                  x="250"
+                  dy="13"
+                  fontSize="7.5"
+                  fontWeight="700"
+                  fill="#64748B"
+                  letterSpacing="0.18em"
+                >
+                  ECOSYSTEM
+                </tspan>
+              </text>
 
-            <circle
-              cx="250"
-              cy="250"
-              r="82"
-              fill="none"
-              stroke="url(#hubRingGradient)"
-              strokeWidth="2.5"
-              pointerEvents="none"
-            />
-          </svg>
+              <circle
+                cx="250"
+                cy="250"
+                r="82"
+                fill="none"
+                stroke="url(#hubRingGradient)"
+                strokeWidth="2.5"
+                pointerEvents="none"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </section>

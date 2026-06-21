@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const seoTypes = [
+export const seoTypes = [
   {
     id: 1,
     emoji: "🔍",

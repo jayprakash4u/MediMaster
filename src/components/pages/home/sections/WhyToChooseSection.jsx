@@ -1,14 +1,17 @@
 "use client";
 
-import { Shield, Clock, CalendarDays, BarChart3 } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { HEADING, TEXT_COLOR } from "@/lib/typography";
-import EyebrowMarker from "@/components/ui/EyebrowMarker";
+import { Shield, Clock, CalendarDays, BarChart3 } from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
+import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
+import { BODY, COMPONENT_STYLES } from "@/lib/typography";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const features = [
   {
@@ -44,7 +47,7 @@ const features = [
 const themeStyles = {
   teal: {
     bg: "bg-white",
-    border: "border-teal-100",
+    border: "border-slate-100",
     iconBg: "bg-teal-50",
     iconColor: "text-teal-600",
     line: "bg-teal-500",
@@ -62,7 +65,7 @@ const themeStyles = {
   },
   blue: {
     bg: "bg-white",
-    border: "border-teal-100",
+    border: "border-slate-100",
     iconBg: "bg-teal-50",
     iconColor: "text-teal-600",
     line: "bg-teal-500",
@@ -71,7 +74,7 @@ const themeStyles = {
   },
   lime: {
     bg: "bg-white",
-    border: "border-teal-100",
+    border: "border-slate-100",
     iconBg: "bg-teal-50",
     iconColor: "text-teal-600",
     line: "bg-teal-500",
@@ -85,20 +88,33 @@ function FeatureCard({ feature }) {
   const styles = themeStyles[theme];
 
   return (
-    <div className={`h-full flex flex-col gap-3 p-6 md:p-7 ${styles.bg} border ${styles.border}`}>
-      <div className={`w-11 h-11 flex items-center justify-center rounded-lg ${styles.iconBg}`}>
+    <div
+      className={`flex h-full flex-col gap-3 border p-6 transition-shadow duration-300 hover:shadow-sm md:p-7 ${styles.bg} ${styles.border}`}
+    >
+      <div className={`flex h-11 w-11 items-center justify-center rounded-lg ${styles.iconBg}`}>
         <Icon size={24} className={styles.iconColor} strokeWidth={1.5} />
       </div>
-      <div className={`w-9 h-0.5 ${styles.line}`} />
-      <p className={`text-xs font-bold tracking-widest uppercase font-sans ${styles.title}`}>
-        {headline}
-      </p>
-      <p className={`text-sm leading-relaxed ${styles.desc}`}>{text}</p>
+      <div className={`h-0.5 w-9 ${styles.line}`} />
+      <p className={COMPONENT_STYLES.cardTitle}>{headline}</p>
+      <p className={`${BODY.small} ${styles.desc}`}>{text}</p>
     </div>
   );
 }
 
-export default function WhyChooseUs() {
+function SectionTitle({ align = "left" }) {
+  return (
+    <SectionHeader
+      align={align}
+      size="sm"
+      eyebrow="Why Choose Us"
+      title="Why Choose"
+      highlight="MediMaster?"
+      className="max-w-none"
+    />
+  );
+}
+
+export default function WhyToChooseSection() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -120,20 +136,20 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-slate-50 py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* ── MOBILE LAYOUT (< md) ── */}
-        <div className="flex flex-col gap-0 md:hidden">
-          {/* Headline block */}
-          <div className="flex flex-col items-start justify-center px-6 py-10 bg-white border border-slate-100">
-            <EyebrowMarker label="Why Choose Us" />
-            <h2 className={`${HEADING.h2} ${TEXT_COLOR.primary}`}>
-              Why Choose <span className={TEXT_COLOR.teal}>MediMaster?</span>
-            </h2>
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden border-t border-slate-200/80 bg-slate-50 py-14 font-sans antialiased sm:py-16 lg:py-20"
+    >
+      <MedicalSectionBackdrop />
+
+      <div className="relative mx-auto max-w-7xl px-4 md:px-6">
+        {/* Mobile */}
+        <div className="overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm md:hidden">
+          <div className="flex flex-col items-start justify-center border-b border-slate-100 bg-white px-6 py-10">
+            <SectionTitle />
           </div>
 
-          {/* Image */}
-          <div className="relative w-full h-56 overflow-hidden">
+          <div className="relative h-56 w-full overflow-hidden">
             <Image
               src="/home/why-choose.jpg"
               alt="Why Choose MediMaster"
@@ -143,7 +159,6 @@ export default function WhyChooseUs() {
             />
           </div>
 
-          {/* Feature cards — 2 column grid on mobile */}
           <div className="grid grid-cols-2">
             {features.map((feature) => (
               <div key={feature.id} className="border border-slate-100">
@@ -153,17 +168,12 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        {/* ── TABLET LAYOUT (md → lg) ── */}
-        <div className="hidden md:grid lg:hidden grid-cols-2 gap-0">
-          {/* Headline */}
-          <div className="flex flex-col items-start justify-center px-8 py-10 bg-white border border-slate-100 col-span-2">
-            <EyebrowMarker label="Why Choose Us" />
-            <h2 className={`${HEADING.h2} ${TEXT_COLOR.primary}`}>
-              Why Choose <span className={TEXT_COLOR.teal}>MediMaster?</span>
-            </h2>
+        {/* Tablet */}
+        <div className="hidden overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm md:grid lg:hidden md:grid-cols-2">
+          <div className="col-span-2 flex flex-col items-start justify-center border-b border-slate-100 bg-white px-8 py-10">
+            <SectionTitle />
           </div>
 
-          {/* Image full width */}
           <div className="relative col-span-2 h-64 overflow-hidden">
             <Image
               src="/home/why-choose.jpg"
@@ -174,23 +184,23 @@ export default function WhyChooseUs() {
             />
           </div>
 
-          {/* 4 feature cards in 2-col grid */}
           {features.map((feature) => (
-            <div key={feature.id}>
+            <div key={feature.id} className="border border-slate-100">
               <FeatureCard feature={feature} />
             </div>
           ))}
         </div>
 
-        {/* ── DESKTOP LAYOUT (≥ lg) ── */}
-        <div className="hidden lg:grid grid-cols-4" style={{ gridTemplateRows: "1fr 1fr" }}>
-          {/* Row 1, Col 1 — Patient Safety */}
-          <div className="row-start-1 col-start-1">
+        {/* Desktop mosaic */}
+        <div
+          className="hidden overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm lg:grid lg:grid-cols-4"
+          style={{ gridTemplateRows: "1fr 1fr" }}
+        >
+          <div className="col-start-1 row-start-1 border border-slate-100">
             <FeatureCard feature={features[0]} />
           </div>
 
-          {/* Col 2, spans both rows — Image */}
-          <div className="row-start-1 row-span-2 col-start-2 relative overflow-hidden">
+          <div className="relative col-start-2 row-span-2 row-start-1 overflow-hidden border border-slate-100">
             <Image
               src="/home/why-choose.jpg"
               alt="Why Choose MediMaster"
@@ -200,26 +210,19 @@ export default function WhyChooseUs() {
             />
           </div>
 
-          {/* Row 1, Col 3–4 — Headline */}
-          <div className="row-start-1 col-start-3 col-span-2 flex flex-col items-end justify-center px-8 py-10 bg-white">
-            <EyebrowMarker label="Why Choose Us" className="justify-end" />
-            <h2 className={`text-right ${HEADING.h2} ${TEXT_COLOR.primary}`}>
-              Why Choose <span className={TEXT_COLOR.teal}>MediMaster?</span>
-            </h2>
+          <div className="col-span-2 col-start-3 row-start-1 flex flex-col items-end justify-center border border-slate-100 bg-white px-8 py-10">
+            <SectionTitle align="right" />
           </div>
 
-          {/* Row 2, Col 1 — Real-Time Access */}
-          <div className="row-start-2 col-start-1">
+          <div className="col-start-1 row-start-2 border border-slate-100">
             <FeatureCard feature={features[1]} />
           </div>
 
-          {/* Row 2, Col 3 — Smart Scheduling */}
-          <div className="row-start-2 col-start-3">
+          <div className="col-start-3 row-start-2 border border-slate-100">
             <FeatureCard feature={features[2]} />
           </div>
 
-          {/* Row 2, Col 4 — Analytics */}
-          <div className="row-start-2 col-start-4">
+          <div className="col-start-4 row-start-2 border border-slate-100">
             <FeatureCard feature={features[3]} />
           </div>
         </div>

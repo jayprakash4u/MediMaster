@@ -8,6 +8,7 @@ export default function SectionHeader({
   description,
   align = "center",
   theme = "light",
+  size = "md",
   className,
   headerRef,
   as: Tag = "h2",
@@ -15,14 +16,26 @@ export default function SectionHeader({
 }) {
   const isDark = theme === "dark";
   const isCenter = align === "center";
+  const isRight = align === "right";
+  const displaySize = HEADING.sectionDisplay[size] ?? HEADING.sectionDisplay.md;
+
+  const titleContent =
+    children ??
+    (highlight ? (
+      <>
+        {title} {highlight}
+      </>
+    ) : (
+      title
+    ));
 
   return (
     <div
       ref={headerRef}
       className={cn(
-        align === "center" && "mx-auto max-w-2xl text-center",
+        isCenter && "mx-auto max-w-2xl text-center",
         align === "left" && "text-left",
-        align === "right" && "text-right",
+        isRight && "text-right",
         className
       )}
     >
@@ -36,33 +49,15 @@ export default function SectionHeader({
               : "border-teal-500/20 bg-teal-500/10 text-teal-600"
           )}
         >
-          {!isDark ? <span className="h-1 w-1 rounded-full bg-teal-500" /> : null}
+          {!isDark ? <span className="h-1 w-1 rounded-full bg-teal-500" aria-hidden /> : null}
           {eyebrow}
         </span>
       ) : null}
 
       <Tag
-        className={cn(
-          HEADING.h2,
-          isDark ? "text-white" : TEXT_COLOR.primary,
-          isCenter && "mx-auto"
-        )}
+        className={cn(displaySize, isDark ? "text-white" : "text-navy-950", isCenter && "mx-auto")}
       >
-        {children ?? (
-          <>
-            {title}
-            {highlight ? (
-              <>
-                {" "}
-                {isDark ? (
-                  <span className="text-teal-400">{highlight}</span>
-                ) : (
-                  <span className="text-gradient-brand">{highlight}</span>
-                )}
-              </>
-            ) : null}
-          </>
-        )}
+        {titleContent}
       </Tag>
 
       {description ? (
@@ -71,7 +66,8 @@ export default function SectionHeader({
             BODY.small,
             "mt-4 sm:text-base",
             isDark ? "text-white/80" : cn(BODY.hero, TEXT_COLOR.secondary),
-            align === "left" && "max-w-xl"
+            (align === "left" || isRight) && "max-w-xl",
+            isCenter && isRight && "ml-auto"
           )}
         >
           {description}

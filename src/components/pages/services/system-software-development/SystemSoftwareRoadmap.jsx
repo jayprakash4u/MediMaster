@@ -58,6 +58,12 @@ const allSteps = [
   },
 ];
 
+export const SYSTEM_SOFTWARE_PROCESS = allSteps.map(({ num, title, desc }) => ({
+  num,
+  title,
+  desc,
+}));
+
 const leftSteps = allSteps.filter((s) => s.side === "left");
 const rightSteps = allSteps.filter((s) => s.side === "right");
 

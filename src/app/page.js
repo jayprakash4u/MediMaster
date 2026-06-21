@@ -1,26 +1,24 @@
 import WhyToChooseSection from "@/components/pages/home/sections/WhyToChooseSection";
-import PharmacySection from "@/components/pages/home/sections/PharmacySection";
-import PathologySection from "@/components/pages/home/sections/PathologySection";
-import HospitalSection from "@/components/pages/home/sections/HospitalSection";
+import IntegratedPlatformSection from "@/components/pages/home/sections/IntegratedPlatformSection";
+import HealthcareServicesSection from "@/components/pages/home/sections/HealthcareServicesSection";
 import HMSTrialSection from "@/components/pages/home/sections/HMSTrialSection";
 import Hero from "@/components/pages/home/sections/Hero";
-import ClinicHeroSection from "@/components/pages/home/sections/ClinicHeroSection";
 import StatsSection from "@/components/pages/home/sections/StatsSection";
 import FeatureSection from "@/components/pages/home/sections/FeatureSection";
-import WhyMediMaster from "@/components/pages/home/sections/WhyMediMaster";
+import CustomersSection from "@/components/pages/home/sections/CustomersSection";
+import ClientMessagesSection from "@/components/pages/home/sections/ClientMessagesSection";
 import LatestBlogs from "@/components/pages/home/sections/LatestBlogs";
 
 export default function HomePage() {
   return (
     <>
-      <main>
+      <main className="home-medical-flow">
         <Hero />
         <StatsSection />
-        <ClinicHeroSection />
-        <PharmacySection />
-        <PathologySection />
-        <HospitalSection />
-        <WhyMediMaster />
+        <IntegratedPlatformSection />
+        <ClientMessagesSection />
+        <HealthcareServicesSection />
+        <CustomersSection />
         <HMSTrialSection />
         <WhyToChooseSection />
       </main>

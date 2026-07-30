@@ -1,7 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/layout/Footer";
-import MobileBottomNav from "@/components/layout/MobileBottomNav";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { fontVariables, inter } from "@/lib/fonts";
 import { SITE } from "@/config/site";
@@ -19,11 +18,8 @@ export default function RootLayout({ children }) {
     <html lang={SITE.locale} className={fontVariables}>
       <body className={`${inter.className} min-h-screen bg-gray-50 text-slate-900 antialiased`}>
         <Navbar />
-        <SmoothScroll>
-          <div className="pb-20 md:pb-0">{children}</div>
-        </SmoothScroll>
+        <SmoothScroll>{children}</SmoothScroll>
         <Footer />
-        <MobileBottomNav />
       </body>
     </html>
   );

@@ -43,7 +43,7 @@ function getSegmentMidPoint(index, total, radius, cx = 250, cy = 250) {
   };
 }
 
-function WheelSegmentPath({ seg, ring, hovered, onHover, onLeave }) {
+function WheelSegmentPath({ seg, ring, hovered, onHover, onLeave, onTap }) {
   const isHovered = hovered?.id === seg.id && hovered?.ring === ring;
 
   return (
@@ -54,6 +54,7 @@ function WheelSegmentPath({ seg, ring, hovered, onHover, onLeave }) {
       onMouseEnter={() => onHover({ id: seg.id, ring })}
       onFocus={() => onHover({ id: seg.id, ring })}
       onBlur={onLeave}
+      onClick={() => onTap?.({ id: seg.id, ring })}
       role="button"
       tabIndex={0}
       aria-label={seg.fullLabel}
@@ -222,6 +223,12 @@ export default function InnovationWheelSection() {
     setHovered(segment);
   }, []);
 
+  const handleSegmentTap = useCallback((segment) => {
+    setHovered((current) =>
+      current?.id === segment.id && current?.ring === segment.ring ? null : segment
+    );
+  }, []);
+
   const handleSegmentLeave = useCallback(() => {
     setHovered(null);
   }, []);
@@ -282,33 +289,41 @@ export default function InnovationWheelSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden border-t border-slate-200/80 bg-[#F8FAFC] py-16 font-sans antialiased sm:py-20"
+      className="w-full overflow-hidden border-t border-slate-200/80 bg-[#F8FAFC] py-12 font-sans antialiased sm:py-20"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6">
         <SectionHeader
           headerRef={headerRef}
           align="left"
           eyebrow="Innovation Ecosystem"
           title="MediMaster Innovation Ecosystem"
           description="A connected platform of healthcare expertise, technology frameworks, and enterprise operations built around your clinical workflows."
-          className="mb-10 sm:mb-12"
+          className="mb-8 sm:mb-12"
         />
 
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          <div ref={textSideRef} className="space-y-6 text-left lg:col-span-5">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-8">
+          <div
+            ref={textSideRef}
+            className="order-2 space-y-4 text-left sm:space-y-6 lg:order-1 lg:col-span-5"
+          >
             <p
               className={cn(
-                "text-base font-semibold tracking-wide transition-all duration-300",
+                "min-h-[1.5rem] text-sm font-semibold tracking-wide transition-all duration-300 sm:text-base",
                 activeSegment
                   ? "translate-y-0 text-navy-950 opacity-100"
-                  : "-translate-y-1 text-transparent opacity-0"
+                  : "text-slate-500 opacity-100 md:-translate-y-1 md:text-transparent md:opacity-0"
               )}
               aria-live="polite"
             >
-              {activeSegment?.fullLabel ?? "Hover a segment to explore"}
+              {activeSegment?.fullLabel ?? "Tap a segment to explore"}
             </p>
 
-            <div className={cn(BODY.base, "space-y-5 text-slate-600")}>
+            <div
+              className={cn(
+                BODY.base,
+                "space-y-4 text-sm text-slate-600 sm:space-y-5 sm:text-base"
+              )}
+            >
               <p>
                 Our cloud-native platform integrates cutting-edge technology with deep healthcare
                 expertise to deliver seamless practice management solutions.
@@ -319,18 +334,21 @@ export default function InnovationWheelSection() {
               </p>
             </div>
 
-            <div className="pt-2">
-              <Button href="/contact" className="rounded-full px-7 py-3 uppercase tracking-wide">
+            <div className="pt-1 sm:pt-2">
+              <Button
+                href="/contact"
+                className="rounded-full px-5 py-2.5 text-xs uppercase tracking-wide sm:px-7 sm:py-3 sm:text-sm"
+              >
                 Book a Free Demo
               </Button>
             </div>
           </div>
 
-          <div className="flex w-full items-center justify-center lg:col-span-7">
+          <div className="order-1 flex w-full flex-col items-center gap-4 lg:order-2 lg:col-span-7">
             <svg
               ref={wheelRef}
               viewBox="0 0 500 500"
-              className="w-full max-w-[520px] h-auto select-none drop-shadow-[0_20px_50px_rgba(15,23,42,0.12)]"
+              className="h-auto w-full max-w-[280px] select-none drop-shadow-[0_20px_50px_rgba(15,23,42,0.12)] sm:max-w-[400px] lg:max-w-[520px]"
               aria-label="Innovation ecosystem wheel"
               onMouseLeave={handleSegmentLeave}
             >
@@ -355,6 +373,7 @@ export default function InnovationWheelSection() {
                     hovered={hovered}
                     onHover={handleSegmentHover}
                     onLeave={handleSegmentLeave}
+                    onTap={handleSegmentTap}
                   />
                 ))}
               </g>
@@ -415,6 +434,7 @@ export default function InnovationWheelSection() {
                     hovered={hovered}
                     onHover={handleSegmentHover}
                     onLeave={handleSegmentLeave}
+                    onTap={handleSegmentTap}
                   />
                 ))}
               </g>
@@ -528,6 +548,29 @@ export default function InnovationWheelSection() {
                 pointerEvents="none"
               />
             </svg>
+
+            <div className="flex w-full gap-2 overflow-x-auto pb-1 lg:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {[...OUTER_SEGMENTS, ...INNER_SEGMENTS].map((seg) => {
+                const ring = OUTER_SEGMENTS.some((item) => item.id === seg.id) ? "outer" : "inner";
+                const isActive = hovered?.id === seg.id && hovered?.ring === ring;
+
+                return (
+                  <button
+                    key={`${ring}-${seg.id}`}
+                    type="button"
+                    onClick={() => handleSegmentTap({ id: seg.id, ring })}
+                    className={cn(
+                      "shrink-0 rounded-full border px-3 py-1.5 text-xxs font-semibold uppercase tracking-wide transition-colors",
+                      isActive
+                        ? "border-teal-500 bg-teal-500 text-white"
+                        : "border-slate-200 bg-white text-slate-600"
+                    )}
+                  >
+                    {seg.fullLabel}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

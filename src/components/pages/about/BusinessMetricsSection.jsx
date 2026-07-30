@@ -135,10 +135,10 @@ export default function BusinessMetricsSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-white py-16 font-sans text-gray-600 antialiased"
+      className="w-full bg-white py-12 font-sans text-gray-600 antialiased sm:py-16"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6">
+        <div className="flex items-center gap-3 mb-4 sm:mb-8">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
@@ -156,32 +156,36 @@ export default function BusinessMetricsSection() {
           </span>
         </div>
 
-        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-navy-950`}>Success by Numbers</h2>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-6 sm:mb-12 text-navy-950`}>
+          Success by Numbers
+        </h2>
 
-        <div className="metrics-panel w-full bg-teal-500/5 rounded-2xl border border-teal-500/10 shadow-[0_4px_30px_rgba(13,148,136,0.03)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative z-10 overflow-visible">
+        <div className="metrics-panel w-full bg-teal-500/5 rounded-2xl border border-teal-500/10 shadow-[0_4px_30px_rgba(13,148,136,0.03)] grid grid-cols-2 lg:grid-cols-4 relative z-10 overflow-visible pt-6 sm:pt-12 mt-2 sm:mt-0">
           {statsData.map((stat, idx) => (
             <div
               key={idx}
-              className={`flex flex-col items-center text-center px-6 py-10 relative group ${
-                idx !== statsData.length - 1 ? "lg:border-r border-slate-200/50" : ""
-              } ${idx % 2 === 0 ? "sm:border-r-0 lg:sm:border-r" : ""}`}
+              className={`flex flex-col items-center text-center px-3 py-6 sm:px-6 sm:py-10 relative group ${
+                idx % 2 === 0 ? "border-r border-slate-200/50 lg:border-r" : ""
+              } ${idx < 2 ? "border-b border-slate-200/50 lg:border-b-0" : ""} ${
+                idx !== statsData.length - 1 ? "lg:border-r lg:border-slate-200/50" : ""
+              }`}
             >
-              <div className="metric-icon-wrap relative -mt-16 mb-4 z-20">
-                <div className="w-14 h-14 rounded-full p-[2px] bg-gradient-to-br from-teal-400 to-cyan-500 shadow-md transform transition-transform duration-300 group-hover:scale-105">
-                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors">
+              <div className="metric-icon-wrap relative mb-2 sm:-mt-16 sm:mb-4 z-20">
+                <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full p-[2px] bg-gradient-to-br from-teal-400 to-cyan-500 shadow-md transform transition-transform duration-300 group-hover:scale-105">
+                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-7 sm:[&>svg]:h-7">
                     {stat.icon}
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-baseline justify-center text-navy-950 font-black tracking-tight text-3xl sm:text-4xl mb-1.5">
+              <div className="flex items-baseline justify-center text-navy-950 font-black tracking-tight text-2xl sm:text-3xl lg:text-4xl mb-1">
                 <span className="count-number" data-target={stat.value}>
                   0
                 </span>
                 <span className="text-teal-600 ml-0.5 font-extrabold">{stat.suffix}</span>
               </div>
 
-              <p className="text-xs sm:text-sm font-bold tracking-wide text-gray-500 group-hover:text-navy-900 transition-colors duration-200">
+              <p className="text-xxs sm:text-sm font-bold tracking-wide text-gray-500 group-hover:text-navy-900 transition-colors duration-200 leading-tight">
                 {stat.label}
               </p>
             </div>

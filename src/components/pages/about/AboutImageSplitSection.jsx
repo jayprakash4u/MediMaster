@@ -47,10 +47,10 @@ export default function AboutImageSplitSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-neutral-50 py-20 md:py-28 font-sans text-gray-600 antialiased overflow-hidden"
+      className="w-full bg-neutral-50 py-12 md:py-28 font-sans text-gray-600 antialiased overflow-hidden sm:py-20"
     >
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex items-center gap-3 mb-8">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6">
+        <div className="flex items-center gap-3 mb-4 sm:mb-8">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
@@ -68,16 +68,16 @@ export default function AboutImageSplitSection() {
           </span>
         </div>
 
-        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-navy-950`}>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-6 sm:mb-12 text-navy-950`}>
           Building Healthcare Excellence
         </h2>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-16 lg:gap-8 items-center">
         {/* LEFT COLUMN: THE COMPOSED ASYMMETRICAL IMAGE STRUCTURE */}
         <div
           ref={imageSideRef}
-          className="lg:col-span-6 relative w-full max-w-xl mx-auto lg:max-w-none h-[480px] sm:h-[580px]"
+          className="lg:col-span-6 relative w-full max-w-xl mx-auto lg:max-w-none h-[340px] sm:h-[480px] md:h-[580px]"
         >
           {/* 1. Decorative Accent Frame */}
           <div className="absolute top-0 left-4 w-20 h-20 border-t-4 border-l-4 border-navy-500 rounded-tl-2xl pointer-events-none z-0" />
@@ -90,7 +90,7 @@ export default function AboutImageSplitSection() {
           </div>
 
           {/* 3. MAIN/PRIMARY IMAGE HOLDER */}
-          <div className="absolute top-8 left-12 w-[72%] h-[70%] rounded-3xl overflow-hidden border border-gray-200/60 shadow-card">
+          <div className="absolute top-8 left-8 sm:left-12 w-[72%] h-[70%] rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200/60 shadow-card">
             <Image
               src="/about/about-1.jpg"
               alt="About Main"
@@ -101,7 +101,7 @@ export default function AboutImageSplitSection() {
           </div>
 
           {/* 4. SECONDARY IMAGE HOLDER */}
-          <div className="absolute bottom-12 right-4 w-[52%] h-[50%] rounded-3xl overflow-hidden border-4 border-neutral-50 shadow-cardHover">
+          <div className="absolute bottom-8 sm:bottom-12 right-2 sm:right-4 w-[52%] h-[50%] rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-neutral-50 shadow-cardHover">
             <Image
               src="/about/about-2.jpg"
               alt="About Secondary"
@@ -113,9 +113,9 @@ export default function AboutImageSplitSection() {
 
           {/* 5. FLOATING EXPERIENCE BADGE */}
           <div className="absolute top-[28%] right-[16%] transform translate-x-1/2 z-20">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-teal-500 via-teal-600 to-navy-600 p-0.5 shadow-xl flex items-center justify-center animate-pulse duration-3000">
-              <div className="w-full h-full bg-white rounded-[22px] flex flex-col items-center justify-center text-center p-2 select-none">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-navy-950 leading-none">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-teal-500 via-teal-600 to-navy-600 p-0.5 shadow-xl flex items-center justify-center animate-pulse duration-3000">
+              <div className="w-full h-full bg-white rounded-[18px] sm:rounded-[22px] flex flex-col items-center justify-center text-center p-1.5 sm:p-2 select-none">
+                <span className="text-lg sm:text-xl md:text-2xl font-black tracking-tight text-navy-950 leading-none">
                   10+
                 </span>
                 <span className="text-xxs sm:text-xxs font-extrabold text-gray-400 uppercase tracking-wider mt-1 leading-tight">
@@ -129,7 +129,7 @@ export default function AboutImageSplitSection() {
         </div>
 
         {/* RIGHT COLUMN: BRANDING COPY & CORE FEATURE VERIFICATION LIST */}
-        <div ref={textSideRef} className="lg:col-span-6 space-y-6 lg:pl-6">
+        <div ref={textSideRef} className="lg:col-span-6 space-y-4 sm:space-y-6 lg:pl-6">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-teal-600 font-bold tracking-widest text-xs uppercase">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ export default function AboutImageSplitSection() {
           </p>
 
           {/* Structured Verification List Checkmarks */}
-          <ul className="space-y-3.5 pt-2">
+          <ul className="space-y-2.5 sm:space-y-3.5 pt-1 sm:pt-2">
             {[
               "Innovative Solutions for a Digital Future",
               "Empowering Businesses Through Modern Technology",
@@ -164,7 +164,7 @@ export default function AboutImageSplitSection() {
             ].map((text, idx) => (
               <li
                 key={idx}
-                className="flex items-start space-x-3 text-sm sm:text-base text-gray-700 font-medium"
+                className="flex items-start space-x-2.5 sm:space-x-3 text-xs sm:text-base text-gray-700 font-medium"
               >
                 <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-500 shadow-inner">
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

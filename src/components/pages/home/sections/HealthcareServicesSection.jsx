@@ -9,7 +9,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
 import { HEALTHCARE_SERVICES } from "@/config/sections/healthcare-services";
 import { cn } from "@/lib/cn";
-import { BODY, COMPONENT_STYLES, HEADING, TEXT_COLOR } from "@/lib/typography";
+import { COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -23,14 +23,24 @@ function ServiceCard({ service, cardRef }) {
     >
       <div className="h-0.5 bg-gradient-to-r from-teal-500 to-cyan-500" aria-hidden />
 
-      <div className="flex flex-1 flex-col p-6 pb-14 sm:p-7">
-        <h3 className={COMPONENT_STYLES.cardTitle}>{service.title}</h3>
+      <div className="flex flex-1 flex-col p-3 pb-11 sm:p-7 sm:pb-14">
+        <h3 className="text-xs font-bold leading-tight text-slate-900 sm:text-base">
+          {service.title}
+        </h3>
 
-        <ul className="mt-5 space-y-2.5">
-          {service.items.map((item) => (
-            <li key={item} className="flex items-start gap-2.5">
-              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-500" aria-hidden />
-              <span className={cn(BODY.small, TEXT_COLOR.muted)}>{item}</span>
+        <ul className="mt-2.5 space-y-1.5 sm:mt-5 sm:space-y-2.5">
+          {service.items.map((item, index) => (
+            <li
+              key={item}
+              className={cn("flex items-start gap-1.5 sm:gap-2.5", index >= 3 && "hidden lg:flex")}
+            >
+              <span
+                className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-slate-500 sm:mt-2"
+                aria-hidden
+              />
+              <span className="text-[10px] leading-snug text-slate-600 sm:text-sm sm:leading-relaxed">
+                {item}
+              </span>
             </li>
           ))}
         </ul>
@@ -39,9 +49,9 @@ function ServiceCard({ service, cardRef }) {
       <Link
         href={service.href}
         aria-label={`Learn more about ${service.title}`}
-        className="absolute bottom-5 right-5 flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400 transition-all duration-300 group-hover:border-teal-500 group-hover:text-teal-600"
+        className="absolute bottom-3 right-3 flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400 transition-all duration-300 group-hover:border-teal-500 group-hover:text-teal-600 sm:bottom-5 sm:right-5 sm:h-9 sm:w-9"
       >
-        <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
+        <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
       </Link>
     </article>
   );
@@ -115,49 +125,61 @@ export default function HealthcareServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-slate-50/70 to-white py-14 font-sans antialiased sm:py-16 lg:py-20"
+      className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-white via-slate-50/70 to-white py-12 font-sans antialiased sm:py-16 lg:py-20"
     >
       <MedicalSectionBackdrop />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <SectionHeader
           headerRef={headerRef}
           eyebrow={HEALTHCARE_SERVICES.eyebrow}
           title={HEALTHCARE_SERVICES.title}
           highlight={HEALTHCARE_SERVICES.highlight}
           description={HEALTHCARE_SERVICES.subtitle}
-          className="mb-10 sm:mb-12"
+          className="mb-8 sm:mb-12"
         />
 
         <article
           ref={featuredRef}
-          className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_4px_24px_-8px_rgba(15,23,42,0.1)]"
+          className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_24px_-8px_rgba(15,23,42,0.1)] sm:rounded-2xl"
         >
           <div className="h-0.5 bg-gradient-to-r from-teal-500 to-cyan-500" aria-hidden />
 
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="border-b border-slate-100 p-7 sm:p-9 lg:border-b-0 lg:border-r lg:p-10">
-              <h3 className={cn(HEADING.h3, TEXT_COLOR.primary)}>{featured.title}</h3>
-              <p className={cn("mt-4", BODY.small, TEXT_COLOR.muted)}>{featured.description}</p>
-              <p className={cn("mt-3", BODY.small, TEXT_COLOR.muted)}>{featured.secondary}</p>
+            <div className="border-b border-slate-100 p-4 sm:p-7 lg:border-b-0 lg:border-r lg:p-10">
+              <h3 className="text-lg font-bold leading-tight text-slate-900 sm:text-xl lg:text-2xl">
+                {featured.title}
+              </h3>
+              <p
+                className={cn("mt-3 text-xs leading-relaxed sm:mt-4 sm:text-sm", TEXT_COLOR.muted)}
+              >
+                {featured.description}
+              </p>
+              <p
+                className={cn("mt-2 text-xs leading-relaxed sm:mt-3 sm:text-sm", TEXT_COLOR.muted)}
+              >
+                {featured.secondary}
+              </p>
               <Link
                 href={featured.ctaHref}
-                className="btn-primary mt-6 inline-flex rounded-full px-6 py-2.5"
+                className="btn-primary mt-4 inline-flex rounded-full px-4 py-2 text-xs sm:mt-6 sm:px-6 sm:py-2.5 sm:text-sm"
               >
                 {featured.ctaLabel}
-                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} />
               </Link>
             </div>
 
-            <div className="bg-slate-50/80 p-7 sm:p-9 lg:p-10">
-              <p className={cn(COMPONENT_STYLES.label, TEXT_COLOR.muted)}>Modules we cover</p>
-              <div className="mt-5 grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="bg-slate-50/80 p-4 sm:p-7 lg:p-10">
+              <p className={cn(COMPONENT_STYLES.label, "text-[10px] sm:text-xs", TEXT_COLOR.muted)}>
+                Modules we cover
+              </p>
+              <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:gap-4">
                 {featured.modules.map((module) => (
                   <div
                     key={module}
-                    className="flex min-h-[4.5rem] items-center justify-center rounded-xl border border-slate-200/80 bg-white px-2 py-3 text-center shadow-sm"
+                    className="flex min-h-[3rem] items-center justify-center rounded-lg border border-slate-200/80 bg-white px-1.5 py-2 text-center shadow-sm sm:min-h-[4.5rem] sm:rounded-xl sm:px-2 sm:py-3"
                   >
-                    <span className={cn(COMPONENT_STYLES.caption, "font-semibold text-slate-700")}>
+                    <span className="text-[10px] font-semibold leading-tight text-slate-700 sm:text-xs">
                       {module}
                     </span>
                   </div>
@@ -167,7 +189,7 @@ export default function HealthcareServicesSection() {
           </div>
         </article>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:grid-cols-3 lg:gap-6">
           {HEALTHCARE_SERVICES.services.map((service, index) => (
             <ServiceCard
               key={service.title}

@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { cn } from "@/lib/cn";
-import { BODY, COMPONENT_STYLES } from "@/lib/typography";
+import { COMPONENT_STYLES } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -87,20 +87,26 @@ function ServiceCard({ service, cardRef }) {
     <Link
       ref={cardRef}
       href={service.href}
-      className="group flex h-full flex-col items-center border border-slate-200/90 bg-white px-5 py-8 text-center transition-shadow duration-300 hover:shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] sm:px-6 sm:py-9"
+      className="group flex h-full flex-col items-center border border-slate-200/90 bg-white px-3 py-5 text-center transition-shadow duration-300 hover:shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] sm:px-6 sm:py-9"
     >
-      <div className="flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-full border-[3px] border-navy-600 bg-white transition-colors duration-300 group-hover:border-teal-600 group-hover:bg-teal-50/50">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full border-[2.5px] border-navy-600 bg-white transition-colors duration-300 group-hover:border-teal-600 group-hover:bg-teal-50/50 sm:h-[4.75rem] sm:w-[4.75rem] sm:border-[3px]">
         <Icon
-          className="h-8 w-8 text-navy-600 transition-colors group-hover:text-teal-700"
+          className="h-6 w-6 text-navy-600 transition-colors group-hover:text-teal-700 sm:h-8 sm:w-8"
           strokeWidth={1.5}
         />
       </div>
 
-      <h3 className="mt-5 text-base font-semibold leading-snug text-navy-600 transition-colors group-hover:text-teal-700">
+      <h3 className="mt-3 text-xs font-semibold leading-snug text-navy-600 transition-colors group-hover:text-teal-700 sm:mt-5 sm:text-base">
         {service.title}
       </h3>
 
-      <p className={cn("mt-3 line-clamp-3", BODY.small, "text-slate-500")}>{service.desc}</p>
+      <p
+        className={cn(
+          "mt-2 line-clamp-2 text-[10px] leading-snug text-slate-500 sm:mt-3 sm:line-clamp-3 sm:text-sm sm:leading-relaxed"
+        )}
+      >
+        {service.desc}
+      </p>
     </Link>
   );
 }
@@ -152,19 +158,19 @@ export default function FeatureSection() {
   return (
     <section
       ref={sectionRef}
-      className="border-t border-slate-200/80 bg-slate-100 py-14 font-sans antialiased sm:py-16 lg:py-20"
+      className="border-t border-slate-200/80 bg-slate-100 py-12 font-sans antialiased sm:py-16 lg:py-20"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <SectionHeader
           headerRef={headerRef}
           eyebrow="Healthcare & Digital Services"
           title="Professional Digital"
           highlight="Solutions"
           description="From healthcare software to web and marketing services — everything you need to grow online, delivered with clarity and care."
-          className="mb-10 sm:mb-12"
+          className="mb-8 sm:mb-12"
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3">
           {services.map((item, idx) => (
             <ServiceCard
               key={item.title}
@@ -176,7 +182,7 @@ export default function FeatureSection() {
           ))}
         </div>
 
-        <p className="mt-10 text-center">
+        <p className="mt-8 text-center sm:mt-10">
           <Link href="/services" className={cn(COMPONENT_STYLES.linkAccent, "text-sm")}>
             View all services →
           </Link>

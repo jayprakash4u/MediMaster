@@ -39,10 +39,10 @@ function TypeCard({ item }) {
         )}
       </CardMediaImage>
 
-      <CardMediaBody className="card-media__body--center">
-        <p className="card-eyebrow">{tag}</p>
-        <h3 className="card-title mt-2 font-serif sm:text-xl">{item.category}</h3>
-        <p className="card-desc mt-3 max-w-none font-serif text-xs sm:text-[13px]">{description}</p>
+      <CardMediaBody className="card-media__body--center p-3 sm:p-6">
+        <p className="card-eyebrow text-[9px] sm:text-[10px]">{tag}</p>
+        <h3 className="card-title mt-1.5 line-clamp-2 font-serif sm:mt-2">{item.category}</h3>
+        <p className="card-desc mt-2 line-clamp-3 max-w-none font-serif sm:mt-3">{description}</p>
       </CardMediaBody>
     </CardMedia>
   );
@@ -81,7 +81,7 @@ export default function ServiceTypesSection({
   return (
     <section ref={sectionRef} className="section-shell bg-white">
       <div className="mx-auto max-w-7xl">
-        <div ref={headerRef} className="mb-8 lg:mb-10">
+        <div ref={headerRef} className="mb-6 sm:mb-8 lg:mb-10">
           <SectionHeader
             align="left"
             eyebrow={eyebrow}

@@ -26,17 +26,20 @@ const SOCIAL_ICONS = {
 
 function FooterHeading({ children }) {
   return (
-    <div className="mb-5">
-      <h3 className="text-base font-semibold text-white">{children}</h3>
-      <div className="mt-3 h-0.5 w-12 bg-sky-500" aria-hidden />
+    <div className="mb-4 sm:mb-5">
+      <h3 className="text-sm font-semibold text-white sm:text-base">{children}</h3>
+      <div className="mt-2 h-0.5 w-10 bg-sky-500 sm:mt-3 sm:w-12" aria-hidden />
     </div>
   );
 }
 
 function ContactRow({ icon: Icon, href, children }) {
   const content = (
-    <span className="flex items-start gap-3 text-sm leading-relaxed text-slate-400 transition-colors hover:text-slate-200">
-      <Icon className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" strokeWidth={1.75} />
+    <span className="flex items-start gap-2.5 text-xs leading-relaxed text-slate-400 transition-colors hover:text-slate-200 sm:gap-3 sm:text-sm">
+      <Icon
+        className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500 sm:h-4 sm:w-4"
+        strokeWidth={1.75}
+      />
       <span>{children}</span>
     </span>
   );
@@ -71,14 +74,14 @@ function SubscribeForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your Email"
-        className="w-full rounded-md border-0 bg-white py-3 pl-4 pr-14 text-sm text-slate-800 outline-none ring-0 placeholder:text-slate-400"
+        className="w-full rounded-md border-0 bg-white py-2.5 pl-3.5 pr-12 text-xs text-slate-800 outline-none ring-0 placeholder:text-slate-400 sm:py-3 sm:pl-4 sm:pr-14 sm:text-sm"
       />
       <button
         type="submit"
         aria-label="Subscribe"
-        className="absolute right-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-sky-600 text-white transition-colors hover:bg-sky-500"
+        className="absolute right-1 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-sky-600 text-white transition-colors hover:bg-sky-500 sm:right-1.5 sm:h-9 sm:w-9"
       >
-        <Send className="h-4 w-4" strokeWidth={2} />
+        <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} />
       </button>
     </form>
   );
@@ -90,14 +93,14 @@ export default function Footer() {
   return (
     <footer className="font-sans text-white">
       <div className="bg-[#121921]">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 lg:py-14">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-8 px-3 py-10 sm:gap-x-6 sm:px-6 sm:py-12 md:grid-cols-2 md:gap-10 lg:grid-cols-4 lg:gap-8 lg:py-14">
           {/* Contact */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <Link
               href="/"
-              className="mb-8 inline-flex items-center gap-3 transition-opacity hover:opacity-90"
+              className="mb-6 inline-flex items-center gap-2.5 transition-opacity hover:opacity-90 sm:mb-8 sm:gap-3"
             >
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md bg-white p-1.5">
+              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md bg-white p-1.5 sm:h-12 sm:w-12">
                 <Image
                   src="/brand/logo.png"
                   alt="MediMaster"
@@ -107,13 +110,13 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <p className="text-base font-semibold text-white">MediMaster</p>
-                <p className="text-xs text-slate-400">Healthcare Software</p>
+                <p className="text-sm font-semibold text-white sm:text-base">MediMaster</p>
+                <p className="text-[11px] text-slate-400 sm:text-xs">Healthcare Software</p>
               </div>
             </Link>
 
             <FooterHeading>Contact Us</FooterHeading>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li>
                 <ContactRow icon={MapPin}>{FOOTER_CONTACT.address}</ContactRow>
               </li>
@@ -122,7 +125,7 @@ export default function Footer() {
                   {FOOTER_CONTACT.phone}
                 </ContactRow>
               </li>
-              <li>
+              <li className="hidden sm:block">
                 <ContactRow icon={Smartphone} href={FOOTER_CONTACT.mobileHref}>
                   {FOOTER_CONTACT.mobile}
                 </ContactRow>
@@ -138,14 +141,17 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <FooterHeading>Quick Links</FooterHeading>
-            <ul>
+            <ul className="space-y-0">
               {FOOTER_QUICK_LINKS.map(({ name, path }) => (
                 <li key={name} className="border-b border-white/[0.06] last:border-0">
                   <Link
                     href={path}
-                    className="flex items-center gap-2 py-2.5 text-sm text-slate-400 transition-colors hover:text-white"
+                    className="flex items-center gap-1.5 py-2 text-xs text-slate-400 transition-colors hover:text-white sm:gap-2 sm:py-2.5 sm:text-sm"
                   >
-                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-slate-500" strokeWidth={2} />
+                    <ChevronRight
+                      className="h-3 w-3 shrink-0 text-slate-500 sm:h-3.5 sm:w-3.5"
+                      strokeWidth={2}
+                    />
                     {name}
                   </Link>
                 </li>
@@ -156,31 +162,31 @@ export default function Footer() {
           {/* Latest Blog */}
           <div>
             <FooterHeading>Latest Blog</FooterHeading>
-            <ul className="space-y-5">
+            <ul className="space-y-4 sm:space-y-5">
               {FOOTER_LATEST_BLOGS.map((post) => (
                 <li key={post.href}>
                   {post.image ? (
-                    <Link href={post.href} className="group flex gap-3">
-                      <div className="relative h-16 w-16 shrink-0 overflow-hidden bg-slate-800">
+                    <Link href={post.href} className="group flex gap-2.5 sm:gap-3">
+                      <div className="relative h-12 w-12 shrink-0 overflow-hidden bg-slate-800 sm:h-16 sm:w-16">
                         <Image src={post.image} alt="" fill className="object-cover" sizes="64px" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm leading-snug text-slate-400 transition-colors group-hover:text-white">
+                        <p className="line-clamp-2 text-xs leading-snug text-slate-400 transition-colors group-hover:text-white sm:text-sm">
                           {post.title}
                         </p>
-                        <p className="mt-1.5 flex items-center gap-1.5 text-xs text-slate-500">
-                          <Calendar className="h-3 w-3 shrink-0" />
+                        <p className="mt-1 flex items-center gap-1 text-[10px] text-slate-500 sm:mt-1.5 sm:gap-1.5 sm:text-xs">
+                          <Calendar className="h-2.5 w-2.5 shrink-0 sm:h-3 sm:w-3" />
                           {post.date}
                         </p>
                       </div>
                     </Link>
                   ) : (
                     <Link href={post.href} className="group block">
-                      <p className="text-sm leading-snug text-slate-400 transition-colors group-hover:text-white">
+                      <p className="line-clamp-2 text-xs leading-snug text-slate-400 transition-colors group-hover:text-white sm:text-sm">
                         {post.title}
                       </p>
-                      <p className="mt-1.5 flex items-center gap-1.5 text-xs text-slate-500">
-                        <Calendar className="h-3 w-3 shrink-0" />
+                      <p className="mt-1 flex items-center gap-1 text-[10px] text-slate-500 sm:mt-1.5 sm:gap-1.5 sm:text-xs">
+                        <Calendar className="h-2.5 w-2.5 shrink-0 sm:h-3 sm:w-3" />
                         {post.date}
                       </p>
                     </Link>
@@ -191,8 +197,11 @@ export default function Footer() {
           </div>
 
           {/* Subscribe */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <FooterHeading>Subscribe</FooterHeading>
+            <p className="mb-3 text-xs leading-relaxed text-slate-400 sm:mb-4 sm:text-sm">
+              Get healthcare software updates and product news in your inbox.
+            </p>
             <SubscribeForm />
           </div>
         </div>
@@ -200,8 +209,8 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="bg-black">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:px-6">
-          <p className="text-center text-xs text-slate-500 sm:text-left">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-3 py-3 sm:flex-row sm:gap-4 sm:px-6 sm:py-4">
+          <p className="text-center text-[11px] text-slate-500 sm:text-left sm:text-xs">
             © {currentYear} MediMaster. All rights reserved.
           </p>
 
@@ -211,7 +220,7 @@ export default function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="flex h-8 w-8 items-center justify-center border border-slate-600 text-slate-400 transition-colors hover:border-slate-400 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center border border-slate-600 text-slate-400 transition-colors hover:border-slate-400 hover:text-white sm:h-8 sm:w-8"
               >
                 <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                   {SOCIAL_ICONS[label]}

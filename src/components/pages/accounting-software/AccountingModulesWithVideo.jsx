@@ -1,68 +1,28 @@
-"use client";
+import ProductModulesSection from "@/components/pages/products/shared/ProductModulesSection";
 
-import React from "react";
-import { CheckCircle2 } from "lucide-react";
+const leftColumnModules = [
+  "Automated Invoicing & Billing",
+  "GST & Tax Management",
+  "Expense Tracking & Receipts",
+  "Bank Reconciliation",
+  "Purchase Order & Vendor Bills",
+];
+
+const rightColumnModules = [
+  "Multi-branch Accounting",
+  "Payroll & HR Integration",
+  "Financial Reporting & Analytics",
+  "Budgeting & Forecasting",
+  "Asset & Inventory Accounting",
+];
 
 export default function AccountingModulesWithVideo() {
-  const leftColumnModules = [
-    "Automated Invoicing & Billing",
-    "GST & Tax Management",
-    "Expense Tracking & Receipts",
-    "Bank Reconciliation",
-    "Purchase Order & Vendor Bills",
-  ];
-
-  const rightColumnModules = [
-    "Multi-branch Accounting",
-    "Payroll & HR Integration",
-    "Financial Reporting & Analytics",
-    "Budgeting & Forecasting",
-    "Asset & Inventory Accounting",
-  ];
-
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 font-sans bg-white">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900">
-          Accounting Software Modules
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-          <div className="space-y-3">
-            {leftColumnModules.map((module, index) => (
-              <div key={index} className="flex items-start gap-3 group">
-                <CheckCircle2 className="w-5 h-5 text-navy-600 shrink-0 mt-0.5 transition-transform group-hover:scale-110" />
-                <span className="text-sm md:text-base text-slate-700 font-medium italic">
-                  {module}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-3">
-            {rightColumnModules.map((module, index) => (
-              <div key={index} className="flex items-start gap-3 group">
-                <CheckCircle2 className="w-5 h-5 text-navy-600 shrink-0 mt-0.5 transition-transform group-hover:scale-110" />
-                <span className="text-sm md:text-base text-slate-700 font-medium italic">
-                  {module}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="lg:col-span-5">
-          <div className="rounded-xl overflow-hidden shadow-lg border border-slate-200">
-            <img
-              src="/products/accounting mgmnt.jpg"
-              alt="Accounting Software Modules"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+    <ProductModulesSection
+      title="Accounting Software Modules"
+      leftModules={leftColumnModules}
+      rightModules={rightColumnModules}
+      showVideo={false}
+    />
   );
 }

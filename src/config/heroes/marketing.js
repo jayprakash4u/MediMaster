@@ -5,9 +5,9 @@ export const aboutHero = {
   title: "Transforming Healthcare with",
   highlight: "Technology",
   description:
-    "Transforming healthcare through precision-engineered technology solutions that make clinics, labs, and care providers future-ready.",
+    "Precision-engineered software that helps clinics, labs, and care providers run smarter every day.",
   primaryCta: { href: "/contact", label: "Work with us" },
-  secondaryCta: { href: "/services", label: "Explore services" },
+  secondaryCta: { href: "/services", label: "Services" },
   imageSrc: "/about/about-page-hero.png",
   imageAlt: "About MediMaster",
 };

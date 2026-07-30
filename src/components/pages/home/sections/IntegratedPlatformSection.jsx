@@ -9,7 +9,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
 import { INTEGRATED_PLATFORM } from "@/config/sections/integrated-platform";
 import { cn } from "@/lib/cn";
-import { BODY, COMPONENT_STYLES } from "@/lib/typography";
+import { COMPONENT_STYLES } from "@/lib/typography";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -20,7 +20,7 @@ function PlatformColumn({ column, columnRef }) {
 
   return (
     <div ref={columnRef} className="flex h-full flex-col">
-      <div className="flex items-center">
+      <div className="hidden items-center lg:flex">
         <div className="relative z-10 flex h-[4.5rem] w-[4.5rem] shrink-0 items-center justify-center rounded-full border-[3px] border-navy-600 bg-white shadow-sm">
           <Icon className="h-7 w-7 text-navy-700" strokeWidth={1.5} />
         </div>
@@ -32,21 +32,41 @@ function PlatformColumn({ column, columnRef }) {
         </div>
       </div>
 
-      <div className="relative -mt-px flex-1 rounded-bl-2xl border-b-2 border-l-2 border-teal-600 bg-white px-5 pb-6 pt-7 sm:px-6">
-        <ul className="space-y-3">
-          {column.items.map((item) => (
-            <li key={item} className="flex items-start gap-2.5">
-              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-teal-600">
-                <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} />
+      <div className="flex flex-col items-center rounded-t-2xl border-2 border-b-0 border-teal-600 bg-white px-2 pt-3 pb-2 text-center lg:hidden">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-navy-600 bg-white shadow-sm">
+          <Icon className="h-5 w-5 text-navy-700" strokeWidth={1.5} />
+        </div>
+        <h3 className="mt-1.5 text-[11px] font-bold leading-tight text-slate-900 sm:text-xs">
+          {column.title}
+        </h3>
+      </div>
+
+      <div className="relative flex-1 rounded-b-2xl border-2 border-teal-600 bg-white px-2.5 pb-3 pt-2 lg:-mt-px lg:rounded-bl-2xl lg:border-b-2 lg:border-l-2 lg:border-t-0 lg:px-5 lg:pb-6 lg:pt-7">
+        <ul className="space-y-1.5 lg:space-y-3">
+          {column.items.map((item, index) => (
+            <li
+              key={item}
+              className={cn(
+                "flex items-start gap-1.5 sm:gap-2 lg:gap-2.5",
+                index >= 4 && "hidden lg:flex"
+              )}
+            >
+              <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-teal-600 sm:h-4 sm:w-4">
+                <Check className="h-2 w-2 text-white sm:h-2.5 sm:w-2.5" strokeWidth={3} />
               </span>
-              <span className={cn(BODY.small, "text-slate-700")}>{item}</span>
+              <span className="text-[10px] leading-snug text-slate-700 sm:text-xs lg:text-sm lg:leading-relaxed">
+                {item}
+              </span>
             </li>
           ))}
         </ul>
 
         <Link
           href={column.href}
-          className={cn(COMPONENT_STYLES.linkAccent, "mt-5 inline-flex items-center gap-1")}
+          className={cn(
+            COMPONENT_STYLES.linkAccent,
+            "mt-2 inline-flex items-center gap-1 text-[10px] sm:text-xs lg:mt-5"
+          )}
         >
           Learn more →
         </Link>
@@ -102,11 +122,11 @@ export default function IntegratedPlatformSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden border-b border-slate-200/80 bg-white py-14 font-sans antialiased sm:py-16 lg:py-20"
+      className="relative overflow-hidden border-b border-slate-200/80 bg-white py-12 font-sans antialiased sm:py-16 lg:py-20"
     >
       <MedicalSectionBackdrop />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <SectionHeader
           headerRef={headerRef}
           align="left"
@@ -114,10 +134,10 @@ export default function IntegratedPlatformSection() {
           title={INTEGRATED_PLATFORM.title}
           highlight={INTEGRATED_PLATFORM.highlight}
           description={INTEGRATED_PLATFORM.description}
-          className="mb-12 max-w-3xl sm:mb-14"
+          className="mb-8 max-w-3xl sm:mb-12 lg:mb-14"
         />
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6 xl:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-6 xl:gap-8">
           {INTEGRATED_PLATFORM.columns.map((column, index) => (
             <PlatformColumn
               key={column.id}

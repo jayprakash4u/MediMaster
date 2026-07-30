@@ -13,9 +13,9 @@ const features = [
 
 export default function MediFitManagement() {
   return (
-    <section className="w-full bg-white py-20 px-4 md:px-8 overflow-hidden font-sans">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div className="lg:col-span-6 space-y-6 max-w-xl">
+    <section className="section-shell w-full bg-white font-sans">
+      <div className="product-intro-grid">
+        <div className="lg:col-span-6 space-y-4 max-w-xl sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 text-teal-700">
             <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
             <span className="text-xs font-bold tracking-wider uppercase">
@@ -52,7 +52,7 @@ export default function MediFitManagement() {
           <div className="pt-6">
             <Link
               href="#medifit-trial"
-              className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-200 group transform hover:-translate-y-0.5 active:translate-y-0"
+              className="product-cta group hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>GET STARTED NOW</span>
               <svg
@@ -71,10 +71,10 @@ export default function MediFitManagement() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 relative flex justify-center items-center w-full">
+        <div className="lg:col-span-6 relative flex justify-center items-center w-full pb-6 sm:pb-0">
           <div className="absolute w-72 h-72 bg-gradient-to-tr from-teal-400/10 to-navy-400/10 rounded-full blur-3xl -z-10" />
 
-          <div className="relative w-full max-w-[540px] aspect-[4/3] rounded-2xl border-4 border-slate-100/80 bg-slate-50 shadow-2xl overflow-hidden group">
+          <div className="relative w-full max-w-full sm:max-w-[540px] aspect-[4/3] rounded-2xl border border-slate-200 sm:border-2 lg:border-4 lg:border-slate-100/80 bg-slate-50 shadow-2xl overflow-hidden group">
             <div className="w-full h-full bg-slate-50 flex items-center justify-center">
               <svg
                 className="w-32 h-32 text-teal-600"
@@ -94,7 +94,7 @@ export default function MediFitManagement() {
           </div>
 
           <div
-            className="absolute -bottom-6 -left-4 md:-left-8 bg-white border border-slate-100 rounded-2xl p-4 shadow-xl flex items-center gap-4 max-w-[220px] animate-bounce"
+            className="relative mx-auto mt-4 max-w-[220px] sm:absolute sm:-bottom-6 sm:-left-4 sm:mx-0 sm:mt-0 md:-left-8 bg-white border border-slate-100 rounded-2xl p-4 shadow-xl flex items-center gap-4 max-w-[220px] animate-bounce"
             style={{ animationDuration: "5s" }}
           >
             <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center font-black text-lg shadow-inner shrink-0">

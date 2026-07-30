@@ -120,10 +120,10 @@ export default function CompanyWorkingSteps() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-navy-950 py-12 md:py-16 font-sans text-gray-600 antialiased overflow-hidden"
+      className="w-full bg-navy-950 py-10 md:py-16 font-sans text-gray-600 antialiased overflow-hidden sm:py-12"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6">
+        <div className="flex items-center gap-3 mb-4 sm:mb-8">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
@@ -141,10 +141,10 @@ export default function CompanyWorkingSteps() {
           </span>
         </div>
 
-        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-white`}>How We Work</h2>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-6 sm:mb-12 text-white`}>How We Work</h2>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-6 min-h-[300px]">
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-6 min-h-0 lg:min-h-[300px]">
+          <div className="hidden lg:flex w-full lg:w-1/2 justify-center lg:justify-end relative z-10">
             <div className="main-hub-circle relative w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-teal-500/10 flex items-center justify-center p-4 shadow-[0_15px_40px_-10px_rgba(13,148,136,0.2)] border border-teal-500/20">
               <div className="w-full h-full rounded-full bg-white flex flex-col justify-center items-center text-center p-6 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] border border-gray-100">
                 <span className="text-xxs uppercase tracking-[0.25em] text-teal-600 font-black mb-1">
@@ -160,7 +160,7 @@ export default function CompanyWorkingSteps() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex flex-col space-y-8 lg:space-y-4 relative pl-4 lg:pl-12">
+          <div className="w-full lg:w-1/2 flex flex-col space-y-5 sm:space-y-6 lg:space-y-4 relative pl-0 lg:pl-12">
             {workingSteps.map((step, idx) => (
               <div key={idx} className="flex items-start relative group">
                 <div className="hidden lg:block absolute left-[36px] w-[140px] pointer-events-none">
@@ -180,18 +180,18 @@ export default function CompanyWorkingSteps() {
                 </div>
 
                 <div className="step-node-item relative flex-shrink-0 z-10">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white/10 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 shadow-sm border border-white/20">
-                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors duration-300">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/10 flex items-center justify-center p-1.5 transition-transform duration-300 group-hover:scale-105 shadow-sm border border-white/20">
+                    <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors duration-300 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-7 sm:[&>svg]:h-7">
                       {step.icon}
                     </div>
                   </div>
                 </div>
 
-                <div className="step-content-text ml-6 sm:ml-8 pt-2 flex-1 relative max-w-md">
-                  <h4 className="text-base sm:text-lg font-extrabold text-white tracking-tight mb-1 group-hover:text-teal-400 transition-colors duration-200">
+                <div className="step-content-text ml-4 sm:ml-6 lg:ml-8 pt-1 sm:pt-2 flex-1 relative max-w-md">
+                  <h4 className="text-sm sm:text-lg font-extrabold text-white tracking-tight mb-0.5 sm:mb-1 group-hover:text-teal-400 transition-colors duration-200">
                     {step.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-300 font-normal leading-relaxed">
+                  <p className="text-xxs sm:text-sm text-gray-300 font-normal leading-relaxed">
                     {step.description}
                   </p>
 

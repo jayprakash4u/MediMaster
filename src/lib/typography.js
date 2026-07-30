@@ -30,7 +30,7 @@ export const FONT_WEIGHT = {
 export const HEADING = {
   display: "text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.12]",
   h1: "text-3xl font-black sm:text-4xl lg:text-5xl tracking-tight leading-[1.12]",
-  h2: "text-3xl font-extrabold sm:text-4xl tracking-tight leading-[1.12]",
+  h2: "text-2xl font-extrabold sm:text-3xl lg:text-4xl tracking-tight leading-[1.12]",
   h3: "text-xl font-bold sm:text-2xl tracking-tight",
   h4: "text-lg font-semibold sm:text-xl tracking-tight",
   label: "text-sm font-semibold tracking-tight",

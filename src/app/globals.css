@@ -51,11 +51,11 @@
   }
 
   .card-media__image {
-    @apply relative aspect-[16/10] shrink-0 overflow-hidden bg-slate-100;
+    @apply relative aspect-[16/10] shrink-0 overflow-hidden bg-slate-100 sm:aspect-[16/10];
   }
 
   .card-media__body {
-    @apply flex flex-1 flex-col p-5 sm:p-6;
+    @apply flex flex-1 flex-col p-3 sm:p-6;
   }
 
   .card-media__body--center {
@@ -67,11 +67,11 @@
   }
 
   .card-grid {
-    @apply grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3;
+    @apply grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3;
   }
 
   .card-grid-4 {
-    @apply grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4;
+    @apply grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4;
   }
 
   .card-eyebrow {
@@ -79,15 +79,35 @@
   }
 
   .card-title {
-    @apply text-base font-bold tracking-tight text-slate-900 sm:text-lg;
+    @apply text-sm font-bold tracking-tight text-slate-900 sm:text-lg;
   }
 
   .card-desc {
-    @apply mt-2 text-sm leading-relaxed text-slate-600;
+    @apply mt-1.5 text-xs leading-relaxed text-slate-600 sm:mt-2 sm:text-sm;
   }
 
   .section-shell {
-    @apply relative w-full overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:px-12 lg:py-24;
+    @apply relative w-full overflow-hidden px-3 py-12 sm:px-6 sm:py-20 lg:px-12 lg:py-24;
+  }
+
+  .product-section-title {
+    @apply text-2xl font-extrabold tracking-tight leading-[1.12] text-slate-900 sm:text-3xl lg:text-4xl;
+  }
+
+  .product-section-copy {
+    @apply text-sm leading-relaxed text-slate-600 sm:text-base;
+  }
+
+  .product-feature-text {
+    @apply text-xs leading-relaxed text-slate-700 sm:text-sm;
+  }
+
+  .product-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-teal-600 px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-teal-600/20 transition-all hover:bg-teal-700 sm:rounded-xl sm:px-6 sm:py-3.5 sm:text-sm;
+  }
+
+  .product-intro-grid {
+    @apply mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-12 lg:items-center lg:gap-16;
   }
 
   /* Shared hero shell — keep home, services, marketing, and product heroes on one palette */
@@ -96,11 +116,11 @@
   }
 
   .hero-page--tall {
-    @apply flex min-h-[70vh] items-center lg:min-h-[80vh];
+    @apply flex min-h-0 items-start sm:min-h-[70vh] sm:items-center lg:min-h-[80vh];
   }
 
   .hero-page--home {
-    @apply min-h-[76vh] lg:min-h-[86vh];
+    @apply min-h-0 sm:min-h-[76vh] lg:min-h-[86vh];
   }
 
   .hero-page__atmosphere {
@@ -129,15 +149,15 @@
   }
 
   .hero-page__wave svg {
-    @apply relative block h-[70px] w-full fill-white;
+    @apply relative block h-[52px] w-full fill-white sm:h-[70px];
   }
 
   .hero-page__ecg {
-    @apply pointer-events-none absolute bottom-[68px] left-0 z-[5] w-full overflow-hidden;
+    @apply pointer-events-none absolute bottom-[52px] left-0 z-[5] w-full overflow-hidden sm:bottom-[68px];
   }
 
   .hero-page__ecg-track {
-    @apply flex h-12 w-[200%] animate-ecg-scroll opacity-60 sm:h-14 sm:opacity-70;
+    @apply flex h-10 w-[200%] animate-ecg-scroll opacity-50 sm:h-14 sm:opacity-70;
   }
 
   .hero-page__ecg-track path {

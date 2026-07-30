@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -474,32 +473,36 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="relative py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="services" ref={sectionRef} className="relative py-12 sm:py-16 md:py-28">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6">
         <SectionHeader
           align="left"
           eyebrow="Digital Services"
           title="Healthcare &"
           highlight="Technology Services"
           description="End-to-end digital services for healthcare providers — from hospital software to websites, apps, and marketing."
-          className="mb-12 max-w-none"
+          className="mb-8 max-w-none sm:mb-12"
         />
         <div
           ref={gridRef}
-          className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-3 md:gap-6 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:gap-6 lg:grid-cols-4"
         >
           {SERVICES.map((svc, idx) => (
             <div
               key={idx}
               ref={(el) => (cardsRef.current[idx] = el)}
-              className="service-card group card-surface flex flex-col items-center gap-4 p-5 text-center hover:-translate-y-1"
+              className="service-card group card-surface flex flex-col items-center gap-2.5 p-3 text-center hover:-translate-y-1 sm:gap-4 sm:p-5"
             >
-              <div className="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-500/25 flex items-center justify-center group-hover:scale-110 group-hover:bg-teal-100 group-hover:border-teal-400/50 transition-all duration-300">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-teal-500/25 bg-teal-50 transition-all duration-300 group-hover:scale-110 group-hover:border-teal-400/50 group-hover:bg-teal-100 sm:h-14 sm:w-14 sm:rounded-2xl [&>svg]:h-6 [&>svg]:w-6 sm:[&>svg]:h-8 sm:[&>svg]:w-8">
                 {svc.icon}
               </div>
               <div>
-                <p className={COMPONENT_STYLES.serviceTitle}>{svc.name}</p>
-                <p className={COMPONENT_STYLES.serviceSubtitle}>{svc.subtitle}</p>
+                <p className="text-xs font-bold leading-tight text-slate-900 sm:text-sm">
+                  {svc.name}
+                </p>
+                <p className="mt-0.5 text-[10px] font-medium text-teal-600/70 sm:text-xxs">
+                  {svc.subtitle}
+                </p>
               </div>
             </div>
           ))}

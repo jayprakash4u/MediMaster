@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import Button from "@/components/ui/Button";
 import {
   ArrowRight,
   Activity,
@@ -162,7 +163,10 @@ function HeroFloatingIcon({ icon: Icon, className, delay = 0, size = "md" }) {
 
 function HeroBackgroundIcons() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden" aria-hidden>
+    <div
+      className="pointer-events-none absolute inset-0 z-[1] hidden overflow-hidden md:block"
+      aria-hidden
+    >
       {FLOATING_MEDICAL_ICONS.map((item) => (
         <HeroFloatingIcon
           key={item.className}
@@ -212,7 +216,10 @@ function HeroVisual({ current, panelRef }) {
   const SlideIcon = slide.icon;
 
   return (
-    <div ref={panelRef} className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+    <div
+      ref={panelRef}
+      className="relative mx-auto w-full max-w-[320px] sm:max-w-md lg:mx-0 lg:max-w-none"
+    >
       <div
         className={cn(
           "pointer-events-none absolute -inset-3 rounded-[1.75rem] opacity-60 blur-2xl transition-all duration-700",
@@ -222,24 +229,24 @@ function HeroVisual({ current, panelRef }) {
       />
 
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-navy-950/80 shadow-[0_28px_70px_-32px_rgba(0,0,0,0.8)]">
-        <div className="flex items-center justify-between border-b border-white/[0.08] bg-navy-950/90 px-4 py-3">
+        <div className="flex items-center justify-between gap-2 border-b border-white/[0.08] bg-navy-950/90 px-3 py-2.5 sm:px-4 sm:py-3">
           <div className="flex items-center gap-1.5" aria-hidden>
-            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+            <span className="h-2 w-2 rounded-full bg-white/15 sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-white/15 sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-white/15 sm:h-2.5 sm:w-2.5" />
           </div>
-          <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-md bg-white/[0.06] text-teal-400">
-              <SlideIcon className="h-3.5 w-3.5" strokeWidth={1.75} />
+          <div className="flex min-w-0 flex-1 items-center justify-center gap-2">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-white/[0.06] text-teal-400 sm:h-6 sm:w-6">
+              <SlideIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={1.75} />
             </span>
-            <span className="text-[11px] font-semibold tracking-wide text-slate-400">
+            <span className="truncate text-[10px] font-semibold tracking-wide text-slate-400 sm:text-[11px]">
               {slide.badge}
             </span>
           </div>
-          <div className="w-14" aria-hidden />
+          <div className="w-8 shrink-0 sm:w-14" aria-hidden />
         </div>
 
-        <div className="relative aspect-[16/10] overflow-hidden bg-navy-950">
+        <div className="relative aspect-[4/3] overflow-hidden bg-navy-950 sm:aspect-[16/10]">
           {slides.map((item, index) => (
             <Image
               key={item.id}
@@ -261,7 +268,7 @@ function HeroVisual({ current, panelRef }) {
       </div>
 
       <div
-        className="pointer-events-none mx-auto mt-5 h-2.5 w-[78%] rounded-full bg-black/35 blur-xl"
+        className="pointer-events-none mx-auto mt-4 h-2 w-[72%] rounded-full bg-black/35 blur-xl sm:mt-5 sm:h-2.5 sm:w-[78%]"
         aria-hidden
       />
     </div>
@@ -272,10 +279,16 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
   const sectionRef = useRef(null);
-  const contentRef = useRef(null);
+  const contentTopRef = useRef(null);
+  const contentBottomRef = useRef(null);
   const visualRef = useRef(null);
   const slide = slides[current];
   const SlideIcon = slide.icon;
+
+  const getContentTargets = () => [
+    ...(contentTopRef.current?.children ?? []),
+    ...(contentBottomRef.current?.children ?? []),
+  ];
 
   const goTo = (index) => {
     setCurrent((index + slides.length) % slides.length);
@@ -305,7 +318,7 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        contentRef.current?.children ?? [],
+        getContentTargets(),
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -319,14 +332,14 @@ export default function Hero() {
       if (visualRef.current) {
         gsap.fromTo(
           visualRef.current,
-          { opacity: 0, x: 32, scale: 0.96 },
+          { opacity: 0, y: 24, scale: 0.96 },
           {
             opacity: 1,
-            x: 0,
+            y: 0,
             scale: 1,
             duration: 1,
             ease: "power3.out",
-            delay: 0.2,
+            delay: 0.15,
             clearProps: "transform",
           }
         );
@@ -341,11 +354,10 @@ export default function Hero() {
       isFirstSlide.current = false;
       return;
     }
-    if (!contentRef.current) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        contentRef.current.children,
+        getContentTargets(),
         { opacity: 0, y: 16 },
         {
           opacity: 1,
@@ -373,48 +385,64 @@ export default function Hero() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-20">
-        <div ref={contentRef} className="max-w-2xl text-center lg:text-left">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 px-4 pb-20 pt-6 sm:gap-8 sm:px-6 sm:pb-16 sm:pt-10 lg:grid-cols-2 lg:gap-14 lg:py-20">
+        <div
+          ref={contentTopRef}
+          className="order-1 max-w-2xl text-center lg:col-start-1 lg:row-start-1 lg:text-left"
+        >
           <div
             className={cn(
-              "mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 sm:px-4 transition-colors duration-500",
+              "mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 transition-colors duration-500 sm:mb-4 sm:px-4",
               slide.theme.badge
             )}
           >
             <span className={cn("h-1.5 w-1.5 rounded-full", slide.theme.dot)} />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] sm:text-xs">
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] sm:text-xs">
               {slide.badge}
             </span>
           </div>
 
-          <p className="mx-auto mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-400/90 sm:text-xs lg:mx-0">
+          <p className="mx-auto text-[10px] font-semibold uppercase tracking-[0.16em] text-teal-400/90 sm:text-xs lg:mx-0">
             Healthcare software for hospitals, clinics, labs & pharmacies
           </p>
 
-          <h1 className={cn(HEADING.hero, "mt-3 text-white")}>
+          <h1 className={cn(HEADING.hero, "mt-2.5 text-white sm:mt-3")}>
             {slide.title} {slide.highlight}
           </h1>
 
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-slate-200 sm:text-base lg:mx-0">
+          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-slate-200 sm:mt-4 sm:text-base lg:mx-0">
             {slide.description}
           </p>
+        </div>
 
-          <MedicalTrustBar theme="dark" className="mt-5" />
+        <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+          <HeroVisual current={current} panelRef={visualRef} />
+        </div>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-            <Link href="/contact" className="btn-primary rounded-full px-6 py-2.5">
-              Get Started
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+        <div
+          ref={contentBottomRef}
+          className="order-3 max-w-2xl text-center lg:col-start-1 lg:row-start-2 lg:text-left"
+        >
+          <MedicalTrustBar theme="dark" className="mt-1 sm:mt-0" />
+
+          <div className="mt-5 flex flex-row flex-nowrap items-center justify-center gap-2 sm:mt-7 sm:gap-3 lg:justify-start">
             <Link
+              href="/contact"
+              className="btn-primary shrink-0 rounded-full px-4 py-2.5 text-xs sm:px-6 sm:text-sm sm:py-2.5"
+            >
+              Get Started
+              <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            </Link>
+            <Button
               href="/products"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-navy-900/40 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-teal-500/50 hover:bg-navy-800/60"
+              variant="outlineDark"
+              className="shrink-0 whitespace-nowrap px-4 py-2 text-xs sm:px-6 sm:py-2.5 sm:text-sm"
             >
               Explore Products
-            </Link>
+            </Button>
           </div>
 
-          <div className="mt-6 hidden items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-sm sm:inline-flex">
+          <div className="mt-5 hidden items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-sm sm:mt-6 sm:inline-flex">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06] text-teal-400">
               <SlideIcon className="h-5 w-5" strokeWidth={1.75} />
             </div>
@@ -426,8 +454,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-8 space-y-4">
-            <div className="flex items-center justify-center gap-3 lg:justify-start">
+          <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
+            <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
               <div className="flex items-center gap-2">
                 {slides.map((item, index) => (
                   <button
@@ -435,12 +463,13 @@ export default function Hero() {
                     type="button"
                     onClick={() => goTo(index)}
                     className={cn(
-                      "h-1.5 rounded-full transition-all duration-500",
+                      "h-2 rounded-full transition-all duration-500 sm:h-1.5",
                       index === current
                         ? cn("w-8", item.theme.dot)
-                        : "w-1.5 bg-white/30 hover:bg-white/50"
+                        : "w-2 bg-white/30 hover:bg-white/50 sm:w-1.5"
                     )}
                     aria-label={`Go to slide ${index + 1}`}
+                    aria-current={index === current ? "true" : undefined}
                   />
                 ))}
               </div>
@@ -449,7 +478,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={prev}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-teal-500/40 hover:bg-white/10"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-teal-500/40 hover:bg-white/10 sm:h-8 sm:w-8"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -457,7 +486,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={next}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-teal-500/40 hover:bg-white/10"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-teal-500/40 hover:bg-white/10 sm:h-8 sm:w-8"
                   aria-label="Next slide"
                 >
                   <ChevronRight className="h-4 w-4" />
@@ -476,8 +505,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
-        <HeroVisual current={current} panelRef={visualRef} />
       </div>
 
       <HeroEcgStrip />

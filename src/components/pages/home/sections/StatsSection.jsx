@@ -92,23 +92,23 @@ function StatItem({ Icon, value, suffix, label, accent, started }) {
   const display = !Number.isInteger(value) ? count.toFixed(1) : count.toLocaleString();
 
   return (
-    <CardCompact className="group flex items-center gap-3 sm:gap-3.5 xl:flex-col xl:items-center xl:gap-2 xl:text-center">
+    <CardCompact className="group flex h-full flex-col items-center gap-1.5 p-2.5 text-center sm:flex-row sm:items-center sm:gap-3 sm:p-3.5 sm:text-left lg:flex-col lg:items-center lg:gap-2 lg:p-3.5 lg:text-center xl:gap-2">
       <div className={`hidden h-px w-full bg-gradient-to-r ${accent} opacity-60 xl:block`} />
 
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-teal-500/20 bg-teal-50 sm:h-10 sm:w-10">
-        <div className="scale-[0.5] sm:scale-[0.55]">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-teal-500/20 bg-teal-50 sm:h-10 sm:w-10">
+        <div className="scale-[0.42] sm:scale-[0.55]">
           <Icon />
         </div>
       </div>
 
-      <div className="min-w-0 flex-1 xl:flex-none">
-        <p className="text-lg font-black leading-none tracking-tight text-slate-900 sm:text-xl">
+      <div className="min-w-0 flex-1 lg:flex-none">
+        <p className="text-base font-black leading-none tracking-tight text-slate-900 sm:text-xl">
           <span className={`bg-gradient-to-r ${accent} bg-clip-text text-transparent`}>
             {display}
           </span>
-          <span className="ml-0.5 text-sm font-bold text-teal-600 sm:text-base">{suffix}</span>
+          <span className="ml-0.5 text-xs font-bold text-teal-600 sm:text-base">{suffix}</span>
         </p>
-        <p className="mt-1 text-[11px] font-medium leading-tight text-slate-500 sm:text-xs xl:line-clamp-2">
+        <p className="mt-0.5 text-[10px] font-medium leading-tight text-slate-500 sm:mt-1 sm:text-xs lg:line-clamp-2">
           {label}
         </p>
       </div>
@@ -175,7 +175,7 @@ export default function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-b border-slate-200 bg-white px-4 py-14 font-sans antialiased sm:px-6 sm:py-16 lg:px-12 lg:py-20"
+      className="relative w-full overflow-hidden border-b border-slate-200 bg-white px-3 py-12 font-sans antialiased sm:px-6 sm:py-16 lg:px-12 lg:py-20"
     >
       <MedicalSectionBackdrop />
 
@@ -196,7 +196,7 @@ export default function StatsSection() {
 
         <div
           ref={gridRef}
-          className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-6"
+          className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-6"
         >
           {stats.map((stat, i) => (
             <StatItem key={i} {...stat} started={started} />

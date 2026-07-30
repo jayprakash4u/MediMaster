@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Shield, Clock, CalendarDays, BarChart3 } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
-import { BODY, COMPONENT_STYLES } from "@/lib/typography";
+import { cn } from "@/lib/cn";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -89,14 +89,19 @@ function FeatureCard({ feature }) {
 
   return (
     <div
-      className={`flex h-full flex-col gap-3 border p-6 transition-shadow duration-300 hover:shadow-sm md:p-7 ${styles.bg} ${styles.border}`}
+      className={`flex h-full flex-col gap-2 border p-3 transition-shadow duration-300 hover:shadow-sm sm:gap-3 sm:p-6 md:p-7 ${styles.bg} ${styles.border}`}
     >
-      <div className={`flex h-11 w-11 items-center justify-center rounded-lg ${styles.iconBg}`}>
-        <Icon size={24} className={styles.iconColor} strokeWidth={1.5} />
+      <div
+        className={`flex h-9 w-9 items-center justify-center rounded-lg sm:h-11 sm:w-11 ${styles.iconBg}`}
+      >
+        <Icon size={20} className={cn(styles.iconColor, "sm:hidden")} strokeWidth={1.5} />
+        <Icon size={24} className={cn(styles.iconColor, "hidden sm:block")} strokeWidth={1.5} />
       </div>
-      <div className={`h-0.5 w-9 ${styles.line}`} />
-      <p className={COMPONENT_STYLES.cardTitle}>{headline}</p>
-      <p className={`${BODY.small} ${styles.desc}`}>{text}</p>
+      <div className={`h-0.5 w-7 sm:w-9 ${styles.line}`} />
+      <p className="text-xs font-bold leading-tight text-slate-900 sm:text-base">{headline}</p>
+      <p className={`text-[10px] leading-snug sm:text-sm sm:leading-relaxed ${styles.desc}`}>
+        {text}
+      </p>
     </div>
   );
 }
@@ -138,18 +143,18 @@ export default function WhyToChooseSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden border-t border-slate-200/80 bg-slate-50 py-14 font-sans antialiased sm:py-16 lg:py-20"
+      className="relative w-full overflow-hidden border-t border-slate-200/80 bg-slate-50 py-12 font-sans antialiased sm:py-16 lg:py-20"
     >
       <MedicalSectionBackdrop />
 
-      <div className="relative mx-auto max-w-7xl px-4 md:px-6">
+      <div className="relative mx-auto max-w-7xl px-3 md:px-6">
         {/* Mobile */}
-        <div className="overflow-hidden rounded-2xl border border-slate-200/90 shadow-sm md:hidden">
-          <div className="flex flex-col items-start justify-center border-b border-slate-100 bg-white px-6 py-10">
+        <div className="overflow-hidden rounded-xl border border-slate-200/90 shadow-sm md:hidden">
+          <div className="flex flex-col items-start justify-center border-b border-slate-100 bg-white px-4 py-8">
             <SectionTitle />
           </div>
 
-          <div className="relative h-56 w-full overflow-hidden">
+          <div className="relative h-44 w-full overflow-hidden sm:h-56">
             <Image
               src="/home/why-choose.jpg"
               alt="Why Choose MediMaster"

@@ -12,9 +12,9 @@ const features = [
 
 export default function AccountingManagement() {
   return (
-    <section className="w-full bg-white py-20 px-4 md:px-8 overflow-hidden font-sans">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <div className="lg:col-span-6 space-y-6 max-w-xl">
+    <section className="section-shell w-full bg-white font-sans">
+      <div className="product-intro-grid">
+        <div className="lg:col-span-6 space-y-4 max-w-xl sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 text-teal-700">
             <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
             <span className="text-xs font-bold tracking-wider uppercase">

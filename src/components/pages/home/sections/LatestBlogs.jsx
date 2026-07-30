@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import MedicalSectionBackdrop from "@/components/pages/home/shared/MedicalSectionBackdrop";
 import { CardMedia, CardMediaBody, CardMediaImage } from "@/components/ui/Card";
-import { BODY, COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
+import { COMPONENT_STYLES, TEXT_COLOR } from "@/lib/typography";
 
 const blogs = [
   {
@@ -85,17 +86,18 @@ const blogs = [
 
 export default function LatestBlogs() {
   const [current, setCurrent] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(3);
+  const [visibleCards, setVisibleCards] = useState(2);
+  const [gapPx, setGapPx] = useState(12);
   const total = blogs.length;
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCards(1);
-      } else if (window.innerWidth < 1024) {
+      if (window.innerWidth < 1024) {
         setVisibleCards(2);
+        setGapPx(window.innerWidth < 640 ? 12 : 24);
       } else {
         setVisibleCards(3);
+        setGapPx(24);
       }
     };
 
@@ -104,6 +106,10 @@ export default function LatestBlogs() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    setCurrent((value) => Math.min(value, Math.max(total - visibleCards, 0)));
+  }, [visibleCards, total]);
+
   const maxIndex = Math.max(total - visibleCards, 0);
   const safeCurrent = Math.min(current, maxIndex);
 
@@ -111,64 +117,73 @@ export default function LatestBlogs() {
   const next = () => setCurrent((c) => Math.min(c + 1, maxIndex));
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 px-6 py-16 md:px-12">
+    <section className="relative overflow-hidden bg-navy-950 px-3 py-12 sm:px-6 sm:py-16 md:px-12">
       <MedicalSectionBackdrop variant="dark" />
       <div className="hero-page__grid opacity-[0.05]" aria-hidden />
-      <div className="relative">
+      <div className="relative mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Healthcare Insights"
           title="Stay Updated With Our Latest"
           highlight="Blogs"
           description="Expert articles on healthcare software, compliance, patient experience, and digital transformation for medical teams."
           theme="dark"
-          className="mb-10"
+          className="mb-8 sm:mb-10"
         />
 
-        <div className="relative mx-auto max-w-7xl px-2 sm:px-0">
+        <div className="relative px-1 sm:px-0">
           <button
+            type="button"
             onClick={prev}
             disabled={safeCurrent === 0}
-            aria-label="Previous"
-            className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-left-10"
+            aria-label="Previous blogs"
+            className="absolute -left-1 top-[42%] z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-navy-900/80 text-white transition-opacity hover:bg-navy-800 disabled:opacity-30 sm:-left-2 sm:h-9 sm:w-9 md:-left-10"
           >
-            ‹‹
+            <ChevronLeft className="h-4 w-4" strokeWidth={2.5} />
           </button>
 
           <div className="overflow-hidden">
             <div
-              className="flex gap-6 transition-transform duration-500 ease-in-out"
+              className="flex gap-3 transition-transform duration-500 ease-in-out sm:gap-6"
               style={{
-                transform: `translateX(calc(-${safeCurrent} * (100% / ${visibleCards} + 24px - 24px / ${visibleCards})))`,
+                transform: `translateX(calc(-${safeCurrent} * (100% / ${visibleCards} + ${gapPx}px - ${gapPx}px / ${visibleCards})))`,
               }}
             >
               {blogs.map((blog) => (
                 <CardMedia
                   key={blog.id}
-                  className="w-full flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)]"
+                  className="w-[calc((100%-0.75rem)/2)] flex-shrink-0 sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
                 >
-                  <CardMediaImage className="h-48 sm:h-56 sm:aspect-auto">
+                  <CardMediaImage className="h-36 sm:h-48 sm:aspect-auto lg:h-56">
                     <Image src={blog.image} alt={blog.title} fill className="object-cover" />
-                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xxs font-bold uppercase tracking-widest text-slate-800 shadow-sm">
+                    <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-800 shadow-sm sm:left-3 sm:top-3 sm:px-3 sm:py-1 sm:text-xxs sm:tracking-widest">
                       {blog.tag}
                     </span>
                   </CardMediaImage>
 
-                  <CardMediaBody className="gap-4">
-                    <p className={`${COMPONENT_STYLES.caption} ${TEXT_COLOR.teal} tracking-wide`}>
+                  <CardMediaBody className="gap-2 p-4 sm:gap-4 sm:p-5">
+                    <p
+                      className={`${COMPONENT_STYLES.caption} text-[10px] ${TEXT_COLOR.teal} tracking-wide sm:text-xs`}
+                    >
                       {blog.date} · {blog.readTime}
                     </p>
 
-                    <h3 className={COMPONENT_STYLES.cardTitle}>{blog.title}</h3>
+                    <h3 className="line-clamp-2 text-xs font-bold leading-snug text-slate-900 sm:text-base">
+                      {blog.title}
+                    </h3>
 
-                    <p className={`flex-1 ${BODY.small} ${TEXT_COLOR.muted}`}>{blog.excerpt}</p>
+                    <p
+                      className={`hidden flex-1 line-clamp-2 text-[10px] leading-snug text-slate-500 sm:block sm:text-sm sm:leading-relaxed`}
+                    >
+                      {blog.excerpt}
+                    </p>
 
                     <Link
                       href={blog.href}
-                      className={`mt-auto inline-flex items-center gap-1 ${COMPONENT_STYLES.linkAccent} group`}
+                      className={`mt-auto inline-flex items-center gap-1 text-[10px] font-semibold text-teal-600 transition-colors hover:text-teal-700 sm:text-xs`}
                     >
                       Read More
                       <svg
-                        className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                        className="h-3 w-3 transition-transform group-hover:translate-x-1 sm:h-3.5 sm:w-3.5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -188,22 +203,24 @@ export default function LatestBlogs() {
           </div>
 
           <button
+            type="button"
             onClick={next}
             disabled={safeCurrent === maxIndex}
-            aria-label="Next"
-            className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 text-3xl font-bold text-white transition-opacity hover:opacity-70 disabled:opacity-20 md:-right-10"
+            aria-label="Next blogs"
+            className="absolute -right-1 top-[42%] z-10 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-navy-900/80 text-white transition-opacity hover:bg-navy-800 disabled:opacity-30 sm:-right-2 sm:h-9 sm:w-9 md:-right-10"
           >
-            ››
+            <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
           </button>
         </div>
 
-        <div className="mt-8 flex justify-center gap-2">
+        <div className="mt-6 flex justify-center gap-2 sm:mt-8">
           {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => setCurrent(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`h-2.5 w-2.5 rounded-full transition-colors duration-200 ${
+              className={`h-2 w-2 rounded-full transition-colors duration-200 sm:h-2.5 sm:w-2.5 ${
                 i === safeCurrent ? "bg-teal-400" : "bg-white/40"
               }`}
             />

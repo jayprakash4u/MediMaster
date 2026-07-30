@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { CardAccent } from "@/components/ui/Card";
@@ -31,7 +31,7 @@ const DOT_ACCENTS = [
 
 function RoadmapStep({ step, index, isLast }) {
   return (
-    <li className="roadmap-step group relative pb-8 last:pb-0">
+    <li className="roadmap-step group relative pb-6 last:pb-0 sm:pb-8">
       {!isLast ? (
         <span
           aria-hidden
@@ -39,24 +39,24 @@ function RoadmapStep({ step, index, isLast }) {
         />
       ) : null}
 
-      <div className="relative flex gap-5">
+      <div className="relative flex gap-3 sm:gap-5">
         <div
           className={cn(
-            "roadmap-dot relative z-10 mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ring-4 transition-transform duration-300 group-hover:scale-110",
+            "roadmap-dot relative z-10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ring-4 transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6",
             DOT_ACCENTS[index % DOT_ACCENTS.length]
           )}
         >
-          <span className="text-[9px] font-bold text-white">{step.num}</span>
+          <span className="text-[8px] font-bold text-white sm:text-[9px]">{step.num}</span>
         </div>
 
         <CardAccent
           accentClassName={cn(
-            "roadmap-card min-w-0 flex-1",
+            "roadmap-card min-w-0 flex-1 p-4 sm:p-5",
             STEP_ACCENTS[index % STEP_ACCENTS.length]
           )}
         >
-          <h3 className="card-title text-base">{step.title}</h3>
-          <p className="card-desc mt-2">{step.desc}</p>
+          <h3 className="card-title text-sm sm:text-base">{step.title}</h3>
+          <p className="card-desc mt-1.5 text-xs sm:mt-2 sm:text-sm">{step.desc}</p>
         </CardAccent>
       </div>
     </li>
@@ -74,6 +74,10 @@ export default function ServiceRoadmap({
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const timelineRef = useRef(null);
+
+  const midpoint = Math.ceil(process.length / 2);
+  const firstPhase = useMemo(() => process.slice(0, midpoint), [process, midpoint]);
+  const secondPhase = useMemo(() => process.slice(midpoint), [process, midpoint]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -97,18 +101,17 @@ export default function ServiceRoadmap({
     return () => ctx.revert();
   }, []);
 
-  const midpoint = Math.ceil(process.length / 2);
-  const firstPhase = process.slice(0, midpoint);
-  const secondPhase = process.slice(midpoint);
-
   return (
-    <section ref={sectionRef} className="section-shell border-t border-slate-200 bg-slate-50">
+    <section
+      ref={sectionRef}
+      className="section-shell hidden border-t border-slate-200 bg-slate-50 lg:block"
+    >
       <div className="mx-auto max-w-7xl">
-        <div ref={headerRef} className="mb-10 max-w-xl lg:mb-12">
+        <div ref={headerRef} className="mb-8 max-w-xl lg:mb-12">
           <SectionHeader align="left" eyebrow={eyebrow} title={title} highlight={highlight} />
         </div>
 
-        <div ref={timelineRef} className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+        <div ref={timelineRef} className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
             <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-600">
               {phase1Label}

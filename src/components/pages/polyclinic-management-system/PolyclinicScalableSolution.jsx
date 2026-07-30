@@ -2,7 +2,12 @@ const facilities = [
   {
     label: "Multi-specialty clinics",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <rect
           x="8"
           y="16"
@@ -85,7 +90,12 @@ const facilities = [
   {
     label: "Small clinics",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <path
           d="M10 28 L10 58 L54 58 L54 28"
           stroke="#6366f1"
@@ -156,7 +166,12 @@ const facilities = [
   {
     label: "Clinic chains",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <circle
           cx="32"
           cy="32"
@@ -212,7 +227,12 @@ const facilities = [
   {
     label: "Diagnostic centers",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <rect
           x="14"
           y="10"
@@ -285,7 +305,12 @@ const facilities = [
   {
     label: "Individual practices",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <circle cx="32" cy="18" r="10" stroke="#6366f1" strokeWidth="2.5" fill="none" />
         <path
           d="M12 54 C12 42 20 36 32 36 C44 36 52 42 52 54"
@@ -310,15 +335,15 @@ const facilities = [
 
 export default function PolyclinicScalableSolution() {
   return (
-    <section className="bg-white py-16 px-6">
+    <section className="section-shell bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4 max-w-3xl">
+        <h2 className="product-section-title text-slate-900 mb-4 max-w-3xl">
           Scalable polyclinic management solution for every healthcare setup
         </h2>
 
         <div className="w-16 h-[3px] bg-gray-900 mb-5" />
 
-        <p className="text-gray-500 text-base leading-relaxed max-w-4xl mb-12">
+        <p className="product-section-copy max-w-4xl mb-6 sm:mb-8 lg:mb-12">
           Bring multi-specialty clinic operations into a unified workflow with easy appointment
           booking, centralized patient records, and smooth inter-department coordination across
           every touchpoint.
@@ -328,7 +353,7 @@ export default function PolyclinicScalableSolution() {
           {facilities.map((item) => (
             <div
               key={item.label}
-              className="flex flex-col items-center gap-4 bg-slate-50 rounded-2xl p-5 hover:bg-teal-50 transition-colors duration-200 group cursor-pointer"
+              className="flex flex-col items-center gap-4 bg-slate-50 rounded-xl p-3 hover:bg-teal-50 sm:rounded-2xl sm:p-4 lg:p-5 transition-colors duration-200 group cursor-pointer"
             >
               <div className="flex items-center justify-center">{item.icon}</div>
               <p className="text-xs font-semibold text-gray-700 text-center leading-snug group-hover:text-teal-700 transition-colors">

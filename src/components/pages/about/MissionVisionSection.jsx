@@ -86,10 +86,10 @@ export default function MissionVisionSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-[#F8FAFC] py-20 font-sans text-gray-600 antialiased"
+      className="w-full bg-[#F8FAFC] py-12 font-sans text-gray-600 antialiased sm:py-20"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6">
+        <div className="flex items-center gap-3 mb-4 sm:mb-8">
           <div className="flex items-center gap-1.5">
             <svg viewBox="0 0 24 10" className="w-8 h-3" fill="none">
               <path
@@ -107,30 +107,34 @@ export default function MissionVisionSection() {
           </span>
         </div>
 
-        <h2 className={`${HEADING.sectionDisplay.md} mb-12 text-navy-950`}>
+        <h2 className={`${HEADING.sectionDisplay.md} mb-6 sm:mb-12 text-navy-950`}>
           Mission, Vision & Goals
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8 items-stretch">
           {companyValues.map((value, index) => (
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="group bg-[#F1F5F9]/60 rounded-2xl p-8 border border-slate-200/40 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.03)] hover:bg-white hover:border-teal-500/20 hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] transition-all duration-300 flex flex-col"
+              className={`group bg-[#F1F5F9]/60 rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-slate-200/40 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.03)] hover:bg-white hover:border-teal-500/20 hover:shadow-[0_20px_40px_-15px_rgba(13,148,136,0.08)] transition-all duration-300 flex flex-col ${
+                index === companyValues.length - 1 ? "col-span-2 md:col-span-1" : ""
+              }`}
             >
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full p-[2px] bg-gradient-to-br from-teal-400 to-cyan-500 shadow-sm transition-transform duration-300 group-hover:scale-105">
-                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-teal-600 group-hover:text-teal-500 transition-colors">
-                    {value.icon}
-                  </div>
-                </div>
-
-                <h3 className="text-md font-black tracking-wider text-navy-950 uppercase group-hover:text-teal-600 transition-colors duration-200">
+              <div className="mb-3 flex items-start justify-between gap-2 sm:mb-6 sm:items-center sm:justify-start sm:gap-4">
+                <h3 className="order-1 min-w-0 flex-1 text-xxs font-black uppercase leading-tight tracking-wider text-navy-950 transition-colors duration-200 group-hover:text-teal-600 sm:order-2 sm:flex-none sm:text-md">
                   {value.title}
                 </h3>
+
+                <div className="order-2 shrink-0 sm:order-1">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 p-[2px] shadow-sm transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-12">
+                    <div className="flex h-full w-full items-center justify-center rounded-full bg-white text-teal-600 transition-colors group-hover:text-teal-500 [&>svg]:h-3.5 [&>svg]:w-3.5 sm:[&>svg]:h-6 sm:[&>svg]:w-6">
+                      {value.icon}
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <p className="text-sm text-gray-500 leading-relaxed font-normal flex-1">
+              <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal flex-1">
                 {value.description}
               </p>
             </div>

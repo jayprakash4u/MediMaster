@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { CLIENT_MESSAGES } from "@/config/sections/client-messages";
-import { cn } from "@/lib/cn";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,27 +14,39 @@ if (typeof window !== "undefined") {
 
 function ClientMessageCard({ item }) {
   return (
-    <article className="relative min-h-[19rem] overflow-visible rounded-xl bg-[#0d2354] px-6 py-7 sm:min-h-[20rem] sm:px-8 sm:py-8 lg:pr-36">
+    <article className="relative flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-[#0d2354] p-3 sm:p-5 lg:min-h-[20rem] lg:overflow-visible lg:px-8 lg:py-8 lg:pr-36">
       <Quote
-        className="absolute right-5 top-4 h-14 w-14 fill-white/15 text-white/90 sm:h-16 sm:w-16"
+        className="absolute right-2 top-2 h-8 w-8 fill-white/15 text-white/90 sm:h-10 sm:w-10 lg:right-5 lg:top-4 lg:h-16 lg:w-16"
         strokeWidth={0}
         aria-hidden
       />
 
-      <div className="max-w-xl pr-4">
-        <p className="text-sm leading-relaxed text-white sm:text-[15px] sm:leading-7">
+      <div className="flex flex-1 flex-col lg:max-w-xl lg:pr-4">
+        <p className="text-[11px] leading-relaxed text-white sm:text-sm lg:text-[15px] lg:leading-7">
           {item.quote}
         </p>
 
-        <p className="mt-6 text-sm font-bold text-white sm:text-base">
-          - {item.name}, {item.credentials},
-        </p>
-        <p className="mt-1 text-xs leading-relaxed text-white/85 sm:text-sm">{item.role}</p>
-        <p className="text-xs leading-relaxed text-white/85 sm:text-sm">{item.organization}</p>
+        <div className="mt-3 flex items-center gap-2.5 lg:mt-6 lg:block">
+          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border-[3px] border-sky-400 bg-[#0d2354] sm:h-12 sm:w-12 lg:hidden">
+            <Image src={item.image} alt={item.name} fill className="object-cover" sizes="48px" />
+          </div>
+
+          <div className="min-w-0">
+            <p className="text-[10px] font-bold leading-snug text-white sm:text-sm lg:text-base">
+              - {item.name}, {item.credentials},
+            </p>
+            <p className="mt-0.5 text-[10px] leading-snug text-white/85 sm:text-xs lg:text-sm">
+              {item.role}
+            </p>
+            <p className="mt-0.5 hidden text-[10px] leading-snug text-white/85 sm:block sm:text-xs lg:text-sm">
+              {item.organization}
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="absolute -right-3 top-1/2 z-10 -translate-y-1/2 sm:-right-4">
-        <div className="relative h-28 w-28 overflow-hidden rounded-full border-[5px] border-sky-400 bg-[#0d2354] sm:h-32 sm:w-32">
+      <div className="absolute -right-4 top-1/2 z-10 hidden -translate-y-1/2 lg:block">
+        <div className="relative h-28 w-28 overflow-hidden rounded-full border-[5px] border-sky-400 bg-[#0d2354] xl:h-32 xl:w-32">
           <Image src={item.image} alt={item.name} fill className="object-cover" sizes="128px" />
         </div>
       </div>
@@ -47,24 +58,10 @@ export default function ClientMessagesSection() {
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const [index, setIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(2);
 
   const { items } = CLIENT_MESSAGES;
+  const visibleCount = 2;
   const maxIndex = Math.max(items.length - visibleCount, 0);
-
-  useEffect(() => {
-    const updateVisible = () => {
-      setVisibleCount(window.innerWidth >= 1024 ? 2 : 1);
-    };
-
-    updateVisible();
-    window.addEventListener("resize", updateVisible);
-    return () => window.removeEventListener("resize", updateVisible);
-  }, []);
-
-  useEffect(() => {
-    setIndex((current) => Math.min(current, Math.max(items.length - visibleCount, 0)));
-  }, [visibleCount, items.length]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -96,9 +93,9 @@ export default function ClientMessagesSection() {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden bg-white py-14 font-sans antialiased sm:py-16 lg:py-20"
+      className="overflow-hidden bg-white py-12 font-sans antialiased sm:py-16 lg:py-20"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="mb-8 sm:mb-10">
           <SectionHeader
             headerRef={headerRef}
@@ -110,12 +107,7 @@ export default function ClientMessagesSection() {
           />
         </div>
 
-        <div
-          className={cn(
-            "grid gap-6",
-            visibleCount === 2 ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"
-          )}
-        >
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
           {visibleItems.map((item) => (
             <ClientMessageCard key={`${item.id}-${index}`} item={item} />
           ))}

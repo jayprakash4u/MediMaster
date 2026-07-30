@@ -2,7 +2,12 @@ const facilities = [
   {
     label: "Small Clinics",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <rect
           x="8"
           y="20"
@@ -60,7 +65,12 @@ const facilities = [
   {
     label: "Medium Hospitals",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <rect
           x="10"
           y="22"
@@ -109,7 +119,12 @@ const facilities = [
   {
     label: "Diagnostic Labs",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <rect
           x="14"
           y="10"
@@ -169,7 +184,12 @@ const facilities = [
   {
     label: "Multi-Branch Chains",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <circle
           cx="32"
           cy="32"
@@ -222,7 +242,12 @@ const facilities = [
   {
     label: "Enterprises",
     icon: (
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14">
+      <svg
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+      >
         <rect
           x="8"
           y="12"
@@ -272,15 +297,15 @@ const facilities = [
 
 export default function AccountMasterScalableSolution() {
   return (
-    <section className="bg-white py-16 px-6">
+    <section className="section-shell bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight leading-[1.12] text-slate-900 mb-4 max-w-3xl">
+        <h2 className="product-section-title text-slate-900 mb-4 max-w-3xl">
           Scalable Account Master for every healthcare business
         </h2>
 
         <div className="w-16 h-[3px] bg-gray-900 mb-5" />
 
-        <p className="text-gray-500 text-base leading-relaxed max-w-4xl mb-12">
+        <p className="product-section-copy max-w-4xl mb-6 sm:mb-8 lg:mb-12">
           Bring financial operations into your unique workflow with automated billing, real-time
           reconciliation, comprehensive reporting, and seamless integration across every touchpoint.
         </p>
@@ -289,7 +314,7 @@ export default function AccountMasterScalableSolution() {
           {facilities.map((item) => (
             <div
               key={item.label}
-              className="flex flex-col items-center gap-4 bg-slate-50 rounded-2xl p-5 hover:bg-teal-50 transition-colors duration-200 group cursor-pointer"
+              className="flex flex-col items-center gap-4 bg-slate-50 rounded-xl p-3 hover:bg-teal-50 sm:rounded-2xl sm:p-4 lg:p-5 transition-colors duration-200 group cursor-pointer"
             >
               <div className="flex items-center justify-center">{item.icon}</div>
               <p className="text-xs font-semibold text-gray-700 text-center leading-snug group-hover:text-teal-700 transition-colors">

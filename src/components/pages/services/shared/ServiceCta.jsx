@@ -34,11 +34,11 @@ export default function ServiceCta({
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-shell bg-white pb-20 pt-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="section-shell bg-white pb-12 pt-6 sm:pb-20 sm:pt-8">
+      <div className="mx-auto max-w-7xl">
         <div
           ref={cardRef}
-          className="relative isolate overflow-hidden rounded-3xl bg-slate-950 px-6 py-14 sm:px-12 sm:py-16"
+          className="relative isolate overflow-hidden rounded-2xl bg-slate-950 px-4 py-10 sm:rounded-3xl sm:px-12 sm:py-16"
         >
           <div className="pointer-events-none absolute -left-10 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-teal-500/20" />
           <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-cyan-500/10" />
@@ -54,21 +54,28 @@ export default function ServiceCta({
               </p>
               <h2
                 data-cta-item
-                className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+                className="mt-3 text-2xl font-extrabold tracking-tight text-white sm:mt-4 sm:text-3xl lg:text-4xl"
               >
                 {title}
               </h2>
               <p
                 data-cta-item
-                className="mt-4 max-w-lg text-sm leading-relaxed text-slate-400 sm:text-base"
+                className="mt-3 max-w-lg text-sm leading-relaxed text-slate-400 sm:mt-4 sm:text-base"
               >
                 {description}
               </p>
             </div>
 
-            <div data-cta-item className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+            <div
+              data-cta-item
+              className="flex flex-row flex-nowrap items-center justify-center gap-3 sm:gap-4 lg:justify-end"
+            >
               {primaryCta ? (
-                <Button href={primaryCta.href} variant="primary" className="rounded-full px-8 py-3">
+                <Button
+                  href={primaryCta.href}
+                  variant="primary"
+                  className="shrink-0 whitespace-nowrap rounded-full px-5 py-2.5 text-xs sm:px-8 sm:py-3 sm:text-sm"
+                >
                   {primaryCta.label}
                 </Button>
               ) : null}
@@ -76,7 +83,7 @@ export default function ServiceCta({
                 <Button
                   href={secondaryCta.href}
                   variant="outline"
-                  className="rounded-full border-white/20 bg-transparent px-8 py-3 text-white hover:border-teal-400/40 hover:bg-white/5 hover:text-white"
+                  className="shrink-0 whitespace-nowrap rounded-full border-white/20 bg-transparent px-5 py-2.5 text-xs text-white hover:border-teal-400/40 hover:bg-white/5 hover:text-white sm:px-8 sm:py-3 sm:text-sm"
                 >
                   {secondaryCta.label}
                 </Button>

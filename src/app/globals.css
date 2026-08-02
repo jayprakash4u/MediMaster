@@ -119,6 +119,27 @@
     @apply flex min-h-0 items-start sm:min-h-[70vh] sm:items-center lg:min-h-[80vh];
   }
 
+  .hero-page--product {
+    @apply overflow-visible;
+  }
+
+  .hero-page--product .hero-page__photo {
+    @apply pointer-events-none absolute inset-0 opacity-20;
+    background-image:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 1) 100%),
+      url("/home/hero.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .product-orbit-shell {
+    @apply relative flex h-[300px] w-full items-center justify-center overflow-visible sm:h-[320px] md:h-[340px];
+  }
+
+  .product-orbit-scale {
+    @apply h-full w-full max-w-[340px] origin-center overflow-visible scale-[0.82] sm:scale-90 md:scale-100;
+  }
+
   .hero-page--home {
     @apply min-h-0 sm:min-h-[76vh] lg:min-h-[86vh];
   }

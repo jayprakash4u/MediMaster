@@ -5,7 +5,6 @@ import HMSTrialSection from "@/components/pages/home/sections/HMSTrialSection";
 import Hero from "@/components/pages/home/sections/Hero";
 import StatsSection from "@/components/pages/home/sections/StatsSection";
 import FeatureSection from "@/components/pages/home/sections/FeatureSection";
-import CustomersSection from "@/components/pages/home/sections/CustomersSection";
 import ClientMessagesSection from "@/components/pages/home/sections/ClientMessagesSection";
 import LatestBlogs from "@/components/pages/home/sections/LatestBlogs";
 
@@ -18,7 +17,6 @@ export default function HomePage() {
         <IntegratedPlatformSection />
         <ClientMessagesSection />
         <HealthcareServicesSection />
-        <CustomersSection />
         <HMSTrialSection />
         <WhyToChooseSection />
       </main>
